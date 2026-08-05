@@ -1,0 +1,46 @@
+{
+ "offset": 0,
+ "limit": 500,
+ "size": 2,
+ "links": {
+  "base": "/v2/lukka/assets/LA2EYFUQT32/crypto-actions",
+  "next": null,
+  "prev": null
+ },
+ "data": [
+  {
+   "assetLid": "LA2EYFUQT32",
+   "currentWhitepaperCode": "AAVE",
+   "currentName": "Aave Token",
+   "lukkaCryptoActionParentId": "e2fbbc5e-b8b7-468f-a67d-7270cdbfe83b",
+   "lukkaCryptoActionId": "a5fa7ef9-849a-48ab-a1a5-817db43dea73",
+   "announceTime": "2020-12-03T21:20:00Z",
+   "effectiveTime": "2020-09-24T18:06:28Z",
+   "lukkaCryptoActionCode": "ASLH",
+   "lukkaCryptoActionName": "Asset Launch",
+   "eventName": null,
+   "eventDescription": "Aave Token (AAVE) Asset Launch",
+   "eventUrl": "https://etherscan.io/tx/0xfd5f0c65fdea26d0b94362532554d4c6cb4935b198d75e1cc07c7df4bfd8d1ad",
+   "announceUrl": "https://twitter.com/AaveAave/status/1334608524672962561",
+   "recordNote": "Aave V2 completed formal verification by  @CertoraInc , as well",
+   "isFutureEvent": false
+  },
+  {
+   "assetLid": "LA2EYFUQT32",
+   "currentWhitepaperCode": "AAVE",
+   "currentName": "Aave Token",
+   "lukkaCryptoActionParentId": "6e8903f5-2b13-4342-b174-b229df9fd906",
+   "lukkaCryptoActionId": "493557a2-5260-4d9f-a22e-37c0af0202ba",
+   "announceTime": null,
+   "effectiveTime": "2020-07-22T00:00:00Z",
+   "lukkaCryptoActionCode": "CADTR",
+   "lukkaCryptoActionName": "Change of Auditor",
+   "eventName": null,
+   "eventDescription": "Aave Token (AAVE) Change in Auditor",
+   "eventUrl": "https://www.certik.com/projects/aave",
+   "announceUrl": null,
+   "recordNote": "Aave Token (AAVE) has been onboarded for Certik auditing.",
+   "isFutureEvent": false
+  }
+ ]
+}

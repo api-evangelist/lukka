@@ -1,0 +1,396 @@
+generated: '2026-08-04'
+method: searched
+source: https://apidocs.lukka.tech/
+description: Real response payloads Lukka publishes as saved examples in its public Postman collection, extracted one
+  per operation and saved verbatim as JSON.
+capture_rule: One example per operation, verbatim, up to 40000 bytes. Larger payloads are listed under omitted[] and
+  remain available in postman/lukka-data-apis-postman.json.
+count: 68
+examples:
+- file: lukka-analytics-api-implied-interest-rates.json
+  operation: Implied Interest Rates
+  folder: Analytics/Analytics API
+  status: 200
+  bytes: 26404
+- file: lukka-analytics-api-implied-volatility.json
+  operation: Implied Volatility
+  folder: Analytics/Analytics API
+  status: 200
+  bytes: 39754
+- file: lukka-asset-terms-and-conditions-a-lukka-asset-and-its-details.json
+  operation: A Lukka Asset and its Details
+  folder: Reference Data/Asset Terms and Conditions
+  status: 200
+  bytes: 15839
+- file: lukka-asset-terms-and-conditions-all-lukka-assets.json
+  operation: All Lukka Assets
+  folder: Reference Data/Asset Terms and Conditions
+  status: 200
+  bytes: 9580
+- file: lukka-asset-terms-and-conditions-asset-exposure.json
+  operation: Asset Exposure
+  folder: Reference Data/Asset Terms and Conditions
+  status: 200
+  bytes: 5280
+- file: lukka-crypto-actions-all-crypto-actions.json
+  operation: All Crypto Actions
+  folder: Reference Data/Crypto Actions
+  status: 200
+  bytes: 4283
+- file: lukka-crypto-actions-asset-crypto-actions.json
+  operation: Asset Crypto Actions
+  folder: Reference Data/Crypto Actions
+  status: 200
+  bytes: 1948
+- file: lukka-custodian-terms-and-conditions-a-custodian-and-its-details.json
+  operation: A Custodian and its Details
+  folder: Reference Data/Custodian Terms and Conditions
+  status: 200
+  bytes: 9615
+- file: lukka-custodian-terms-and-conditions-all-custodians.json
+  operation: All Custodians
+  folder: Reference Data/Custodian Terms and Conditions
+  status: 200
+  bytes: 1224
+- file: lukka-derivative-terms-and-conditions-a-derivative-and-its-details.json
+  operation: A Derivative and its Details
+  folder: Reference Data/Derivative Terms and Conditions
+  status: 200
+  bytes: 3582
+- file: lukka-derivative-terms-and-conditions-all-derivatives.json
+  operation: All Derivatives
+  folder: Reference Data/Derivative Terms and Conditions
+  status: 200
+  bytes: 4975
+- file: lukka-derivatives-get-candles-by-exchange-source-derivative.json
+  operation: Get Candles by Exchange Source (Derivative)
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 699
+- file: lukka-derivatives-get-composite-funding-rates-by-paircodes.json
+  operation: Get Composite Funding Rates (by pairCodes)
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 736
+- file: lukka-derivatives-get-composite-funding-rates-by-underlying.json
+  operation: Get Composite Funding Rates (by underlying)
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 736
+- file: lukka-derivatives-get-historical-derivative-trades.json
+  operation: Get Historical Derivative Trades
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 25865
+- file: lukka-derivatives-get-historical-mark-prices.json
+  operation: Get Historical Mark Prices
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 965
+- file: lukka-derivatives-get-latest-derivative-trades.json
+  operation: Get Latest Derivative Trades
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 18161
+- file: lukka-derivatives-get-latest-mark-prices.json
+  operation: Get Latest Mark Prices
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 27288
+- file: lukka-derivatives-get-latest-markets-derivative.json
+  operation: Get Latest Markets (DERIVATIVE)
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 3806
+- file: lukka-derivatives-get-latest-markets-greeks.json
+  operation: Get Latest Markets (GREEKS)
+  folder: Market Data/Derivatives
+  status: 200
+  bytes: 6156
+- file: lukka-derived-data-lcas.json
+  operation: LCAS
+  folder: Analytics/Derived Data
+  status: 200
+  bytes: 37158
+- file: lukka-downloadable-data-csv-create-historical-quotes-request.json
+  operation: Create Historical Quotes Request
+  folder: Market Data/Downloadable Data (CSV)
+  status: 202
+  bytes: 59
+- file: lukka-downloadable-data-csv-create-historical-trades-request.json
+  operation: Create Historical Trades Request
+  folder: Market Data/Downloadable Data (CSV)
+  status: 202
+  bytes: 59
+- file: lukka-downloadable-data-csv-list-historical-quotes-requests.json
+  operation: List Historical Quotes Requests
+  folder: Market Data/Downloadable Data (CSV)
+  status: 200
+  bytes: 3567
+- file: lukka-downloadable-data-csv-list-historical-trades-requests.json
+  operation: List Historical Trades Requests
+  folder: Market Data/Downloadable Data (CSV)
+  status: 200
+  bytes: 1706
+- file: lukka-legacy-versions-available-sources.json
+  operation: Available Sources
+  folder: Pricing/Legacy Versions
+  status: 200
+  bytes: 587
+- file: lukka-legacy-versions-source-details.json
+  operation: Source Details
+  folder: Pricing/Legacy Versions
+  status: 200
+  bytes: 30517
+- file: lukka-mapping-and-normalization-all-entities.json
+  operation: All Entities
+  folder: Reference Data/Mapping and Normalization
+  status: 200
+  bytes: 29235
+- file: lukka-mapping-and-normalization-all-legal-entity-mappings.json
+  operation: All Legal Entity Mappings
+  folder: Reference Data/Mapping and Normalization
+  status: 200
+  bytes: 3422
+- file: lukka-mapping-and-normalization-asset-mappings.json
+  operation: Asset Mappings
+  folder: Reference Data/Mapping and Normalization
+  status: 200
+  bytes: 13174
+- file: lukka-mapping-and-normalization-derivative-mappings.json
+  operation: Derivative Mappings
+  folder: Reference Data/Mapping and Normalization
+  status: 200
+  bytes: 13179
+- file: lukka-marketplace-terms-and-conditions-all-marketplaces.json
+  operation: All Marketplaces
+  folder: Reference Data/Marketplace Terms and Conditions
+  status: 200
+  bytes: 5443
+- file: lukka-prediction-markets-get-latest-markets-prediction.json
+  operation: Get Latest Markets (PREDICTION)
+  folder: Market Data/Prediction Markets
+  status: 200
+  bytes: 3424
+- file: lukka-prediction-markets-get-prediction-history-by-event-ticker.json
+  operation: Get Prediction History (by event ticker)
+  folder: Market Data/Prediction Markets
+  status: 200
+  bytes: 7703
+- file: lukka-prediction-markets-get-prediction-history-by-lukkasymbol.json
+  operation: Get Prediction History (by lukkaSymbol)
+  folder: Market Data/Prediction Markets
+  status: 200
+  bytes: 1795
+- file: lukka-prediction-markets-get-prediction-trade-history-by-event-tic.json
+  operation: Get Prediction Trade History (by event ticker)
+  folder: Market Data/Prediction Markets
+  status: 200
+  bytes: 1523
+- file: lukka-prediction-markets-get-prediction-trade-history-by-lukkasymb.json
+  operation: Get Prediction Trade History (by lukkaSymbol)
+  folder: Market Data/Prediction Markets
+  status: 200
+  bytes: 1548
+- file: lukka-pricing-available-sources-by-product.json
+  operation: Available Sources by Product
+  folder: Pricing
+  status: 200
+  bytes: 17136
+- file: lukka-pricing-get-historical-mvwap-by-pair.json
+  operation: Get Historical MVWAP by Pair
+  folder: Pricing
+  status: 200
+  bytes: 811
+- file: lukka-pricing-get-historical-prices.json
+  operation: Get Historical Prices
+  folder: Pricing
+  status: 200
+  bytes: 1240
+- file: lukka-pricing-get-historical-reference-rate-by-pair.json
+  operation: Get Historical Reference Rate by Pair
+  folder: Pricing
+  status: 200
+  bytes: 722
+- file: lukka-pricing-get-latest-index-prices.json
+  operation: Get Latest Index Prices
+  folder: Pricing
+  status: 200
+  bytes: 3526
+- file: lukka-pricing-get-latest-mvwaps.json
+  operation: Get Latest MVWAPs
+  folder: Pricing
+  status: 200
+  bytes: 250
+- file: lukka-pricing-get-latest-prices.json
+  operation: Get Latest Prices
+  folder: Pricing
+  status: 200
+  bytes: 221
+- file: lukka-pricing-get-latest-reference-rate.json
+  operation: Get Latest Reference Rate
+  folder: Pricing
+  status: 200
+  bytes: 240
+- file: lukka-pricing-get-multi-source-vwap-by-pair.json
+  operation: Get Multi-Source VWAP by Pair
+  folder: Pricing
+  status: 200
+  bytes: 1352
+- file: lukka-pricing-get-price-variances-by-pair.json
+  operation: Get Price Variances by Pair
+  folder: Pricing
+  status: 200
+  bytes: 15731
+- file: lukka-pricing-get-source-details-by-product.json
+  operation: Get Source Details by Product
+  folder: Pricing
+  status: 200
+  bytes: 643
+- file: lukka-reference-data-an-enum.json
+  operation: An Enum
+  folder: Reference Data
+  status: 200
+  bytes: 2567
+- file: lukka-reference-data-deprecated-a-lukka-asset.json
+  operation: A Lukka Asset
+  folder: Reference Data (Deprecated)
+  status: 200
+  bytes: 469
+- file: lukka-reference-data-deprecated-all-lukka-assets.json
+  operation: All Lukka Assets
+  folder: Reference Data (Deprecated)
+  status: 200
+  bytes: 4479
+- file: lukka-reference-data-deprecated-all-lukka-entities.json
+  operation: All Lukka Entities
+  folder: Reference Data (Deprecated)
+  status: 200
+  bytes: 1854
+- file: lukka-reference-data-deprecated-an-entity.json
+  operation: An Entity
+  folder: Reference Data (Deprecated)
+  status: 200
+  bytes: 354
+- file: lukka-reference-data-deprecated-lukka-asset-mappings.json
+  operation: Lukka Asset Mappings
+  folder: Reference Data (Deprecated)
+  status: 200
+  bytes: 1526
+- file: lukka-reference-data-deprecated-lukka-crypto-actions.json
+  operation: Lukka Crypto Actions
+  folder: Reference Data (Deprecated)
+  status: 404
+  bytes: 3354
+- file: lukka-reference-data-deprecated-lukka-derivative-mappings.json
+  operation: Lukka Derivative Mappings
+  folder: Reference Data (Deprecated)
+  status: 200
+  bytes: 3228
+- file: lukka-reference-data-deprecated-lukka-pair-mappings.json
+  operation: Lukka Pair Mappings
+  folder: Reference Data (Deprecated)
+  status: 200
+  bytes: 4173
+- file: lukka-reference-data-ldacs.json
+  operation: LDACS
+  folder: Reference Data
+  status: 200
+  bytes: 1028
+- file: lukka-spot-get-candles-by-exchange-source-spot.json
+  operation: Get Candles by Exchange Source (Spot)
+  folder: Market Data/Spot
+  status: 200
+  bytes: 1057
+- file: lukka-spot-get-historical-spot-trades.json
+  operation: Get Historical Spot Trades
+  folder: Market Data/Spot
+  status: 200
+  bytes: 1179
+- file: lukka-spot-get-historical-staking-rates-by-asset.json
+  operation: Get Historical Staking Rates by Asset
+  folder: Market Data/Spot
+  status: 200
+  bytes: 697
+- file: lukka-spot-get-latest-market-caps.json
+  operation: Get Latest Market Caps
+  folder: Market Data/Spot
+  status: 200
+  bytes: 664
+- file: lukka-spot-get-latest-markets-spot.json
+  operation: Get Latest Markets (SPOT)
+  folder: Market Data/Spot
+  status: 200
+  bytes: 2772
+- file: lukka-spot-get-latest-staking-rates.json
+  operation: Get Latest Staking Rates
+  folder: Market Data/Spot
+  status: 200
+  bytes: 118
+- file: lukka-spot-get-market-caps-by-pair.json
+  operation: Get Market Caps by Pair
+  folder: Market Data/Spot
+  status: 200
+  bytes: 1205
+- file: lukka-spot-get-order-book-liquidity-spot.json
+  operation: Get Order Book Liquidity (SPOT)
+  folder: Market Data/Spot
+  status: 200
+  bytes: 2284
+- file: lukka-spot-get-order-book-snapshot-spot.json
+  operation: Get Order Book Snapshot (SPOT)
+  folder: Market Data/Spot
+  status: 200
+  bytes: 2321
+- file: lukka-spot-get-slippage-by-pair.json
+  operation: Get Slippage by Pair
+  folder: Market Data/Spot
+  status: 200
+  bytes: 8223
+omitted:
+- operation: Get Derivative Source Details (Paginated)
+  folder: Pricing
+  bytes: 45326
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: Get Historical Index Prices
+  folder: Pricing
+  bytes: 5044653
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: A Marketplace and its Details
+  folder: Reference Data/Marketplace Terms and Conditions
+  bytes: 95989
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: Pair Mappings
+  folder: Reference Data/Mapping and Normalization
+  bytes: 84037
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: OTC FX Rates
+  folder: Analytics/Analytics API
+  bytes: 214010
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: OTC FX Rates
+  folder: Analytics/Analytics API
+  bytes: 139675
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: Implied Volatility
+  folder: Analytics/Analytics API
+  bytes: 256609
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: Implied Volatility
+  folder: Analytics/Analytics API
+  bytes: 107507
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: Implied Volatility
+  folder: Analytics/Analytics API
+  bytes: 86291
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: Implied Volatility
+  folder: Analytics/Analytics API
+  bytes: 195433
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+- operation: Implied Volatility
+  folder: Analytics/Analytics API
+  bytes: 74364
+  reason: response example exceeds the 40 KB capture cap; available verbatim in postman/lukka-data-apis-postman.json
+x-evidence:
+  fetched: '2026-08-04'

@@ -1,0 +1,33 @@
+{
+ "offset": 0,
+ "limit": 1000,
+ "size": 1,
+ "links": {
+  "base": "/v2/lukka/sectors",
+  "next": null,
+  "prev": null
+ },
+ "data": [
+  {
+   "assetLid": "LA1S39UVDK1",
+   "whitepaperCode": "USDC",
+   "assetName": "USD Coin (Ethereum)",
+   "isPrimaryClassification": true,
+   "lukkaCategoryCode": 10,
+   "lukkaCategory": "Fungibles",
+   "lukkaSuperSectorCode": 1020,
+   "lukkaSuperSector": "Payment",
+   "lukkaMacroSectorCode": 102020,
+   "lukkaMacroSector": "Stablecoin",
+   "lukkaMidSectorCode": 10202020,
+   "lukkaMidSector": "Collateralized",
+   "lukkaSubSectorCode": 1020202015,
+   "lukkaSubSector": "Fiat-Backed",
+   "cryptoActionBeginId": "837f3694-cae5-4317-9d3a-4c6caec6ae8a",
+   "cryptoActionEndId": null,
+   "startTs": "2018-09-10T06:26:41Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ]
+}

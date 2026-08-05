@@ -1,0 +1,912 @@
+{
+ "offset": 0,
+ "limit": 100,
+ "size": 100,
+ "links": {
+  "base": "/v2/lukka/entities",
+  "next": "/v2/lukka/entities?limit=100&offset=100",
+  "prev": null
+ },
+ "data": [
+  {
+   "entityId": 2082,
+   "entityCode": "CNBOOK",
+   "entityName": "Coinbook",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://coinbook.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 651,
+   "entityCode": "CPRM",
+   "entityName": "Coinbase Prime",
+   "entityTypeCode": "Prime Broker",
+   "entityType": "PBKR",
+   "entityUrl": "https://prime.coinbase.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 628,
+   "entityCode": "CDRW",
+   "entityName": "Cumberland DRW LLC",
+   "entityTypeCode": "OTC Desk",
+   "entityType": "OTC",
+   "entityUrl": "https://cumberland.io/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 653,
+   "entityCode": "TAGO",
+   "entityName": "Tagomi",
+   "entityTypeCode": "OTC Desk",
+   "entityType": "OTC",
+   "entityUrl": "https://www.tagomi.com",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2083,
+   "entityCode": "PLAITX",
+   "entityName": "Palitanx",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://palitanx.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2085,
+   "entityCode": "SATSFT",
+   "entityName": "SatoshiShift",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://satoshishift.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2086,
+   "entityCode": "BITUN",
+   "entityName": "Bitunions",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://www.bitunions.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 1758,
+   "entityCode": "ABVYX",
+   "entityName": "Abvy",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.abvy.io/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 701,
+   "entityCode": "ANCR",
+   "entityName": "Anchorage",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://anchorage.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 670,
+   "entityCode": "FBLK",
+   "entityName": "Fireblocks",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.fireblocks.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 955,
+   "entityCode": "BLOCKNOXCT",
+   "entityName": "Blocknox",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.boerse-stuttgart.de/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 954,
+   "entityCode": "HASKEYC",
+   "entityName": "HashKey Custody",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.hashkey.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 953,
+   "entityCode": "FINOACST",
+   "entityName": "Finoa",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.finoa.io/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 952,
+   "entityCode": "PRMTRST",
+   "entityName": "Prime Trust",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.primetrust.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 951,
+   "entityCode": "FIDDIGAST",
+   "entityName": "Fidelity Digital Assets",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.fidelitydigitalassets.com/overview",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 950,
+   "entityCode": "ONCHNCST",
+   "entityName": "Onchain Custodian",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.oncustodian.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 949,
+   "entityCode": "BAKKT",
+   "entityName": "Bakkt",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.bakkt.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 948,
+   "entityCode": "KNGDMTST",
+   "entityName": "Kingdom Trust",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.kingdomtrust.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 947,
+   "entityCode": "TAURUSCTDY",
+   "entityName": "Taurus",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.taurushq.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 946,
+   "entityCode": "NODEVNTR",
+   "entityName": "NodeVenture",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://tmia.at/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 945,
+   "entityCode": "UNBOUND",
+   "entityName": "Unbound Security",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.unboundsecurity.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 944,
+   "entityCode": "BITCNSSSE",
+   "entityName": "Bitcoin Suisse",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.bitcoinsuisse.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 943,
+   "entityCode": "TANGNY",
+   "entityName": "Tangany",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://tangany.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 942,
+   "entityCode": "MATRXPRT",
+   "entityName": "Matrixport",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": "https://www.matrixport.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 941,
+   "entityCode": "CASACTDY",
+   "entityName": "Casa",
+   "entityTypeCode": "Wallet",
+   "entityType": "WLLT",
+   "entityUrl": "https://keys.casa/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2084,
+   "entityCode": "3PDPM",
+   "entityName": "3PDPM",
+   "entityTypeCode": "Administrative",
+   "entityType": "ADMN",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 1817,
+   "entityCode": "NFTLOAD",
+   "entityName": "NFTLOAD",
+   "entityTypeCode": "Administrative",
+   "entityType": "ADMN",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 1759,
+   "entityCode": "SWAPS",
+   "entityName": "Swaps",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://swaps.app/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2088,
+   "entityCode": "CFACIL",
+   "entityName": "Cryptofacil",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://es.cryptofacil.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2087,
+   "entityCode": "ARBI",
+   "entityName": "Arbitrum Blockchain",
+   "entityTypeCode": "Blockchain",
+   "entityType": "BCHAIN",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 110,
+   "entityCode": "XTECX",
+   "entityName": "XT",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.xt.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 126,
+   "entityCode": "COINBT",
+   "entityName": "Coinsbit",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 90,
+   "entityCode": "CRCM",
+   "entityName": "Crypto.com",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 98,
+   "entityCode": "COINDCX",
+   "entityName": "CoinDCX",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 116,
+   "entityCode": "BITKUB",
+   "entityName": "Bitkub",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 118,
+   "entityCode": "GOKUMKT",
+   "entityName": "GokuMarket",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 111,
+   "entityCode": "BITVAVO",
+   "entityName": "Bitvavo",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 101,
+   "entityCode": "ETOROX",
+   "entityName": "eToroX",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 107,
+   "entityCode": "MEXC",
+   "entityName": "MEXC Global",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.mexc.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 302,
+   "entityCode": "BITRABBIT",
+   "entityName": "BitRabbit",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://bitrabbit.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2100,
+   "entityCode": "ROKESX",
+   "entityName": "Rokes Exchange",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://app.rokes.exchange/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2101,
+   "entityCode": "5DAXX",
+   "entityName": "5Dax Exchange",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://5dax.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2102,
+   "entityCode": "CNHAKO",
+   "entityName": "Coinhako",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.coinhako.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2103,
+   "entityCode": "CNVEX",
+   "entityName": "Coinvex",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://coinvex.org/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2104,
+   "entityCode": "XBDCH",
+   "entityName": "Exchange BDCASH",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://exchangebdcash.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 424,
+   "entityCode": "3XBIT",
+   "entityName": "3XBIT",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2172,
+   "entityCode": "BTBNCH",
+   "entityName": "BITBUNCH",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.bitbunch.io/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2325,
+   "entityCode": "EZMKTS",
+   "entityName": "easyMarkets",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.easymarkets.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2335,
+   "entityCode": "DUSK",
+   "entityName": "Dusk Network B.V.",
+   "entityTypeCode": "Other",
+   "entityType": "OTHR",
+   "entityUrl": "https://www.dusk.network/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2342,
+   "entityCode": "FCPORTO",
+   "entityName": "Futebol Clube do Porto Group",
+   "entityTypeCode": "Other",
+   "entityType": "OTHR",
+   "entityUrl": "https://www.fcporto.pt/pt",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2345,
+   "entityCode": "MDAR",
+   "entityName": "Mines of Dalarnia Foundation Ltd. Singapore",
+   "entityTypeCode": "Other",
+   "entityType": "OTHR",
+   "entityUrl": "https://www.minesofdalarnia.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2352,
+   "entityCode": "TICKML",
+   "entityName": "Tickmill",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.tickmill.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2356,
+   "entityCode": "EUROX",
+   "entityName": "EuropeX",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.europex.eu",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2385,
+   "entityCode": "VIXTRD",
+   "entityName": "VixTrade",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://www.vixtrade.net/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 2386,
+   "entityCode": "CRWNX",
+   "entityName": "Crown-Ex",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.crown-ex.com/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 813,
+   "entityCode": "CNMX",
+   "entityName": "Coin.mx",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://coin.mx/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2389,
+   "entityCode": "YBEXX",
+   "entityName": "Ybex Exchange",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://ybex.com/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 2395,
+   "entityCode": "BTRADE",
+   "entityName": "BTC Trader",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://btctrader.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2397,
+   "entityCode": "BLAKE",
+   "entityName": "Blake Trader",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://blaketrader.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2405,
+   "entityCode": "CONIC",
+   "entityName": "Cryptonic",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://cryptonic.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2408,
+   "entityCode": "EMPEX",
+   "entityName": "EmpireX",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://empirex.ch/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2411,
+   "entityCode": "FOJAC",
+   "entityName": "Fortune Jack",
+   "entityTypeCode": "Other",
+   "entityType": "OTHR",
+   "entityUrl": "http://fortunejack.com",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2413,
+   "entityCode": "ECNFD",
+   "entityName": "ECoinFund",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://ecoinfund.com/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 2418,
+   "entityCode": "MASTRX",
+   "entityName": "MasterXchange",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://masterxchange.com/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 810,
+   "entityCode": "BYES",
+   "entityName": "BitYes",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://bityes.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2421,
+   "entityCode": "FOBOCN",
+   "entityName": "FobCoin (Fubi.com)",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://fobcoin.com/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 2422,
+   "entityCode": "CYPTON",
+   "entityName": "Crypteon",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.crypteon.net/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 2423,
+   "entityCode": "CTRADEX",
+   "entityName": "CryptoTrade.Exchange",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://cryptotrade.exchange/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 2427,
+   "entityCode": "BITSRT",
+   "entityName": "Bit-Street",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://bit-street.com/",
+   "entityStatus": "Inactive"
+  },
+  {
+   "entityId": 2254,
+   "entityCode": "NOVA1",
+   "entityName": "Arbitrum Nova",
+   "entityTypeCode": "Blockchain",
+   "entityType": "BCHAIN",
+   "entityUrl": "https://nova.arbitrum.io",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 164,
+   "entityCode": "ZIPMEX",
+   "entityName": "Zipmex",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 159,
+   "entityCode": "XTOWERX",
+   "entityName": "CrossTower",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 150,
+   "entityCode": "CRTLGYX",
+   "entityName": "Cryptology",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 134,
+   "entityCode": "WHITEBIT",
+   "entityName": "WhiteBIT",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 149,
+   "entityCode": "HOOEX",
+   "entityName": "Hoo",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 142,
+   "entityCode": "BTPNDPR",
+   "entityName": "Bitpanda Pro",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 167,
+   "entityCode": "FINEXBOX",
+   "entityName": "Finexbox",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 144,
+   "entityCode": "KICKEX",
+   "entityName": "KickEX",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 185,
+   "entityCode": "AZBIT",
+   "entityName": "Azbit",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 153,
+   "entityCode": "COINMETRO",
+   "entityName": "CoinMetro",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://coinmetro.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2106,
+   "entityCode": "VOFSHI",
+   "entityName": "Vault of Satoshi",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.vaultofsatoshi.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2107,
+   "entityCode": "BTCBRS",
+   "entityName": "Bitcoin Bourse",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://bitcoinbourse.eu/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2108,
+   "entityCode": "BILIUM",
+   "entityName": "Billium",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://billium.com/en/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 976,
+   "entityCode": "TRSTLGY",
+   "entityName": "Trustology",
+   "entityTypeCode": "Custodian",
+   "entityType": "CUSTDN",
+   "entityUrl": null,
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2109,
+   "entityCode": "PAYNTX",
+   "entityName": "Payant Exchange",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "http://payantexchange.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2110,
+   "entityCode": "AZPYA",
+   "entityName": "Aruzpaya",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://arzpaya.com/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2111,
+   "entityCode": "CSTASH",
+   "entityName": "Coinstash",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://coinstash.com.au/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2112,
+   "entityCode": "DSURGE",
+   "entityName": "Digital Surge",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://digitalsurge.com.au/",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2113,
+   "entityCode": "YODE",
+   "entityName": "Yodeswap",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://app.yodeswap.dog/exchange/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2114,
+   "entityCode": "MUESLI",
+   "entityName": "MuesliSwap",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://milkomeda.muesliswap.com/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2116,
+   "entityCode": "POLYCAT",
+   "entityName": "Polycat Finance",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://polycat.finance/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2117,
+   "entityCode": "TINYMAN",
+   "entityName": "Tinyman",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://app.tinyman.org/#/swap?asset_in=0",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2118,
+   "entityCode": "LIFESWP",
+   "entityName": "LIF3 Swap",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://lif3.com/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2123,
+   "entityCode": "WIGO",
+   "entityName": "WigoSwap",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://wigoswap.io/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2124,
+   "entityCode": "SABER",
+   "entityName": "Saber",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://app.saber.so/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2125,
+   "entityCode": "KARURA",
+   "entityName": "Karura",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://apps.karura.network/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2128,
+   "entityCode": "KAIDEX",
+   "entityName": "Kaidex",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://kaidex.io",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2129,
+   "entityCode": "FUZZ",
+   "entityName": "FuzzSwap",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://swap.fuzz.fi/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2130,
+   "entityCode": "KIBBLE",
+   "entityName": "KibbleSwap",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://www.kibbleswap.dog/swap",
+   "entityStatus": "Active"
+  },
+  {
+   "entityId": 2132,
+   "entityCode": "UBTINDO",
+   "entityName": "Upbit Indonesia",
+   "entityTypeCode": "Exchange",
+   "entityType": "XCHNG",
+   "entityUrl": "https://id.upbit.com/home",
+   "entityStatus": "Active"
+  }
+ ]
+}

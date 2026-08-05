@@ -1,0 +1,39 @@
+{
+ "sourceId": 4005,
+ "pairCode": "BTCUSDT.BINA",
+ "dataType": "candles",
+ "firstDate": "2026-04-20T00:00:00Z",
+ "lastDate": "2026-04-20T02:00:00Z",
+ "count": 3,
+ "units": "native",
+ "instrumentType": "DERIVATIVE",
+ "data": [
+  {
+   "tradeCount": 112847,
+   "volume": "5823.14200000",
+   "openPrice": "73819.50",
+   "highPrice": "74392.10",
+   "lowPrice": "73738.00",
+   "closePrice": "74298.70",
+   "ts": "2026-04-20T00:00:00Z"
+  },
+  {
+   "tradeCount": 98321,
+   "volume": "5214.88100000",
+   "openPrice": "74298.70",
+   "highPrice": "74786.20",
+   "lowPrice": "74241.30",
+   "closePrice": "74618.90",
+   "ts": "2026-04-20T01:00:00Z"
+  },
+  {
+   "tradeCount": 71204,
+   "volume": "3891.55600000",
+   "openPrice": "74618.90",
+   "highPrice": "74658.80",
+   "lowPrice": "74329.40",
+   "closePrice": "74437.20",
+   "ts": "2026-04-20T02:00:00Z"
+  }
+ ]
+}

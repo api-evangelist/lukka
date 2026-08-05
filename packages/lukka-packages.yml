@@ -1,0 +1,55 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://registry.npmjs.org
+- https://pypi.org
+- https://github.com/lukkatech
+note: Lukka publishes no first-party client SDK in any public package registry. Its only first-party distributable is
+  the Claude plugin, which is installed from a git clone rather than a registry, and is an agent integration rather than
+  a client library.
+packages:
+- language: markdown/python
+  registry: github
+  name: lukka-plugin-claude
+  url: https://github.com/lukkatech/lukka-plugin-claude
+  install: claude plugin marketplace add ~/lukka-plugin --scope user && claude plugin install lukka@lukka-plugins --scope
+    user
+  official: true
+  kind: claude-plugin
+  license: MIT
+  version: 1.0.0
+  description: 'Official Lukka plugin for Claude Code / Desktop / Cowork: 13 slash commands, 3 sub-agents, 5 skills,
+    4 large-response processors and a local audit-logging hook over the seven hosted MCP servers.'
+  note: Not a client SDK - it configures MCP connectors and ships agent instructions. Not published to any package registry.
+- language: python
+  registry: pypi
+  name: lukka-api
+  url: https://pypi.org/project/lukka-api/
+  install: pip install lukka-api
+  official: false
+  version: 0.1.7
+  maintainer: KENOT-IO
+  repository: https://github.com/KENOT-IO/lukka-api
+  description: Third-party Python client for the Lukka cryptocurrency data API. Not maintained or endorsed by Lukka.
+registries_checked:
+- registry: npm
+  query: lukka
+  first_party_results: 0
+- registry: PyPI
+  query: lukka, lukka-sdk, pylukka
+  first_party_results: 0
+  third_party_results: 1
+- registry: NuGet
+  query: lukka
+  first_party_results: 0
+- registry: RubyGems
+  query: lukka
+  first_party_results: 0
+- registry: crates.io
+  query: lukka
+  first_party_results: 0
+gaps:
+- No first-party SDK in any language.
+- The public GitHub organisation (lukkatech) holds only two repositories, both agent-facing; neither is a client library.
+x-evidence:
+  fetched: '2026-08-04'

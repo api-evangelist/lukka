@@ -1,0 +1,108 @@
+generated: '2026-08-04'
+method: searched
+source: https://github.com/lukkatech/lukka-plugin-claude
+description: Lukka publishes its own agent skills as part of the official Lukka plugin for Claude (lukkatech/lukka-plugin-claude,
+  MIT). These are the provider's own operating instructions for driving its seven hosted MCP servers, saved verbatim
+  under skills/_provider/ - API Evangelist did not author them.
+publisher: Lukka, Inc.
+license: MIT
+plugin_version: 1.0.0
+marketplace: lukka-intelligence
+grounded_in: mcp/lukka-mcp.yml (7 hosted MCP servers, 69 tools)
+x-evidence:
+  fetched: '2026-08-04'
+  repo: https://github.com/lukkatech/lukka-plugin-claude
+  http_status: 200
+skills:
+- file: skills/_provider/skills/asset-resolver-SKILL.md
+  name: asset-resolver
+  description: 'Resolve customer-provided white paper codes (ticker symbols like BTC, ETH, GALA) to Lukka asset codes
+    and retrieve Lukka Prime prices. Use when: (1) customer provides white paper codes / ticker symbols and needs prices,
+    (2) mapping white paper codes to Lukka asset codes, (3) identifying the correct asset among duplicates, (4) bulk
+    asset resolution for client deliverables, (5) user says "resolve" + asset/ticker/code.'
+- file: skills/_provider/skills/compliance-patterns-SKILL.md
+  name: compliance-patterns
+  description: 'AML and VASP due diligence workflow patterns for digital asset compliance against the Lukka hosted MCP
+    surface. Use when user asks about: AML risk, OFAC, VASP, due diligence, compliance review, address investigation,
+    exchange compliance, or regulatory status.'
+- file: skills/_provider/skills/digital-asset-market-knowledge-SKILL.md
+  name: digital-asset-market-knowledge
+  description: Domain knowledge for digital asset market data queries. Loaded as base context for all Lukka tools. Covers
+    pair formats, source IDs, interval conventions, blockchain symbols, top asset codes, and response modes.
+- file: skills/_provider/skills/large-data-processing-SKILL.md
+  name: large-data-processing
+  description: Process large MCP responses (>100KB) locally instead of loading into context. Covers market depth (6.8MB+),
+    bulk address transactions (150KB+), block batch analysis (675KB+), and AML standard/enhanced reports (300-500KB+).
+    Deploy Python processors to /tmp, pipe raw JSON through them, read concise output (~2-3KB) back into context.
+- file: skills/_provider/skills/lukka-data-routing-SKILL.md
+  name: lukka-data-routing
+  description: 'Route digital asset and blockchain data queries to the correct Lukka MCP tool across 7 hosted servers.
+    Use when user asks about: digital asset prices, OHLCV candles, market cap, VWAP, order book depth, trading pairs,
+    exchange sources, derivatives, implied rates, volatility surface, OTC FX, reference data, asset taxonomy, sector
+    classifications, entity/custodian/VASP lookups, asset mappings, AML reports, wallet balances, on-chain transactions,
+    block data, digital asset news, daily summaries, sentiment analysis, or prediction markets.'
+subagents:
+- file: skills/_provider/agents/asset-discovery.md
+  name: asset-discovery
+  description: 'Cross-MCP asset resolution and enrichment agent. Finds assets by direct code, resolves Lukka IDs, gathers
+    metadata from refdata, and fetches pricing. <example> Context: User runs /asset-report SOLN and needs full asset
+    profile. user: "Find Solana, get its Lukka ID, classification, scores, exchange coverage, and current price" assistant:
+    "Resolving SOLN, then gathering metadata and pricing in paral'
+- file: skills/_provider/agents/compliance-scanner.md
+  name: compliance-scanner
+  description: 'AML and VASP compliance agent. Runs AML report generation, counterparty flow lookups, and exchange due
+    diligence against the hosted Lukka-AML and Lukka-RefData MCP servers. <example> Context: User runs /wallet-scan on
+    an Ethereum address. user: "Run compliance check on 0x13203aB9C9f054fe8B4671bC0EEC3ab26D2f3477 on Ethereum" assistant:
+    "Running AML scoring report first, then offering full/enhanced '
+- file: skills/_provider/agents/market-data-gatherer.md
+  name: market-data-gatherer
+  description: 'Parallel exchange data collection agent for liquidity, pricing, and analytics. Queries market depth,
+    VWAP, candles, spot trades, implied rates, and volatility surface across multiple exchanges simultaneously. <example>
+    Context: User runs /liquidity-scan SOLN-USD and needs data from 6 exchanges. user: "Get market depth, VWAP, and 24h
+    volume for SOLN-USD across sourceIds: 4001, 4005, 4007, 4009, 401'
+commands:
+- file: skills/_provider/commands/asset-activity.md
+  command: /asset-activity
+  description: Activity-focused asset report with trends, volume, and recent events
+- file: skills/_provider/commands/asset-report.md
+  command: /asset-report
+  description: Comprehensive asset deep dive with classification, scores, and exchange coverage
+- file: skills/_provider/commands/briefing.md
+  command: /briefing
+  description: Daily macro market overview with top assets, prices, volume, and sentiment
+- file: skills/_provider/commands/deriv-spot-compare.md
+  command: /deriv-spot-compare
+  description: Derivatives vs spot comparison (basis, VWAP, derivative trade prints)
+- file: skills/_provider/commands/exchange-diligence.md
+  command: /exchange-diligence
+  description: Exchange compliance profile with jurisdiction, VASP status, and services
+- file: skills/_provider/commands/health.md
+  command: /health
+  description: Ping each hosted MCP server with one cheap tool, report auth, dispatch, and known drift.
+- file: skills/_provider/commands/investigate-price.md
+  command: /investigate-price
+  description: Deep price investigation at specific timestamp with exchange breakdown
+- file: skills/_provider/commands/liquidity-scan.md
+  command: /liquidity-scan
+  description: Cross-exchange liquidity analysis with depth, spread, and VWAP
+- file: skills/_provider/commands/new-listings.md
+  command: /new-listings
+  description: Monitor new exchange listings since a given date
+- file: skills/_provider/commands/news.md
+  command: /news
+  description: Digital asset news search, sentiment filtering, and daily digests
+- file: skills/_provider/commands/pair-mapping.md
+  command: /pair-mapping
+  description: Resolve exchange pair codes to Lukka canonical pairs, or find how a Lukka pair is named across exchanges
+- file: skills/_provider/commands/resolve-assets.md
+  command: /resolve-assets
+  description: Bulk resolve white paper codes to Lukka asset codes and prices
+- file: skills/_provider/commands/wallet-scan.md
+  command: /wallet-scan
+  description: Wallet analysis with AML risk, balance, assets, and transaction preview
+security_policy:
+  file: skills/_provider/SECURITY.md
+  contact: plugin-support@lukka.global
+mcp_manifest:
+  file: skills/_provider/mcp.json
+  servers: 7

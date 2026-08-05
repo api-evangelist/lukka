@@ -1,0 +1,691 @@
+generated: '2026-08-04'
+method: derived
+source:
+- mcp/lukka-mcp.yml
+- openapi/ (converted from https://apidocs.lukka.tech/)
+description: Binds each Lukka MCP tool to the REST operation(s) that back it, and records where the MCP surface and the
+  REST surface diverge. Lukka ships four MCP products (AML, on-chain/UDA, News, and most of Prediction Markets) that
+  have no public REST contract at all, and a REST surface (bulk CSV extracts, the valuation service, staking, funding
+  and mark prices) that no MCP tool reaches.
+surfaces:
+  openapi:
+    files:
+    - openapi/lukka-analytics-openapi.yml
+    - openapi/lukka-pricing-market-data-openapi.yml
+    - openapi/lukka-reference-data-openapi.yml
+    - openapi/lukka-reference-data-v1-openapi.yml
+    - openapi/lukka-valuation-openapi.yml
+    operations: 91
+    note: Converted by API Evangelist from the Postman collections Lukka publishes; Lukka does not publish OpenAPI.
+  mcp:
+    servers: 7
+    tools: 69
+    gated: true
+    note: tools/list returns HTTP 401 Missing Bearer token on all seven servers; tool names and input schemas are taken
+      from Lukka's published per-tool parameter tables in lukkatech/lukka-mcps.
+  asyncapi:
+    file: asyncapi/lukka-market-data-streaming-asyncapi.yml
+    channels: 12
+    note: WebSocket streaming surface; no MCP tool and no REST operation covers the streaming channels.
+  graphql: null
+coverage:
+  mcp_tools_total: 69
+  mcp_tools_bound: 46
+  mcp_only: 23
+  rest_operations_total: 91
+  rest_operations_with_tool: 52
+  rest_only: 39
+crosswalk:
+- tool: list_pricing_sources
+  server: Lukka-Pricing
+  category: sources
+  rest:
+  - availableSources
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: Lukka publishes the source listing as a fixed-source example path (/v1/pricing/sources/4002) in the collection;
+    the tool takes no parameters and lists all entitled sources.
+- tool: get_source_details
+  server: Lukka-Pricing
+  category: sources
+  rest:
+  - sourceDetails
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: Collection documents this against a fixed source id (3000); the tool parameterises sourceId.
+- tool: list_sources_by_product
+  server: Lukka-Pricing
+  category: sources
+  rest:
+  - availableSourcesByProduct
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_source_details_by_product
+  server: Lukka-Pricing
+  category: sources
+  rest:
+  - getSourceDetailsByProduct
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_derivative_source_details
+  server: Lukka-Pricing
+  category: sources
+  rest:
+  - getDerivativeSourceDetailsPaginated
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_latest_prices
+  server: Lukka-Pricing
+  category: prices
+  rest:
+  - getLatestPrices
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: REST path fixes sourceId 2000; the tool parameterises it.
+- tool: get_historical_prices
+  server: Lukka-Pricing
+  category: prices
+  rest:
+  - getHistoricalPrices
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_candles
+  server: Lukka-Pricing
+  category: prices
+  rest:
+  - getCandlesByExchangeSourceDerivative
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: One REST candles operation serves both spot and derivative sources.
+- tool: get_latest_index_prices
+  server: Lukka-Pricing
+  category: prices
+  rest:
+  - getLatestIndexPrices
+  - getLatestReferenceRate
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: 'Fans out: index sources use /indices, reference rate sources (5001/5002) use /prices.'
+- tool: get_historical_index_prices
+  server: Lukka-Pricing
+  category: prices
+  rest:
+  - getHistoricalIndexPrices
+  - getHistoricalReferenceRateByPair
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: Same fan-out as the latest variant.
+- tool: get_market_variances
+  server: Lukka-Pricing
+  category: prices
+  rest:
+  - getPriceVariancesByPair
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_vwap
+  server: Lukka-Pricing
+  category: prices
+  rest:
+  - getMultiSourceVWAPByPair
+  - getLatestMVWAPs
+  - getHistoricalMVWAPByPair
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: Lukka exposes three VWAP/MVWAP REST operations; the single tool covers the multi-source VWAP case and the MVWAP
+    source series.
+- tool: get_market_capitalization
+  server: Lukka-Pricing
+  category: market-cap
+  rest:
+  - getMarketCapsByPair
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_latest_market_caps
+  server: Lukka-Pricing
+  category: market-cap
+  rest:
+  - getLatestMarketCaps
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_latest_markets
+  server: Lukka-Pricing
+  category: markets
+  rest:
+  - getLatestMarketsSPOT
+  - getLatestMarketsDERIVATIVE
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: The tool marketType parameter selects between the two REST paths (GREEKS and PREDICTION variants are not exposed
+    by this tool).
+- tool: get_market_depth
+  server: Lukka-Pricing
+  category: markets
+  rest:
+  - getOrderBookLiquiditySPOT
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_order_book_snapshot
+  server: Lukka-Pricing
+  category: markets
+  rest:
+  - getOrderBookSnapshotSPOT
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_spot_trades
+  server: Lukka-Pricing
+  category: trades
+  rest:
+  - getHistoricalSpotTrades
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_latest_derivative_trades
+  server: Lukka-Pricing
+  category: derivatives
+  rest:
+  - getLatestDerivativeTrades
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: get_historical_derivative_trades
+  server: Lukka-Pricing
+  category: derivatives
+  rest:
+  - getHistoricalDerivativeTrades
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+- tool: list_assets
+  server: Lukka-RefData
+  category: assets
+  rest:
+  - allLukkaAssets
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_asset_by_id
+  server: Lukka-RefData
+  category: assets
+  rest:
+  - aLukkaAssetAndItsDetails
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: Collection documents a fixed LID example; the tool parameterises it.
+- tool: get_asset_exposure
+  server: Lukka-RefData
+  category: assets
+  rest:
+  - assetExposure
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_asset_crypto_actions
+  server: Lukka-RefData
+  category: crypto-actions
+  rest:
+  - assetCryptoActions
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_crypto_actions
+  server: Lukka-RefData
+  category: crypto-actions
+  rest:
+  - allCryptoActions
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_reference_assets
+  server: Lukka-RefData
+  category: mappings
+  rest:
+  - lukkaAssetMappings
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: Backed by the v1 /lukka/ref-assets cross-reference operation.
+- tool: get_asset_coverage_stats
+  server: Lukka-RefData
+  category: stats
+  rest:
+  - assetCoverage
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_sectors
+  server: Lukka-RefData
+  category: taxonomy
+  rest:
+  - ldacs
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: LDACS = Lukka Digital Asset Classification System sectors.
+- tool: get_core_asset_scores
+  server: Lukka-RefData
+  category: scores
+  rest:
+  - lcas
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: LCAS = Lukka Core Asset Score.
+- tool: get_market_scores
+  server: Lukka-RefData
+  category: scores
+  rest:
+  - marketScores
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_enums
+  server: Lukka-RefData
+  category: taxonomy
+  rest:
+  - anEnum
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: list_entities
+  server: Lukka-RefData
+  category: entities
+  rest:
+  - allEntities
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_entity_by_code
+  server: Lukka-RefData
+  category: entities
+  rest:
+  - anEntity
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: Only the v1 single-entity operation appears in the published collection; the v2 equivalent is not documented
+    there.
+- tool: get_asset_mappings
+  server: Lukka-RefData
+  category: mappings
+  rest:
+  - assetMappings
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_legal_entity_mappings
+  server: Lukka-RefData
+  category: entities
+  rest:
+  - allLegalEntityMappings
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: list_vasps
+  server: Lukka-RefData
+  category: entities
+  rest:
+  - aVASPAndItsDetails
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: The collection documents "All VASPs" and "A VASP and Its Details" against the same /v2/lukka/vasps path, so they
+    collapse to one operation.
+- tool: get_reference_pairs
+  server: Lukka-RefData
+  category: mappings
+  rest:
+  - lukkaPairMappings
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: Backed by the v1 /lukka/ref-pairs cross-reference operation.
+- tool: get_pair_mappings
+  server: Lukka-RefData
+  category: mappings
+  rest:
+  - pairMappings
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: list_derivatives
+  server: Lukka-RefData
+  category: derivatives
+  rest:
+  - allDerivatives
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_derivative_by_id
+  server: Lukka-RefData
+  category: derivatives
+  rest:
+  - aDerivativeAndItsDetails
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+- tool: get_reference_derivatives
+  server: Lukka-RefData
+  category: mappings
+  rest:
+  - lukkaDerivativeMappings
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: Backed by the v1 /lukka/ref-derivatives cross-reference operation.
+- tool: getImpliedRates
+  server: Lukka-Analytics
+  category: analytics
+  rest:
+  - impliedInterestRates
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-analytics-openapi.yml
+- tool: getImpliedRatesOtcFx
+  server: Lukka-Analytics
+  category: analytics
+  rest:
+  - otcFXRates
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-analytics-openapi.yml
+- tool: getImpliedVolatilitySurface
+  server: Lukka-Analytics
+  category: analytics
+  rest:
+  - impliedVolatility
+  binding: rest
+  confidence: high
+  spec:
+  - openapi/lukka-analytics-openapi.yml
+- tool: GetPredictionMarkets
+  server: Lukka-Predmar
+  category: prediction-markets
+  rest:
+  - allPredictionMarkets
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-reference-data-openapi.yml
+  note: Prediction market discovery is backed by the reference-data prediction-markets collection; the tool adds filtering
+    the REST surface does not document.
+- tool: GetPriceHistory
+  server: Lukka-Predmar
+  category: prediction-markets
+  rest:
+  - getPredictionHistoryByEventTicker
+  - getPredictionHistoryByLukkaSymbol
+  binding: rest
+  confidence: medium
+  spec:
+  - openapi/lukka-pricing-market-data-openapi.yml
+  note: Two REST paths (by event ticker, by Lukka symbol); the tool accepts either identifier.
+mcp_only:
+- tool: generateAmlScoringReport
+  server: Lukka-AML
+  reason: Lukka publishes no public REST contract for its AML product; the AML scoring and report surface is exposed
+    only through the hosted MCP server.
+- tool: generateAmlSimplifiedReport
+  server: Lukka-AML
+  reason: Lukka publishes no public REST contract for its AML product; the AML scoring and report surface is exposed
+    only through the hosted MCP server.
+- tool: generateAmlStandardReport
+  server: Lukka-AML
+  reason: Lukka publishes no public REST contract for its AML product; the AML scoring and report surface is exposed
+    only through the hosted MCP server.
+- tool: generateAmlEnhancedReport
+  server: Lukka-AML
+  reason: Lukka publishes no public REST contract for its AML product; the AML scoring and report surface is exposed
+    only through the hosted MCP server.
+- tool: getNews
+  server: Lukka-News
+  reason: The news intelligence product has no published REST operation; it is MCP-only in the public surface.
+- tool: getDailySummaries
+  server: Lukka-News
+  reason: The news intelligence product has no published REST operation; it is MCP-only in the public surface.
+- tool: GetSimilarMarkets
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: GetPredictionMarketsTaxonomy
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: GetPMCSstats
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: GetMarketOverview
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: GetOpenInterest
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: GetPredictionMarketTotalVolume
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: GetMarketRecap
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: GetMarketNews
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: GetExchanges
+  server: Lukka-Predmar
+  reason: Prediction-market aggregate, taxonomy, news and exchange tools have no matching operation in the published
+    REST collections.
+- tool: Get_newest_block_blockheight_v2
+  server: Lukka-UDA
+  reason: The Unified Digital Asset (on-chain) product has no operation in the published Postman collections; it is MCP-only
+    in the public surface.
+- tool: Get_newest_block_blockheight
+  server: Lukka-UDA
+  reason: The Unified Digital Asset (on-chain) product has no operation in the published Postman collections; it is MCP-only
+    in the public surface.
+- tool: get_block
+  server: Lukka-UDA
+  reason: The Unified Digital Asset (on-chain) product has no operation in the published Postman collections; it is MCP-only
+    in the public surface.
+- tool: get_address_balance
+  server: Lukka-UDA
+  reason: The Unified Digital Asset (on-chain) product has no operation in the published Postman collections; it is MCP-only
+    in the public surface.
+- tool: get_canton_address_balance
+  server: Lukka-UDA
+  reason: The Unified Digital Asset (on-chain) product has no operation in the published Postman collections; it is MCP-only
+    in the public surface.
+- tool: get_address_assets
+  server: Lukka-UDA
+  reason: The Unified Digital Asset (on-chain) product has no operation in the published Postman collections; it is MCP-only
+    in the public surface.
+- tool: get_address_transactions
+  server: Lukka-UDA
+  reason: The Unified Digital Asset (on-chain) product has no operation in the published Postman collections; it is MCP-only
+    in the public surface.
+- tool: Get_transaction_for_txhash
+  server: Lukka-UDA
+  reason: The Unified Digital Asset (on-chain) product has no operation in the published Postman collections; it is MCP-only
+    in the public surface.
+rest_only:
+- operationId: aCustodianAndItsDetails
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: terms & conditions
+- operationId: aLukkaAsset
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: reference data v1 (deprecated)
+- operationId: aMarketplaceAndItsDetails
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: terms & conditions
+- operationId: aPredictionMarketAndItsDetails
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: prediction markets
+- operationId: activeAssetMappings
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: activePairMappings
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: allCustodians
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: terms & conditions
+- operationId: allLukkaAssets2
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: reference data v1 (deprecated)
+- operationId: allLukkaEntities
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: reference data v1 (deprecated)
+- operationId: allMarketplaces
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: terms & conditions
+- operationId: assetMaster
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: createHistoricalQuotesRequest
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: bulk CSV extract
+- operationId: createHistoricalTradesRequest
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: bulk CSV extract
+- operationId: derivativeMappings
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: mappings
+- operationId: esgScores
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: scores
+- operationId: getCompositeFundingRatesByPairCodes
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: derivatives
+- operationId: getHistoricalMarkPrices
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: derivatives
+- operationId: getHistoricalQuotesRequestStatus
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: bulk CSV extract
+- operationId: getHistoricalStakingRatesByAsset
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: staking
+- operationId: getHistoricalTradesRequestStatus
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: bulk CSV extract
+- operationId: getLatestMarkPrices
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: derivatives
+- operationId: getLatestMarketsGREEKS
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: derivatives
+- operationId: getLatestMarketsPREDICTION
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: prediction markets
+- operationId: getLatestStakingRates
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: staking
+- operationId: getPredictionTradeHistoryByEventTicker
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: prediction markets
+- operationId: getPredictionTradeHistoryByLukkaSymbol
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: prediction markets
+- operationId: getResults
+  spec: openapi/lukka-valuation-openapi.yml
+  capability: valuation service
+- operationId: getSlippageByPair
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: market microstructure
+- operationId: getStatus
+  spec: openapi/lukka-valuation-openapi.yml
+  capability: valuation service
+- operationId: historicalAssetMappings
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: historicalPairMappings
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: listHistoricalQuotesRequests
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: bulk CSV extract
+- operationId: listHistoricalTradesRequests
+  spec: openapi/lukka-pricing-market-data-openapi.yml
+  capability: bulk CSV extract
+- operationId: lukkaCryptoActions
+  spec: openapi/lukka-reference-data-openapi.yml
+  capability: reference data v1 (deprecated)
+- operationId: newlyAddedAssetMappings
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: newlyAddedPairMappings
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: newlyDeletedAssetMappings
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: newlyDeletedPairMappings
+  spec: openapi/lukka-reference-data-v1-openapi.yml
+  capability: reference data v1 (legacy host)
+- operationId: runCalculation
+  spec: openapi/lukka-valuation-openapi.yml
+  capability: valuation service

@@ -1,0 +1,591 @@
+[
+ {
+  "lukkaAssetCode": "APE2",
+  "lukkaAssetId": "LA07HZNJ663",
+  "modelVersion": 1,
+  "scoreDetails": [
+   {
+    "scoreBreakdown": [
+     {
+      "ts": "2024-10-01",
+      "name": "Category Group Score: Markets & Accessibility",
+      "weightedCategoryResult": "34.2875000000",
+      "staticScoreCategoryGroupId": 19,
+      "weightedComponentBreakdown": [
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Market Performance",
+        "weightedCategoryResult": "22.15500000",
+        "weightedCategoryResultMax": "30.000000",
+        "weightedCategoryResultMin": "0.285000",
+        "weightedCategoryResultPct": "73.850000",
+        "staticScoreCategoryGroupId": 19,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Price Volatility",
+          "componentValue": "100.00",
+          "weightedResult": "5.000000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "0.00",
+          "componentValuePct": "100.00",
+          "weightedResultMax": "5.0000",
+          "weightedResultMin": "0.0000",
+          "weightedResultPct": "100.0000",
+          "staticScoreCategoryId": 39,
+          "criterionUnderlyingValue": "0.9061278122297758"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Market Capitalization",
+          "componentValue": "73.00",
+          "weightedResult": "51.100000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "73.00",
+          "weightedResultMax": "70.0000",
+          "weightedResultMin": "0.7000",
+          "weightedResultPct": "73.0000",
+          "staticScoreCategoryId": 39,
+          "criterionUnderlyingValue": "564003124.696"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Trade Volume",
+          "componentValue": "71.00",
+          "weightedResult": "17.750000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "71.00",
+          "weightedResultMax": "25.0000",
+          "weightedResultMin": "0.2500",
+          "weightedResultPct": "71.0000",
+          "staticScoreCategoryId": 39,
+          "criterionUnderlyingValue": "21977163.702025015"
+         }
+        ]
+       },
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Instrument Facilitation",
+        "weightedCategoryResult": "10.82000000",
+        "weightedCategoryResultMax": "20.000000",
+        "weightedCategoryResultMin": "0.200000",
+        "weightedCategoryResultPct": "54.100000",
+        "staticScoreCategoryGroupId": 19,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Underlying to Asset (General)",
+          "componentValue": "63.00",
+          "weightedResult": "18.900000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "63.00",
+          "weightedResultMax": "30.0000",
+          "weightedResultMin": "0.3000",
+          "weightedResultPct": "63.0000",
+          "staticScoreCategoryId": 31,
+          "criterionUnderlyingValue": "14.0"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Underlying to Asset (Index & ETF)",
+          "componentValue": "17.00",
+          "weightedResult": "3.400000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "17.00",
+          "weightedResultMax": "20.0000",
+          "weightedResultMin": "0.2000",
+          "weightedResultPct": "17.0000",
+          "staticScoreCategoryId": 31,
+          "criterionUnderlyingValue": "1.0"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Underlying to Asset (Wrapped)",
+          "componentValue": "27.00",
+          "weightedResult": "5.400000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "27.00",
+          "weightedResultMax": "20.0000",
+          "weightedResultMin": "0.2000",
+          "weightedResultPct": "27.0000",
+          "staticScoreCategoryId": 31,
+          "criterionUnderlyingValue": "1.0"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Underlying to Derivative",
+          "componentValue": "88.00",
+          "weightedResult": "26.400000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "88.00",
+          "weightedResultMax": "30.0000",
+          "weightedResultMin": "0.3000",
+          "weightedResultPct": "88.0000",
+          "staticScoreCategoryId": 31,
+          "criterionUnderlyingValue": "50.84048805995047"
+         }
+        ]
+       },
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Market Presence",
+        "weightedCategoryResult": "27.00000000",
+        "weightedCategoryResultMax": "30.000000",
+        "weightedCategoryResultMin": "0.300000",
+        "weightedCategoryResultPct": "90.000000",
+        "staticScoreCategoryGroupId": 19,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Delisting Frequency",
+          "componentValue": "100.00",
+          "weightedResult": "20.000000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "100.00",
+          "weightedResultMax": "20.0000",
+          "weightedResultMin": "0.2000",
+          "weightedResultPct": "100.0000",
+          "staticScoreCategoryId": 38,
+          "criterionUnderlyingValue": "10.0"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Venue Accessibility",
+          "componentValue": "88.00",
+          "weightedResult": "35.200000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "88.00",
+          "weightedResultMax": "40.0000",
+          "weightedResultMin": "0.4000",
+          "weightedResultPct": "88.0000",
+          "staticScoreCategoryId": 38,
+          "criterionUnderlyingValue": "101.02327761891488"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Market Diversity",
+          "componentValue": "87.00",
+          "weightedResult": "34.800000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "87.00",
+          "weightedResultMax": "40.0000",
+          "weightedResultMin": "0.4000",
+          "weightedResultPct": "87.0000",
+          "staticScoreCategoryId": 38,
+          "criterionUnderlyingValue": "72.69546137088885"
+         }
+        ]
+       },
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: On-Chain Accessibility",
+        "weightedCategoryResult": "8.60000000",
+        "weightedCategoryResultMax": "20.000000",
+        "weightedCategoryResultMin": "0.200000",
+        "weightedCategoryResultPct": "43.000000",
+        "staticScoreCategoryGroupId": 19,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Transaction Activity",
+          "componentValue": "43.00",
+          "weightedResult": "43.000000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "43.00",
+          "weightedResultMax": "100.0000",
+          "weightedResultMin": "1.0000",
+          "weightedResultPct": "43.0000",
+          "staticScoreCategoryId": 32,
+          "criterionUnderlyingValue": "16466.0"
+         }
+        ]
+       }
+      ],
+      "weightedCategoryGrpResultMax": "50.00000000",
+      "weightedCategoryGrpResultMin": "0.49250000",
+      "weightedCategoryGrpResultPct": "68.57500000"
+     },
+     {
+      "ts": "2024-10-01",
+      "name": "Category Group Score: Technology",
+      "weightedCategoryResult": "13.8750000000",
+      "staticScoreCategoryGroupId": 18,
+      "weightedComponentBreakdown": [
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Development Activity",
+        "weightedCategoryResult": "25.00000000",
+        "weightedCategoryResultMax": "50.000000",
+        "weightedCategoryResultMin": "-25.000000",
+        "weightedCategoryResultPct": "50.000000",
+        "staticScoreCategoryGroupId": 18,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Successor History",
+          "componentValue": "0.00",
+          "weightedResult": "0.000000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "0.00",
+          "componentValuePct": "0.00",
+          "weightedResultMax": "50.0000",
+          "weightedResultMin": "0.0000",
+          "weightedResultPct": "0.0000",
+          "staticScoreCategoryId": 36,
+          "criterionUnderlyingValue": "0"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Outdated Asset Version",
+          "componentValue": "100",
+          "weightedResult": "50.00",
+          "componentValueMax": "100",
+          "componentValueMin": "-100",
+          "componentValuePct": "100",
+          "weightedResultMax": "50.00",
+          "weightedResultMin": "-50.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 36,
+          "criterionUnderlyingValue": "false"
+         }
+        ]
+       },
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Technology Implementation",
+        "weightedCategoryResult": "44.37500000",
+        "weightedCategoryResultMax": "50.000000",
+        "weightedCategoryResultMin": "-12.500000",
+        "weightedCategoryResultPct": "88.750000",
+        "staticScoreCategoryGroupId": 18,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Fault Tolerance",
+          "componentValue": "85.00",
+          "weightedResult": "63.750000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "0.00",
+          "componentValuePct": "85.00",
+          "weightedResultMax": "75.0000",
+          "weightedResultMin": "0.0000",
+          "weightedResultPct": "85.0000",
+          "staticScoreCategoryId": 37,
+          "criterionUnderlyingValue": "0.4700000000000000000"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Performance Consistency",
+          "componentValue": "100.00",
+          "weightedResult": "25.000000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "-100.00",
+          "componentValuePct": "100.00",
+          "weightedResultMax": "25.0000",
+          "weightedResultMin": "-25.0000",
+          "weightedResultPct": "100.0000",
+          "staticScoreCategoryId": 37,
+          "criterionUnderlyingValue": "0"
+         }
+        ]
+       }
+      ],
+      "weightedCategoryGrpResultMax": "20.00000000",
+      "weightedCategoryGrpResultMin": "-7.50000000",
+      "weightedCategoryGrpResultPct": "69.37500000"
+     },
+     {
+      "ts": "2024-10-01",
+      "name": "Category Group Score: Reputation",
+      "weightedCategoryResult": "22.8081250000",
+      "staticScoreCategoryGroupId": 17,
+      "weightedComponentBreakdown": [
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Project Management",
+        "weightedCategoryResult": "26.23250000",
+        "weightedCategoryResultMax": "35.000000",
+        "weightedCategoryResultMin": "-3.500000",
+        "weightedCategoryResultPct": "74.950000",
+        "staticScoreCategoryGroupId": 17,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Has Value Proposition",
+          "componentValue": "100",
+          "weightedResult": "20.00",
+          "componentValueMax": "100",
+          "componentValueMin": "-50",
+          "componentValuePct": "100",
+          "weightedResultMax": "20.00",
+          "weightedResultMin": "-10.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 35,
+          "criterionUnderlyingValue": "true"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Has Whitepaper",
+          "componentValue": "100",
+          "weightedResult": "50.00",
+          "componentValueMax": "100",
+          "componentValueMin": "0",
+          "componentValuePct": "100",
+          "weightedResultMax": "50.00",
+          "weightedResultMin": "0.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 35,
+          "criterionUnderlyingValue": "true"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Time Since Audit",
+          "componentValue": "3.00",
+          "weightedResult": "0.450000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "0.00",
+          "componentValuePct": "3.00",
+          "weightedResultMax": "15.0000",
+          "weightedResultMin": "0.0000",
+          "weightedResultPct": "3.0000",
+          "staticScoreCategoryId": 35,
+          "criterionUnderlyingValue": "11"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: No. of Audits Past Year",
+          "componentValue": "30.00",
+          "weightedResult": "4.500000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "0.00",
+          "componentValuePct": "30.00",
+          "weightedResultMax": "15.0000",
+          "weightedResultMin": "0.0000",
+          "weightedResultPct": "30.0000",
+          "staticScoreCategoryId": 35,
+          "criterionUnderlyingValue": "1"
+         }
+        ]
+       },
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Project Support",
+        "weightedCategoryResult": "30.0000",
+        "weightedCategoryResultMax": "30.0000",
+        "weightedCategoryResultMin": "-15.0000",
+        "weightedCategoryResultPct": "100.00",
+        "staticScoreCategoryGroupId": 17,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Abandonment",
+          "componentValue": "100",
+          "weightedResult": "50.00",
+          "componentValueMax": "100",
+          "componentValueMin": "-100",
+          "componentValuePct": "100",
+          "weightedResultMax": "50.00",
+          "weightedResultMin": "-50.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 33,
+          "criterionUnderlyingValue": "false"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Has Issuing Entity",
+          "componentValue": "100",
+          "weightedResult": "30.00",
+          "componentValueMax": "100",
+          "componentValueMin": "0",
+          "componentValuePct": "100",
+          "weightedResultMax": "30.00",
+          "weightedResultMin": "0.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 33,
+          "criterionUnderlyingValue": "true"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Issuing Entity Reputation",
+          "componentValue": "100",
+          "weightedResult": "20.00",
+          "componentValueMax": "100",
+          "componentValueMin": "0",
+          "componentValuePct": "100",
+          "weightedResultMax": "20.00",
+          "weightedResultMin": "0.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 33,
+          "criterionUnderlyingValue": "true"
+         }
+        ]
+       },
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Project Reputation",
+        "weightedCategoryResult": "35.00000000",
+        "weightedCategoryResultMax": "35.000000",
+        "weightedCategoryResultMin": "-28.437500",
+        "weightedCategoryResultPct": "100.000000",
+        "staticScoreCategoryGroupId": 17,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Potentially Suspicious Activity",
+          "componentValue": "100",
+          "weightedResult": "25.00",
+          "componentValueMax": "100",
+          "componentValueMin": "-100",
+          "componentValuePct": "100",
+          "weightedResultMax": "25.00",
+          "weightedResultMin": "-25.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 34,
+          "criterionUnderlyingValue": "false"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Potentially Offensive Content",
+          "componentValue": "100",
+          "weightedResult": "25.00",
+          "componentValueMax": "100",
+          "componentValueMin": "-25",
+          "componentValuePct": "100",
+          "weightedResultMax": "25.00",
+          "weightedResultMin": "-6.25",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 34,
+          "criterionUnderlyingValue": "false"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Time Since Negative Event Past Year",
+          "componentValue": "100.00",
+          "weightedResult": "25.000000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "-100.00",
+          "componentValuePct": "100.00",
+          "weightedResultMax": "25.0000",
+          "weightedResultMin": "-25.0000",
+          "weightedResultPct": "100.0000",
+          "staticScoreCategoryId": 34,
+          "criterionUnderlyingValue": "Unknown"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: No. of Negative Event Past Year",
+          "componentValue": "100.00",
+          "weightedResult": "25.000000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "-100.00",
+          "componentValuePct": "100.00",
+          "weightedResultMax": "25.0000",
+          "weightedResultMin": "-25.0000",
+          "weightedResultPct": "100.0000",
+          "staticScoreCategoryId": 34,
+          "criterionUnderlyingValue": "0"
+         }
+        ]
+       }
+      ],
+      "weightedCategoryGrpResultMax": "25.00000000",
+      "weightedCategoryGrpResultMin": "-11.73437500",
+      "weightedCategoryGrpResultPct": "91.23250000"
+     },
+     {
+      "ts": "2024-10-01",
+      "name": "Category Group Score: Community",
+      "weightedCategoryResult": "4.1850000000",
+      "staticScoreCategoryGroupId": 20,
+      "weightedComponentBreakdown": [
+       {
+        "ts": "2024-10-01",
+        "name": "Category Score: Community Support",
+        "weightedCategoryResult": "83.70000000",
+        "weightedCategoryResultMax": "100.000000",
+        "weightedCategoryResultMin": "0.700000",
+        "weightedCategoryResultPct": "83.700000",
+        "staticScoreCategoryGroupId": 20,
+        "weightedComponentBreakdown": [
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Ecosystem Diversity",
+          "componentValue": "100",
+          "weightedResult": "10.00",
+          "componentValueMax": "100",
+          "componentValueMin": "0",
+          "componentValuePct": "100",
+          "weightedResultMax": "10.00",
+          "weightedResultMin": "0.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 40,
+          "criterionUnderlyingValue": "true"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Ecosystem Contribution",
+          "componentValue": "91.00",
+          "weightedResult": "63.700000",
+          "componentValueMax": "100.00",
+          "componentValueMin": "1.00",
+          "componentValuePct": "91.00",
+          "weightedResultMax": "70.0000",
+          "weightedResultMin": "0.7000",
+          "weightedResultPct": "91.0000",
+          "staticScoreCategoryId": 40,
+          "criterionUnderlyingValue": "292022"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Has Foundation",
+          "componentValue": "0",
+          "weightedResult": "0.00",
+          "componentValueMax": "100",
+          "componentValueMin": "0",
+          "componentValuePct": "0",
+          "weightedResultMax": "10.00",
+          "weightedResultMin": "0.00",
+          "weightedResultPct": "0.00",
+          "staticScoreCategoryId": 40,
+          "criterionUnderlyingValue": "false"
+         },
+         {
+          "ts": "2024-10-01",
+          "name": "Component Score: Has Institutional Balances",
+          "componentValue": "100",
+          "weightedResult": "10.00",
+          "componentValueMax": "100",
+          "componentValueMin": "0",
+          "componentValuePct": "100",
+          "weightedResultMax": "10.00",
+          "weightedResultMin": "0.00",
+          "weightedResultPct": "100.00",
+          "staticScoreCategoryId": 40,
+          "criterionUnderlyingValue": "true"
+         }
+        ]
+       }
+      ],
+      "weightedCategoryGrpResultMax": "5.00000000",
+      "weightedCategoryGrpResultMin": "0.03500000",
+      "weightedCategoryGrpResultPct": "83.70000000"
+     }
+    ],
+    "asOfTime": "2024-10-01T00:00:00Z",
+    "lukkaLetterGrade": "A3",
+    "percentile": 0,
+    "finalScore": 75.155625
+   }
+  ]
+ }
+]

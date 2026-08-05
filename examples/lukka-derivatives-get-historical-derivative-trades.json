@@ -1,0 +1,950 @@
+{
+ "sourceId": 4005,
+ "entityDerivativeCode": "BTCUSDT",
+ "dataType": "derivative-trades",
+ "firstDate": "2026-04-20T12:00:00Z",
+ "lastDate": "2026-04-20T12:01:00Z",
+ "metadata": {
+  "lukkaDerivativeCode": "BTCUSDT.BINA",
+  "derivativeLid": "L-BINA-PERP-XBT-USDT",
+  "entityDerivativeCode": "BTCUSDT"
+ },
+ "data": [
+  {
+   "ts": "2026-04-20T12:00:00.032Z",
+   "price": "75148.8",
+   "size": "0.032",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.148Z",
+   "price": "75148.8",
+   "size": "0.07",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.282Z",
+   "price": "75148.8",
+   "size": "0.054",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.297Z",
+   "price": "75148.7",
+   "size": "0.464",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.409Z",
+   "price": "75148.8",
+   "size": "0.107",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.530Z",
+   "price": "75148.8",
+   "size": "0.003",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.587Z",
+   "price": "75148.7",
+   "size": "0.608",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.678Z",
+   "price": "75148.8",
+   "size": "0.016",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.831Z",
+   "price": "75148.7",
+   "size": "0.01",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.889Z",
+   "price": "75148.8",
+   "size": "0.001",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:02.210Z",
+   "price": "75148.8",
+   "size": "0.001",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.376Z",
+   "price": "75148.7",
+   "size": "0.06",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.644Z",
+   "price": "75148.8",
+   "size": "0.039",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.694Z",
+   "price": "75148.7",
+   "size": "0.053",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.697Z",
+   "price": "75148.6",
+   "size": "0.016",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.717Z",
+   "price": "75148.5",
+   "size": "0.044",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.717Z",
+   "price": "75148.2",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.741Z",
+   "price": "75148.1",
+   "size": "0.028",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.835Z",
+   "price": "75148.0",
+   "size": "0.008",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:03.947Z",
+   "price": "75148.0",
+   "size": "0.06",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04Z",
+   "price": "75147.8",
+   "size": "0.042",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04Z",
+   "price": "75147.5",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04Z",
+   "price": "75147.6",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04Z",
+   "price": "75147.4",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.005Z",
+   "price": "75147.2",
+   "size": "0.035",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.007Z",
+   "price": "75146.5",
+   "size": "0.004",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.007Z",
+   "price": "75146.8",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.007Z",
+   "price": "75146.9",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.007Z",
+   "price": "75146.7",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.007Z",
+   "price": "75147.0",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75146.0",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75145.6",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75145.1",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75145.3",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75145.8",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75145.7",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75145.2",
+   "size": "0.007",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75145.9",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.034Z",
+   "price": "75146.4",
+   "size": "0.201",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.3",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75143.5",
+   "size": "0.008",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.2",
+   "size": "0.016",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.6",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.5",
+   "size": "0.005",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.9",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.4",
+   "size": "0.05",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.8",
+   "size": "0.007",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75143.6",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75143.3",
+   "size": "0.006",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75143.4",
+   "size": "0.082",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.5",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.1",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75143.0",
+   "size": "0.043",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.7",
+   "size": "0.037",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.3",
+   "size": "0.084",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75141.9",
+   "size": "0.054",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75143.1",
+   "size": "0.083",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.8",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75145.0",
+   "size": "0.006",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.7",
+   "size": "0.004",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.0",
+   "size": "0.244",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.6",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.1",
+   "size": "0.004",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.0",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75144.2",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.035Z",
+   "price": "75142.9",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.042Z",
+   "price": "75142.0",
+   "size": "0.002",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.052Z",
+   "price": "75141.7",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.052Z",
+   "price": "75141.9",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.057Z",
+   "price": "75141.7",
+   "size": "0.002",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.183Z",
+   "price": "75141.7",
+   "size": "0.103",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.361Z",
+   "price": "75141.6",
+   "size": "0.061",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.402Z",
+   "price": "75141.0",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.402Z",
+   "price": "75141.3",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.402Z",
+   "price": "75141.4",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.402Z",
+   "price": "75141.2",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.456Z",
+   "price": "75140.9",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.693Z",
+   "price": "75141.0",
+   "size": "0.513",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.757Z",
+   "price": "75140.9",
+   "size": "0.73",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.806Z",
+   "price": "75141.0",
+   "size": "0.004",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:04.916Z",
+   "price": "75141.0",
+   "size": "0.25",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.019Z",
+   "price": "75141.0",
+   "size": "0.022",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.034Z",
+   "price": "75140.9",
+   "size": "0.016",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.046Z",
+   "price": "75141.0",
+   "size": "0.031",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.074Z",
+   "price": "75140.9",
+   "size": "0.042",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.077Z",
+   "price": "75140.8",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.079Z",
+   "price": "75140.6",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.079Z",
+   "price": "75140.0",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.079Z",
+   "price": "75140.7",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.079Z",
+   "price": "75140.4",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.079Z",
+   "price": "75140.1",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.082Z",
+   "price": "75139.9",
+   "size": "0.012",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.085Z",
+   "price": "75139.8",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.088Z",
+   "price": "75139.7",
+   "size": "0.013",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.088Z",
+   "price": "75139.6",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.089Z",
+   "price": "75139.4",
+   "size": "0.06",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.101Z",
+   "price": "75139.3",
+   "size": "0.004",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.137Z",
+   "price": "75139.1",
+   "size": "0.02",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.291Z",
+   "price": "75139.1",
+   "size": "0.074",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.404Z",
+   "price": "75139.0",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.440Z",
+   "price": "75139.1",
+   "size": "0.032",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.450Z",
+   "price": "75139.0",
+   "size": "0.266",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.500Z",
+   "price": "75139.1",
+   "size": "0.204",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.593Z",
+   "price": "75139.0",
+   "size": "0.722",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75138.6",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75138.9",
+   "size": "0.004",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75137.5",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75137.4",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75137.3",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75138.4",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75137.6",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75137.9",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.598Z",
+   "price": "75138.8",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.693Z",
+   "price": "75137.0",
+   "size": "0.228",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:05.951Z",
+   "price": "75136.9",
+   "size": "0.005",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:06.048Z",
+   "price": "75137.0",
+   "size": "0.01",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:06.200Z",
+   "price": "75136.9",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:06.507Z",
+   "price": "75137.0",
+   "size": "0.041",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:06.949Z",
+   "price": "75137.0",
+   "size": "0.007",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:07.232Z",
+   "price": "75137.0",
+   "size": "0.022",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:07.470Z",
+   "price": "75137.0",
+   "size": "0.017",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:07.555Z",
+   "price": "75136.9",
+   "size": "0.003",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:07.678Z",
+   "price": "75137.0",
+   "size": "0.001",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:08.024Z",
+   "price": "75137.0",
+   "size": "0.009",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:08.358Z",
+   "price": "75137.0",
+   "size": "1.011",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:08.576Z",
+   "price": "75136.9",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:08.618Z",
+   "price": "75137.0",
+   "size": "0.05",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:09.150Z",
+   "price": "75137.0",
+   "size": "0.003",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:09.342Z",
+   "price": "75137.0",
+   "size": "0.001",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:09.704Z",
+   "price": "75137.0",
+   "size": "0.537",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:10.286Z",
+   "price": "75136.9",
+   "size": "0.011",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:10.705Z",
+   "price": "75136.9",
+   "size": "0.01",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:10.982Z",
+   "price": "75136.9",
+   "size": "0.002",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:11.152Z",
+   "price": "75136.9",
+   "size": "0.014",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:11.367Z",
+   "price": "75136.9",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:11.703Z",
+   "price": "75136.9",
+   "size": "0.068",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:11.805Z",
+   "price": "75137.0",
+   "size": "0.062",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:12Z",
+   "price": "75136.9",
+   "size": "0.12",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:12.104Z",
+   "price": "75136.9",
+   "size": "0.057",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:12.154Z",
+   "price": "75137.0",
+   "size": "0.004",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:12.462Z",
+   "price": "75137.0",
+   "size": "0.008",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:12.622Z",
+   "price": "75136.9",
+   "size": "0.023",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:12.662Z",
+   "price": "75137.0",
+   "size": "0.021",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:12.879Z",
+   "price": "75137.0",
+   "size": "0.069",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:13.410Z",
+   "price": "75137.0",
+   "size": "0.004",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:13.596Z",
+   "price": "75137.0",
+   "size": "0.002",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.258Z",
+   "price": "75136.9",
+   "size": "0.004",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.588Z",
+   "price": "75137.3",
+   "size": "0.003",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.588Z",
+   "price": "75137.2",
+   "size": "0.001",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.588Z",
+   "price": "75137.0",
+   "size": "0.381",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.588Z",
+   "price": "75137.1",
+   "size": "0.061",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.588Z",
+   "price": "75137.5",
+   "size": "0.004",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.591Z",
+   "price": "75138.5",
+   "size": "0.019",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.594Z",
+   "price": "75138.4",
+   "size": "0.001",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.605Z",
+   "price": "75138.5",
+   "size": "0.01",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:14.980Z",
+   "price": "75138.4",
+   "size": "0.009",
+   "aggressorSide": "SELL"
+  }
+ ]
+}

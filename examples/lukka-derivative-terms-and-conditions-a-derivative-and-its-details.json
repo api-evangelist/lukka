@@ -1,0 +1,96 @@
+{
+ "entityCode": "BINA",
+ "entityName": "Binance",
+ "entityDerivativeCode": "UNIUSD_PERP",
+ "entityDerivativeName": "UNIUSD_PERP",
+ "lukkaDerivativeLid": "L-BINA-PERP-UNI-USD",
+ "lukkaDerivativeCode": "UNI-PERP",
+ "derivativeName": "Binance Uniswap Perpetual",
+ "recordStatus": "Active",
+ "statusDetails": [
+  {
+   "assetStatus": "Active",
+   "assetSubstatus": "Active",
+   "subStatusReasonCode": "LISTD",
+   "subStatusReason": "Contract Listed",
+   "cryptoActionBeginId": "f7f1b491-4c9f-4895-8c9a-153f1ba82234",
+   "cryptoActionEndId": null,
+   "startTs": "2021-04-13T07:00:00Z",
+   "endTs": null,
+   "status": "Active"
+  }
+ ],
+ "derivativeDetails": [
+  {
+   "derivativeClassificationCode": "PERP",
+   "derivativeClassification": "Perpetual",
+   "quoteLukkaAssetId": "LA3YM6GRUJ4",
+   "quoteLukkaAssetCode": "USD",
+   "contractStartTs": "2021-04-13T07:00:00Z",
+   "contractExpirationTs": "2199-12-31T23:59:59Z",
+   "isPerpetual": true,
+   "isMultipleLeg": false,
+   "isVanilla": true,
+   "isExotic": false,
+   "optionContractTypeCode": "NA",
+   "optionContractType": "Not Applicable",
+   "optionContractExerciseTypeCode": "NA",
+   "optionContractExerciseType": "Not Applicable",
+   "strike": null,
+   "multiplier": 10,
+   "fundingPaymentFrequencyHrs": 8,
+   "isUsIrcSection1256": false,
+   "hasBasketUnderlying": false,
+   "cryptoActionBeginId": "f7f1b491-4c9f-4895-8c9a-153f1ba82234",
+   "cryptoActionEndId": null,
+   "startTs": "2021-04-13T07:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "settlementDetails": [
+  {
+   "contractSettleTs": null,
+   "settleClassificationCode": "FPMT",
+   "settleClassification": "Funding Payment",
+   "settleLukkaAssetId": "LA79U4XBU94",
+   "settleLukkaAssetCode": "UNISW",
+   "cryptoActionBeginId": "f7f1b491-4c9f-4895-8c9a-153f1ba82234",
+   "cryptoActionEndId": null,
+   "startTs": "2021-04-13T07:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "underlyingDetails": [
+  {
+   "underlyingLukkaAssetId": "LA79U4XBU94",
+   "underlyingLukkaAssetCode": "UNISW",
+   "percentOfUnderlying": 1,
+   "cryptoActionBeginId": "f7f1b491-4c9f-4895-8c9a-153f1ba82234",
+   "cryptoActionEndId": null,
+   "startTs": "2021-04-13T07:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "participantDetails": [
+  {
+   "participantType": "Primary Issuer",
+   "lukkaLegalEntityId": 336,
+   "participantLegalNameEnglish": "Binance Holdings Limited",
+   "legalFormCode": "LLC",
+   "legalForm": "Limited Liability Company",
+   "incorporationDate": null,
+   "jurisdiction": "Cayman Islands",
+   "jurisdictionCountryIso3": "CYM",
+   "jurisdictionCountryUnClassification": "Developing",
+   "jurisdictionCountryUnLeastDeveloped": false,
+   "cryptoActionBeginId": "f7f1b491-4c9f-4895-8c9a-153f1ba82234",
+   "cryptoActionEndId": null,
+   "startTs": "2021-04-13T07:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ]
+}

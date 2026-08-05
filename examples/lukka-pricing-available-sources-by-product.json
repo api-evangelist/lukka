@@ -1,0 +1,645 @@
+[
+ {
+  "sourceId": 4001,
+  "entityCode": "KRAK",
+  "sourceName": "Kraken",
+  "marketLid": "LM7LWWLBC02",
+  "firstDate": "2022-02-07T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4002,
+  "entityCode": "CPRO",
+  "sourceName": "Coinbase",
+  "marketLid": "LM8PY1VW6K1",
+  "firstDate": "2022-07-03T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4003,
+  "entityCode": "BITT",
+  "sourceName": "Bittrex",
+  "marketLid": "LM4VG9ELVW6",
+  "firstDate": "2021-09-28T15:20:22Z",
+  "lastDate": "2023-12-06T12:56:17Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4004,
+  "entityCode": "BFNX",
+  "sourceName": "Bitfinex",
+  "marketLid": "LM0QVHVUKN6",
+  "firstDate": "2022-07-03T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4006,
+  "entityCode": "BFLY",
+  "sourceName": "Bitflyer",
+  "marketLid": "LM0NCPR5EC8",
+  "firstDate": "2022-07-03T00:03:04Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4007,
+  "entityCode": "GATE",
+  "sourceName": "Gate.io",
+  "marketLid": "LM89V00FRJ6",
+  "firstDate": "2024-02-23T21:17:43Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4008,
+  "entityCode": "GMNI",
+  "sourceName": "Gemini",
+  "marketLid": "LM5VSM9N2A0",
+  "firstDate": "2022-01-28T00:00:03Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4009,
+  "entityCode": "HUOB",
+  "sourceName": "Huobi",
+  "marketLid": "LM2RNWLQPZ5",
+  "firstDate": "2022-02-07T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4010,
+  "entityCode": "KUCO",
+  "sourceName": "KuCoin",
+  "marketLid": "LM8NH16CLN9",
+  "firstDate": "2022-07-03T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4012,
+  "entityCode": "FTXX",
+  "sourceName": "FTX",
+  "marketLid": "LM15CZWZHC1",
+  "firstDate": "2022-07-03T00:00:00Z",
+  "lastDate": "2022-07-03T23:59:59Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4013,
+  "entityCode": "FTXU",
+  "sourceName": "FTX US",
+  "marketLid": "LM2PMF30A68",
+  "firstDate": "2022-07-03T00:00:00Z",
+  "lastDate": "2022-07-03T23:59:55Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4014,
+  "entityCode": "OKCN",
+  "sourceName": "OKCoin",
+  "marketLid": "LM026ST8BC1",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "lastDate": "2025-06-18T00:00:00Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4015,
+  "entityCode": "BYBT",
+  "sourceName": "Bybit",
+  "marketLid": "LM3AVZF3SD3",
+  "firstDate": "2024-02-23T17:25:58Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4016,
+  "entityCode": "BSTM",
+  "sourceName": "Bitstamp",
+  "marketLid": "LM5VMCEX2B2",
+  "firstDate": "2022-02-07T00:00:08Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4017,
+  "entityCode": "POLO",
+  "sourceName": "Poloniex",
+  "marketLid": "LM7ZXSZJYA7",
+  "firstDate": "2022-07-03T00:00:20Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4018,
+  "entityCode": "CRCM",
+  "sourceName": "Crypto.com",
+  "marketLid": "LM26MFWJKP5",
+  "firstDate": "2022-07-03T00:00:44Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4019,
+  "entityCode": "BMEX",
+  "sourceName": "Bitmex",
+  "marketLid": "LM5HW7ZSV28",
+  "firstDate": "2023-09-27T13:53:07Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4020,
+  "entityCode": "CMCP",
+  "sourceName": "CoinMarketCap",
+  "firstDate": "2021-10-13T16:00:05Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4021,
+  "entityCode": "CCAP",
+  "sourceName": "CoinCap",
+  "firstDate": "2022-07-03T00:00:00Z",
+  "lastDate": "2025-04-07T15:00:00Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4022,
+  "entityCode": "DERI",
+  "sourceName": "Deribit",
+  "marketLid": "LM4GCG78T72",
+  "firstDate": "2023-09-29T19:44:12Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4024,
+  "entityCode": "OKEX",
+  "sourceName": "OKEx",
+  "marketLid": "LM21MQR2EU5",
+  "firstDate": "2022-02-07T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4025,
+  "entityCode": "HBTC",
+  "sourceName": "HitBTC",
+  "marketLid": "LM4AWB221V1",
+  "firstDate": "2022-02-07T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4026,
+  "entityCode": "COMP",
+  "sourceName": "Compound",
+  "marketLid": "LM6BAAD91A4",
+  "firstDate": "2022-07-03T00:00:56Z",
+  "lastDate": "2023-10-19T23:59:59Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4028,
+  "entityCode": "BKCN",
+  "sourceName": "Blockchain.com",
+  "marketLid": "LM1HX4AF4V7",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4032,
+  "entityCode": "LMAX",
+  "sourceName": "LMAX",
+  "marketLid": "LM5TFX4GZ59",
+  "firstDate": "2023-09-29T19:43:35Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4033,
+  "entityCode": "BIUS",
+  "sourceName": "Binance US",
+  "marketLid": "LM4DTPJM858",
+  "firstDate": "2023-09-29T19:44:07Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4034,
+  "entityCode": "CBSEINT",
+  "sourceName": "Coinbase International",
+  "marketLid": "LM727DCEDF5",
+  "firstDate": "2024-02-23T17:27:11Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4035,
+  "entityCode": "DELTAEX",
+  "sourceName": "Delta Exchange",
+  "marketLid": "LM24RMAL9F8",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4036,
+  "entityCode": "MEXC",
+  "sourceName": "MEXC Global",
+  "marketLid": "LM3P1D8UYB3",
+  "firstDate": "2024-03-21T20:56:27Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4037,
+  "entityCode": "BULLISH",
+  "sourceName": "Bullish",
+  "marketLid": "LM0JWQWJ4G2",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4038,
+  "entityCode": "VALRX",
+  "sourceName": "VALR",
+  "marketLid": "LM0EL70BVY4",
+  "firstDate": "2024-04-23T15:24:13Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4039,
+  "entityCode": "MERC",
+  "sourceName": "Mercado Bitcoin",
+  "marketLid": "LM8SGQU33P4",
+  "firstDate": "2024-04-04T18:05:24Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4046,
+  "entityCode": "ITBT",
+  "sourceName": "itBit",
+  "marketLid": "LM561VU33S5",
+  "firstDate": "2024-02-29T20:59:44Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4047,
+  "entityCode": "UPBT",
+  "sourceName": "Upbit",
+  "marketLid": "LM6M1CKSMN0",
+  "firstDate": "2024-04-27T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4048,
+  "entityCode": "CNEX",
+  "sourceName": "CoinEx",
+  "marketLid": "LM8QRGYNBE5",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4050,
+  "entityCode": "HSKYPRO",
+  "sourceName": "HashKey Pro",
+  "marketLid": "LM0693A2CB3",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4051,
+  "entityCode": "HUOBIJP",
+  "sourceName": "Huobi Japan",
+  "marketLid": "LM7V6DL29S2",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4052,
+  "entityCode": "BTSO",
+  "sourceName": "Bitso",
+  "marketLid": "LM3146MJD51",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4053,
+  "entityCode": "CHCK",
+  "sourceName": "Coincheck",
+  "marketLid": "LM14SKMDN12",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4054,
+  "entityCode": "BTHM",
+  "sourceName": "Bithumb",
+  "marketLid": "LM41RU0NQA3",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4055,
+  "entityCode": "OPEX",
+  "sourceName": "Open Exchange Rates"
+ },
+ {
+  "sourceId": 4056,
+  "entityCode": "BITGET",
+  "sourceName": "Bitget",
+  "marketLid": "LM57MKK6QD5",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4057,
+  "entityCode": "MART",
+  "sourceName": "BitMart",
+  "marketLid": "LM87Q2EM3P3",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4058,
+  "entityCode": "BBNK",
+  "sourceName": "Bitbank",
+  "marketLid": "LM4C7SXCU78",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4059,
+  "entityCode": "BIBO",
+  "sourceName": "Bibox",
+  "marketLid": "LM856WD3H67",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "lastDate": "2025-06-19T21:00:00Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4061,
+  "entityCode": "PHMX",
+  "sourceName": "Phemex",
+  "marketLid": "LM2BLLBWCW3",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4062,
+  "entityCode": "WOO",
+  "sourceName": "WOO Network",
+  "marketLid": "LM5KZGA23J3",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4063,
+  "entityCode": "NOVADAX",
+  "sourceName": "NovaDAX",
+  "marketLid": "LM05L5053R2",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4064,
+  "entityCode": "TOBITX",
+  "sourceName": "Toobit",
+  "marketLid": "LM85262D232",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4065,
+  "entityCode": "BTCT",
+  "sourceName": "BTCTurk",
+  "marketLid": "LM4UETF0YJ5",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4066,
+  "entityCode": "IRSV",
+  "sourceName": "Independent Reserve",
+  "marketLid": "LM3B9WUX6X5",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4067,
+  "entityCode": "BTRU",
+  "sourceName": "Bitrue",
+  "marketLid": "LM8J7BQ69K5",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4068,
+  "entityCode": "LATK",
+  "sourceName": "LATOKEN",
+  "marketLid": "LM3C79QJC43",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4069,
+  "entityCode": "BCONMY",
+  "sourceName": "Biconomy",
+  "marketLid": "LM4TTFQTK46",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4070,
+  "entityCode": "BITKUB",
+  "sourceName": "Bitkub",
+  "marketLid": "LM0DMUBWE44",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4071,
+  "entityCode": "CHGLYPRO",
+  "sourceName": "Changelly PRO",
+  "marketLid": "LM3KQM7YR01",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4072,
+  "entityCode": "DEXTRADE",
+  "sourceName": "Dex-Trade",
+  "marketLid": "LM1NVY7MQ93",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4073,
+  "entityCode": "DIFX",
+  "sourceName": "DIFX",
+  "marketLid": "LM6EXF4CW63",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4074,
+  "entityCode": "DIGI",
+  "sourceName": "DigiFinex",
+  "marketLid": "LM2UWAB7LZ8",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4075,
+  "entityCode": "GMOC",
+  "sourceName": "GMO Coin",
+  "marketLid": "LM3XYJTGUP8",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4076,
+  "entityCode": "LUNO",
+  "sourceName": "Luno",
+  "marketLid": "LM6C47UMUG7",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4077,
+  "entityCode": "PPBB",
+  "sourceName": "P2PB2B",
+  "marketLid": "LM6Q6YLMP86",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "lastDate": "2026-04-02T15:00:00Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4078,
+  "entityCode": "PIONX",
+  "sourceName": "Pionex",
+  "marketLid": "LM5GUX1X8Z1",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4079,
+  "entityCode": "PNTPAY",
+  "sourceName": "PointPay",
+  "marketLid": "LM0UFV7G8K0",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4080,
+  "entityCode": "MEXOEX",
+  "sourceName": "TruBit Pro",
+  "marketLid": "LM59KBHKCP8",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4081,
+  "entityCode": "CMEG",
+  "sourceName": "CME Group",
+  "marketLid": "LM1601E3D64",
+  "firstDate": "2025-03-03T00:00:00Z",
+  "lastDate": "2025-04-25T18:00:00Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4082,
+  "entityCode": "FOXB",
+  "sourceName": "FoxBit",
+  "marketLid": "LM84KE0E9B7",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4083,
+  "entityCode": "CXIO",
+  "sourceName": "CEX.IO",
+  "marketLid": "LM6K8SAF5D6",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4084,
+  "entityCode": "BTMX",
+  "sourceName": "Ascendex",
+  "marketLid": "LM1CDKZBZ71",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4085,
+  "entityCode": "BINGBON",
+  "sourceName": "Bingbon",
+  "marketLid": "LM3YEWPW889",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4086,
+  "entityCode": "INDXDX",
+  "sourceName": "Indodax",
+  "marketLid": "LM8D6CSYP53",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4087,
+  "entityCode": "COINCALL",
+  "sourceName": "Coincall",
+  "marketLid": "LM2A279E959",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "lastDate": "2026-04-02T15:00:00Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4088,
+  "entityCode": "ORGNX",
+  "sourceName": "OrangeX",
+  "marketLid": "LM4F7EB31E4",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4089,
+  "entityCode": "BTNL",
+  "sourceName": "Bitnomial",
+  "marketLid": "LM7E443C985",
+  "firstDate": "2025-02-13T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4090,
+  "entityCode": "BITCOMX",
+  "sourceName": "Bit.com",
+  "marketLid": "LM41HZ6A6U8",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "lastDate": "2026-01-31T06:00:00Z",
+  "status": "INACTIVE"
+ },
+ {
+  "sourceId": 4091,
+  "entityCode": "THALX",
+  "sourceName": "Thalex",
+  "marketLid": "LM977F33B87",
+  "firstDate": "2025-02-13T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4093,
+  "entityCode": "LBNK",
+  "sourceName": "LBank",
+  "marketLid": "LM4T17N3UK9",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4094,
+  "entityCode": "DYDXX",
+  "sourceName": "dYdX",
+  "marketLid": "LM5W6KMQF10",
+  "firstDate": "2025-02-12T00:00:00Z",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4137,
+  "entityCode": "POLYMARK",
+  "sourceName": "Polymarket",
+  "marketLid": "LM8A3FFC399",
+  "status": "ACTIVE"
+ },
+ {
+  "sourceId": 4141,
+  "entityCode": "KALSHI",
+  "sourceName": "Kalshi",
+  "marketLid": "LM4E6ABFEE4"
+ }
+]

@@ -1,0 +1,156 @@
+{
+ "offset": 0,
+ "limit": 5,
+ "size": 5,
+ "links": {
+  "base": "/v2/lukka/assets/exposure",
+  "next": "/v2/lukka/assets/exposure?limit=5&offset=5",
+  "prev": null
+ },
+ "data": [
+  {
+   "alternateMarketIdentifier": "XTP1KT9T86M2",
+   "assetLid": "LA2SLM0T8T4",
+   "assetCode": "HUSD",
+   "commonStreetCode": "HUSD",
+   "assetNameEnglish": "Huobi Stablecoin-Huobi USD",
+   "assetTypeCode": "TKN",
+   "assetType": "Token",
+   "isCryptoAsset": true,
+   "isDigitalAsset": true,
+   "isTradfiAsset": false,
+   "hasUnderlyingAsset": true,
+   "hasCollateral": true,
+   "exposureLevel": 1,
+   "exposureLevelName": "Crypto Exposure: Direct",
+   "valuePropositionList": [
+    {
+     "valuePropositionCode": "STBLVAL",
+     "valueProposition": "Stable Value"
+    },
+    {
+     "valuePropositionCode": "FUNG",
+     "valueProposition": "Fungibility"
+    }
+   ],
+   "underlyingAssetList": [
+    {
+     "underlyingAssetLid": "LA3YM6GRUJ4",
+     "underlyingAssetName": "US Dollar"
+    }
+   ]
+  },
+  {
+   "alternateMarketIdentifier": "XTBSF74H7GR2",
+   "assetLid": "LA0Y44036E0",
+   "assetCode": "BUSD",
+   "commonStreetCode": "BUSD",
+   "assetNameEnglish": "Binance USD (ERC20)",
+   "assetTypeCode": "TKN",
+   "assetType": "Token",
+   "isCryptoAsset": true,
+   "isDigitalAsset": true,
+   "isTradfiAsset": false,
+   "hasUnderlyingAsset": true,
+   "hasCollateral": true,
+   "exposureLevel": 1,
+   "exposureLevelName": "Crypto Exposure: Direct",
+   "valuePropositionList": [
+    {
+     "valuePropositionCode": "STBLVAL",
+     "valueProposition": "Stable Value"
+    }
+   ],
+   "underlyingAssetList": [
+    {
+     "underlyingAssetLid": "LA3YM6GRUJ4",
+     "underlyingAssetName": "US Dollar"
+    }
+   ]
+  },
+  {
+   "alternateMarketIdentifier": "XTQ00DC0PHH4",
+   "assetLid": "LA65GTRH8G7",
+   "assetCode": "TUSD",
+   "commonStreetCode": "TUSD",
+   "assetNameEnglish": "TrueUSD",
+   "assetTypeCode": "TKN",
+   "assetType": "Token",
+   "isCryptoAsset": true,
+   "isDigitalAsset": true,
+   "isTradfiAsset": false,
+   "hasUnderlyingAsset": true,
+   "hasCollateral": true,
+   "exposureLevel": 1,
+   "exposureLevelName": "Crypto Exposure: Direct",
+   "valuePropositionList": [
+    {
+     "valuePropositionCode": "STBLVAL",
+     "valueProposition": "Stable Value"
+    }
+   ],
+   "underlyingAssetList": [
+    {
+     "underlyingAssetLid": "LA3YM6GRUJ4",
+     "underlyingAssetName": "US Dollar"
+    }
+   ]
+  },
+  {
+   "alternateMarketIdentifier": "XTTJWK5QTRK6",
+   "assetLid": "LA1S39UVDK1",
+   "assetCode": "USDC",
+   "commonStreetCode": "USDC",
+   "assetNameEnglish": "USD Coin (Ethereum)",
+   "assetTypeCode": "TKN",
+   "assetType": "Token",
+   "isCryptoAsset": true,
+   "isDigitalAsset": true,
+   "isTradfiAsset": false,
+   "hasUnderlyingAsset": true,
+   "hasCollateral": true,
+   "exposureLevel": 1,
+   "exposureLevelName": "Crypto Exposure: Direct",
+   "valuePropositionList": [
+    {
+     "valuePropositionCode": "STBLVAL",
+     "valueProposition": "Stable Value"
+    }
+   ],
+   "underlyingAssetList": [
+    {
+     "underlyingAssetLid": "LA3YM6GRUJ4",
+     "underlyingAssetName": "US Dollar"
+    }
+   ]
+  },
+  {
+   "alternateMarketIdentifier": "XTL09Q657BK6",
+   "assetLid": "LA176YWNB05",
+   "assetCode": "USDT",
+   "commonStreetCode": "USDT",
+   "assetNameEnglish": "Tether",
+   "assetTypeCode": "TKN",
+   "assetType": "Token",
+   "isCryptoAsset": true,
+   "isDigitalAsset": true,
+   "isTradfiAsset": false,
+   "hasUnderlyingAsset": true,
+   "hasCollateral": true,
+   "exposureLevel": 1,
+   "exposureLevelName": "Crypto Exposure: Direct",
+   "valuePropositionList": [
+    {
+     "valuePropositionCode": "STBLVAL",
+     "valueProposition": "Stable Value"
+    }
+   ],
+   "underlyingAssetList": [
+    {
+     "underlyingAssetLid": "LA3YM6GRUJ4",
+     "underlyingAssetName": "US Dollar"
+    }
+   ]
+  }
+ ]
+}

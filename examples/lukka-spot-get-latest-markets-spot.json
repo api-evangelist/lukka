@@ -1,0 +1,77 @@
+{
+ "dataType": "markets",
+ "count": 5,
+ "data": [
+  {
+   "sourceId": 4002,
+   "entityCode": "CPRO",
+   "entityName": "Coinbase",
+   "pairCode": "MOGBASE-USD",
+   "baseAssetCode": "MOGBASE",
+   "counterAssetCode": "USD",
+   "latestPrice": "0.00000019",
+   "latestPriceUsd": "0.00000019",
+   "volume24h": "6547130441005.0",
+   "volumeUsd24h": "1073942.5124679392",
+   "tradeCount24h": "3373.0",
+   "latestPriceTs": "2026-04-22T15:38:32.152011100Z"
+  },
+  {
+   "sourceId": 4002,
+   "entityCode": "CPRO",
+   "entityName": "Coinbase",
+   "pairCode": "PEPE1-USD",
+   "baseAssetCode": "PEPE1",
+   "counterAssetCode": "USD",
+   "latestPrice": "0.00000392",
+   "latestPriceUsd": "0.00000392",
+   "volume24h": "1842245094219.0",
+   "volumeUsd24h": "7095790.352498492",
+   "tradeCount24h": "10298.0",
+   "latestPriceTs": "2026-04-22T15:38:49.113050046Z"
+  },
+  {
+   "sourceId": 4002,
+   "entityCode": "CPRO",
+   "entityName": "Coinbase",
+   "pairCode": "BONK1-USD",
+   "baseAssetCode": "BONK1",
+   "counterAssetCode": "USD",
+   "latestPrice": "0.00000647",
+   "latestPriceUsd": "0.00000647",
+   "volume24h": "465482329507.0",
+   "volumeUsd24h": "2946669.1759001464",
+   "tradeCount24h": "7036.0",
+   "latestPriceTs": "2026-04-22T15:38:49.107029597Z"
+  },
+  {
+   "sourceId": 4002,
+   "entityCode": "CPRO",
+   "entityName": "Coinbase",
+   "pairCode": "SHIB-USD",
+   "baseAssetCode": "SHIB",
+   "counterAssetCode": "USD",
+   "latestPrice": "0.00000628",
+   "latestPriceUsd": "0.00000628",
+   "volume24h": "135760512133.0",
+   "volumeUsd24h": "838307.1647146696",
+   "tradeCount24h": "2721.0",
+   "latestPriceTs": "2026-04-22T15:39:13.793072413Z"
+  },
+  {
+   "sourceId": 4002,
+   "entityCode": "CPRO",
+   "entityName": "Coinbase",
+   "pairCode": "SHIB-EUR",
+   "baseAssetCode": "SHIB",
+   "counterAssetCode": "EUR",
+   "latestPrice": "0.00000534",
+   "latestPriceUsd": "0.0000062596760027",
+   "volume24h": "13699636548.0",
+   "volumeUsd24h": "84530.93673294535",
+   "tradeCount24h": "453.0",
+   "latestPriceTs": "2026-04-22T15:36:24.102099064Z"
+  }
+ ],
+ "nextPageUrl": "https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/SPOT?sourceIds=4002&limit=5&offset=5"
+}

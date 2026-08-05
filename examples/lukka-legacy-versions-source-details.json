@@ -1,0 +1,1000 @@
+{
+ "sourceId": 4008,
+ "sourceName": "Gemini",
+ "pairs": [
+  {
+   "pairCode": "ORC-USD",
+   "baseAsset": "ORC",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA3C7C29RR9",
+   "baseAssetName": "Orchid Token"
+  },
+  {
+   "pairCode": "BUSD-USD",
+   "baseAsset": "BUSD",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA0Y44036E0",
+   "baseAssetName": "Binance USD (ERC20)"
+  },
+  {
+   "pairCode": "PAXG-USD",
+   "baseAsset": "PAXG",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA12AGMPCH8",
+   "baseAssetName": "PAX Gold"
+  },
+  {
+   "pairCode": "RNDR-USD",
+   "baseAsset": "RNDR",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7RVU9QAS5",
+   "baseAssetName": "Render Token"
+  },
+  {
+   "pairCode": "SOLN-USD",
+   "baseAsset": "SOLN",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1DB6PX4M7",
+   "baseAssetName": "Solana Token"
+  },
+  {
+   "pairCode": "BALR-USD",
+   "baseAsset": "BALR",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA8MT7Y5M31",
+   "baseAssetName": "Balancer"
+  },
+  {
+   "pairCode": "SANDB-USD",
+   "baseAsset": "SANDB",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1Z9L3ZAD1",
+   "baseAssetName": "The Sandbox"
+  },
+  {
+   "pairCode": "QRDO-USD",
+   "baseAsset": "QRDO",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4RXJTS6X8",
+   "baseAssetName": "Qredo Token"
+  },
+  {
+   "pairCode": "EUL-USD",
+   "baseAsset": "EUL",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA19PR3TDZ5",
+   "baseAssetName": "Euler"
+  },
+  {
+   "pairCode": "BTT-XBT",
+   "baseAsset": "BTT",
+   "counterAsset": "XBT",
+   "baseAssetLukkaId": "LA582W6NAZ0",
+   "baseAssetName": "Basic Attention Token"
+  },
+  {
+   "pairCode": "ZEC-XLT",
+   "baseAsset": "ZEC",
+   "counterAsset": "XLT",
+   "baseAssetLukkaId": "LA0KKUNXTT0",
+   "baseAssetName": "Zcash"
+  },
+  {
+   "pairCode": "ZEC-BCH",
+   "baseAsset": "ZEC",
+   "counterAsset": "BCH",
+   "baseAssetLukkaId": "LA0KKUNXTT0",
+   "baseAssetName": "Zcash"
+  },
+  {
+   "pairCode": "ETH-GUSD",
+   "baseAsset": "ETH",
+   "counterAsset": "GUSD",
+   "baseAssetLukkaId": "LA8VRAGEMT1",
+   "baseAssetName": "Ether"
+  },
+  {
+   "pairCode": "NMR-USD",
+   "baseAsset": "NMR",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA44S9Q6Z06",
+   "baseAssetName": "Numeraire"
+  },
+  {
+   "pairCode": "BCH-USD",
+   "baseAsset": "BCH",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7LPZBEZZ0",
+   "baseAssetName": "Bitcoin Cash"
+  },
+  {
+   "pairCode": "ZRX-USD",
+   "baseAsset": "ZRX",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA8M5PN2HV3",
+   "baseAssetName": "0x project"
+  },
+  {
+   "pairCode": "TRU-USD",
+   "baseAsset": "TRU",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA026ST8BC1",
+   "baseAssetName": "TrustToken"
+  },
+  {
+   "pairCode": "INDEXT-USD",
+   "baseAsset": "INDEXT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA41AUJRFQ2",
+   "baseAssetName": "Index Cooperative"
+  },
+  {
+   "pairCode": "FIDA-USD",
+   "baseAsset": "FIDA",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1NAYENP56",
+   "baseAssetName": "Bonfida"
+  },
+  {
+   "pairCode": "MASK-USD",
+   "baseAsset": "MASK",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1TG4C9AL3",
+   "baseAssetName": "Mask Network"
+  },
+  {
+   "pairCode": "RAD-USD",
+   "baseAsset": "RAD",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA11S3T0W01",
+   "baseAssetName": "Radicle"
+  },
+  {
+   "pairCode": "ERN1-USD",
+   "baseAsset": "ERN1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA5DZTFDKN1",
+   "baseAssetName": "Ethernity"
+  },
+  {
+   "pairCode": "CRX1-USD",
+   "baseAsset": "CRX1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA2P3D701V0",
+   "baseAssetName": "CryptEx"
+  },
+  {
+   "pairCode": "ASH-USD",
+   "baseAsset": "ASH",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6ZDWUVYH4",
+   "baseAssetName": "Ash"
+  },
+  {
+   "pairCode": "ORC-ETH",
+   "baseAsset": "ORC",
+   "counterAsset": "ETH",
+   "baseAssetLukkaId": "LA3C7C29RR9",
+   "baseAssetName": "Orchid Token"
+  },
+  {
+   "pairCode": "XBT-MCD",
+   "baseAsset": "XBT",
+   "counterAsset": "MCD",
+   "baseAssetLukkaId": "LA6EV2NKQ95",
+   "baseAssetName": "Bitcoin"
+  },
+  {
+   "pairCode": "ETH-GBP",
+   "baseAsset": "ETH",
+   "counterAsset": "GBP",
+   "baseAssetLukkaId": "LA8VRAGEMT1",
+   "baseAssetName": "Ether"
+  },
+  {
+   "pairCode": "XBT-USD",
+   "baseAsset": "XBT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6EV2NKQ95",
+   "baseAssetName": "Bitcoin"
+  },
+  {
+   "pairCode": "XTZ-USD",
+   "baseAsset": "XTZ",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA33P8DWU59",
+   "baseAssetName": "Tezos"
+  },
+  {
+   "pairCode": "HVV-USD",
+   "baseAsset": "HVV",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA5GQ5KP4B1",
+   "baseAssetName": "Synthetix Network Token"
+  },
+  {
+   "pairCode": "CHZ-USD",
+   "baseAsset": "CHZ",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA8WQG0TU08",
+   "baseAssetName": "Chiliz"
+  },
+  {
+   "pairCode": "MCD-USD",
+   "baseAsset": "MCD",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1LC6NTDP7",
+   "baseAssetName": "Multi_Collateral Dai"
+  },
+  {
+   "pairCode": "UNISW-USD",
+   "baseAsset": "UNISW",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA79U4XBU94",
+   "baseAssetName": "Uniswap"
+  },
+  {
+   "pairCode": "PLAYD-USD",
+   "baseAsset": "PLAYD",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA147DUGHT0",
+   "baseAssetName": "PlayDapp"
+  },
+  {
+   "pairCode": "BOND-USD",
+   "baseAsset": "BOND",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4DFRBRRB1",
+   "baseAssetName": "BarnBridge"
+  },
+  {
+   "pairCode": "AAVE-USD",
+   "baseAsset": "AAVE",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA2EYFUQT32",
+   "baseAssetName": "Aave Token"
+  },
+  {
+   "pairCode": "1INCH-USD",
+   "baseAsset": "1INCH",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1MRQXUME4",
+   "baseAssetName": "1inch Network (ERC20)"
+  },
+  {
+   "pairCode": "LDO-USD",
+   "baseAsset": "LDO",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA0CDQSPEJ4",
+   "baseAssetName": "Lido DAO Token"
+  },
+  {
+   "pairCode": "SLP1-USD",
+   "baseAsset": "SLP1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4PCXN6C15",
+   "baseAssetName": "Smooth Love Potion"
+  },
+  {
+   "pairCode": "GFI1-USD",
+   "baseAsset": "GFI1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6YCTNECP1",
+   "baseAssetName": "Goldfinch"
+  },
+  {
+   "pairCode": "ZBC1-USD",
+   "baseAsset": "ZBC1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA34E5FF7R6",
+   "baseAssetName": "Zebec"
+  },
+  {
+   "pairCode": "GUSD-GBP",
+   "baseAsset": "GUSD",
+   "counterAsset": "GBP",
+   "baseAssetLukkaId": "LA7BKFY5DR3",
+   "baseAssetName": "Gemini Dollar"
+  },
+  {
+   "pairCode": "KNK-USD",
+   "baseAsset": "KNK",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4FWC4Y657",
+   "baseAssetName": "Kyber Network Legacy"
+  },
+  {
+   "pairCode": "QNT-USD",
+   "baseAsset": "QNT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA2YMJFWJY9",
+   "baseAssetName": "Quant Network"
+  },
+  {
+   "pairCode": "LNA-USD",
+   "baseAsset": "LNA",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA0CPJ7PSE2",
+   "baseAssetName": "Luna Classic"
+  },
+  {
+   "pairCode": "UST-USD",
+   "baseAsset": "UST",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA5UWXEH194",
+   "baseAssetName": "TerraClassicUSD"
+  },
+  {
+   "pairCode": "INJ-USD",
+   "baseAsset": "INJ",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA0VXV35LE6",
+   "baseAssetName": "Injective Protocol"
+  },
+  {
+   "pairCode": "KP3R-USD",
+   "baseAsset": "KP3R",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA03656GMM9",
+   "baseAssetName": "Keep3r Network"
+  },
+  {
+   "pairCode": "API3-USD",
+   "baseAsset": "API3",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4YH94ZFQ3",
+   "baseAssetName": "API3"
+  },
+  {
+   "pairCode": "CUBE1-USD",
+   "baseAsset": "CUBE1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA625EL2QA7",
+   "baseAssetName": "Somnium Space CUBE"
+  },
+  {
+   "pairCode": "SPELL-USD",
+   "baseAsset": "SPELL",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA403UQARV5",
+   "baseAssetName": "Spell Token"
+  },
+  {
+   "pairCode": "IOTX2-USD",
+   "baseAsset": "IOTX2",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA660HBQQG6",
+   "baseAssetName": "IoTeX Network (ERC20)"
+  },
+  {
+   "pairCode": "JAM1-USD",
+   "baseAsset": "JAM1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA58SBP6MB1",
+   "baseAssetName": "Geojam"
+  },
+  {
+   "pairCode": "ETH-EUR",
+   "baseAsset": "ETH",
+   "counterAsset": "EUR",
+   "baseAssetLukkaId": "LA8VRAGEMT1",
+   "baseAssetName": "Ether"
+  },
+  {
+   "pairCode": "ETH-XBT",
+   "baseAsset": "ETH",
+   "counterAsset": "XBT",
+   "baseAssetLukkaId": "LA8VRAGEMT1",
+   "baseAssetName": "Ether"
+  },
+  {
+   "pairCode": "DOGE-ETH",
+   "baseAsset": "DOGE",
+   "counterAsset": "ETH",
+   "baseAssetLukkaId": "LA2KTXEB1J7",
+   "baseAssetName": "Dogecoin"
+  },
+  {
+   "pairCode": "XLT-ETH",
+   "baseAsset": "XLT",
+   "counterAsset": "ETH",
+   "baseAssetLukkaId": "LA58RADHS00",
+   "baseAssetName": "Litecoin"
+  },
+  {
+   "pairCode": "BCH-XLT",
+   "baseAsset": "BCH",
+   "counterAsset": "XLT",
+   "baseAssetLukkaId": "LA7LPZBEZZ0",
+   "baseAssetName": "Bitcoin Cash"
+  },
+  {
+   "pairCode": "ENJ-USD",
+   "baseAsset": "ENJ",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA3MJLJ8AQ5",
+   "baseAssetName": "Enjin Coin"
+  },
+  {
+   "pairCode": "LRC-USD",
+   "baseAsset": "LRC",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA70VPRXYD8",
+   "baseAssetName": "Loopring"
+  },
+  {
+   "pairCode": "BTT-USD",
+   "baseAsset": "BTT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA582W6NAZ0",
+   "baseAssetName": "Basic Attention Token"
+  },
+  {
+   "pairCode": "REN-USD",
+   "baseAsset": "REN",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4LRTT9577",
+   "baseAssetName": "Ren"
+  },
+  {
+   "pairCode": "MIR1-USD",
+   "baseAsset": "MIR1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7PY7CG6H0",
+   "baseAssetName": "Wrapped MIR Token"
+  },
+  {
+   "pairCode": "FXS-USD",
+   "baseAsset": "FXS",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA19V2XQ2U3",
+   "baseAssetName": "Frax Share"
+  },
+  {
+   "pairCode": "LQTY-USD",
+   "baseAsset": "LQTY",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA8R84X5597",
+   "baseAssetName": "Liquity"
+  },
+  {
+   "pairCode": "LUSD1-USD",
+   "baseAsset": "LUSD1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1EJ5XTNJ0",
+   "baseAssetName": "Liquity USD"
+  },
+  {
+   "pairCode": "METIS-USD",
+   "baseAsset": "METIS",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA08QT5PB81",
+   "baseAssetName": "Metis"
+  },
+  {
+   "pairCode": "AXS1-USD",
+   "baseAsset": "AXS1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA2TGYZW7Q0",
+   "baseAssetName": "Axie Infinity Shards"
+  },
+  {
+   "pairCode": "SAMO-USD",
+   "baseAsset": "SAMO",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA3EFBH0XA9",
+   "baseAssetName": "Samoyedcoin"
+  },
+  {
+   "pairCode": "BICO-USD",
+   "baseAsset": "BICO",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA87T4WE1B8",
+   "baseAssetName": "Biconomy Token"
+  },
+  {
+   "pairCode": "DOGE-XBT",
+   "baseAsset": "DOGE",
+   "counterAsset": "XBT",
+   "baseAssetLukkaId": "LA2KTXEB1J7",
+   "baseAssetName": "Dogecoin"
+  },
+  {
+   "pairCode": "GUSD-SGD",
+   "baseAsset": "GUSD",
+   "counterAsset": "SGD",
+   "baseAssetLukkaId": "LA7BKFY5DR3",
+   "baseAssetName": "Gemini Dollar"
+  },
+  {
+   "pairCode": "FIL-USD",
+   "baseAsset": "FIL",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4N4WSETC3",
+   "baseAssetName": "Filecoin"
+  },
+  {
+   "pairCode": "USDC-USD",
+   "baseAsset": "USDC",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1S39UVDK1",
+   "baseAssetName": "USD Coin (Ethereum)"
+  },
+  {
+   "pairCode": "UMA-USD",
+   "baseAsset": "UMA",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7P4N59YH6",
+   "baseAssetName": "UMA Voting Token"
+  },
+  {
+   "pairCode": "GALAG-USD",
+   "baseAsset": "GALAG",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1HCAJ9UD5",
+   "baseAssetName": "GALA"
+  },
+  {
+   "pairCode": "GRT1-USD",
+   "baseAsset": "GRT1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA07D2Y9704",
+   "baseAssetName": "The Graph"
+  },
+  {
+   "pairCode": "ALCX-USD",
+   "baseAsset": "ALCX",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA8F7CDVCR0",
+   "baseAssetName": "Alchemix"
+  },
+  {
+   "pairCode": "MPL-USD",
+   "baseAsset": "MPL",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA0Q0CRFD70",
+   "baseAssetName": "Maple"
+  },
+  {
+   "pairCode": "GMT3-USD",
+   "baseAsset": "GMT3",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA3XZEU4246",
+   "baseAssetName": "Green Metaverse Token"
+  },
+  {
+   "pairCode": "XBT-GBP",
+   "baseAsset": "XBT",
+   "counterAsset": "GBP",
+   "baseAssetLukkaId": "LA6EV2NKQ95",
+   "baseAssetName": "Bitcoin"
+  },
+  {
+   "pairCode": "MKR-USD",
+   "baseAsset": "MKR",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA183PCSYJ5",
+   "baseAssetName": "Maker"
+  },
+  {
+   "pairCode": "COMPG-USD",
+   "baseAsset": "COMPG",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7VE8A7C84",
+   "baseAssetName": "Compound Governance Token"
+  },
+  {
+   "pairCode": "DPI-USD",
+   "baseAsset": "DPI",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA5N3SEQEU4",
+   "baseAssetName": "DeFi Pulse Index"
+  },
+  {
+   "pairCode": "RLY-USD",
+   "baseAsset": "RLY",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA3G6D4VXR6",
+   "baseAssetName": "Rally"
+  },
+  {
+   "pairCode": "FET1-USD",
+   "baseAsset": "FET1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6ZQE1P6R2",
+   "baseAssetName": "Fetch Token"
+  },
+  {
+   "pairCode": "MC1-USD",
+   "baseAsset": "MC1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA79V1E4BU6",
+   "baseAssetName": "Merit Circle Token"
+  },
+  {
+   "pairCode": "ALI1-USD",
+   "baseAsset": "ALI1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA741KKWS57",
+   "baseAssetName": "Artificial Liquid Intelligence Token"
+  },
+  {
+   "pairCode": "ZEC-ETH",
+   "baseAsset": "ZEC",
+   "counterAsset": "ETH",
+   "baseAssetLukkaId": "LA0KKUNXTT0",
+   "baseAssetName": "Zcash"
+  },
+  {
+   "pairCode": "BTT-ETH",
+   "baseAsset": "BTT",
+   "counterAsset": "ETH",
+   "baseAssetLukkaId": "LA582W6NAZ0",
+   "baseAssetName": "Basic Attention Token"
+  },
+  {
+   "pairCode": "DOGE-USD",
+   "baseAsset": "DOGE",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA2KTXEB1J7",
+   "baseAssetName": "Dogecoin"
+  },
+  {
+   "pairCode": "CVC-USD",
+   "baseAsset": "CVC",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA02CAGRPE5",
+   "baseAssetName": "Civic"
+  },
+  {
+   "pairCode": "STORJ-USD",
+   "baseAsset": "STORJ",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1X71BUCT5",
+   "baseAssetName": "Storj"
+  },
+  {
+   "pairCode": "LPT-USD",
+   "baseAsset": "LPT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA04TF82B57",
+   "baseAssetName": "Livepeer"
+  },
+  {
+   "pairCode": "CRV-USD",
+   "baseAsset": "CRV",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1UKLMMDV5",
+   "baseAssetName": "Curve DAO Token"
+  },
+  {
+   "pairCode": "RBN-USD",
+   "baseAsset": "RBN",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6HF8YJRD7",
+   "baseAssetName": "Ribbon"
+  },
+  {
+   "pairCode": "LINK-XBT",
+   "baseAsset": "LINK",
+   "counterAsset": "XBT",
+   "baseAssetLukkaId": "LA7U39EMAF1",
+   "baseAssetName": "ChainLink"
+  },
+  {
+   "pairCode": "BNT-USD",
+   "baseAsset": "BNT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4GW3JZYZ0",
+   "baseAssetName": "Bancor Network Token"
+  },
+  {
+   "pairCode": "MANA-USD",
+   "baseAsset": "MANA",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA86174LGN9",
+   "baseAssetName": "Decentraland"
+  },
+  {
+   "pairCode": "MATIC-USD",
+   "baseAsset": "MATIC",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4X5RK5X35",
+   "baseAssetName": "Polygon"
+  },
+  {
+   "pairCode": "RAY-USD",
+   "baseAsset": "RAY",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6ZDHAN1T7",
+   "baseAssetName": "Raydium"
+  },
+  {
+   "pairCode": "WCFG-USD",
+   "baseAsset": "WCFG",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6DSQYZTW9",
+   "baseAssetName": "Wrapped Centrifuge"
+  },
+  {
+   "pairCode": "SBR-USD",
+   "baseAsset": "SBR",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4NJ0KD8X7",
+   "baseAssetName": "Saber Protocol Token"
+  },
+  {
+   "pairCode": "MIM1-USD",
+   "baseAsset": "MIM1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA0GSQ4JKK6",
+   "baseAssetName": "Magic Internet Money"
+  },
+  {
+   "pairCode": "IMX2-USD",
+   "baseAsset": "IMX2",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA3Z0M9XLU6",
+   "baseAssetName": "Immutable X Token"
+  },
+  {
+   "pairCode": "ENS1-USD",
+   "baseAsset": "ENS1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7ZAJ2PKC7",
+   "baseAssetName": "Ethereum Name Service Token"
+  },
+  {
+   "pairCode": "XBT-EUR",
+   "baseAsset": "XBT",
+   "counterAsset": "EUR",
+   "baseAssetLukkaId": "LA6EV2NKQ95",
+   "baseAssetName": "Bitcoin"
+  },
+  {
+   "pairCode": "BCH-XBT",
+   "baseAsset": "BCH",
+   "counterAsset": "XBT",
+   "baseAssetLukkaId": "LA7LPZBEZZ0",
+   "baseAssetName": "Bitcoin Cash"
+  },
+  {
+   "pairCode": "XBT-SGD",
+   "baseAsset": "XBT",
+   "counterAsset": "SGD",
+   "baseAssetLukkaId": "LA6EV2NKQ95",
+   "baseAssetName": "Bitcoin"
+  },
+  {
+   "pairCode": "XLT-USD",
+   "baseAsset": "XLT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA58RADHS00",
+   "baseAssetName": "Litecoin"
+  },
+  {
+   "pairCode": "GUSD-USD",
+   "baseAsset": "GUSD",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7BKFY5DR3",
+   "baseAssetName": "Gemini Dollar"
+  },
+  {
+   "pairCode": "COS-USD",
+   "baseAsset": "COS",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA5035CKJ49",
+   "baseAssetName": "Cosmos"
+  },
+  {
+   "pairCode": "PDT-USD",
+   "baseAsset": "PDT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA8FGEG06T7",
+   "baseAssetName": "Polkadot"
+  },
+  {
+   "pairCode": "YFI-USD",
+   "baseAsset": "YFI",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7ZY16ENY6",
+   "baseAssetName": "yearn.finance"
+  },
+  {
+   "pairCode": "AVAX-USD",
+   "baseAsset": "AVAX",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA1R2QPRFJ6",
+   "baseAssetName": "Avalanche"
+  },
+  {
+   "pairCode": "SUSHI-USD",
+   "baseAsset": "SUSHI",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA18TX7JEU2",
+   "baseAssetName": "SushiSwap"
+  },
+  {
+   "pairCode": "AUDIO-USD",
+   "baseAsset": "AUDIO",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA50WF0RR83",
+   "baseAssetName": "Audius"
+  },
+  {
+   "pairCode": "SKL-USD",
+   "baseAsset": "SKL",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA424V978M0",
+   "baseAssetName": "SKALE Network"
+  },
+  {
+   "pairCode": "MCO2-USD",
+   "baseAsset": "MCO2",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7BZJVCF04",
+   "baseAssetName": "Moss Carbon Credit"
+  },
+  {
+   "pairCode": "KNC1-USD",
+   "baseAsset": "KNC1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6N9MNF1Z5",
+   "baseAssetName": "Kyber Network Crystal v2"
+  },
+  {
+   "pairCode": "RARE1-USD",
+   "baseAsset": "RARE1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4UMYUTQS0",
+   "baseAssetName": "SuperRare"
+  },
+  {
+   "pairCode": "ZEC-XBT",
+   "baseAsset": "ZEC",
+   "counterAsset": "XBT",
+   "baseAssetLukkaId": "LA0KKUNXTT0",
+   "baseAssetName": "Zcash"
+  },
+  {
+   "pairCode": "ETH-SGD",
+   "baseAsset": "ETH",
+   "counterAsset": "SGD",
+   "baseAssetLukkaId": "LA8VRAGEMT1",
+   "baseAssetName": "Ether"
+  },
+  {
+   "pairCode": "ETH-USD",
+   "baseAsset": "ETH",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA8VRAGEMT1",
+   "baseAssetName": "Ether"
+  },
+  {
+   "pairCode": "ZEC-USD",
+   "baseAsset": "ZEC",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA0KKUNXTT0",
+   "baseAssetName": "Zcash"
+  },
+  {
+   "pairCode": "LINK-USD",
+   "baseAsset": "LINK",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA7U39EMAF1",
+   "baseAssetName": "ChainLink"
+  },
+  {
+   "pairCode": "FTM-USD",
+   "baseAsset": "FTM",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4UB4BY886",
+   "baseAssetName": "Fantom Token"
+  },
+  {
+   "pairCode": "ANKR-USD",
+   "baseAsset": "ANKR",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA2A3P5MSG5",
+   "baseAssetName": "Ankr Network"
+  },
+  {
+   "pairCode": "SHIB-USD",
+   "baseAsset": "SHIB",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA2U45DXKM4",
+   "baseAssetName": "SHIBA INU"
+  },
+  {
+   "pairCode": "REVV-USD",
+   "baseAsset": "REVV",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA46YNQ14W2",
+   "baseAssetName": "REVV Motorsport Token"
+  },
+  {
+   "pairCode": "AMP1-USD",
+   "baseAsset": "AMP1",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA2FFMQZW27",
+   "baseAssetName": "AMP"
+  },
+  {
+   "pairCode": "APE2-USD",
+   "baseAsset": "APE2",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA07HZNJ663",
+   "baseAssetName": "ApeCoin"
+  },
+  {
+   "pairCode": "GAL2-USD",
+   "baseAsset": "GAL2",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA8QD1V59E4",
+   "baseAssetName": "Galxe"
+  },
+  {
+   "pairCode": "ORC-XBT",
+   "baseAsset": "ORC",
+   "counterAsset": "XBT",
+   "baseAssetLukkaId": "LA3C7C29RR9",
+   "baseAssetName": "Orchid Token"
+  },
+  {
+   "pairCode": "XBT-GUSD",
+   "baseAsset": "XBT",
+   "counterAsset": "GUSD",
+   "baseAssetLukkaId": "LA6EV2NKQ95",
+   "baseAssetName": "Bitcoin"
+  },
+  {
+   "pairCode": "ETH-MCD",
+   "baseAsset": "ETH",
+   "counterAsset": "MCD",
+   "baseAssetLukkaId": "LA8VRAGEMT1",
+   "baseAssetName": "Ether"
+  },
+  {
+   "pairCode": "ELON-USD",
+   "baseAsset": "ELON",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA4XTF9TXW1",
+   "baseAssetName": "Dogelon"
+  },
+  {
+   "pairCode": "TOKE-USD",
+   "baseAsset": "TOKE",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA5W9KYDPQ3",
+   "baseAssetName": "Tokemak"
+  },
+  {
+   "pairCode": "ORCA-USD",
+   "baseAsset": "ORCA",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA0C87NY071",
+   "baseAssetName": "ORCA Governance Token"
+  },
+  {
+   "pairCode": "XLT-XBT",
+   "baseAsset": "XLT",
+   "counterAsset": "XBT",
+   "baseAssetLukkaId": "LA58RADHS00",
+   "baseAssetName": "Litecoin"
+  },
+  {
+   "pairCode": "BCH-ETH",
+   "baseAsset": "BCH",
+   "counterAsset": "ETH",
+   "baseAssetLukkaId": "LA7LPZBEZZ0",
+   "baseAssetName": "Bitcoin Cash"
+  },
+  {
+   "pairCode": "LINK-ETH",
+   "baseAsset": "LINK",
+   "counterAsset": "ETH",
+   "baseAssetLukkaId": "LA7U39EMAF1",
+   "baseAssetName": "ChainLink"
+  }
+ ]
+}

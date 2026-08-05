@@ -1,0 +1,14 @@
+{
+ "lukkaId": "LA4QVLA9QE0",
+ "lukkaAssetCode": "PAX",
+ "lukkaAssetName": "Paxos Standard Token",
+ "whitepaperCode": "PAX",
+ "assetType": "stable coin",
+ "totalSupply": 1212563073,
+ "circulatingSupply": 1212563073,
+ "supplyUpdateTime": "2021-05-07T11:16:29.278Z",
+ "assetWebsite": "https://www.paxos.com/pax/",
+ "blockchain": "ERC20",
+ "contractAddress": "0x8E870D67F660D95d5be530380D0eC0bd388289E1",
+ "lukkaAssetInternalId": 12410
+}

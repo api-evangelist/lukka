@@ -1,0 +1,85 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://apidocs.lukka.tech/
+- https://github.com/lukkatech/lukka-mcps
+versioning:
+  scheme: uri-path
+  versions_in_use:
+  - v1
+  - v2
+  - v3
+  per_product:
+  - product: Reference Data
+    current: v2
+    previous: v1
+    base: https://data-refdata-api.lukka.tech/v2
+    note: v1 remains callable and is published in the collection under a folder explicitly named "Reference Data (Deprecated)".
+  - product: Reference Data (legacy host)
+    current: v1
+    base: https://api.lukka.tech/refdata
+    note: A separate v1 Reference Data surface documented at https://apidocs-refdata.lukka.tech/.
+  - product: Pricing & Market Data
+    current: mixed v1/v2
+    base: https://data-pricing-api.lukka.tech
+    note: Pricing endpoints are on /v1; newer market-data endpoints (candles, market caps, order-book snapshot, slippage)
+      are on /v2.
+  - product: Analytics
+    current: v2 host
+    base: https://data-analytics-api-v2.lukka.tech/analytics-api
+  - product: Streaming
+    current: v3
+    previous:
+    - v1
+    - v2
+    note: v1, v2 and v3 WebSocket channels run concurrently; the collection groups v1/v2 quotes under a "Legacy" folder.
+  - product: MCP servers
+    current: 1.0.0
+    note: Documentation version 1.0.0, first published 2026-07-21.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  mechanism: Documentation labelling only - deprecated surfaces are grouped into folders named "Deprecated" or "Legacy"
+    in the public Postman collection. No RFC 8594 Sunset header, no Deprecation header, no dated end-of-life is published.
+  deprecated_surfaces:
+  - surface: Reference Data v1
+    operations:
+    - allLukkaAssets2
+    - aLukkaAsset
+    - allLukkaEntities
+    - anEntity
+    - lukkaAssetMappings
+    - lukkaPairMappings
+    - lukkaDerivativeMappings
+    - lukkaCryptoActions
+    spec: openapi/lukka-reference-data-openapi.yml
+    label: Reference Data (Deprecated)
+  - surface: Quotes WebSocket v1
+    channel: wss://market-data-quotes-ws.lukka.tech/v1/quotes
+    label: Legacy
+  - surface: Quotes WebSocket v2
+    channel: wss://market-data-quotes-ws.lukka.tech/v2/quotes
+    label: Legacy
+  - surface: Pricing legacy source endpoints
+    operations:
+    - availableSources
+    - sourceDetails
+    label: Pricing / Legacy Versions
+status_page:
+  published: false
+  note: lukka.statuspage.io resolves but redirects to /inactive - the Statuspage account exists and is not active. No
+    status page is linked from lukka.tech and status.lukka.tech does not resolve.
+  probed:
+  - url: https://lukka.statuspage.io/
+    http_status: 200
+    final_url: https://lukka.statuspage.io/inactive
+  - url: https://status.lukka.tech/
+    result: DNS does not resolve
+sla:
+  published: false
+  note: No public SLA or uptime target is published.
+deprecated_operations: []
+x-evidence:
+  fetched: '2026-08-04'

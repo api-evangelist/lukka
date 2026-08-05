@@ -1,0 +1,52 @@
+{
+ "offset": 0,
+ "limit": 10,
+ "size": 10,
+ "links": {
+  "base": "/v2/lukka/custodians",
+  "next": "/v2/lukka/custodians?limit=10&offset=10",
+  "prev": null
+ },
+ "data": [
+  {
+   "custodianLid": "LC6K8SAF5D6",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC26MFWJKP5",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC1C1K91866",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC72B7WGRF5",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC6C47UMUG7",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC14SKMDN12",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC15CZWZHC1",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC1CDKZBZ71",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC1R87EKPC9",
+   "recordStatus": "Active"
+  },
+  {
+   "custodianLid": "LC8D6CSYP53",
+   "recordStatus": "Active"
+  }
+ ]
+}

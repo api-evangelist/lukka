@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "Lukka-AML": {
+      "type": "http",
+      "url": "https://aml.mcp.lukka.tech"
+    },
+    "Lukka-UDA": {
+      "type": "http",
+      "url": "https://uda.mcp.lukka.tech"
+    },
+    "Lukka-Pricing": {
+      "type": "http",
+      "url": "https://pricing.mcp.lukka.tech"
+    },
+    "Lukka-RefData": {
+      "type": "http",
+      "url": "https://refdata.mcp.lukka.tech"
+    },
+    "Lukka-Analytics": {
+      "type": "http",
+      "url": "https://analytics.mcp.lukka.tech"
+    },
+    "Lukka-News": {
+      "type": "http",
+      "url": "https://news.mcp.lukka.tech"
+    },
+    "Lukka-Predmar": {
+      "type": "http",
+      "url": "https://predmar.mcp.lukka.tech"
+    }
+  }
+}

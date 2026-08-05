@@ -1,0 +1,392 @@
+{
+ "pairCode": "XBT-USD",
+ "firstDate": "2026-04-20T12:00:00Z",
+ "lastDate": "2026-04-20T12:02:00Z",
+ "pricesCount": 3,
+ "prices": [
+  {
+   "ts": "2026-04-20T12:00:00Z",
+   "price": "75220.66",
+   "principalExchange": "CRCM",
+   "varianceUrl": "/v1/pricing/sources/2000/prices/pairs/XBT-USD/variances",
+   "marketVariances": [
+    {
+     "entityCode": "CPRO",
+     "exchange": "Coinbase",
+     "price": "75223.96",
+     "tradeTs": "2026-04-20T11:59:59.297Z",
+     "hourlyVolume": "214.01224983",
+     "hourlyTradeCount": 24480,
+     "dailyVolume": "6599.7449845",
+     "dailyTradeCount": 649028
+    },
+    {
+     "entityCode": "CRCM",
+     "exchange": "Crypto.com",
+     "price": "75220.66",
+     "tradeTs": "2026-04-20T11:59:59.221Z",
+     "hourlyVolume": "129.79658",
+     "hourlyTradeCount": 9985,
+     "dailyVolume": "6503.08829",
+     "dailyTradeCount": 291314
+    },
+    {
+     "entityCode": "BULLISH",
+     "exchange": "Bullish",
+     "price": "75220.95",
+     "tradeTs": "2026-04-20T11:59:54.829Z",
+     "hourlyVolume": "50.40793495",
+     "hourlyTradeCount": 1296,
+     "dailyVolume": "1443.99529097",
+     "dailyTradeCount": 44023
+    },
+    {
+     "entityCode": "KRAK",
+     "exchange": "Kraken",
+     "price": "75219.0",
+     "tradeTs": "2026-04-20T11:59:59.094Z",
+     "hourlyVolume": "33.92995926",
+     "hourlyTradeCount": 1750,
+     "dailyVolume": "1427.46000393",
+     "dailyTradeCount": 49483
+    },
+    {
+     "entityCode": "BFNX",
+     "exchange": "Bitfinex",
+     "price": "75205.0",
+     "tradeTs": "2026-04-20T11:59:59.305Z",
+     "hourlyVolume": "29.23819859",
+     "hourlyTradeCount": 3501,
+     "dailyVolume": "1301.05712416",
+     "dailyTradeCount": 84371
+    },
+    {
+     "entityCode": "BSTM",
+     "exchange": "Bitstamp",
+     "price": "75226.0",
+     "tradeTs": "2026-04-20T11:59:56.201Z",
+     "hourlyVolume": "19.09699212",
+     "hourlyTradeCount": 718,
+     "dailyVolume": "919.8367485",
+     "dailyTradeCount": 29869
+    },
+    {
+     "entityCode": "OKEX",
+     "exchange": "OKEx",
+     "price": "75230.8",
+     "tradeTs": "2026-04-20T11:59:56.605Z",
+     "hourlyVolume": "4.78059403",
+     "hourlyTradeCount": 581,
+     "dailyVolume": "216.99242673",
+     "dailyTradeCount": 21112
+    },
+    {
+     "entityCode": "LMAX",
+     "exchange": "LMAX",
+     "price": "75209.742",
+     "tradeTs": "2026-04-20T11:59:28.422Z",
+     "hourlyVolume": "3.81",
+     "hourlyTradeCount": 89,
+     "dailyVolume": "329.45",
+     "dailyTradeCount": 4956
+    },
+    {
+     "entityCode": "ITBT",
+     "exchange": "itBit",
+     "price": "75200.25",
+     "tradeTs": "2026-04-20T11:59:55.057Z",
+     "hourlyVolume": "2.48625148",
+     "hourlyTradeCount": 799,
+     "dailyVolume": "85.41927917",
+     "dailyTradeCount": 27579
+    },
+    {
+     "entityCode": "GMNI",
+     "exchange": "Gemini",
+     "price": "75223.01",
+     "tradeTs": "2026-04-20T11:59:48.310Z",
+     "hourlyVolume": "1.72127183",
+     "hourlyTradeCount": 207,
+     "dailyVolume": "108.47606515",
+     "dailyTradeCount": 8154
+    },
+    {
+     "entityCode": "BINA",
+     "exchange": "Binance",
+     "price": "75268.23",
+     "tradeTs": "2026-04-20T11:54:07.313Z",
+     "hourlyVolume": "0.17028",
+     "hourlyTradeCount": 30,
+     "dailyVolume": "1.99686",
+     "dailyTradeCount": 689
+    },
+    {
+     "entityCode": "BFLY",
+     "exchange": "Bitflyer",
+     "price": "74000.0",
+     "tradeTs": "2026-04-19T23:32:36.626Z",
+     "hourlyVolume": "0.0",
+     "hourlyTradeCount": 0,
+     "dailyVolume": "0.10756071",
+     "dailyTradeCount": 3
+    }
+   ]
+  },
+  {
+   "ts": "2026-04-20T12:01:00Z",
+   "price": "75186.78",
+   "principalExchange": "CRCM",
+   "varianceUrl": "/v1/pricing/sources/2000/prices/pairs/XBT-USD/variances",
+   "marketVariances": [
+    {
+     "entityCode": "CPRO",
+     "exchange": "Coinbase",
+     "price": "75183.32",
+     "tradeTs": "2026-04-20T12:00:59.924Z",
+     "hourlyVolume": "212.34327062",
+     "hourlyTradeCount": 24547,
+     "dailyVolume": "6600.61739065",
+     "dailyTradeCount": 649202
+    },
+    {
+     "entityCode": "CRCM",
+     "exchange": "Crypto.com",
+     "price": "75186.78",
+     "tradeTs": "2026-04-20T12:00:59.564Z",
+     "hourlyVolume": "135.06203",
+     "hourlyTradeCount": 10151,
+     "dailyVolume": "6505.13216",
+     "dailyTradeCount": 291483
+    },
+    {
+     "entityCode": "BULLISH",
+     "exchange": "Bullish",
+     "price": "75179.5585",
+     "tradeTs": "2026-04-20T12:00:34.366Z",
+     "hourlyVolume": "50.110775",
+     "hourlyTradeCount": 1293,
+     "dailyVolume": "1444.01013961",
+     "dailyTradeCount": 44027
+    },
+    {
+     "entityCode": "BFNX",
+     "exchange": "Bitfinex",
+     "price": "75167.0",
+     "tradeTs": "2026-04-20T12:00:59.956Z",
+     "hourlyVolume": "33.90072169",
+     "hourlyTradeCount": 3514,
+     "dailyVolume": "1305.58366771",
+     "dailyTradeCount": 84392
+    },
+    {
+     "entityCode": "KRAK",
+     "exchange": "Kraken",
+     "price": "75173.2",
+     "tradeTs": "2026-04-20T12:00:59.681Z",
+     "hourlyVolume": "33.76900141",
+     "hourlyTradeCount": 1749,
+     "dailyVolume": "1427.44146162",
+     "dailyTradeCount": 49505
+    },
+    {
+     "entityCode": "BSTM",
+     "exchange": "Bitstamp",
+     "price": "75177.0",
+     "tradeTs": "2026-04-20T12:00:56.371Z",
+     "hourlyVolume": "19.69828046",
+     "hourlyTradeCount": 732,
+     "dailyVolume": "920.41829927",
+     "dailyTradeCount": 29877
+    },
+    {
+     "entityCode": "OKEX",
+     "exchange": "OKEx",
+     "price": "75184.1",
+     "tradeTs": "2026-04-20T12:00:54.278Z",
+     "hourlyVolume": "5.05013756",
+     "hourlyTradeCount": 602,
+     "dailyVolume": "217.89715312",
+     "dailyTradeCount": 21148
+    },
+    {
+     "entityCode": "LMAX",
+     "exchange": "LMAX",
+     "price": "75173.999",
+     "tradeTs": "2026-04-20T12:00:47.741Z",
+     "hourlyVolume": "3.86",
+     "hourlyTradeCount": 90,
+     "dailyVolume": "329.45",
+     "dailyTradeCount": 4957
+    },
+    {
+     "entityCode": "ITBT",
+     "exchange": "itBit",
+     "price": "75160.25",
+     "tradeTs": "2026-04-20T12:00:57.506Z",
+     "hourlyVolume": "2.5681448",
+     "hourlyTradeCount": 804,
+     "dailyVolume": "85.53412459",
+     "dailyTradeCount": 27584
+    },
+    {
+     "entityCode": "GMNI",
+     "exchange": "Gemini",
+     "price": "75181.59",
+     "tradeTs": "2026-04-20T12:00:47.717Z",
+     "hourlyVolume": "1.74016094",
+     "hourlyTradeCount": 209,
+     "dailyVolume": "108.48908879",
+     "dailyTradeCount": 8156
+    },
+    {
+     "entityCode": "BINA",
+     "exchange": "Binance",
+     "price": "75190.0",
+     "tradeTs": "2026-04-20T12:00:25.198Z",
+     "hourlyVolume": "0.25255",
+     "hourlyTradeCount": 58,
+     "dailyVolume": "2.07926",
+     "dailyTradeCount": 718
+    },
+    {
+     "entityCode": "BFLY",
+     "exchange": "Bitflyer",
+     "price": "74000.0",
+     "tradeTs": "2026-04-19T23:32:36.626Z",
+     "hourlyVolume": "0.0",
+     "hourlyTradeCount": 0,
+     "dailyVolume": "0.10756071",
+     "dailyTradeCount": 3
+    }
+   ]
+  },
+  {
+   "ts": "2026-04-20T12:02:00Z",
+   "price": "75137.49",
+   "principalExchange": "CRCM",
+   "varianceUrl": "/v1/pricing/sources/2000/prices/pairs/XBT-USD/variances",
+   "marketVariances": [
+    {
+     "entityCode": "CPRO",
+     "exchange": "Coinbase",
+     "price": "75134.0",
+     "tradeTs": "2026-04-20T12:01:59.925Z",
+     "hourlyVolume": "209.98974908",
+     "hourlyTradeCount": 24646,
+     "dailyVolume": "6600.79485567",
+     "dailyTradeCount": 649401
+    },
+    {
+     "entityCode": "CRCM",
+     "exchange": "Crypto.com",
+     "price": "75137.49",
+     "tradeTs": "2026-04-20T12:01:59.286Z",
+     "hourlyVolume": "133.08159",
+     "hourlyTradeCount": 10079,
+     "dailyVolume": "6505.26431",
+     "dailyTradeCount": 291554
+    },
+    {
+     "entityCode": "BULLISH",
+     "exchange": "Bullish",
+     "price": "75147.512",
+     "tradeTs": "2026-04-20T12:01:56.410Z",
+     "hourlyVolume": "49.99589014",
+     "hourlyTradeCount": 1291,
+     "dailyVolume": "1446.19898094",
+     "dailyTradeCount": 44074
+    },
+    {
+     "entityCode": "KRAK",
+     "exchange": "Kraken",
+     "price": "75146.3",
+     "tradeTs": "2026-04-20T12:01:33.637Z",
+     "hourlyVolume": "33.66221123",
+     "hourlyTradeCount": 1724,
+     "dailyVolume": "1427.4993816",
+     "dailyTradeCount": 49511
+    },
+    {
+     "entityCode": "BFNX",
+     "exchange": "Bitfinex",
+     "price": "75130.0",
+     "tradeTs": "2026-04-20T12:01:55.169Z",
+     "hourlyVolume": "33.27173051",
+     "hourlyTradeCount": 3496,
+     "dailyVolume": "1305.8958735",
+     "dailyTradeCount": 84427
+    },
+    {
+     "entityCode": "BSTM",
+     "exchange": "Bitstamp",
+     "price": "75136.0",
+     "tradeTs": "2026-04-20T12:01:58.228Z",
+     "hourlyVolume": "19.65222338",
+     "hourlyTradeCount": 732,
+     "dailyVolume": "920.73715572",
+     "dailyTradeCount": 29891
+    },
+    {
+     "entityCode": "OKEX",
+     "exchange": "OKEx",
+     "price": "75152.5",
+     "tradeTs": "2026-04-20T12:01:56.105Z",
+     "hourlyVolume": "4.88857088",
+     "hourlyTradeCount": 583,
+     "dailyVolume": "217.86124909",
+     "dailyTradeCount": 21147
+    },
+    {
+     "entityCode": "LMAX",
+     "exchange": "LMAX",
+     "price": "75173.999",
+     "tradeTs": "2026-04-20T12:00:47.741Z",
+     "hourlyVolume": "3.82",
+     "hourlyTradeCount": 89,
+     "dailyVolume": "329.44",
+     "dailyTradeCount": 4956
+    },
+    {
+     "entityCode": "ITBT",
+     "exchange": "itBit",
+     "price": "75141.75",
+     "tradeTs": "2026-04-20T12:01:57.256Z",
+     "hourlyVolume": "2.53195827",
+     "hourlyTradeCount": 800,
+     "dailyVolume": "85.53561466",
+     "dailyTradeCount": 27581
+    },
+    {
+     "entityCode": "GMNI",
+     "exchange": "Gemini",
+     "price": "75144.01",
+     "tradeTs": "2026-04-20T12:01:52.923Z",
+     "hourlyVolume": "1.86833837",
+     "hourlyTradeCount": 207,
+     "dailyVolume": "108.62300366",
+     "dailyTradeCount": 8159
+    },
+    {
+     "entityCode": "BINA",
+     "exchange": "Binance",
+     "price": "75190.0",
+     "tradeTs": "2026-04-20T12:00:25.198Z",
+     "hourlyVolume": "0.25255",
+     "hourlyTradeCount": 58,
+     "dailyVolume": "2.07895",
+     "dailyTradeCount": 717
+    },
+    {
+     "entityCode": "BFLY",
+     "exchange": "Bitflyer",
+     "price": "74000.0",
+     "tradeTs": "2026-04-19T23:32:36.626Z",
+     "hourlyVolume": "0.0",
+     "hourlyTradeCount": 0,
+     "dailyVolume": "0.10756071",
+     "dailyTradeCount": 3
+    }
+   ]
+  }
+ ]
+}

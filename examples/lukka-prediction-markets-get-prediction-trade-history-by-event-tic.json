@@ -1,0 +1,41 @@
+{
+ "dataType": "predictionTradeHistory",
+ "sourceId": 4141,
+ "eventTicker": "KXNBAGAME-26APR20MINDEN.KALSHI",
+ "count": 3,
+ "firstDate": "2026-04-20T12:00:16.000047Z",
+ "lastDate": "2026-04-20T12:00:34.000048Z",
+ "data": [
+  {
+   "ts": "2026-04-20T12:00:16.000047Z",
+   "lukkaSymbol": "KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI",
+   "eventTicker": "KXNBAGAME-26APR20MINDEN.KALSHI",
+   "price": "0.72",
+   "priceUsd": "0.72",
+   "volume": "19.0",
+   "volumeUsd": "13.68",
+   "side": "UNKNOWN"
+  },
+  {
+   "ts": "2026-04-20T12:00:22.000048Z",
+   "lukkaSymbol": "KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI",
+   "eventTicker": "KXNBAGAME-26APR20MINDEN.KALSHI",
+   "price": "0.31",
+   "priceUsd": "0.31",
+   "volume": "15.38",
+   "volumeUsd": "4.7678",
+   "side": "UNKNOWN"
+  },
+  {
+   "ts": "2026-04-20T12:00:34.000048Z",
+   "lukkaSymbol": "KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI",
+   "eventTicker": "KXNBAGAME-26APR20MINDEN.KALSHI",
+   "price": "0.3",
+   "priceUsd": "0.3",
+   "volume": "19.0",
+   "volumeUsd": "5.7",
+   "side": "UNKNOWN"
+  }
+ ],
+ "nextPageUrl": "https://data-pricing-api.lukka.tech/v1/pricing/prediction-trade-history/4141/event/KXNBAGAME-26APR20MINDEN.KALSHI?from=2026-04-20T12%3A00%3A00Z&to=2026-04-20T12%3A30%3A00Z&limit=3&offset=3"
+}

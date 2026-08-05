@@ -1,0 +1,294 @@
+{
+ "custodianLid": "LC0M49L1B55",
+ "recordStatus": "Active",
+ "custodianStatusDetails": [
+  {
+   "custodianStatus": "Active",
+   "custodianSubstatus": "Operational",
+   "startTs": "2018-08-28T00:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianNameDetails": [
+  {
+   "lukkaEntityCode": "KNGDMTST",
+   "lukkaCustodian": "Kingdom Trust",
+   "lukkaParentCustodianId": "LC0M49L1B55",
+   "lukkaParentCustodian": "Kingdom Trust",
+   "url": "https://www.kingdomtrust.com/",
+   "startTs": "2018-08-28T00:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianLocationDetails": [
+  {
+   "isPrimaryLocation": true,
+   "regionCode": 19,
+   "regionName": "Americas",
+   "subregionCode": 21,
+   "subregionName": "Northern America",
+   "intermediateRegionCode": 985,
+   "intermediateRegionName": "Northern America",
+   "marketCountryIso3": "USA",
+   "marketCountryTerritoryName": "United States",
+   "countryTerritoryUnClassification": "Developed",
+   "countryTerritoryUnLeastDeveloped": false,
+   "startTs": "2018-08-28T00:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianParticipantsDetails": [
+  {
+   "participantType": "Primary Venue Operator",
+   "lukkaLegalEntityId": 1621,
+   "participantLegalNameEnglish": "The Kingdom Trust Company",
+   "legalFormCode": "TSCROP",
+   "legalForm": "Trust Corporation",
+   "incorporationDate": "2010-12-20T00:00:00Z",
+   "jurisdiction": "South Dakota (USA)",
+   "jurisdictionCountryIso3": "USA",
+   "jurisdictionCountryUnClassification": "Developed",
+   "jurisdictionCountryUnLeastDeveloped": false,
+   "startTs": "2018-08-28T00:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianRegulatoryDetails": [
+  {
+   "licenseeLukkaLegalEntityId": 1621,
+   "licensee": "The Kingdom Trust Company",
+   "licenseCode": "SDCTTR",
+   "license": "South Dakota Trust Charter",
+   "licenseCountry": "USA",
+   "licensingLukkaLegalEntityId": 1644,
+   "licensingAuthority": "South Dakota Division of Banking",
+   "licenseNumber": "TC.058-2",
+   "licenseStartTime": "2010-12-29T00:00:00Z",
+   "licenseEndTime": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianComplianceDetails": [
+  {
+   "conductsKyc": true,
+   "kycStructure": "Non-tiered",
+   "conductsAml": true,
+   "maintainsDigitalInsuranceCoverage": true,
+   "insuranceAmount": null,
+   "insuranceAmountCurrency": null,
+   "startTs": "2018-08-28T00:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianCertificationDetails": [],
+ "custodianSpecificDetails": [
+  {
+   "supportsInstitutionalClients": true,
+   "supportsRetailClients": true,
+   "supportsApis": false,
+   "supportsProtocolParticipation": false,
+   "supportsAssetTrading": false,
+   "supportsLending": false,
+   "supportsStaking": false,
+   "startTs": "2018-08-28T00:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianSecurityDetails": [
+  {
+   "hasMultipartyComputation": false,
+   "hasMultiSignature": false,
+   "hasHardwareSecurityModule": false,
+   "supportsHotStorage": false,
+   "supportsWarmStorage": false,
+   "supportsColdStorage": true,
+   "conductsSecurityAudit": false,
+   "securityAuditCategory": "Not Applicable",
+   "startTs": "2018-08-28T00:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianDateDetails": [
+  {
+   "dateTypeCode": "OFCLL",
+   "dateType": "Official Launch",
+   "year": 2018,
+   "month": 8,
+   "day": 28,
+   "startTs": "2018-08-28T00:00:00Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianSuccessorDetails": [],
+ "custodianMediaDetails": [
+  {
+   "mediaProvider": "Twitter",
+   "url": "https://twitter.com/choicebyKT",
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Facebook",
+   "url": "https://www.facebook.com/KingdomTrustCo/",
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Instagram",
+   "url": "https://www.instagram.com/choiceapp.io/",
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Discord",
+   "url": "https://discord.com/invite/f4avvmtUzh",
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianSupportedAssetDetails": [
+  {
+   "lukkaAssetId": "LA33P8DWU59",
+   "lukkaAssetCode": "XTZ",
+   "lukkaAssetName": "Tezos",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA2XB0HNPU9",
+   "lukkaAssetCode": "XRP",
+   "lukkaAssetName": "Ripple",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA582W6NAZ0",
+   "lukkaAssetCode": "BTT",
+   "lukkaAssetName": "Basic Attention Token",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA1626U9BZ5",
+   "lukkaAssetCode": "BCG",
+   "lukkaAssetName": "Bitcoin Gold",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA2KTXEB1J7",
+   "lukkaAssetCode": "DOGE",
+   "lukkaAssetName": "Dogecoin",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA58RADHS00",
+   "lukkaAssetCode": "XLT",
+   "lukkaAssetName": "Litecoin",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA7TRQHGAX9",
+   "lukkaAssetCode": "XLM",
+   "lukkaAssetName": "Stellar Lumens",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA0KKUNXTT0",
+   "lukkaAssetCode": "ZEC",
+   "lukkaAssetName": "Zcash",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA8VRAGEMT1",
+   "lukkaAssetCode": "ETH",
+   "lukkaAssetName": "Ether",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA7LPZBEZZ0",
+   "lukkaAssetCode": "BCH",
+   "lukkaAssetName": "Bitcoin Cash",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA6EV2NKQ95",
+   "lukkaAssetCode": "XBT",
+   "lukkaAssetName": "Bitcoin",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA14K10R487",
+   "lukkaAssetCode": "EOS",
+   "lukkaAssetName": "EOS",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaAssetId": "LA8WJ1MTZL8",
+   "lukkaAssetCode": "DASH",
+   "lukkaAssetName": "Dash",
+   "startTs": null,
+   "endTs": null,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "custodianReserveDetails": []
+}

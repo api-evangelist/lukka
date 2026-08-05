@@ -1,0 +1,89 @@
+{
+ "data": [
+  {
+   "businessTime": "2026-04-22T15:39:31Z",
+   "constituents": [
+    {
+     "instrument": "XRP",
+     "weight": 0.0554125751556742,
+     "quantity": 4269825.123121,
+     "value": 6221492.617187838,
+     "instrumentId": "b70858e5-6396-4acc-9b8b-2227078b53b6",
+     "businessTime": 1776872370000,
+     "type": "TRADE"
+    },
+    {
+     "instrument": "USD",
+     "weight": 0.0005897919027744,
+     "quantity": 65607.55,
+     "value": 65607.55,
+     "instrumentId": "",
+     "businessTime": 0,
+     "type": "TRADE"
+    },
+    {
+     "instrument": "SOLN",
+     "weight": 0.0302071041984093,
+     "quantity": 38500.08144854,
+     "value": 3406608.295370725,
+     "instrumentId": "5d2cb639-6f9e-4453-af2d-647b378fc9db",
+     "businessTime": 1776872370000,
+     "type": "TRADE"
+    },
+    {
+     "instrument": "ETH",
+     "weight": 0.1264437363753679,
+     "quantity": 5949.05234849,
+     "value": 14342312.826203719,
+     "instrumentId": "10037d90-5d90-493b-b011-7716bb9bf290",
+     "businessTime": 1776872370000,
+     "type": "TRADE"
+    },
+    {
+     "instrument": "XLM",
+     "weight": 0.0028874100040171,
+     "quantity": 1783532.82900998,
+     "value": 323809.89982396894,
+     "instrumentId": "9f7bebb0-0467-4207-bd02-9fbb928f39c4",
+     "businessTime": 1776872370000,
+     "type": "TRADE"
+    },
+    {
+     "instrument": "LINK",
+     "weight": 0.0035887292167665,
+     "quantity": 41988.12244401,
+     "value": 398886.9363895392,
+     "instrumentId": "df8e972b-3803-4854-acbb-3f98838a8dfe",
+     "businessTime": 1776872370000,
+     "type": "TRADE"
+    },
+    {
+     "instrument": "XBT",
+     "weight": 0.7747994781014437,
+     "quantity": 1111.3906164,
+     "value": 88148329.4569846,
+     "instrumentId": "043ee4a3-a84e-4821-a2dd-590b03dcadb3",
+     "businessTime": 1776872370000,
+     "type": "TRADE"
+    },
+    {
+     "instrument": "ADA",
+     "weight": 0.0060711750455469,
+     "quantity": 2655720.48373976,
+     "value": 679065.5098328806,
+     "instrumentId": "fe14b4e4-aabc-4487-b657-d35218cdeefd",
+     "businessTime": 1776872370000,
+     "type": "TRADE"
+    }
+   ],
+   "distributionId": "6147",
+   "divisor": "5690000.0",
+   "id": "7da7376e-3e02-4520-8e2e-e9c31ceea32f",
+   "indexId": "147",
+   "name": "Hashdex Nasdaq Crypto Index ETF Intraday Indicative Value",
+   "symbol": "NCIQ.IV",
+   "value": "19.962410033707076",
+   "valueUnit": "USD"
+  }
+ ]
+}

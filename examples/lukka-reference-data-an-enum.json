@@ -1,0 +1,126 @@
+[
+ {
+  "enumCode": "BLKMIG",
+  "description": "Blockchain Migration"
+ },
+ {
+  "enumCode": "LORE",
+  "description": "Legal or Regulatory Event"
+ },
+ {
+  "enumCode": "HFORK",
+  "description": "Hard Fork"
+ },
+ {
+  "enumCode": "SFORK",
+  "description": "Soft Fork"
+ },
+ {
+  "enumCode": "REDNOM",
+  "description": "Redenomination"
+ },
+ {
+  "enumCode": "EMISN",
+  "description": "Emission"
+ },
+ {
+  "enumCode": "BRN",
+  "description": "Burn"
+ },
+ {
+  "enumCode": "ABNDN",
+  "description": "Abandoned"
+ },
+ {
+  "enumCode": "NAMG",
+  "description": "Rebrand"
+ },
+ {
+  "enumCode": "VTFK",
+  "description": "Velvet Fork"
+ },
+ {
+  "enumCode": "ASLH",
+  "description": "Asset Launch"
+ },
+ {
+  "enumCode": "NWKAD",
+  "description": "Network Airdrop"
+ },
+ {
+  "enumCode": "EXPD",
+  "description": "Expired"
+ },
+ {
+  "enumCode": "SINDT",
+  "description": "Security Incident"
+ },
+ {
+  "enumCode": "CADTR",
+  "description": "Change of Auditor"
+ },
+ {
+  "enumCode": "CRTE",
+  "description": "Created in Error"
+ },
+ {
+  "enumCode": "SSPOON",
+  "description": "Soft Spoon"
+ },
+ {
+  "enumCode": "HSPOON",
+  "description": "Hard Spoon"
+ },
+ {
+  "enumCode": "CSDYSRT",
+  "description": "Custody Support Initiated"
+ },
+ {
+  "enumCode": "CSDYEND",
+  "description": "Custody Support Terminated"
+ },
+ {
+  "enumCode": "TLIST",
+  "description": "Trade Listing"
+ },
+ {
+  "enumCode": "TFDLIST",
+  "description": "Transfer Delisting"
+ },
+ {
+  "enumCode": "TFLIST",
+  "description": "Transfer Listing"
+ },
+ {
+  "enumCode": "CTMIG",
+  "description": "Contract Migration"
+ },
+ {
+  "enumCode": "TDLIST",
+  "description": "Trade Delisting"
+ },
+ {
+  "enumCode": "RCLM",
+  "description": "Reclaimed"
+ },
+ {
+  "enumCode": "CCLTRL",
+  "description": "Change in Collateral"
+ },
+ {
+  "enumCode": "NA",
+  "description": "Not Applicable"
+ },
+ {
+  "enumCode": "EPE",
+  "description": "Event Period End"
+ },
+ {
+  "enumCode": "SUCCN",
+  "description": "Succession Event"
+ },
+ {
+  "enumCode": "ENCC",
+  "description": "Exchange Naming Convention Change"
+ }
+]

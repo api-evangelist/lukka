@@ -1,0 +1,1445 @@
+asyncapi: 3.0.0
+info:
+  title: Lukka Market Data Streaming API
+  version: 1.0.0
+  description: 'Lukka''s WebSocket streaming surface for institutional digital-asset market data: executed trades, Level-1
+    order-book quotes, Lukka Prime pricing, Lukka Index valuations, Standard and Median Reference Rates, real-time MVWAP,
+    derivative Greeks, and prediction-market trades and quotes.
+
+
+    Every stream is authenticated with a Lukka-issued JWT bearer token supplied as the `access_token` query parameter on the
+    connection URL. Tokens expire; the server emits a token-expiry notice and the client reauthorizes in-band with an `authenticate`
+    action message. Subscriptions are managed in-band with `subscribe` / `unsubscribe` action messages carrying pair codes,
+    source ids and asset codes. Several streams support a ping/pong heartbeat.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-documentation-issues:
+  - channel: Lukka Index Websocket
+    issue: 'The published documentation gives two different hosts for the same stream: the prose says wss://market-data-trades-ws.lukka.tech/v3/index
+      while the URL block says wss://market-data-ws.lukka.tech/v3/index. This document uses the URL block, which matches the
+      other v3 streams.'
+  - channel: Lukka Index Websocket
+    issue: The published Subscribe (Client) example is not valid JSON (unbalanced braces and a trailing comma), so no subscribe
+      message example is carried for this channel. It is not reconstructed here.
+  - channel: Lukka Median Reference Rate
+    issue: The published server record example is not valid JSON as documented, so no record message example is carried for
+      this channel.
+  x-evidence:
+    fetched: '2026-08-04'
+    source: https://apidocs.lukka.tech/
+    method: derived from the WebSocket stream documentation published in Lukka's public Postman collection
+    note: Lukka does not publish an AsyncAPI document. This specification is an API Evangelist derivation of the 12 WebSocket
+      channels Lukka documents verbatim (connection URLs, action messages and server record payloads). It is not a Lukka-authored
+      artifact.
+servers:
+  market-data-trades-ws:
+    host: market-data-trades-ws.lukka.tech
+    protocol: wss
+    description: Lukka streaming host market-data-trades-ws.lukka.tech
+    security:
+    - $ref: '#/components/securitySchemes/accessTokenQuery'
+  market-data-ws:
+    host: market-data-ws.lukka.tech
+    protocol: wss
+    description: Lukka streaming host market-data-ws.lukka.tech
+    security:
+    - $ref: '#/components/securitySchemes/accessTokenQuery'
+  market-data-lp-ws:
+    host: market-data-lp-ws.lukka.tech
+    protocol: wss
+    description: Lukka streaming host market-data-lp-ws.lukka.tech
+    security:
+    - $ref: '#/components/securitySchemes/accessTokenQuery'
+  market-data-refrate-ws:
+    host: market-data-refrate-ws.lukka.tech
+    protocol: wss
+    description: Lukka streaming host market-data-refrate-ws.lukka.tech
+    security:
+    - $ref: '#/components/securitySchemes/accessTokenQuery'
+  market-data-lukka-median-refrate-ws:
+    host: market-data-lukka-median-refrate-ws.lukka.tech
+    protocol: wss
+    description: Lukka streaming host market-data-lukka-median-refrate-ws.lukka.tech
+    security:
+    - $ref: '#/components/securitySchemes/accessTokenQuery'
+  market-data-quotes-ws:
+    host: market-data-quotes-ws.lukka.tech
+    protocol: wss
+    description: Lukka streaming host market-data-quotes-ws.lukka.tech
+    security:
+    - $ref: '#/components/securitySchemes/accessTokenQuery'
+channels:
+  trades-websocket:
+    address: /v1/trades
+    title: Trades Websocket
+    description: Subscribe to trades stream Background This service provides the a real time stream of trades from covered
+      exchanges.
+    servers:
+    - $ref: '#/servers/market-data-trades-ws'
+    messages:
+      trades-websocket-subscribe:
+        $ref: '#/components/messages/trades-websocket-subscribe'
+      trades-websocket-unsubscribe:
+        $ref: '#/components/messages/trades-websocket-unsubscribe'
+      trades-websocket-authenticate:
+        $ref: '#/components/messages/trades-websocket-authenticate'
+      trades-websocket-record:
+        $ref: '#/components/messages/trades-websocket-record'
+      trades-websocket-auth_notice:
+        $ref: '#/components/messages/trades-websocket-auth_notice'
+  quotes-websocket-v3:
+    address: /v3/quotes
+    title: Quotes Websocket V3
+    description: Subscribe to quotes stream Background Quotes represent the "inside" price levels of the limit order book
+      for a product trading on an exchange. This service provides the latest updates to these price levels (changes in price
+      or size) on an exchange and pair basis.
+    servers:
+    - $ref: '#/servers/market-data-ws'
+    messages:
+      quotes-websocket-v3-subscribe:
+        $ref: '#/components/messages/quotes-websocket-v3-subscribe'
+      quotes-websocket-v3-unsubscribe:
+        $ref: '#/components/messages/quotes-websocket-v3-unsubscribe'
+      quotes-websocket-v3-authenticate:
+        $ref: '#/components/messages/quotes-websocket-v3-authenticate'
+      quotes-websocket-v3-record:
+        $ref: '#/components/messages/quotes-websocket-v3-record'
+      quotes-websocket-v3-auth_notice:
+        $ref: '#/components/messages/quotes-websocket-v3-auth_notice'
+  lukka-prime-websocket:
+    address: /v1/lp
+    title: Lukka Prime Websocket
+    description: Subscribe to Lukka Prime stream. Background This service provides real time Lukka Prime pricing at second
+      precision.
+    servers:
+    - $ref: '#/servers/market-data-lp-ws'
+    messages:
+      lukka-prime-websocket-subscribe:
+        $ref: '#/components/messages/lukka-prime-websocket-subscribe'
+      lukka-prime-websocket-unsubscribe:
+        $ref: '#/components/messages/lukka-prime-websocket-unsubscribe'
+      lukka-prime-websocket-authenticate:
+        $ref: '#/components/messages/lukka-prime-websocket-authenticate'
+      lukka-prime-websocket-record:
+        $ref: '#/components/messages/lukka-prime-websocket-record'
+      lukka-prime-websocket-auth_notice:
+        $ref: '#/components/messages/lukka-prime-websocket-auth_notice'
+  lukka-index-websocket:
+    address: /v3/index
+    title: Lukka Index Websocket
+    description: Subscribe to Index stream Background This service provides the a real time stream of indices and corresponding
+      valuations.
+    servers:
+    - $ref: '#/servers/market-data-ws'
+    messages:
+      lukka-index-websocket-unsubscribe:
+        $ref: '#/components/messages/lukka-index-websocket-unsubscribe'
+      lukka-index-websocket-authenticate:
+        $ref: '#/components/messages/lukka-index-websocket-authenticate'
+      lukka-index-websocket-record:
+        $ref: '#/components/messages/lukka-index-websocket-record'
+      lukka-index-websocket-auth_notice:
+        $ref: '#/components/messages/lukka-index-websocket-auth_notice'
+  lukka-standard-reference-rate:
+    address: /v1/refrates
+    title: Lukka Standard Reference Rate
+    description: Subscribe to Lukka Standard Reference Rate. Background This service provides real time updates to Lukka Standard
+      Reference Rates.
+    servers:
+    - $ref: '#/servers/market-data-refrate-ws'
+    messages:
+      lukka-standard-reference-rate-subscribe:
+        $ref: '#/components/messages/lukka-standard-reference-rate-subscribe'
+      lukka-standard-reference-rate-unsubscribe:
+        $ref: '#/components/messages/lukka-standard-reference-rate-unsubscribe'
+      lukka-standard-reference-rate-authenticate:
+        $ref: '#/components/messages/lukka-standard-reference-rate-authenticate'
+      lukka-standard-reference-rate-record:
+        $ref: '#/components/messages/lukka-standard-reference-rate-record'
+      lukka-standard-reference-rate-auth_notice:
+        $ref: '#/components/messages/lukka-standard-reference-rate-auth_notice'
+  lukka-median-reference-rate:
+    address: /v1/refrates
+    title: Lukka Median Reference Rate
+    description: Subscribe to Lukka Median Reference Rate. Background This service provides real time updates to Lukka Median
+      Reference Rates.
+    servers:
+    - $ref: '#/servers/market-data-lukka-median-refrate-ws'
+    messages:
+      lukka-median-reference-rate-subscribe:
+        $ref: '#/components/messages/lukka-median-reference-rate-subscribe'
+      lukka-median-reference-rate-unsubscribe:
+        $ref: '#/components/messages/lukka-median-reference-rate-unsubscribe'
+      lukka-median-reference-rate-authenticate:
+        $ref: '#/components/messages/lukka-median-reference-rate-authenticate'
+      lukka-median-reference-rate-auth_notice:
+        $ref: '#/components/messages/lukka-median-reference-rate-auth_notice'
+  lukka-real-time-vwap:
+    address: /v3/mvwap
+    title: Lukka Real Time VWAP
+    description: Subscribe to Lukka Real Time VWAP Background This service provides real time updates to the Lukka Real Time
+      VWAP
+    servers:
+    - $ref: '#/servers/market-data-ws'
+    messages:
+      lukka-real-time-vwap-subscribe:
+        $ref: '#/components/messages/lukka-real-time-vwap-subscribe'
+      lukka-real-time-vwap-record:
+        $ref: '#/components/messages/lukka-real-time-vwap-record'
+  derivative-greeks-websocket:
+    address: /v3/derivative-greeks
+    title: Derivative Greeks Websocket
+    description: Subscribe to Derivative Greeks stream This service provides a real time stream of options trades with calculated
+      Greeks (delta, gamma, theta, vega, rho) and implied volatility.
+    servers:
+    - $ref: '#/servers/market-data-ws'
+    messages:
+      derivative-greeks-websocket-subscribe:
+        $ref: '#/components/messages/derivative-greeks-websocket-subscribe'
+      derivative-greeks-websocket-unsubscribe:
+        $ref: '#/components/messages/derivative-greeks-websocket-unsubscribe'
+      derivative-greeks-websocket-authenticate:
+        $ref: '#/components/messages/derivative-greeks-websocket-authenticate'
+      derivative-greeks-websocket-record:
+        $ref: '#/components/messages/derivative-greeks-websocket-record'
+      derivative-greeks-websocket-auth_notice:
+        $ref: '#/components/messages/derivative-greeks-websocket-auth_notice'
+  prediction-market-trades-websocket:
+    address: /v3/prediction-trades
+    title: Prediction Market Trades Websocket
+    description: Subscribe to Prediction Market Trades stream This service provides a real time stream of trades from prediction
+      market exchanges (e.g. Kalshi, Polymarket).
+    servers:
+    - $ref: '#/servers/market-data-ws'
+    messages:
+      prediction-market-trades-websocket-subscribe:
+        $ref: '#/components/messages/prediction-market-trades-websocket-subscribe'
+      prediction-market-trades-websocket-unsubscribe:
+        $ref: '#/components/messages/prediction-market-trades-websocket-unsubscribe'
+      prediction-market-trades-websocket-authenticate:
+        $ref: '#/components/messages/prediction-market-trades-websocket-authenticate'
+      prediction-market-trades-websocket-record:
+        $ref: '#/components/messages/prediction-market-trades-websocket-record'
+      prediction-market-trades-websocket-auth_notice:
+        $ref: '#/components/messages/prediction-market-trades-websocket-auth_notice'
+  prediction-market-quotes-websocket:
+    address: /v3/prediction-quotes
+    title: Prediction Market Quotes Websocket
+    description: Subscribe to Prediction Market Quotes stream This service provides real time quote (bid/ask) updates for
+      prediction market instruments.
+    servers:
+    - $ref: '#/servers/market-data-ws'
+    messages:
+      prediction-market-quotes-websocket-subscribe:
+        $ref: '#/components/messages/prediction-market-quotes-websocket-subscribe'
+      prediction-market-quotes-websocket-unsubscribe:
+        $ref: '#/components/messages/prediction-market-quotes-websocket-unsubscribe'
+      prediction-market-quotes-websocket-authenticate:
+        $ref: '#/components/messages/prediction-market-quotes-websocket-authenticate'
+      prediction-market-quotes-websocket-record:
+        $ref: '#/components/messages/prediction-market-quotes-websocket-record'
+      prediction-market-quotes-websocket-auth_notice:
+        $ref: '#/components/messages/prediction-market-quotes-websocket-auth_notice'
+  quotes-websocket:
+    address: /v1/quotes
+    title: Quotes Websocket
+    description: Subscribe to quotes stream Background Quotes represent the "inside" price levels of the limit order book
+      for a product trading on an exchange. This service provides the latest updates to these price levels (changes in price
+      or size) on an exchange and pair basis.
+    servers:
+    - $ref: '#/servers/market-data-quotes-ws'
+    messages:
+      quotes-websocket-subscribe:
+        $ref: '#/components/messages/quotes-websocket-subscribe'
+      quotes-websocket-unsubscribe:
+        $ref: '#/components/messages/quotes-websocket-unsubscribe'
+      quotes-websocket-authenticate:
+        $ref: '#/components/messages/quotes-websocket-authenticate'
+      quotes-websocket-record:
+        $ref: '#/components/messages/quotes-websocket-record'
+      quotes-websocket-auth_notice:
+        $ref: '#/components/messages/quotes-websocket-auth_notice'
+    x-lifecycle: legacy - superseded by the v3 stream on market-data-ws.lukka.tech
+  quotes-websocket-v2:
+    address: /v2/quotes
+    title: Quotes Websocket V2
+    description: Subscribe to quotes stream Background Quotes represent the "inside" price levels of the limit order book
+      for a product trading on an exchange. This service provides the latest updates to these price levels (changes in price
+      or size) on an exchange and pair basis.
+    servers:
+    - $ref: '#/servers/market-data-quotes-ws'
+    messages:
+      quotes-websocket-v2-subscribe:
+        $ref: '#/components/messages/quotes-websocket-v2-subscribe'
+      quotes-websocket-v2-unsubscribe:
+        $ref: '#/components/messages/quotes-websocket-v2-unsubscribe'
+      quotes-websocket-v2-authenticate:
+        $ref: '#/components/messages/quotes-websocket-v2-authenticate'
+      quotes-websocket-v2-record:
+        $ref: '#/components/messages/quotes-websocket-v2-record'
+      quotes-websocket-v2-auth_notice:
+        $ref: '#/components/messages/quotes-websocket-v2-auth_notice'
+    x-lifecycle: legacy - superseded by the v3 stream on market-data-ws.lukka.tech
+operations:
+  receive-trades-websocket:
+    action: receive
+    channel:
+      $ref: '#/channels/trades-websocket'
+    title: Receive Trades Websocket messages
+    messages:
+    - $ref: '#/channels/trades-websocket/messages/trades-websocket-record'
+    - $ref: '#/channels/trades-websocket/messages/trades-websocket-auth_notice'
+  send-trades-websocket-control:
+    action: send
+    channel:
+      $ref: '#/channels/trades-websocket'
+    title: Subscribe / unsubscribe / reauthorize on Trades Websocket
+    messages:
+    - $ref: '#/channels/trades-websocket/messages/trades-websocket-subscribe'
+    - $ref: '#/channels/trades-websocket/messages/trades-websocket-unsubscribe'
+    - $ref: '#/channels/trades-websocket/messages/trades-websocket-authenticate'
+  receive-quotes-websocket-v3:
+    action: receive
+    channel:
+      $ref: '#/channels/quotes-websocket-v3'
+    title: Receive Quotes Websocket V3 messages
+    messages:
+    - $ref: '#/channels/quotes-websocket-v3/messages/quotes-websocket-v3-record'
+    - $ref: '#/channels/quotes-websocket-v3/messages/quotes-websocket-v3-auth_notice'
+  send-quotes-websocket-v3-control:
+    action: send
+    channel:
+      $ref: '#/channels/quotes-websocket-v3'
+    title: Subscribe / unsubscribe / reauthorize on Quotes Websocket V3
+    messages:
+    - $ref: '#/channels/quotes-websocket-v3/messages/quotes-websocket-v3-subscribe'
+    - $ref: '#/channels/quotes-websocket-v3/messages/quotes-websocket-v3-unsubscribe'
+    - $ref: '#/channels/quotes-websocket-v3/messages/quotes-websocket-v3-authenticate'
+  receive-lukka-prime-websocket:
+    action: receive
+    channel:
+      $ref: '#/channels/lukka-prime-websocket'
+    title: Receive Lukka Prime Websocket messages
+    messages:
+    - $ref: '#/channels/lukka-prime-websocket/messages/lukka-prime-websocket-record'
+    - $ref: '#/channels/lukka-prime-websocket/messages/lukka-prime-websocket-auth_notice'
+  send-lukka-prime-websocket-control:
+    action: send
+    channel:
+      $ref: '#/channels/lukka-prime-websocket'
+    title: Subscribe / unsubscribe / reauthorize on Lukka Prime Websocket
+    messages:
+    - $ref: '#/channels/lukka-prime-websocket/messages/lukka-prime-websocket-subscribe'
+    - $ref: '#/channels/lukka-prime-websocket/messages/lukka-prime-websocket-unsubscribe'
+    - $ref: '#/channels/lukka-prime-websocket/messages/lukka-prime-websocket-authenticate'
+  receive-lukka-index-websocket:
+    action: receive
+    channel:
+      $ref: '#/channels/lukka-index-websocket'
+    title: Receive Lukka Index Websocket messages
+    messages:
+    - $ref: '#/channels/lukka-index-websocket/messages/lukka-index-websocket-record'
+    - $ref: '#/channels/lukka-index-websocket/messages/lukka-index-websocket-auth_notice'
+  send-lukka-index-websocket-control:
+    action: send
+    channel:
+      $ref: '#/channels/lukka-index-websocket'
+    title: Subscribe / unsubscribe / reauthorize on Lukka Index Websocket
+    messages:
+    - $ref: '#/channels/lukka-index-websocket/messages/lukka-index-websocket-unsubscribe'
+    - $ref: '#/channels/lukka-index-websocket/messages/lukka-index-websocket-authenticate'
+  receive-lukka-standard-reference-rate:
+    action: receive
+    channel:
+      $ref: '#/channels/lukka-standard-reference-rate'
+    title: Receive Lukka Standard Reference Rate messages
+    messages:
+    - $ref: '#/channels/lukka-standard-reference-rate/messages/lukka-standard-reference-rate-record'
+    - $ref: '#/channels/lukka-standard-reference-rate/messages/lukka-standard-reference-rate-auth_notice'
+  send-lukka-standard-reference-rate-control:
+    action: send
+    channel:
+      $ref: '#/channels/lukka-standard-reference-rate'
+    title: Subscribe / unsubscribe / reauthorize on Lukka Standard Reference Rate
+    messages:
+    - $ref: '#/channels/lukka-standard-reference-rate/messages/lukka-standard-reference-rate-subscribe'
+    - $ref: '#/channels/lukka-standard-reference-rate/messages/lukka-standard-reference-rate-unsubscribe'
+    - $ref: '#/channels/lukka-standard-reference-rate/messages/lukka-standard-reference-rate-authenticate'
+  receive-lukka-median-reference-rate:
+    action: receive
+    channel:
+      $ref: '#/channels/lukka-median-reference-rate'
+    title: Receive Lukka Median Reference Rate messages
+    messages:
+    - $ref: '#/channels/lukka-median-reference-rate/messages/lukka-median-reference-rate-auth_notice'
+  send-lukka-median-reference-rate-control:
+    action: send
+    channel:
+      $ref: '#/channels/lukka-median-reference-rate'
+    title: Subscribe / unsubscribe / reauthorize on Lukka Median Reference Rate
+    messages:
+    - $ref: '#/channels/lukka-median-reference-rate/messages/lukka-median-reference-rate-subscribe'
+    - $ref: '#/channels/lukka-median-reference-rate/messages/lukka-median-reference-rate-unsubscribe'
+    - $ref: '#/channels/lukka-median-reference-rate/messages/lukka-median-reference-rate-authenticate'
+  receive-lukka-real-time-vwap:
+    action: receive
+    channel:
+      $ref: '#/channels/lukka-real-time-vwap'
+    title: Receive Lukka Real Time VWAP messages
+    messages:
+    - $ref: '#/channels/lukka-real-time-vwap/messages/lukka-real-time-vwap-record'
+  send-lukka-real-time-vwap-control:
+    action: send
+    channel:
+      $ref: '#/channels/lukka-real-time-vwap'
+    title: Subscribe / unsubscribe / reauthorize on Lukka Real Time VWAP
+    messages:
+    - $ref: '#/channels/lukka-real-time-vwap/messages/lukka-real-time-vwap-subscribe'
+  receive-derivative-greeks-websocket:
+    action: receive
+    channel:
+      $ref: '#/channels/derivative-greeks-websocket'
+    title: Receive Derivative Greeks Websocket messages
+    messages:
+    - $ref: '#/channels/derivative-greeks-websocket/messages/derivative-greeks-websocket-record'
+    - $ref: '#/channels/derivative-greeks-websocket/messages/derivative-greeks-websocket-auth_notice'
+  send-derivative-greeks-websocket-control:
+    action: send
+    channel:
+      $ref: '#/channels/derivative-greeks-websocket'
+    title: Subscribe / unsubscribe / reauthorize on Derivative Greeks Websocket
+    messages:
+    - $ref: '#/channels/derivative-greeks-websocket/messages/derivative-greeks-websocket-subscribe'
+    - $ref: '#/channels/derivative-greeks-websocket/messages/derivative-greeks-websocket-unsubscribe'
+    - $ref: '#/channels/derivative-greeks-websocket/messages/derivative-greeks-websocket-authenticate'
+  receive-prediction-market-trades-websocket:
+    action: receive
+    channel:
+      $ref: '#/channels/prediction-market-trades-websocket'
+    title: Receive Prediction Market Trades Websocket messages
+    messages:
+    - $ref: '#/channels/prediction-market-trades-websocket/messages/prediction-market-trades-websocket-record'
+    - $ref: '#/channels/prediction-market-trades-websocket/messages/prediction-market-trades-websocket-auth_notice'
+  send-prediction-market-trades-websocket-control:
+    action: send
+    channel:
+      $ref: '#/channels/prediction-market-trades-websocket'
+    title: Subscribe / unsubscribe / reauthorize on Prediction Market Trades Websocket
+    messages:
+    - $ref: '#/channels/prediction-market-trades-websocket/messages/prediction-market-trades-websocket-subscribe'
+    - $ref: '#/channels/prediction-market-trades-websocket/messages/prediction-market-trades-websocket-unsubscribe'
+    - $ref: '#/channels/prediction-market-trades-websocket/messages/prediction-market-trades-websocket-authenticate'
+  receive-prediction-market-quotes-websocket:
+    action: receive
+    channel:
+      $ref: '#/channels/prediction-market-quotes-websocket'
+    title: Receive Prediction Market Quotes Websocket messages
+    messages:
+    - $ref: '#/channels/prediction-market-quotes-websocket/messages/prediction-market-quotes-websocket-record'
+    - $ref: '#/channels/prediction-market-quotes-websocket/messages/prediction-market-quotes-websocket-auth_notice'
+  send-prediction-market-quotes-websocket-control:
+    action: send
+    channel:
+      $ref: '#/channels/prediction-market-quotes-websocket'
+    title: Subscribe / unsubscribe / reauthorize on Prediction Market Quotes Websocket
+    messages:
+    - $ref: '#/channels/prediction-market-quotes-websocket/messages/prediction-market-quotes-websocket-subscribe'
+    - $ref: '#/channels/prediction-market-quotes-websocket/messages/prediction-market-quotes-websocket-unsubscribe'
+    - $ref: '#/channels/prediction-market-quotes-websocket/messages/prediction-market-quotes-websocket-authenticate'
+  receive-quotes-websocket:
+    action: receive
+    channel:
+      $ref: '#/channels/quotes-websocket'
+    title: Receive Quotes Websocket messages
+    messages:
+    - $ref: '#/channels/quotes-websocket/messages/quotes-websocket-record'
+    - $ref: '#/channels/quotes-websocket/messages/quotes-websocket-auth_notice'
+  send-quotes-websocket-control:
+    action: send
+    channel:
+      $ref: '#/channels/quotes-websocket'
+    title: Subscribe / unsubscribe / reauthorize on Quotes Websocket
+    messages:
+    - $ref: '#/channels/quotes-websocket/messages/quotes-websocket-subscribe'
+    - $ref: '#/channels/quotes-websocket/messages/quotes-websocket-unsubscribe'
+    - $ref: '#/channels/quotes-websocket/messages/quotes-websocket-authenticate'
+  receive-quotes-websocket-v2:
+    action: receive
+    channel:
+      $ref: '#/channels/quotes-websocket-v2'
+    title: Receive Quotes Websocket V2 messages
+    messages:
+    - $ref: '#/channels/quotes-websocket-v2/messages/quotes-websocket-v2-record'
+    - $ref: '#/channels/quotes-websocket-v2/messages/quotes-websocket-v2-auth_notice'
+  send-quotes-websocket-v2-control:
+    action: send
+    channel:
+      $ref: '#/channels/quotes-websocket-v2'
+    title: Subscribe / unsubscribe / reauthorize on Quotes Websocket V2
+    messages:
+    - $ref: '#/channels/quotes-websocket-v2/messages/quotes-websocket-v2-subscribe'
+    - $ref: '#/channels/quotes-websocket-v2/messages/quotes-websocket-v2-unsubscribe'
+    - $ref: '#/channels/quotes-websocket-v2/messages/quotes-websocket-v2-authenticate'
+components:
+  messages:
+    trades-websocket-subscribe:
+      name: trades-websocket-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+    trades-websocket-unsubscribe:
+      name: trades-websocket-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+    trades-websocket-authenticate:
+      name: trades-websocket-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    trades-websocket-record:
+      name: trades-websocket-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: TRADE
+            description: null
+          data:
+          - tsNanos: 1776891587046000000
+            pairCode: XBT-USD
+            baseAssetCode: XBT
+            counterAssetCode: USD
+            entityCode: CPRO
+            price: 78459.82
+            size: 1.2e-07
+            side: S
+    trades-websocket-auth_notice:
+      name: trades-websocket-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    quotes-websocket-v3-subscribe:
+      name: quotes-websocket-v3-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+    quotes-websocket-v3-unsubscribe:
+      name: quotes-websocket-v3-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+    quotes-websocket-v3-authenticate:
+      name: quotes-websocket-v3-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    quotes-websocket-v3-record:
+      name: quotes-websocket-v3-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: QUOTE
+            description: ''
+          data:
+          - tsNanos: 1776891592792000000
+            pairCode: XBT-USD
+            baseAssetCode: XBT
+            counterAssetCode: USD
+            entityCode: CPRO
+            bidPrice: 78459.82
+            bidSize: 1.17625572
+            askPrice: 78459.83
+            askSize: 0.28516417
+            exchangeTS: 1776891592785652000
+    quotes-websocket-v3-auth_notice:
+      name: quotes-websocket-v3-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    lukka-prime-websocket-subscribe:
+      name: lukka-prime-websocket-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            baseAssetCodes: []
+            counterAssetCodes: []
+    lukka-prime-websocket-unsubscribe:
+      name: lukka-prime-websocket-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            baseAssetCodes: []
+            counterAssetCodes: []
+    lukka-prime-websocket-authenticate:
+      name: lukka-prime-websocket-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    lukka-prime-websocket-record:
+      name: lukka-prime-websocket-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: LP
+          data:
+          - tsNanos: 1646959268000000000
+            pairCode: XBT-USD
+            baseAssetCode: XBT
+            counterAssetCode: USD
+            price: 39331.83
+    lukka-prime-websocket-auth_notice:
+      name: lukka-prime-websocket-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    lukka-index-websocket-unsubscribe:
+      name: lukka-index-websocket-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: UNSUBSCRIBE
+          parameters:
+            sourceIds:
+            - 6140
+    lukka-index-websocket-authenticate:
+      name: lukka-index-websocket-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    lukka-index-websocket-record:
+      name: lukka-index-websocket-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: INDEX
+            description: ''
+          data:
+          - indexId: 140
+            symbol: LS-LDAMVWAP-XBTCAD
+            name: Lukka Digital Asset MVWAP1S3S - Bitcoin - Canadian Dollar
+            businessTime: 1726170247000
+            eventTime: 1726170250886
+            value: 79161.12485473843
+            valueUnit: CAD
+            sourceId: 6140
+    lukka-index-websocket-auth_notice:
+      name: lukka-index-websocket-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    lukka-standard-reference-rate-subscribe:
+      name: lukka-standard-reference-rate-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            baseAssetCodes: []
+            counterAssetCodes: []
+    lukka-standard-reference-rate-unsubscribe:
+      name: lukka-standard-reference-rate-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            baseAssetCodes: []
+            counterAssetCodes: []
+    lukka-standard-reference-rate-authenticate:
+      name: lukka-standard-reference-rate-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    lukka-standard-reference-rate-record:
+      name: lukka-standard-reference-rate-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: REFERENCE_RATE
+          data:
+          - tsNanos: 1669050995391000000
+            calculationWindowStart: '2022-11-21T17:00:00.000Z'
+            calculationWindowEnd: '2022-11-21T18:00:00.000Z'
+            calculationWindowStartEffective: '2022-11-21T17:00:00.000Z'
+            pairCode: ETH-USD
+            status: pending
+            price: 1112.8879781879882
+            partitions:
+            - start: '2022-11-21T17:00:00.000Z'
+              end: '2022-11-21T17:10:00.000Z'
+              price: 1115.2637297415906
+              ohlcByExchange:
+                BFLY:
+                  open: 1115.64
+                  high: 1118.83
+                  low: 1113.76
+                  close: 1113.76
+                  firstTickTime: '2022-11-21T17:00:05.500Z'
+                  lastTickTime: '2022-11-21T17:04:23.507Z'
+                  tradeCount: 8
+                  volume: 4.91
+                  vwap: 1115.6459063136456
+                  isOutlier: false
+                CPRO:
+                  open: 1115.07
+                  high: 1120.03
+                  low: 1109.91
+                  close: 1110.47
+                  firstTickTime: '2022-11-21T17:00:00.417Z'
+                  lastTickTime: '2022-11-21T17:09:59.913Z'
+                  tradeCount: 5426
+                  volume: 5877.83970994
+                  vwap: 1114.3226374433025
+                  isOutlier: false
+            - start: '2022-11-21T17:10:00.000Z'
+              end: '2022-11-21T17:20:00.000Z'
+              price: 1110.512226634386
+              ohlcByExchange:
+                BFLY:
+                  open: 1110.97
+                  high: 1114.55
+                  low: 1110.54
+                  close: 1112.66
+                  firstTickTime: '2022-11-21T17:10:05.120Z'
+                  lastTickTime: '2022-11-21T17:15:37.584Z'
+                  tradeCount: 7
+                  volume: 1.104
+                  vwap: 1111.15865942029
+                  isOutlier: false
+                CPRO:
+                  open: 1110.2
+                  high: 1113.13
+                  low: 1107.31
+                  close: 1112.29
+                  firstTickTime: '2022-11-21T17:10:00.281Z'
+                  lastTickTime: '2022-11-21T17:16:29.543Z'
+                  tradeCount: 3780
+                  volume: 3560.02631066
+                  vwap: 1110.2858893653843
+                  isOutlier: false
+    lukka-standard-reference-rate-auth_notice:
+      name: lukka-standard-reference-rate-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    lukka-median-reference-rate-subscribe:
+      name: lukka-median-reference-rate-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            baseAssetCodes: []
+            counterAssetCodes: []
+    lukka-median-reference-rate-unsubscribe:
+      name: lukka-median-reference-rate-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            baseAssetCodes: []
+            counterAssetCodes: []
+    lukka-median-reference-rate-authenticate:
+      name: lukka-median-reference-rate-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    lukka-median-reference-rate-auth_notice:
+      name: lukka-median-reference-rate-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    lukka-real-time-vwap-subscribe:
+      name: lukka-real-time-vwap-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 5005
+    lukka-real-time-vwap-record:
+      name: lukka-real-time-vwap-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: MVWAP
+            description: ''
+          data:
+          - tsNanos: 1776891754000000000
+            pairCode: XBT-USD
+            baseAssetCode: XBT
+            counterAssetCode: USD
+            price: 78523.70800302524
+    derivative-greeks-websocket-subscribe:
+      name: derivative-greeks-websocket-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+            underlyingAssetCodes: []
+    derivative-greeks-websocket-unsubscribe:
+      name: derivative-greeks-websocket-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+            underlyingAssetCodes: []
+    derivative-greeks-websocket-authenticate:
+      name: derivative-greeks-websocket-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    derivative-greeks-websocket-record:
+      name: derivative-greeks-websocket-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: DERIVATIVE_GREEKS
+          data:
+          - tsNanos: 1714000000000000000
+            sourceId: 4005
+            entityCode: BINA
+            derivativeCode: BTCUSDT.BINA
+            underlyingAssetCode: XBT
+            quoteAssetCode: USDT
+            lukkaInstrumentClassification: Option
+            optionType: CALL
+            strikePrice: 70000.0
+            expiryTime: '2024-05-31T08:00:00Z'
+            latestPrice: 1250.5
+            latestPriceUsd: 1250.5
+            latestSize: 0.1
+            latestSizeUsd: 125.05
+            aggressor: BUY
+            spotPrice: 62000.0
+            forwardPrice: 62100.0
+            impliedForwardRate: 0.045
+            riskFreeRate: 0.04
+            timeToExpiry: 0.084
+            impliedVolatility: 0.68
+            delta: 0.42
+            gamma: 0.00012
+            theta: -45.2
+            vega: 38.1
+            rho: 5.6
+            modelType: BLACK76
+    derivative-greeks-websocket-auth_notice:
+      name: derivative-greeks-websocket-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    prediction-market-trades-websocket-subscribe:
+      name: prediction-market-trades-websocket-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            sourceIds:
+            - 4141
+            pairCodes: []
+            baseAssetCodes: []
+            counterAssetCodes: []
+            eventTickers: []
+    prediction-market-trades-websocket-unsubscribe:
+      name: prediction-market-trades-websocket-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            sourceIds:
+            - 4141
+            pairCodes: []
+            baseAssetCodes: []
+            counterAssetCodes: []
+            eventTickers: []
+    prediction-market-trades-websocket-authenticate:
+      name: prediction-market-trades-websocket-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    prediction-market-trades-websocket-record:
+      name: prediction-market-trades-websocket-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: PREDICTION_TRADE
+            description: ''
+          data:
+          - tsNanos: 1776891619377000000
+            pairCode: KXBRENTW-26APR2417-T95.99_yes.KALSHI
+            baseAssetCode: KXBRENTW-26APR2417-T95.99_yes.KALSHI
+            counterAssetCode: USD
+            entityCode: KALSHI
+            eventTicker: KXBRENTW-26APR2417.KALSHI
+            price: 0.62
+            size: 5.0
+            side: UNKNOWN
+            exchangeTS: 1776891619000000000
+            sourceId: 4141
+    prediction-market-trades-websocket-auth_notice:
+      name: prediction-market-trades-websocket-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    prediction-market-quotes-websocket-subscribe:
+      name: prediction-market-quotes-websocket-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            sourceIds:
+            - 4141
+            pairCodes: []
+            baseAssetCodes: []
+            counterAssetCodes: []
+            eventTickers: []
+    prediction-market-quotes-websocket-unsubscribe:
+      name: prediction-market-quotes-websocket-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            sourceIds:
+            - 4141
+            pairCodes: []
+            baseAssetCodes: []
+            counterAssetCodes: []
+            eventTickers: []
+    prediction-market-quotes-websocket-authenticate:
+      name: prediction-market-quotes-websocket-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    prediction-market-quotes-websocket-record:
+      name: prediction-market-quotes-websocket-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: PREDICTION_QUOTE
+            description: ''
+          data:
+          - tsNanos: 1776891621051000000
+            pairCode: KXSOLE-26APR2417-B83_yes.KALSHI
+            baseAssetCode: KXSOLE-26APR2417-B83_yes.KALSHI
+            counterAssetCode: USD
+            entityCode: KALSHI
+            eventTicker: KXSOLE-26APR2417.KALSHI
+            bidPrice: 0.03
+            bidSize: 5000.0
+            askPrice: 0.97
+            askSize: 60.0
+            exchangeTS: 1776891620000000000
+    prediction-market-quotes-websocket-auth_notice:
+      name: prediction-market-quotes-websocket-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    quotes-websocket-subscribe:
+      name: quotes-websocket-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+    quotes-websocket-unsubscribe:
+      name: quotes-websocket-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+    quotes-websocket-authenticate:
+      name: quotes-websocket-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    quotes-websocket-record:
+      name: quotes-websocket-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: QUOTE
+          data:
+          - tsNanos: 1646953821915000000
+            pairCode: XBT-USD
+            baseAssetCode: XBT
+            counterAssetCode: USD
+            entityCode: CPRO
+            bidPrice: 39519.82
+            bidSize: 0.05
+            askPrice: 39521.2
+            askSize: 0.00792
+          - tsNanos: 1646953822012000000
+            pairCode: XBT-USD
+            baseAssetCode: XBT
+            counterAssetCode: USD
+            entityCode: CPRO
+            bidPrice: 39519.82
+            bidSize: 0.05
+            askPrice: 39519.9
+            askSize: 0.002597
+    quotes-websocket-auth_notice:
+      name: quotes-websocket-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+    quotes-websocket-v2-subscribe:
+      name: quotes-websocket-v2-subscribe
+      title: Subscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: subscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+    quotes-websocket-v2-unsubscribe:
+      name: quotes-websocket-v2-unsubscribe
+      title: Unsubscribe (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: unsubscribe
+          parameters:
+            pairCodes:
+            - XBT-USD
+            sourceIds:
+            - 4002
+            baseAssetCodes: []
+            counterAssetCodes: []
+    quotes-websocket-v2-authenticate:
+      name: quotes-websocket-v2-authenticate
+      title: Reauthorize (client)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          action: authenticate
+          parameters:
+            token: '{{bearerToken}}'
+    quotes-websocket-v2-record:
+      name: quotes-websocket-v2-record
+      title: Data record (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: QUOTE
+          data:
+          - tsNanos: 1646953821915000000
+            pairCode: XBT-USD
+            baseAssetCode: XBT
+            counterAssetCode: USD
+            entityCode: CPRO
+            bidPrice: 39519.82
+            bidSize: 0.05
+            askPrice: 39521.2
+            askSize: 0.00792
+            exchangeTS: 1712076328234243000
+          - tsNanos: 1646953822012000000
+            pairCode: XBT-USD
+            baseAssetCode: XBT
+            counterAssetCode: USD
+            entityCode: CPRO
+            bidPrice: 39519.82
+            bidSize: 0.05
+            askPrice: 39519.9
+            askSize: 0.002597
+            exchangeTS: 1712076328234243000
+    quotes-websocket-v2-auth_notice:
+      name: quotes-websocket-v2-auth_notice
+      title: Token expiry notice (server)
+      contentType: application/json
+      payload:
+        type: object
+      examples:
+      - name: published
+        payload:
+          metadata:
+            dataType: AUTH
+          message:
+            text: The token will expire soon!
+  securitySchemes:
+    accessTokenQuery:
+      type: httpApiKey
+      name: access_token
+      in: query
+      description: Lukka JWT bearer token passed as a query parameter on the WebSocket connection URL.

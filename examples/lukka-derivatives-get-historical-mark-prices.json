@@ -1,0 +1,34 @@
+{
+ "data": [
+  {
+   "ts": "2026-04-20T12:00:00Z",
+   "derivativeCode": "BTCUSDT.BINA",
+   "underlyingAssetCode": "XBT",
+   "markPrice": "75160.0"
+  },
+  {
+   "ts": "2026-04-20T12:01:00Z",
+   "derivativeCode": "BTCUSDT.BINA",
+   "underlyingAssetCode": "XBT",
+   "markPrice": "75106.0"
+  },
+  {
+   "ts": "2026-04-20T12:02:00Z",
+   "derivativeCode": "BTCUSDT.BINA",
+   "underlyingAssetCode": "XBT",
+   "markPrice": "75069.63205072"
+  },
+  {
+   "ts": "2026-04-20T12:03:00Z",
+   "derivativeCode": "BTCUSDT.BINA",
+   "underlyingAssetCode": "XBT",
+   "markPrice": "75075.6"
+  },
+  {
+   "ts": "2026-04-20T12:04:00Z",
+   "derivativeCode": "BTCUSDT.BINA",
+   "underlyingAssetCode": "XBT",
+   "markPrice": "75049.6828913"
+  }
+ ]
+}

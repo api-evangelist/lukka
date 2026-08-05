@@ -1,0 +1,838 @@
+{
+ "data": [
+  {
+   "ts": "2026-04-22T15:39:29.130Z",
+   "derivativeCode": "0GUSDT.BINA",
+   "underlyingAssetCode": "0G",
+   "markPrice": "0.5884"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.131Z",
+   "derivativeCode": "1000000BOBUSDT.BINA",
+   "underlyingAssetCode": "BINA1000000BOB",
+   "markPrice": "0.01458"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.128Z",
+   "derivativeCode": "1000000MOGUSDT.BINA",
+   "underlyingAssetCode": "BINA1000000MOG",
+   "markPrice": "0.18350761"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.129Z",
+   "derivativeCode": "1000BONKUSDC.BINA",
+   "underlyingAssetCode": "BINA1000BONK",
+   "markPrice": "0.006469"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.125Z",
+   "derivativeCode": "1000BONKUSDT.BINA",
+   "underlyingAssetCode": "BINA1000BONK",
+   "markPrice": "0.00646899"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.127Z",
+   "derivativeCode": "1000CATUSDT.BINA",
+   "underlyingAssetCode": "BINA1000CAT",
+   "markPrice": "0.00195718"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.125Z",
+   "derivativeCode": "1000CHEEMSUSDT.BINA",
+   "underlyingAssetCode": "BINA1000CHEEMS",
+   "markPrice": "0.00060442"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.123Z",
+   "derivativeCode": "1000FLOKIUSDT.BINA",
+   "underlyingAssetCode": "BINA1000FLOKI",
+   "markPrice": "0.03348071"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.116Z",
+   "derivativeCode": "1000LUNCUSDT.BINA",
+   "underlyingAssetCode": "BINA1000LUNC",
+   "markPrice": "0.04581"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.126Z",
+   "derivativeCode": "1000PEPEUSDC.BINA",
+   "underlyingAssetCode": "BINA1000PEPE",
+   "markPrice": "0.00392487"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.120Z",
+   "derivativeCode": "1000PEPEUSDT.BINA",
+   "underlyingAssetCode": "BINA1000PEPE",
+   "markPrice": "0.00392345"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.124Z",
+   "derivativeCode": "1000RATSUSDT.BINA",
+   "underlyingAssetCode": "BINA1000RATS",
+   "markPrice": "0.03716933"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.125Z",
+   "derivativeCode": "1000SATSUSDT.BINA",
+   "underlyingAssetCode": "1000SATSBSC",
+   "markPrice": "0.000015"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.122Z",
+   "derivativeCode": "1000SHIBUSDC.BINA",
+   "underlyingAssetCode": "BINA1000SHIB",
+   "markPrice": "0.006278"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.117Z",
+   "derivativeCode": "1000SHIBUSDT.BINA",
+   "underlyingAssetCode": "BINA1000SHIB",
+   "markPrice": "0.00627303"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.125Z",
+   "derivativeCode": "1000WHYUSDT.BINA",
+   "underlyingAssetCode": "BINA1000WHY",
+   "markPrice": "0.00000219"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.119Z",
+   "derivativeCode": "1000XECUSDT.BINA",
+   "underlyingAssetCode": "BINA1000XEC",
+   "markPrice": "0.00723511"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.125Z",
+   "derivativeCode": "1000XUSDT.BINA",
+   "underlyingAssetCode": "BINA1000X",
+   "markPrice": "0.020844"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.117Z",
+   "derivativeCode": "1INCHUSDT.BINA",
+   "underlyingAssetCode": "1INCH",
+   "markPrice": "0.09769732"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.133Z",
+   "derivativeCode": "1MBABYDOGEUSDT.BINA",
+   "underlyingAssetCode": "BINA1MBABYDOGE",
+   "markPrice": "0.00044146"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.136Z",
+   "derivativeCode": "2ZUSDT.BINA",
+   "underlyingAssetCode": "2ZDOUBLE0",
+   "markPrice": "0.08598"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.136Z",
+   "derivativeCode": "42USDT.BINA",
+   "underlyingAssetCode": "42BSC",
+   "markPrice": "0.00193161"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.135Z",
+   "derivativeCode": "4USDT.BINA",
+   "underlyingAssetCode": "4BSC",
+   "markPrice": "0.01093723"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.131Z",
+   "derivativeCode": "A2ZUSDT.BINA",
+   "underlyingAssetCode": "A2Z",
+   "markPrice": "0.00007933"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.185Z",
+   "derivativeCode": "AAPLUSDT.BINA",
+   "underlyingAssetCode": "AAPLON390",
+   "markPrice": "272.6803611"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.131Z",
+   "derivativeCode": "AAVEUSDC.BINA",
+   "underlyingAssetCode": "AAVE",
+   "markPrice": "94.53"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.115Z",
+   "derivativeCode": "AAVEUSDT.BINA",
+   "underlyingAssetCode": "AAVE",
+   "markPrice": "94.52"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.089Z",
+   "derivativeCode": "AAVEUSD_PERP.BINA",
+   "underlyingAssetCode": "AAVE",
+   "markPrice": "94.52"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.121Z",
+   "derivativeCode": "ACEUSDT.BINA",
+   "underlyingAssetCode": "ACE4",
+   "markPrice": "0.11865694"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.118Z",
+   "derivativeCode": "ACHUSDT.BINA",
+   "underlyingAssetCode": "ALCH",
+   "markPrice": "0.006366"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.124Z",
+   "derivativeCode": "ACTUSDT.BINA",
+   "underlyingAssetCode": "ACTAFW",
+   "markPrice": "0.01458752"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.135Z",
+   "derivativeCode": "ACUUSDT.BINA",
+   "underlyingAssetCode": "ACU216",
+   "markPrice": "0.09552547"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.133Z",
+   "derivativeCode": "ACXUSDT.BINA",
+   "underlyingAssetCode": "ACX1",
+   "markPrice": "0.04446"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.127Z",
+   "derivativeCode": "ADAUSDC.BINA",
+   "underlyingAssetCode": "ADA",
+   "markPrice": "0.25564027"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.114Z",
+   "derivativeCode": "ADAUSDT.BINA",
+   "underlyingAssetCode": "ADA",
+   "markPrice": "0.25551524"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.113Z",
+   "derivativeCode": "ADAUSD_PERP.BINA",
+   "underlyingAssetCode": "ADA",
+   "markPrice": "0.25550729"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.126Z",
+   "derivativeCode": "AERGOUSDT.BINA",
+   "underlyingAssetCode": "AERGO1",
+   "markPrice": "0.05640327"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.128Z",
+   "derivativeCode": "AEROUSDT.BINA",
+   "underlyingAssetCode": "AERO0X91",
+   "markPrice": "0.42667006"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.122Z",
+   "derivativeCode": "AEVOUSDT.BINA",
+   "underlyingAssetCode": "AEVO",
+   "markPrice": "0.02600306"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.121Z",
+   "derivativeCode": "AGIXUSDT.BINA",
+   "underlyingAssetCode": "AGIX",
+   "markPrice": "0.4962"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.123Z",
+   "derivativeCode": "AGLDUSDT.BINA",
+   "underlyingAssetCode": "AGLD",
+   "markPrice": "0.27806804"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.129Z",
+   "derivativeCode": "AGTUSDT.BINA",
+   "underlyingAssetCode": "AGT2",
+   "markPrice": "0.014572"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.125Z",
+   "derivativeCode": "AI16ZUSDT.BINA",
+   "underlyingAssetCode": "AI16Z",
+   "markPrice": "0.0569"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.133Z",
+   "derivativeCode": "AIAUSDT.BINA",
+   "underlyingAssetCode": "AIASUI",
+   "markPrice": "0.06116"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.129Z",
+   "derivativeCode": "AINUSDT.BINA",
+   "underlyingAssetCode": "AINBSC",
+   "markPrice": "0.05774833"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.134Z",
+   "derivativeCode": "AIOTUSDT.BINA",
+   "underlyingAssetCode": "AIOT55A",
+   "markPrice": "0.04205781"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.132Z",
+   "derivativeCode": "AIOUSDT.BINA",
+   "underlyingAssetCode": "AIO1",
+   "markPrice": "0.08163"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.126Z",
+   "derivativeCode": "AIUSDT.BINA",
+   "underlyingAssetCode": "AI6",
+   "markPrice": "0.02222"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.126Z",
+   "derivativeCode": "AIXBTUSDT.BINA",
+   "underlyingAssetCode": "AIXBT",
+   "markPrice": "0.02794518"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.135Z",
+   "derivativeCode": "AKEUSDT.BINA",
+   "underlyingAssetCode": "AKE1",
+   "markPrice": "0.0005091"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.125Z",
+   "derivativeCode": "AKTUSDT.BINA",
+   "underlyingAssetCode": "AKSHT",
+   "markPrice": "0.47825418"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.130Z",
+   "derivativeCode": "ALCHUSDT.BINA",
+   "underlyingAssetCode": "ALCH2",
+   "markPrice": "0.07605"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.115Z",
+   "derivativeCode": "ALGOUSDT.BINA",
+   "underlyingAssetCode": "ALGO",
+   "markPrice": "0.1049"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.117Z",
+   "derivativeCode": "ALICEUSDT.BINA",
+   "underlyingAssetCode": "ALICE",
+   "markPrice": "0.1508"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.136Z",
+   "derivativeCode": "ALLOUSDT.BINA",
+   "underlyingAssetCode": "ALLOBSC",
+   "markPrice": "0.12460111"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.131Z",
+   "derivativeCode": "ALLUSDT.BINA",
+   "underlyingAssetCode": "ALLBINA",
+   "markPrice": "0.54859259"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.128Z",
+   "derivativeCode": "ALPACAUSDT.BINA",
+   "underlyingAssetCode": "ALPACA",
+   "markPrice": "0.01882"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.119Z",
+   "derivativeCode": "ALPHAUSDT.BINA",
+   "underlyingAssetCode": "ALPHA",
+   "markPrice": "0.01566911"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.127Z",
+   "derivativeCode": "ALPINEUSDT.BINA",
+   "underlyingAssetCode": "ALPINE",
+   "markPrice": "0.4745"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.122Z",
+   "derivativeCode": "ALTUSDT.BINA",
+   "underlyingAssetCode": "ALTL",
+   "markPrice": "0.00764"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.121Z",
+   "derivativeCode": "AMBUSDT.BINA",
+   "underlyingAssetCode": "AMB",
+   "markPrice": "0.00009032"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.170Z",
+   "derivativeCode": "AMZNUSDT.BINA",
+   "underlyingAssetCode": "AMZNX",
+   "markPrice": "252.94668061"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.129Z",
+   "derivativeCode": "ANIMEUSDT.BINA",
+   "underlyingAssetCode": "ANIME22",
+   "markPrice": "0.00479159"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.118Z",
+   "derivativeCode": "ANKRUSDT.BINA",
+   "underlyingAssetCode": "ANKR",
+   "markPrice": "0.005126"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.116Z",
+   "derivativeCode": "APEUSDT.BINA",
+   "underlyingAssetCode": "APE2",
+   "markPrice": "0.10443076"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.094Z",
+   "derivativeCode": "APEUSD_PERP.BINA",
+   "underlyingAssetCode": "APE2",
+   "markPrice": "0.08335102"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.117Z",
+   "derivativeCode": "API3USDT.BINA",
+   "underlyingAssetCode": "API3",
+   "markPrice": "0.3164"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.135Z",
+   "derivativeCode": "APRUSDT.BINA",
+   "underlyingAssetCode": "APR1ETH",
+   "markPrice": "0.17986"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.118Z",
+   "derivativeCode": "APTUSDT.BINA",
+   "underlyingAssetCode": "APTM",
+   "markPrice": "0.98398358"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.125Z",
+   "derivativeCode": "ARBUSDC.BINA",
+   "underlyingAssetCode": "ARB2",
+   "markPrice": "0.1281"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.117Z",
+   "derivativeCode": "ARBUSDT.BINA",
+   "underlyingAssetCode": "ARB2",
+   "markPrice": "0.1281"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.126Z",
+   "derivativeCode": "ARCUSDT.BINA",
+   "underlyingAssetCode": "ARCV8V",
+   "markPrice": "0.06677442"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.131Z",
+   "derivativeCode": "ARIAUSDT.BINA",
+   "underlyingAssetCode": "ARIA2",
+   "markPrice": "0.07215722"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.127Z",
+   "derivativeCode": "ARKMUSDT.BINA",
+   "underlyingAssetCode": "ARKM",
+   "markPrice": "0.12425348"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.117Z",
+   "derivativeCode": "ARKUSDT.BINA",
+   "underlyingAssetCode": "ARK",
+   "markPrice": "0.17452057"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.120Z",
+   "derivativeCode": "ARPAUSDT.BINA",
+   "underlyingAssetCode": "ARPA",
+   "markPrice": "0.00993517"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.122Z",
+   "derivativeCode": "ARUSDT.BINA",
+   "underlyingAssetCode": "AR",
+   "markPrice": "2.077"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.132Z",
+   "derivativeCode": "ASRUSDT.BINA",
+   "underlyingAssetCode": "ASR",
+   "markPrice": "1.294"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.131Z",
+   "derivativeCode": "ASTERUSDT.BINA",
+   "underlyingAssetCode": "ASTERBSC",
+   "markPrice": "0.68482494"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.121Z",
+   "derivativeCode": "ASTRUSDT.BINA",
+   "underlyingAssetCode": "ASTA1",
+   "markPrice": "0.00837605"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.119Z",
+   "derivativeCode": "ATAUSDT.BINA",
+   "underlyingAssetCode": "ATA",
+   "markPrice": "0.010475"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.129Z",
+   "derivativeCode": "ATHUSDT.BINA",
+   "underlyingAssetCode": "ATHETH",
+   "markPrice": "0.00609625"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.115Z",
+   "derivativeCode": "ATOMUSDT.BINA",
+   "underlyingAssetCode": "COS",
+   "markPrice": "1.879"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.154Z",
+   "derivativeCode": "ATUSDT.BINA",
+   "underlyingAssetCode": "ATBSC",
+   "markPrice": "0.16702191"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.129Z",
+   "derivativeCode": "AUCTIONUSDT.BINA",
+   "underlyingAssetCode": "AUCTION",
+   "markPrice": "4.81603333"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.129Z",
+   "derivativeCode": "AUSDT.BINA",
+   "underlyingAssetCode": "AEOS",
+   "markPrice": "0.087"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.125Z",
+   "derivativeCode": "AVAAIUSDT.BINA",
+   "underlyingAssetCode": "AVAAI22",
+   "markPrice": "0.00897272"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.134Z",
+   "derivativeCode": "AVAUSDT.BINA",
+   "underlyingAssetCode": "AVA",
+   "markPrice": "0.25229581"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.127Z",
+   "derivativeCode": "AVAXUSDC.BINA",
+   "underlyingAssetCode": "AVAX",
+   "markPrice": "9.57968831"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.120Z",
+   "derivativeCode": "AVAXUSDT.BINA",
+   "underlyingAssetCode": "AVAX",
+   "markPrice": "9.574"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.113Z",
+   "derivativeCode": "AVAXUSD_PERP.BINA",
+   "underlyingAssetCode": "AVAX",
+   "markPrice": "9.57148141"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.192Z",
+   "derivativeCode": "AVGOUSDT.BINA",
+   "underlyingAssetCode": "AVGO",
+   "markPrice": "417.43913489"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.132Z",
+   "derivativeCode": "AVNTUSDT.BINA",
+   "underlyingAssetCode": "AVNTBASE",
+   "markPrice": "0.15122555"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.130Z",
+   "derivativeCode": "AWEUSDT.BINA",
+   "underlyingAssetCode": "AWEBASE",
+   "markPrice": "0.05054061"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.121Z",
+   "derivativeCode": "AXLUSDT.BINA",
+   "underlyingAssetCode": "AXLBSC",
+   "markPrice": "0.0568584"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.120Z",
+   "derivativeCode": "AXSUSDT.BINA",
+   "underlyingAssetCode": "AXS1",
+   "markPrice": "1.12407181"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.133Z",
+   "derivativeCode": "AZTECUSDT.BINA",
+   "underlyingAssetCode": "AZTECETH",
+   "markPrice": "0.02287017"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.139Z",
+   "derivativeCode": "B2USDT.BINA",
+   "underlyingAssetCode": "B2",
+   "markPrice": "0.668"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.125Z",
+   "derivativeCode": "B3USDT.BINA",
+   "underlyingAssetCode": "B3B3B",
+   "markPrice": "0.0003358"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.192Z",
+   "derivativeCode": "BABAUSDT.BINA",
+   "underlyingAssetCode": "BABA19",
+   "markPrice": "137.14043465"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.128Z",
+   "derivativeCode": "BABYUSDT.BINA",
+   "underlyingAssetCode": "BABYM",
+   "markPrice": "0.01631"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.120Z",
+   "derivativeCode": "BADGERUSDT.BINA",
+   "underlyingAssetCode": "BADGER",
+   "markPrice": "0.89344286"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.120Z",
+   "derivativeCode": "BAKEUSDT.BINA",
+   "underlyingAssetCode": "BAKE",
+   "markPrice": "0.012312"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.115Z",
+   "derivativeCode": "BALUSDT.BINA",
+   "underlyingAssetCode": "BALR",
+   "markPrice": "1.25343333"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.131Z",
+   "derivativeCode": "BANANAS31USDT.BINA",
+   "underlyingAssetCode": "BANANAS31",
+   "markPrice": "0.0096"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.124Z",
+   "derivativeCode": "BANANAUSDT.BINA",
+   "underlyingAssetCode": "BANANAGUN",
+   "markPrice": "3.999"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.118Z",
+   "derivativeCode": "BANDUSDT.BINA",
+   "underlyingAssetCode": "BAND",
+   "markPrice": "0.227825"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.127Z",
+   "derivativeCode": "BANKUSDT.BINA",
+   "underlyingAssetCode": "BANK3AE",
+   "markPrice": "0.03764"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.133Z",
+   "derivativeCode": "BANUSDT.BINA",
+   "underlyingAssetCode": "BAN1",
+   "markPrice": "0.08548252"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.132Z",
+   "derivativeCode": "BARDUSDT.BINA",
+   "underlyingAssetCode": "BARDETH",
+   "markPrice": "0.3234"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.135Z",
+   "derivativeCode": "BASEDUSDT.BINA",
+   "underlyingAssetCode": "BASED1BSC1",
+   "markPrice": "0.11707541"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.132Z",
+   "derivativeCode": "BASUSDT.BINA",
+   "underlyingAssetCode": "BAS4",
+   "markPrice": "0.01315143"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.116Z",
+   "derivativeCode": "BATUSDT.BINA",
+   "underlyingAssetCode": "BTT",
+   "markPrice": "0.10445465"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.128Z",
+   "derivativeCode": "BBUSDT.BINA",
+   "underlyingAssetCode": "BB2",
+   "markPrice": "0.02539361"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.126Z",
+   "derivativeCode": "BCHUSDC.BINA",
+   "underlyingAssetCode": "BCH",
+   "markPrice": "465.27"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.118Z",
+   "derivativeCode": "BCHUSDT.BINA",
+   "underlyingAssetCode": "BCH",
+   "markPrice": "465.18269531"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.089Z",
+   "derivativeCode": "BCHUSD_PERP.BINA",
+   "underlyingAssetCode": "BCH",
+   "markPrice": "465.32"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.129Z",
+   "derivativeCode": "BDXNUSDT.BINA",
+   "underlyingAssetCode": "BDXN",
+   "markPrice": "0.00187691"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.120Z",
+   "derivativeCode": "BEAMXUSDT.BINA",
+   "underlyingAssetCode": "BEAM1",
+   "markPrice": "0.00204"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.133Z",
+   "derivativeCode": "BEATUSDT.BINA",
+   "underlyingAssetCode": "BEAT4",
+   "markPrice": "0.55755807"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.119Z",
+   "derivativeCode": "BELUSDT.BINA",
+   "underlyingAssetCode": "BEL",
+   "markPrice": "0.1106"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.135Z",
+   "derivativeCode": "BERAUSDT.BINA",
+   "underlyingAssetCode": "BERAMAIN",
+   "markPrice": "0.41134973"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.119Z",
+   "derivativeCode": "BICOUSDT.BINA",
+   "underlyingAssetCode": "BICO",
+   "markPrice": "0.02513"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.127Z",
+   "derivativeCode": "BIDUSDT.BINA",
+   "underlyingAssetCode": "BIDA18",
+   "markPrice": "0.00841197"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.120Z",
+   "derivativeCode": "BIGTIMEUSDT.BINA",
+   "underlyingAssetCode": "BIGTIME1",
+   "markPrice": "0.01355325"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.135Z",
+   "derivativeCode": "BIOUSDC.BINA",
+   "underlyingAssetCode": "BIOCB1",
+   "markPrice": "0.0287"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.130Z",
+   "derivativeCode": "BIOUSDT.BINA",
+   "underlyingAssetCode": "BIOCB1",
+   "markPrice": "0.02873091"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.137Z",
+   "derivativeCode": "BIRBUSDT.BINA",
+   "underlyingAssetCode": "BIRB1SOL1",
+   "markPrice": "0.14283"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.135Z",
+   "derivativeCode": "BLESSUSDT.BINA",
+   "underlyingAssetCode": "BLESSSOL",
+   "markPrice": "0.00581866"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.133Z",
+   "derivativeCode": "BLUAIUSDT.BINA",
+   "underlyingAssetCode": "BLUAI",
+   "markPrice": "0.010615"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.119Z",
+   "derivativeCode": "BLURUSDT.BINA",
+   "underlyingAssetCode": "BLUR1",
+   "markPrice": "0.03200459"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.115Z",
+   "derivativeCode": "BLZUSDT.BINA",
+   "underlyingAssetCode": "BLL",
+   "markPrice": "0.047222"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.128Z",
+   "derivativeCode": "BMTUSDT.BINA",
+   "underlyingAssetCode": "BMTGTF",
+   "markPrice": "0.01656"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.139Z",
+   "derivativeCode": "BNB-260423-560-C.BINA",
+   "underlyingAssetCode": "BNB",
+   "markPrice": "89.9504"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.139Z",
+   "derivativeCode": "BNB-260423-560-P.BINA",
+   "underlyingAssetCode": "BNB",
+   "markPrice": "0.0325"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.136Z",
+   "derivativeCode": "BNB-260423-580-C.BINA",
+   "underlyingAssetCode": "BNB",
+   "markPrice": "70.0255"
+  },
+  {
+   "ts": "2026-04-22T15:39:30.137Z",
+   "derivativeCode": "BNB-260423-580-P.BINA",
+   "underlyingAssetCode": "BNB",
+   "markPrice": "0.1309"
+  },
+  {
+   "ts": "2026-04-22T15:39:28.136Z",
+   "derivativeCode": "BNB-260423-600-C.BINA",
+   "underlyingAssetCode": "BNB",
+   "markPrice": "50.5108"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.139Z",
+   "derivativeCode": "BNB-260423-600-P.BINA",
+   "underlyingAssetCode": "BNB",
+   "markPrice": "2.2347"
+  }
+ ]
+}

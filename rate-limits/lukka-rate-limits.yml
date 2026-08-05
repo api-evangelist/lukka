@@ -1,0 +1,41 @@
+generated: '2026-08-04'
+method: searched
+source: https://apidocs.lukka.tech/
+description: Lukka rate limits its REST data APIs per client id. The limit is published in the Pricing API overview and
+  the response headers are observable in the published response examples.
+rate_limits:
+- name: REST data APIs
+  limit_count: 5
+  interval: second
+  unit: requests
+  scope: client id
+  applies_to:
+  - data-pricing-api.lukka.tech
+  - data-refdata-api.lukka.tech
+  - data-analytics-api-v2.lukka.tech
+  source: https://apidocs.lukka.tech/
+  quote: All APIs are rate limited by client ID at 5 requests per second.
+headers:
+- header: x-rate-limit-limit
+  description: Ceiling for the current window.
+  observed_on: sso.lukka.tech token responses
+- header: x-rate-limit-remaining
+  description: Requests left in the current window.
+  observed_on: sso.lukka.tech token responses
+- header: x-rate-limit-reset
+  description: Epoch second at which the window resets.
+  observed_on: sso.lukka.tech token responses
+response_limits:
+- operation: get_spot_trades / getHistoricalSpotTrades
+  limit: 3600 records per call
+- operation: get_historical_prices / get_candles / market caps
+  limit: 1440 records per call (default and max)
+- operation: get_vwap
+  limit: range capped at 7 days from `from`
+notes:
+- The seven hosted MCP servers do not publish a numeric rate limit; they inherit the underlying product entitlement.
+- Bulk historical trade and quote extracts are asynchronous (202 Accepted + request id + CSV download) rather than rate-limited
+  synchronous reads.
+x-evidence:
+  fetched: '2026-08-04'
+  source: https://apidocs.lukka.tech/

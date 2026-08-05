@@ -1,0 +1,54 @@
+generated: '2026-08-04'
+method: derived
+source:
+- postman/lukka-data-apis-postman.json
+- openapi/lukka-analytics-openapi.yml
+- openapi/lukka-pricing-market-data-openapi.yml
+- openapi/lukka-reference-data-openapi.yml
+- openapi/lukka-reference-data-v1-openapi.yml
+- openapi/lukka-valuation-openapi.yml
+format: json
+rfc9457: false
+description: Lukka publishes no error reference and no genuine error response example. Across the 97 saved responses
+  in its public Postman collections, every response carrying a 4xx status code is a mislabelled SUCCESS payload - ten
+  responses tagged 400 contain successful Okta token grants, and the one tagged 404 contains a successful crypto-actions
+  data page. There is therefore no documented error contract for any Lukka API.
+envelope:
+  documented: false
+  note: No error body shape is published. Successful responses use a {data, limit, offset, size, links} envelope; nothing
+    describes what replaces it on failure.
+problems: []
+collection_anomalies:
+- status_tagged: 400
+  occurrences: 10
+  endpoint: https://sso.lukka.tech/oauth2/{authorizationServerId}/v1/token
+  actual_body: successful OAuth token grant ({token_type, expires_in, access_token, scope})
+  note: Saved-example status codes in the published collection do not match their bodies.
+- status_tagged: 404
+  occurrences: 1
+  endpoint: GET /v1/lukka/assets/crypto-actions
+  actual_body: successful crypto-actions data page
+  note: Same mislabelling; the operation in openapi/lukka-reference-data-openapi.yml carries this response verbatim with
+    an annotation.
+gaps:
+- No published error reference page for any Lukka product.
+- No RFC 9457 application/problem+json on any operation.
+- No 400, 401, 403, 429 or 5xx response is genuinely documented, despite OAuth bearer auth and a published 5 req/sec
+  rate limit.
+- No stable machine-readable error code vocabulary an agent can branch on.
+- 'The MCP surface returns JSON-RPC 2.0 errors (observed: {"code":-32001,"message":"Missing Bearer token"}) but Lukka
+  publishes no MCP error code list either.'
+observed_live_errors:
+- surface: MCP
+  probe: POST tools/list without a bearer token
+  http_status: 401
+  body:
+    jsonrpc: '2.0'
+    id: 0
+    error:
+      code: -32001
+      message: Missing Bearer token
+  probed: '2026-08-04'
+x-evidence:
+  fetched: '2026-08-04'
+  source: https://apidocs.lukka.tech/

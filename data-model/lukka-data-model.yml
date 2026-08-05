@@ -1,0 +1,308 @@
+generated: '2026-08-04'
+method: derived
+source:
+- openapi/lukka-analytics-openapi.yml
+- openapi/lukka-pricing-market-data-openapi.yml
+- openapi/lukka-reference-data-openapi.yml
+- openapi/lukka-reference-data-v1-openapi.yml
+- openapi/lukka-valuation-openapi.yml
+- mcp/lukka-mcp.yml
+- https://apidocs.lukka.tech/
+description: Entity-relationship model for the Lukka data core, derived from the resource paths, identifier conventions
+  and filter parameters across the REST operations and the MCP tool schemas. Lukka publishes no components.schemas (its
+  contract is a Postman collection), so relationships are derived from id-reference fields and path structure rather
+  than $ref links.
+id_conventions:
+  lukka_id: 11-character Lukka ID (LID)
+  prefixes:
+  - prefix: LA
+    entity: Asset
+    example: LA3YA6GC8Y5
+  - prefix: LM
+    entity: Marketplace
+    example: LM47PH5UBV0
+  - prefix: LC
+    entity: Custodian
+    example: LC14SKMDN12
+  other:
+  - form: L-DERI-<type>-<base>-<counter>-<C|P>-<strike>-<expiry>
+    entity: Derivative
+    example: L-DERI-OPT-BTC-BTC-C-43000-20210917
+  - form: <BASE>-<COUNTER>
+    entity: Pair
+    example: XBT-USD
+  - form: 4-character code
+    entity: Entity
+    example: BINA, KRAK, OKEX, KUCO
+  - form: integer
+    entity: Source
+    example: 1000, 2000, 4002, 5001, 6140
+entities:
+- name: Asset
+  id: lukkaAssetId (LA…)
+  domain: reference-data
+  path: /v2/lukka/assets
+  description: A normalised crypto asset - the golden-copy record all pricing and mapping hangs off.
+  detail_blocks:
+  - blockchainDetails
+  - nameDetails
+  operations:
+  - allLukkaAssets
+  - aLukkaAssetAndItsDetails
+  - assetExposure
+- name: Pair
+  id: pairCode (XBT-USD)
+  domain: reference-data
+  path: /v2/lukka/pairs/mappings
+  description: A base/counter asset pairing; the unit of quotation for all pricing and market data.
+  operations:
+  - pairMappings
+  - lukkaPairMappings
+- name: Entity
+  id: entityCode
+  domain: reference-data
+  path: /v2/lukka/entities
+  description: A source organisation - exchange, marketplace, custodian or data provider.
+  operations:
+  - allEntities
+  - anEntity
+  - allLegalEntityMappings
+- name: Marketplace
+  id: lukkaMarketId (LM…)
+  domain: reference-data
+  path: /v2/lukka/markets
+  description: A trading venue with its terms and conditions.
+  operations:
+  - allMarketplaces
+  - aMarketplaceAndItsDetails
+- name: Custodian
+  id: lukkaCustodianId (LC…)
+  domain: reference-data
+  path: /v2/lukka/custodians
+  description: A custody provider with its terms and conditions.
+  operations:
+  - allCustodians
+  - aCustodianAndItsDetails
+- name: VASP
+  id: vaspId
+  domain: reference-data
+  path: /v2/lukka/vasps
+  description: Virtual Asset Service Provider record used for travel-rule and compliance workflows.
+  operations:
+  - aVASPAndItsDetails
+- name: Derivative
+  id: lukkaDerivativeCode
+  domain: reference-data
+  path: /v2/lukka/derivatives
+  description: A futures, options or perpetual instrument referencing an underlying asset.
+  operations:
+  - allDerivatives
+  - aDerivativeAndItsDetails
+  - derivativeMappings
+- name: CryptoAction
+  id: lukkaCryptoActionId
+  domain: reference-data
+  path: /v2/lukka/assets/crypto-actions
+  description: 'A corporate-action analogue for crypto: fork, airdrop, migration, name change, redenomination.'
+  operations:
+  - allCryptoActions
+  - assetCryptoActions
+- name: Sector (LDACS)
+  id: sectorCode
+  domain: reference-data
+  path: /v2/lukka/sectors
+  description: Lukka Digital Asset Classification System sector assigned to an asset.
+  operations:
+  - ldacs
+- name: Source
+  id: sourceId (integer)
+  domain: pricing
+  path: /v1/pricing/sources
+  description: 'The origin of a price, candle or trade: a fixed Lukka methodology, an exchange, an index or a client-specific
+    custom source.'
+  operations:
+  - availableSources
+  - sourceDetails
+  - availableSourcesByProduct
+- name: Price
+  id: (sourceId, pairCode, timestamp)
+  domain: pricing
+  path: /v1/pricing/sources/{sourceId}/prices
+  description: A priced observation for a pair from a source at a point in time.
+  operations:
+  - getLatestPrices
+  - getHistoricalPrices
+  - getPriceVariancesByPair
+- name: Candle
+  id: (sourceId, pairCode, interval, timestamp)
+  domain: market-data
+  path: /v2/market-data/sources/{sourceId}/candles/pairs/{pairCode}
+  description: OHLCV bar aggregated over an interval expressed in milliseconds.
+  operations:
+  - getCandlesByExchangeSourceDerivative
+- name: Trade
+  id: (sourceId, pairCode, timestamp)
+  domain: market-data
+  path: /v1/market-data/sources/{sourceId}/trades/pairs/{pairCode}
+  description: An individual executed trade print, spot or derivative.
+  operations:
+  - getHistoricalSpotTrades
+  - getLatestDerivativeTrades
+  - getHistoricalDerivativeTrades
+- name: MarketCap
+  id: (pairCode, timestamp)
+  domain: market-data
+  path: /v2/market-data/market-caps
+  description: Lukka Prime price multiplied by circulating supply from Reference Data.
+  operations:
+  - getLatestMarketCaps
+  - getMarketCapsByPair
+- name: Index
+  id: indexId / symbol
+  domain: pricing
+  path: /v1/pricing/sources/{sourceId}/indices
+  description: A Lukka index or reference rate and its valuation series.
+  operations:
+  - getLatestIndexPrices
+  - getHistoricalIndexPrices
+- name: PredictionMarket
+  id: eventTicker / lukkaSymbol
+  domain: prediction-markets
+  path: /v2/lukka/prediction-markets
+  description: A prediction-market contract on Polymarket, Kalshi or Gemini.
+  operations:
+  - allPredictionMarkets
+  - aPredictionMarketAndItsDetails
+  - getPredictionHistoryByEventTicker
+- name: CalculationRun
+  id: requestId
+  domain: valuation
+  path: /datacalculation
+  description: An asynchronous bespoke valuation job for digital asset derivatives.
+  operations:
+  - runCalculation
+  - getStatus
+  - getResults
+- name: ExtractRequest
+  id: requestId
+  domain: bulk
+  path: /v1/trades/historical/requests
+  description: An asynchronous bulk CSV extract of historical trades or quotes.
+  operations:
+  - createHistoricalTradesRequest
+  - getHistoricalTradesRequestStatus
+relationships:
+- from: Pair
+  to: Asset
+  type: belongs_to
+  via: baseAssetCode
+  cardinality: many-to-one
+- from: Pair
+  to: Asset
+  type: belongs_to
+  via: counterAssetCode
+  cardinality: many-to-one
+- from: Asset
+  to: Sector (LDACS)
+  type: belongs_to
+  via: assetLid
+  cardinality: many-to-one
+- from: Asset
+  to: CryptoAction
+  type: has_many
+  via: lukkaAssetId
+  cardinality: one-to-many
+- from: Asset
+  to: Entity
+  type: has_many
+  via: asset mappings (entityAssetCode)
+  cardinality: many-to-many
+  through: AssetMapping
+- from: Pair
+  to: Entity
+  type: has_many
+  via: pair mappings
+  cardinality: many-to-many
+  through: PairMapping
+- from: Derivative
+  to: Asset
+  type: belongs_to
+  via: underlyingAssetCode
+  cardinality: many-to-one
+- from: Derivative
+  to: Entity
+  type: belongs_to
+  via: entityCode
+  cardinality: many-to-one
+- from: Marketplace
+  to: Entity
+  type: belongs_to
+  via: entityCode
+  cardinality: one-to-one
+- from: Custodian
+  to: Entity
+  type: belongs_to
+  via: entityCode
+  cardinality: one-to-one
+- from: VASP
+  to: Entity
+  type: belongs_to
+  via: entityCode
+  cardinality: many-to-one
+- from: Source
+  to: Entity
+  type: belongs_to
+  via: sourceId to exchange entity
+  cardinality: many-to-one
+  note: Exchange sources (4001-4999) map to an Entity; fixed methodology sources (1000-5005) and index sources (6xxx)
+    do not.
+- from: Price
+  to: Source
+  type: belongs_to
+  via: sourceId
+  cardinality: many-to-one
+- from: Price
+  to: Pair
+  type: belongs_to
+  via: pairCode
+  cardinality: many-to-one
+- from: Candle
+  to: Source
+  type: belongs_to
+  via: sourceId
+  cardinality: many-to-one
+- from: Candle
+  to: Pair
+  type: belongs_to
+  via: pairCode
+  cardinality: many-to-one
+- from: Trade
+  to: Source
+  type: belongs_to
+  via: sourceId
+  cardinality: many-to-one
+- from: MarketCap
+  to: Pair
+  type: belongs_to
+  via: pairCode
+  cardinality: many-to-one
+- from: MarketCap
+  to: Asset
+  type: belongs_to
+  via: circulatingSupply from Reference Data
+  cardinality: many-to-one
+- from: Index
+  to: Source
+  type: belongs_to
+  via: sourceId
+  cardinality: many-to-one
+- from: PredictionMarket
+  to: Entity
+  type: belongs_to
+  via: sourceId (Polymarket, Kalshi, Gemini)
+  cardinality: many-to-one
+notes:
+- 'Asset is the hub: reference data normalises every exchange ticker onto a Lukka asset, and pricing, market cap and
+  classification all key off it.'
+- The MCP surface exposes the same core, plus AML risk and on-chain (UDA) entities that have no public REST contract
+  - see mcp/lukka-tool-crosswalk.yml.

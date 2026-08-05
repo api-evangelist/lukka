@@ -1,0 +1,42 @@
+{
+ "sourceId": 4002,
+ "pairCode": "XBT-USD",
+ "dataType": "priceTick",
+ "firstDate": "2026-04-20T12:00:00.048Z",
+ "lastDate": "2026-04-20T12:00:01.486Z",
+ "count": 5,
+ "nextPageUrl": "/v1/market-data/sources/4002/trades/pairs/XBT-USD?from=2026-04-20T12%3A00%3A01.487Z&limit=5&fill=false&to=2026-04-20T12%3A05%3A00Z",
+ "units": "native",
+ "data": [
+  {
+   "ts": "2026-04-20T12:00:00.048Z",
+   "price": "75220.26",
+   "size": "0.00064585",
+   "side": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.470Z",
+   "price": "75222.9",
+   "size": "0.00013294",
+   "side": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:00.470Z",
+   "price": "75222.9",
+   "size": "0.00078706",
+   "side": "BUY"
+  },
+  {
+   "ts": "2026-04-20T12:00:01.358Z",
+   "price": "75222.89",
+   "size": "0.00000013",
+   "side": "SELL"
+  },
+  {
+   "ts": "2026-04-20T12:00:01.486Z",
+   "price": "75222.9",
+   "size": "0.00002658",
+   "side": "BUY"
+  }
+ ]
+}

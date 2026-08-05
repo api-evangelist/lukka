@@ -1,0 +1,67 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://sso.lukka.tech/.well-known/openid-configuration
+- https://pricing.mcp.lukka.tech/.well-known/oauth-protected-resource
+- https://lukka.tech/trust-center/
+- https://apidocs.lukka.tech/
+standards:
+- id: oauth2
+  conforms: true
+  evidence: RFC 6749 client_credentials against Okta custom authorization servers; authorization_code + PKCE against
+    Auth0 for MCP.
+- id: oidc-discovery
+  conforms: true
+  evidence: https://sso.lukka.tech/.well-known/openid-configuration returns 200; https://auth0.lukka.tech/.well-known/openid-configuration
+    returns 200.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 on sso.lukka.tech, both custom authorization servers,
+    and auth0.lukka.tech.
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: true
+  evidence: All seven MCP hosts return 200 with authorization_servers, resource and scopes_supported.
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256; MCP docs state PKCE explicitly.
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint https://auth0.lukka.tech/oidc/register; MCP docs state Dynamic Client Registration
+    with Client ID Metadata Document.
+- id: model-context-protocol
+  conforms: true
+  evidence: Seven hosted streamable-HTTP MCP servers documented at https://github.com/lukkatech/lukka-mcps; JSON-RPC
+    2.0 error envelope observed on tools/list.
+- id: openapi
+  conforms: false
+  evidence: Lukka publishes Postman collections, not OpenAPI. The openapi/ documents in this repo are API Evangelist
+    conversions.
+- id: asyncapi
+  conforms: false
+  evidence: Lukka documents 12 WebSocket channels in prose but publishes no AsyncAPI document.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json response appears in any published operation; errors are plain JSON objects.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on lukka.tech and all API hosts.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: Deprecated v1 Reference Data operations are labelled in documentation only; no Sunset or Deprecation header
+    is documented.
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json miss on every Lukka host (404 on lukka.tech, 401
+    blanket auth on the MCP hosts).
+- id: soc1-type-ii
+  conforms: true
+  evidence: https://lukka.tech/trust-center/ - annual SOC 1 Type II with 12-month coverage periods.
+- id: soc2-type-ii
+  conforms: true
+  evidence: https://lukka.tech/trust-center/ - annual SOC 2 Type II covering Security, Availability, Processing Integrity,
+    Confidentiality and Privacy.
+- id: iso-iec-27001
+  conforms: true
+  evidence: https://lukka.tech/trust-center/ - certified by the British Standards Institution (BSI).
+x-evidence:
+  fetched: '2026-08-04'

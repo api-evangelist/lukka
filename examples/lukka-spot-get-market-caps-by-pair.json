@@ -1,0 +1,38 @@
+{
+ "sourceId": 1000,
+ "pairCode": "XBT-USD",
+ "dataType": "market-caps",
+ "firstDate": "2026-04-22T15:33:00Z",
+ "lastDate": "2026-04-22T15:35:00Z",
+ "count": 3,
+ "metadata": {
+  "assetLid": "LA6EV2NKQ95",
+  "assetCode": "XBT",
+  "assetName": "Bitcoin"
+ },
+ "nextPageUrl": "/v2/market-data/market-caps/pairs/XBT-USD?from=2026-04-22T15%3A36%3A00Z&limit=3&fill=false",
+ "data": [
+  {
+   "ts": "2026-04-22T15:35:00Z",
+   "marketCap": "1584057764954.28",
+   "circulatingSupply": "20019318.0",
+   "supplyLastUpdateTs": "2026-04-22T14:18:03Z",
+   "totalSupply": "20019318.0"
+  },
+  {
+   "ts": "2026-04-22T15:34:00Z",
+   "marketCap": "1583367899256.0",
+   "circulatingSupply": "20019318.0",
+   "supplyLastUpdateTs": "2026-04-22T14:18:03Z",
+   "totalSupply": "20019318.0"
+  },
+  {
+   "ts": "2026-04-22T15:33:00Z",
+   "marketCap": "1584541231483.98",
+   "circulatingSupply": "20019318.0",
+   "supplyLastUpdateTs": "2026-04-22T14:18:03Z",
+   "totalSupply": "20019318.0"
+  }
+ ],
+ "limit": 3
+}

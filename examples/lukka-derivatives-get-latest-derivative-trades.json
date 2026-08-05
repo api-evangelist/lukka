@@ -1,0 +1,511 @@
+{
+ "sourceId": 4005,
+ "dataType": "derivative-trades",
+ "asOf": "2026-04-22T15:39:53.856466659Z",
+ "data": [
+  {
+   "ts": "2026-04-22T15:39:43.964Z",
+   "price": "0.5885",
+   "derivativeLid": "L-BINA-PERP-0G-USDT",
+   "lukkaDerivativeCode": "0GUSDT.BINA",
+   "entityDerivativeCode": "0GUSDT",
+   "size": "28.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:38:00.556Z",
+   "price": "0.01458",
+   "derivativeLid": "L-BINA-PERP-BINA1000000BOB-USDT",
+   "lukkaDerivativeCode": "1000000BOBUSDT.BINA",
+   "entityDerivativeCode": "1000000BOBUSDT",
+   "size": "1794.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:46.619Z",
+   "price": "0.1843",
+   "derivativeLid": "L-BINA-PERP-BINA1000000MOG-USDT",
+   "lukkaDerivativeCode": "1000000MOGUSDT.BINA",
+   "entityDerivativeCode": "1000000MOGUSDT",
+   "size": "1208.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:50.455Z",
+   "price": "0.006464",
+   "derivativeLid": "L-BINA-PERP-BINA1000BONK-USDC",
+   "lukkaDerivativeCode": "1000BONKUSDC.BINA",
+   "entityDerivativeCode": "1000BONKUSDC",
+   "size": "813.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:50.455Z",
+   "price": "0.006467",
+   "derivativeLid": "L-BINA-PERP-BINA1000BONK-USDT",
+   "lukkaDerivativeCode": "1000BONKUSDT.BINA",
+   "entityDerivativeCode": "1000BONKUSDT",
+   "size": "22552.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:42.470Z",
+   "price": "0.001958",
+   "derivativeLid": "L-BINA-PERP-BINA1000CAT-USDT",
+   "lukkaDerivativeCode": "1000CATUSDT.BINA",
+   "entityDerivativeCode": "1000CATUSDT",
+   "size": "5769.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:32.900Z",
+   "price": "0.0006049",
+   "derivativeLid": "L-BINA-PERP-BINA1000CHEEMS-USDT",
+   "lukkaDerivativeCode": "1000CHEEMSUSDT.BINA",
+   "entityDerivativeCode": "1000CHEEMSUSDT",
+   "size": "20543.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.900Z",
+   "price": "0.03348",
+   "derivativeLid": "L-BINA-PERP-BINA1000FLOKI-USDT",
+   "lukkaDerivativeCode": "1000FLOKIUSDT.BINA",
+   "entityDerivativeCode": "1000FLOKIUSDT",
+   "size": "6099.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:49.927Z",
+   "price": "0.04579",
+   "derivativeLid": "L-BINA-PERP-BINA1000LUNC-USDT",
+   "lukkaDerivativeCode": "1000LUNCUSDT.BINA",
+   "entityDerivativeCode": "1000LUNCUSDT",
+   "size": "7976.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:48.250Z",
+   "price": "0.0039211",
+   "derivativeLid": "L-BINA-PERP-BINA1000PEPE-USDC",
+   "lukkaDerivativeCode": "1000PEPEUSDC.BINA",
+   "entityDerivativeCode": "1000PEPEUSDC",
+   "size": "86169.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:50.435Z",
+   "price": "0.0039198",
+   "derivativeLid": "L-BINA-PERP-BINA1000PEPE-USDT",
+   "lukkaDerivativeCode": "1000PEPEUSDT.BINA",
+   "entityDerivativeCode": "1000PEPEUSDT",
+   "size": "50.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:14.982Z",
+   "price": "0.03719",
+   "derivativeLid": "L-BINA-PERP-BINA1000RATS-USDT",
+   "lukkaDerivativeCode": "1000RATSUSDT.BINA",
+   "entityDerivativeCode": "1000RATSUSDT",
+   "size": "833.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:44.997Z",
+   "price": "0.000015",
+   "derivativeLid": "L-BINA-PERP-1000SATSBSC-USDT",
+   "lukkaDerivativeCode": "1000SATSUSDT.BINA",
+   "entityDerivativeCode": "1000SATSUSDT",
+   "size": "5614930.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:48.470Z",
+   "price": "0.006273",
+   "derivativeLid": "L-BINA-PERP-BINA1000SHIB-USDC",
+   "lukkaDerivativeCode": "1000SHIBUSDC.BINA",
+   "entityDerivativeCode": "1000SHIBUSDC",
+   "size": "837.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.907Z",
+   "price": "0.006274",
+   "derivativeLid": "L-BINA-PERP-BINA1000SHIB-USDT",
+   "lukkaDerivativeCode": "1000SHIBUSDT.BINA",
+   "entityDerivativeCode": "1000SHIBUSDT",
+   "size": "4316.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:05.120Z",
+   "price": "0.00724",
+   "derivativeLid": "L-BINA-PERP-BINA1000XEC-USDT",
+   "lukkaDerivativeCode": "1000XECUSDT.BINA",
+   "entityDerivativeCode": "1000XECUSDT",
+   "size": "9379.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:31.488Z",
+   "price": "0.0977",
+   "derivativeLid": "L-BINA-PERP-1INCH-USDT",
+   "lukkaDerivativeCode": "1INCHUSDT.BINA",
+   "entityDerivativeCode": "1INCHUSDT",
+   "size": "5315.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:48.250Z",
+   "price": "0.0004416",
+   "derivativeLid": "L-BINA-PERP-BINA1MBABYDOGE-USDT",
+   "lukkaDerivativeCode": "1MBABYDOGEUSDT.BINA",
+   "entityDerivativeCode": "1MBABYDOGEUSDT",
+   "size": "614722.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:12.875Z",
+   "price": "0.08598",
+   "derivativeLid": "L-BINA-PERP-2ZDOUBLE0-USDT",
+   "lukkaDerivativeCode": "2ZUSDT.BINA",
+   "entityDerivativeCode": "2ZUSDT",
+   "size": "450.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.816Z",
+   "price": "0.010939",
+   "derivativeLid": "L-BINA-PERP-4BSC-USDT",
+   "lukkaDerivativeCode": "4USDT.BINA",
+   "entityDerivativeCode": "4USDT",
+   "size": "960.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:38.101Z",
+   "price": "272.66",
+   "lukkaDerivativeCode": "AAPLUSDT.BINA",
+   "entityDerivativeCode": "AAPLUSDT",
+   "size": "2.83",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.794Z",
+   "price": "94.54",
+   "derivativeLid": "L-BINA-PERP-AAVE-USDC",
+   "lukkaDerivativeCode": "AAVEUSDC.BINA",
+   "entityDerivativeCode": "AAVEUSDC",
+   "size": "1.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.855Z",
+   "price": "94.52",
+   "derivativeLid": "L-BINA-PERP-AAVE-USDT",
+   "lukkaDerivativeCode": "AAVEUSDT.BINA",
+   "entityDerivativeCode": "AAVEUSDT",
+   "size": "1.1",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.533Z",
+   "price": "94.54",
+   "derivativeLid": "L-BINA-PERP-AAVE-USD",
+   "lukkaDerivativeCode": "AAVEUSD_PERP.BINA",
+   "entityDerivativeCode": "AAVEUSD_PERP",
+   "size": "2.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:01.492Z",
+   "price": "0.1186",
+   "derivativeLid": "L-BINA-PERP-ACE4-USDT",
+   "lukkaDerivativeCode": "ACEUSDT.BINA",
+   "entityDerivativeCode": "ACEUSDT",
+   "size": "43.12",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.856Z",
+   "price": "0.006369",
+   "derivativeLid": "L-BINA-PERP-ALCH-USDT",
+   "lukkaDerivativeCode": "ACHUSDT.BINA",
+   "entityDerivativeCode": "ACHUSDT",
+   "size": "74801.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:49.072Z",
+   "price": "0.01458",
+   "derivativeLid": "L-BINA-PERP-ACTAFW-USDT",
+   "lukkaDerivativeCode": "ACTUSDT.BINA",
+   "entityDerivativeCode": "ACTUSDT",
+   "size": "6704.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.083Z",
+   "price": "0.09562",
+   "derivativeLid": "L-BINA-PERP-ACU216-USDT",
+   "lukkaDerivativeCode": "ACUUSDT.BINA",
+   "entityDerivativeCode": "ACUUSDT",
+   "size": "486.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:43.409Z",
+   "price": "0.04445",
+   "derivativeLid": "L-BINA-PERP-ACX1-USDT",
+   "lukkaDerivativeCode": "ACXUSDT.BINA",
+   "entityDerivativeCode": "ACXUSDT",
+   "size": "1147.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:48.255Z",
+   "price": "0.2555",
+   "derivativeLid": "L-BINA-PERP-ADA-USDC",
+   "lukkaDerivativeCode": "ADAUSDC.BINA",
+   "entityDerivativeCode": "ADAUSDC",
+   "size": "190.2",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:50.347Z",
+   "price": "0.2554",
+   "derivativeLid": "L-BINA-PERP-ADA-USDT",
+   "lukkaDerivativeCode": "ADAUSDT.BINA",
+   "entityDerivativeCode": "ADAUSDT",
+   "size": "390.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:46.036Z",
+   "price": "0.2555",
+   "derivativeLid": "L-BINA-PERP-ADA-USD",
+   "lukkaDerivativeCode": "ADAUSD_PERP.BINA",
+   "entityDerivativeCode": "ADAUSD_PERP",
+   "size": "1.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:43.247Z",
+   "price": "0.05643",
+   "derivativeLid": "L-BINA-PERP-AERGO1-USDT",
+   "lukkaDerivativeCode": "AERGOUSDT.BINA",
+   "entityDerivativeCode": "AERGOUSDT",
+   "size": "108.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:48.344Z",
+   "price": "0.4258",
+   "derivativeLid": "L-BINA-PERP-AERO0X91-USDT",
+   "lukkaDerivativeCode": "AEROUSDT.BINA",
+   "entityDerivativeCode": "AEROUSDT",
+   "size": "89.4",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:34.024Z",
+   "price": "0.02601",
+   "derivativeLid": "L-BINA-PERP-AEVO-USDT",
+   "lukkaDerivativeCode": "AEVOUSDT.BINA",
+   "entityDerivativeCode": "AEVOUSDT",
+   "size": "246.7",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:27.165Z",
+   "price": "0.2782",
+   "derivativeLid": "L-BINA-PERP-AGLD-USDT",
+   "lukkaDerivativeCode": "AGLDUSDT.BINA",
+   "entityDerivativeCode": "AGLDUSDT",
+   "size": "36.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:38.504Z",
+   "price": "0.014519",
+   "derivativeLid": "L-BINA-PERP-AGT2-USDT",
+   "lukkaDerivativeCode": "AGTUSDT.BINA",
+   "entityDerivativeCode": "AGTUSDT",
+   "size": "495.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:50.140Z",
+   "price": "0.06117",
+   "derivativeLid": "L-BINA-PERP-AIASUI-USDT",
+   "lukkaDerivativeCode": "AIAUSDT.BINA",
+   "entityDerivativeCode": "AIAUSDT",
+   "size": "300.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:35.166Z",
+   "price": "0.05773",
+   "derivativeLid": "L-BINA-PERP-AINBSC-USDT",
+   "lukkaDerivativeCode": "AINUSDT.BINA",
+   "entityDerivativeCode": "AINUSDT",
+   "size": "860.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:46.617Z",
+   "price": "0.04201",
+   "derivativeLid": "L-BINA-PERP-AIOT55A-USDT",
+   "lukkaDerivativeCode": "AIOTUSDT.BINA",
+   "entityDerivativeCode": "AIOTUSDT",
+   "size": "718.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:27.008Z",
+   "price": "0.08165",
+   "derivativeLid": "L-BINA-PERP-AIO1-USDT",
+   "lukkaDerivativeCode": "AIOUSDT.BINA",
+   "entityDerivativeCode": "AIOUSDT",
+   "size": "197.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:35.225Z",
+   "price": "0.02222",
+   "derivativeLid": "L-BINA-PERP-AI6-USDT",
+   "lukkaDerivativeCode": "AIUSDT.BINA",
+   "entityDerivativeCode": "AIUSDT",
+   "size": "267.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:49.237Z",
+   "price": "0.02793",
+   "derivativeLid": "L-BINA-PERP-AIXBT-USDT",
+   "lukkaDerivativeCode": "AIXBTUSDT.BINA",
+   "entityDerivativeCode": "AIXBTUSDT",
+   "size": "213.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:41.174Z",
+   "price": "0.00051",
+   "derivativeLid": "L-BINA-PERP-AKE1-USDT",
+   "lukkaDerivativeCode": "AKEUSDT.BINA",
+   "entityDerivativeCode": "AKEUSDT",
+   "size": "62569.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:49.356Z",
+   "price": "0.4784",
+   "derivativeLid": "L-BINA-PERP-AKSHT-USDT",
+   "lukkaDerivativeCode": "AKTUSDT.BINA",
+   "entityDerivativeCode": "AKTUSDT",
+   "size": "0.1",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:48.311Z",
+   "price": "0.07603",
+   "derivativeLid": "L-BINA-PERP-ALCH2-USDT",
+   "lukkaDerivativeCode": "ALCHUSDT.BINA",
+   "entityDerivativeCode": "ALCHUSDT",
+   "size": "1.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:49.211Z",
+   "price": "0.1048",
+   "derivativeLid": "L-BINA-PERP-ALGO-USDT",
+   "lukkaDerivativeCode": "ALGOUSDT.BINA",
+   "entityDerivativeCode": "ALGOUSDT",
+   "size": "60.6",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:43.514Z",
+   "price": "0.1509",
+   "derivativeLid": "L-BINA-PERP-ALICE-USDT",
+   "lukkaDerivativeCode": "ALICEUSDT.BINA",
+   "entityDerivativeCode": "ALICEUSDT",
+   "size": "50.5",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:49.215Z",
+   "price": "0.12467",
+   "derivativeLid": "L-BINA-PERP-ALLOBSC-USDT",
+   "lukkaDerivativeCode": "ALLOUSDT.BINA",
+   "entityDerivativeCode": "ALLOUSDT",
+   "size": "1.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:22.093Z",
+   "price": "0.5485",
+   "derivativeLid": "L-BINA-PERP-ALLBINA-USDT",
+   "lukkaDerivativeCode": "ALLUSDT.BINA",
+   "entityDerivativeCode": "ALLUSDT",
+   "size": "10.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:29.667Z",
+   "price": "0.4745",
+   "derivativeLid": "L-BINA-PERP-ALPINE-USDT",
+   "lukkaDerivativeCode": "ALPINEUSDT.BINA",
+   "entityDerivativeCode": "ALPINEUSDT",
+   "size": "26.3",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:47.910Z",
+   "price": "0.007637",
+   "derivativeLid": "L-BINA-PERP-ALTL-USDT",
+   "lukkaDerivativeCode": "ALTUSDT.BINA",
+   "entityDerivativeCode": "ALTUSDT",
+   "size": "1383.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:48.253Z",
+   "price": "0.004794",
+   "derivativeLid": "L-BINA-PERP-ANIME22-USDT",
+   "lukkaDerivativeCode": "ANIMEUSDT.BINA",
+   "entityDerivativeCode": "ANIMEUSDT",
+   "size": "4205.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:44.020Z",
+   "price": "0.005125",
+   "derivativeLid": "L-BINA-PERP-ANKR-USDT",
+   "lukkaDerivativeCode": "ANKRUSDT.BINA",
+   "entityDerivativeCode": "ANKRUSDT",
+   "size": "499.0",
+   "aggressorSide": "SELL"
+  },
+  {
+   "ts": "2026-04-22T15:39:46.776Z",
+   "price": "0.1044",
+   "derivativeLid": "L-BINA-PERP-APE2-USDT",
+   "lukkaDerivativeCode": "APEUSDT.BINA",
+   "entityDerivativeCode": "APEUSDT",
+   "size": "6.0",
+   "aggressorSide": "BUY"
+  },
+  {
+   "ts": "2026-04-22T15:39:39.117Z",
+   "price": "0.3162",
+   "derivativeLid": "L-BINA-PERP-API3-USDT",
+   "lukkaDerivativeCode": "API3USDT.BINA",
+   "entityDerivativeCode": "API3USDT",
+   "size": "187.8",
+   "aggressorSide": "SELL"
+  }
+ ],
+ "lookback": 60
+}

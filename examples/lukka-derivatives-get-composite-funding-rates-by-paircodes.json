@@ -1,0 +1,28 @@
+{
+ "dataType": "composite-funding-rates",
+ "ts": "2026-04-22T15:39:00.000Z",
+ "count": 1,
+ "data": [
+  {
+   "pairCode": "XBT-USDT",
+   "compositeRate": "0.0353",
+   "minRate": "0.0308",
+   "maxRate": "0.0398",
+   "medianRate": "0.0353",
+   "meanRate": "0.0353",
+   "depth": 2,
+   "calcInputs": [
+    {
+     "sourceId": 4005,
+     "entityCode": "BINA",
+     "yearlyRate": "0.0398"
+    },
+    {
+     "sourceId": 4015,
+     "entityCode": "BYBT",
+     "yearlyRate": "0.0308"
+    }
+   ]
+  }
+ ]
+}

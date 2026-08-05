@@ -1,0 +1,21 @@
+{
+ "sourceId": 4002,
+ "sourceName": "Coinbase",
+ "pairs": [
+  {
+   "pairCode": "XBT-USD",
+   "firstDate": "2022-07-03T00:00:59Z",
+   "baseAsset": "XBT",
+   "counterAsset": "USD",
+   "baseAssetLukkaId": "LA6EV2NKQ95",
+   "counterAssetLukkaId": "LA3YM6GRUJ4",
+   "baseAssetName": "Bitcoin",
+   "counterAssetName": "US Dollar",
+   "baseAssetWhitepaperCode": "BTC",
+   "baseAssetCommonStreetCode": "BTC",
+   "counterAssetCommonStreetCode": "USD",
+   "instrumentType": "SPOT",
+   "status": "ACTIVE"
+  }
+ ]
+}

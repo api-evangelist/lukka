@@ -1,0 +1,25 @@
+generated: '2026-08-04'
+method: searched
+source: https://github.com/lukkatech/lukka-mcps/blob/main/docs/CHANGELOG.md
+scope: MCP server documentation only
+scheme: semver
+current_version: 1.0.0
+note: The only dated changelog Lukka publishes covers its MCP server documentation. There is no changelog for the REST
+  data APIs, the streaming surface, or Reference Data versioning - changes to those are not publicly dated anywhere.
+entries:
+- version: 1.0.0
+  date: '2026-07-21'
+  breaking: false
+  highlights:
+  - Initial public documentation for Lukka's seven hosted MCP servers (Pricing, RefData, AML, UDA, Analytics, News, Prediction
+    Markets).
+  - 'Per-server reference: authentication, connection steps, full per-tool parameter specifications and example prompts.'
+  - Connection instructions for Claude Code, Claude Desktop, Claude Cowork, the ChatGPT app and OpenAI Codex CLI.
+  - OAuth 2.0 with Dynamic Client Registration documented per server; all connectors read-only.
+gaps:
+- No changelog for the REST data APIs.
+- No changelog for the WebSocket streaming surface.
+- No dated record of the Reference Data v1 to v2 transition.
+x-evidence:
+  fetched: '2026-08-04'
+  http_status: 200

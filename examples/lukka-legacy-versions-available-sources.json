@@ -1,0 +1,34 @@
+[
+ {
+  "sourceId": 4001,
+  "sourceName": "Kraken"
+ },
+ {
+  "sourceId": 4002,
+  "sourceName": "Coinbase"
+ },
+ {
+  "sourceId": 4005,
+  "sourceName": "Binance"
+ },
+ {
+  "sourceId": 4006,
+  "sourceName": "Bitflyer"
+ },
+ {
+  "sourceId": 4008,
+  "sourceName": "Gemini"
+ },
+ {
+  "sourceId": 1000,
+  "sourceName": "EOD Prices"
+ },
+ {
+  "sourceId": 2000,
+  "sourceName": "Intraday Prices"
+ },
+ {
+  "sourceId": 3000,
+  "sourceName": "Hourly Prices"
+ }
+]

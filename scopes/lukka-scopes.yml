@@ -1,0 +1,88 @@
+generated: '2026-08-04'
+method: searched
+docs: https://apidocs.lukka.tech/
+source:
+- https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/.well-known/oauth-authorization-server
+- https://sso.lukka.tech/oauth2/aus1imo2g7ugEl49C0h8/.well-known/oauth-authorization-server
+- https://pricing.mcp.lukka.tech/.well-known/oauth-protected-resource
+- https://apidocs.lukka.tech/
+note: Lukka does not publish a scope reference page. Entitlement is granted per product against the client credentials
+  Lukka issues, not selected by the caller through fine-grained scopes. The scopes below are the ones the authorization
+  servers actually advertise plus the one Lukka documents in its token response.
+schemes:
+- name: oktaClientCredentials
+  surface: REST data APIs
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+    authorization_server: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8
+  - flow: clientCredentials
+    tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2g7ugEl49C0h8/v1/token
+    authorization_server: https://sso.lukka.tech/oauth2/aus1imo2g7ugEl49C0h8
+- name: mcpOAuth
+  surface: Hosted MCP servers
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorization_server: https://auth0.lukka.tech
+scopes:
+- scope: pricing
+  description: Scope returned in the published Okta token response for the Pricing / Market Data authorization server
+    (expires_in 43200-86400); grants access to Lukka Pricing & Valuation and Market Data endpoints.
+  flows:
+  - clientCredentials
+  sources:
+  - https://apidocs.lukka.tech/
+- scope: ref-data
+  description: Scope returned in the published Okta token response for the Reference Data / Derived Data authorization
+    server (expires_in 3600).
+  flows:
+  - clientCredentials
+  sources:
+  - https://apidocs.lukka.tech/
+- scope: interclient_access
+  description: Lukka-defined scope advertised by both Okta custom authorization servers.
+  flows:
+  - clientCredentials
+  sources:
+  - https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/.well-known/oauth-authorization-server
+- scope: mcp
+  description: The single scope advertised by all seven hosted MCP servers in their RFC 9728 protected-resource metadata.
+  flows:
+  - authorizationCode
+  sources:
+  - https://pricing.mcp.lukka.tech/.well-known/oauth-protected-resource
+- scope: openid
+  description: Standard OIDC scope advertised by the Okta and Auth0 authorization servers.
+  flows:
+  - authorizationCode
+  sources:
+  - https://sso.lukka.tech/.well-known/openid-configuration
+- scope: profile
+  description: Standard OIDC profile scope.
+  flows:
+  - authorizationCode
+  sources:
+  - https://sso.lukka.tech/.well-known/openid-configuration
+- scope: email
+  description: Standard OIDC email scope.
+  flows:
+  - authorizationCode
+  sources:
+  - https://sso.lukka.tech/.well-known/openid-configuration
+- scope: offline_access
+  description: Refresh-token scope advertised by both identity providers.
+  flows:
+  - authorizationCode
+  sources:
+  - https://sso.lukka.tech/.well-known/openid-configuration
+- scope: device_sso
+  description: Device single sign-on scope advertised by the Okta custom authorization servers.
+  flows:
+  - authorizationCode
+  sources:
+  - https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/.well-known/oauth-authorization-server
+x-evidence:
+  fetched: '2026-08-04'
+  http_status: 200

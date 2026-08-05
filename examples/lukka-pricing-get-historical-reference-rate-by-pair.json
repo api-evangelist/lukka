@@ -1,0 +1,24 @@
+{
+ "pairCode": "XBT-USD",
+ "firstDate": "2026-04-20T00:00:00Z",
+ "lastDate": "2026-04-20T02:00:00Z",
+ "nextPageUrl": "/v1/pricing/sources/5001/prices/pairs/XBT-USD?from=2026-04-20T03%3A00%3A00Z&to=2026-04-20T03%3A00%3A00Z&interval=3600000&limit=3",
+ "pricesCount": 3,
+ "prices": [
+  {
+   "ts": "2026-04-20T00:00:00Z",
+   "pairCode": "XBT-USD",
+   "price": "73922.79679093281"
+  },
+  {
+   "ts": "2026-04-20T01:00:00Z",
+   "pairCode": "XBT-USD",
+   "price": "74200.48992173481"
+  },
+  {
+   "ts": "2026-04-20T02:00:00Z",
+   "pairCode": "XBT-USD",
+   "price": "74485.24994657465"
+  }
+ ]
+}

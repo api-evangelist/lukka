@@ -1,0 +1,90 @@
+# Lukka
+
+> Lukka is an enterprise crypto data and financial software company that produces institutional-grade
+> digital asset data: Lukka Prime fair-market-value pricing, reference rates and indices, normalized
+> reference data (the "golden copy" security master for crypto assets), market data, derivatives
+> analytics, AML risk scoring, on-chain data, news intelligence and prediction markets. Data is
+> delivered over REST, WebSocket streaming, and seven hosted Model Context Protocol (MCP) servers.
+> All public API access requires a Lukka account and product entitlement; there is no free tier and
+> no self-service signup.
+
+This file is maintained by API Evangelist (https://apievangelist.com) as an independent third-party
+profile. Lukka does not publish an llms.txt of its own.
+
+## Machine-readable contracts
+
+- [Lukka Data APIs Postman collection](https://apidocs.lukka.tech/): The primary published contract - 97 requests across pricing, market data, streaming and reference data. Lukka publishes no OpenAPI.
+- [Lukka Reference Data Postman collection](https://apidocs-refdata.lukka.tech/): The v1 Reference Data surface, base endpoint https://api.lukka.tech/refdata.
+- [OpenAPI (converted)](openapi/): Five OpenAPI 3.1 documents, 91 operations, converted by API Evangelist from the Postman collections.
+- [AsyncAPI (derived)](asyncapi/lukka-market-data-streaming-asyncapi.yml): 12 WebSocket channels derived from Lukka's published streaming documentation.
+- [MCP servers](mcp/lukka-mcp.yml): 7 hosted MCP servers, 69 tools, with input schemas taken from Lukka's published per-tool parameter tables.
+- [MCP-to-REST crosswalk](mcp/lukka-tool-crosswalk.yml): Which tools are backed by REST operations, which are MCP-only, and which REST operations no tool reaches.
+
+## APIs
+
+- [Pricing & Market Data API](https://apidocs.lukka.tech/): https://data-pricing-api.lukka.tech - Lukka Prime prices, reference rates, indices, MVWAP, candles, market caps, order books, spot and derivative trades, staking and funding rates.
+- [Reference Data API](https://apidocs.lukka.tech/): https://data-refdata-api.lukka.tech/v2 - assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative mappings, crypto actions, LDACS sectors, core asset and ESG scores.
+- [Analytics API](https://apidocs.lukka.tech/): https://data-analytics-api-v2.lukka.tech/analytics-api - implied interest rates, OTC FX rates, implied volatility surfaces.
+- [Valuation (Data Calculation) API](https://apidocs.lukka.tech/): https://data-calculation-api.lukka.tech - asynchronous bespoke derivative valuation runs.
+- [Reference Data v1](https://apidocs-refdata.lukka.tech/): https://api.lukka.tech/refdata - legacy asset master and mapping deltas.
+
+## MCP servers
+
+- [Lukka-Pricing](https://pricing.mcp.lukka.tech): 20 tools - prices, candles, VWAP, market cap, order books, spot and derivative trades.
+- [Lukka-RefData](https://refdata.mcp.lukka.tech): 21 tools - asset taxonomy, entities, exchange/pair mappings, VASPs, crypto actions, scores.
+- [Lukka-AML](https://aml.mcp.lukka.tech): 4 tools - AML risk scoring and compliance reports across 108+ blockchains, OFAC sanctions detection. No public REST equivalent.
+- [Lukka-UDA](https://uda.mcp.lukka.tech): 8 tools - on-chain balances, transactions and blocks. No public REST equivalent.
+- [Lukka-Analytics](https://analytics.mcp.lukka.tech): 3 tools - implied rate curves, volatility surfaces, OTC FX.
+- [Lukka-News](https://news.mcp.lukka.tech): 2 tools - AI-curated digital asset news search and daily summaries. No public REST equivalent.
+- [Lukka-Predmar](https://predmar.mcp.lukka.tech): 11 tools - prediction markets from Polymarket, Kalshi and Gemini.
+
+All seven are streamable-HTTP, read-only, and authenticate with OAuth 2.0 authorization code + PKCE and
+Dynamic Client Registration (RFC 9728 protected-resource discovery against https://auth0.lukka.tech).
+tools/list is auth-gated: unauthenticated calls return HTTP 401 "Missing Bearer token".
+
+## Streaming
+
+WebSocket channels carry the JWT as an `access_token` query parameter and manage subscriptions in-band:
+
+- wss://market-data-ws.lukka.tech/v3/quotes, /v3/index, /v3/mvwap, /v3/derivative-greeks, /v3/prediction-trades, /v3/prediction-quotes
+- wss://market-data-trades-ws.lukka.tech/v1/trades
+- wss://market-data-lp-ws.lukka.tech/v1/lp (Lukka Prime)
+- wss://market-data-refrate-ws.lukka.tech/v1/refrates (Standard Reference Rate)
+- wss://market-data-lukka-median-refrate-ws.lukka.tech/v1/refrates (Median Reference Rate)
+- wss://market-data-quotes-ws.lukka.tech/v1/quotes and /v2/quotes (legacy)
+
+## Authentication
+
+- REST and streaming: OAuth 2.0 client_credentials against Okta. Token endpoints https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token (pricing/market data/analytics) and https://sso.lukka.tech/oauth2/aus1imo2g7ugEl49C0h8/v1/token (reference data). Client id and secret are base64-encoded as HTTP Basic on the token request; the returned JWT is sent as `Authorization: Bearer`.
+- MCP: OAuth 2.0 authorization code + PKCE with Dynamic Client Registration against https://auth0.lukka.tech. No static client id or secret.
+
+## Conventions
+
+- Pair codes use Lukka canonical asset codes: `XBT-USD` (not BTC-USD), `ETH-USD`, `SOLN-USD` (not SOL-USD).
+- Lukka IDs are 11 characters: `LA…` assets, `LM…` marketplaces, `LC…` custodians.
+- Intervals and lookbacks are in MILLISECONDS: 60000 = 1 minute, 3600000 = 1 hour, 86400000 = 1 day.
+- Timestamps are ISO 8601; streaming records carry nanosecond `tsNanos`.
+- Pagination is `limit`/`offset`; Reference Data v2 expands nested detail with `expandDetails=[ALL]`.
+- REST APIs are rate limited at 5 requests per second per client id.
+- Source IDs: 1000 Lukka Prime EOD, 2000 Intraday, 2100 Prime Global Intraday, 3000 Hourly, 5001 Reference Rate, 5002 Median Reference Rate, 5004 Staking Rates, 5005 MVWAP; 4001-4999 exchanges, 6xxx indices, 10xxx custom.
+
+## Docs
+
+- [Lukka](https://lukka.tech/)
+- [Lukka Data APIs documentation](https://apidocs.lukka.tech/)
+- [Lukka Reference Data documentation](https://apidocs-refdata.lukka.tech/)
+- [MCP server documentation](https://github.com/lukkatech/lukka-mcps)
+- [Lukka plugin for Claude](https://github.com/lukkatech/lukka-plugin-claude)
+- [Support](https://lukka.tech/support/)
+- [Trust Center](https://lukka.tech/trust-center/) - SOC 1 Type II, SOC 2 Type II, ISO/IEC 27001 (BSI)
+- [Terms of Use](https://lukka.tech/terms-of-use/)
+- [Privacy Policy](https://lukka.tech/privacy-policy/)
+- [Insights](https://lukka.tech/insights/)
+
+## Known gaps
+
+- No OpenAPI, no AsyncAPI, no llms.txt, no security.txt, no api-catalog and no A2A agent card published by Lukka.
+- No published error reference; every 4xx-tagged saved example in the public collection is a mislabelled success payload.
+- No first-party SDK in any package registry.
+- No active status page (lukka.statuspage.io redirects to /inactive) and no published SLA.
+- No deprecation policy or Sunset header - deprecated surfaces are marked by folder name only.

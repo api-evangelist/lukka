@@ -1,0 +1,948 @@
+generated: '2026-08-04'
+method: generated
+source: openapi/lukka-analytics-openapi.yml, openapi/lukka-pricing-market-data-openapi.yml,
+  openapi/lukka-reference-data-openapi.yml, openapi/lukka-reference-data-v1-openapi.yml, openapi/lukka-valuation-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 91
+  by_action_class:
+    connected: 88
+    acting: 3
+  by_consequence:
+    read: 88
+    physical: 1
+    write: 2
+  human_in_the_loop_required: 0
+operations:
+- path: /analytics-api/implied-rates
+  method: get
+  operationId: impliedInterestRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /analytics-api/implied-rates-otc-fx
+  method: get
+  operationId: otcFXRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /analytics-api/implied-volatility-surface
+  method: get
+  operationId: impliedVolatility
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/4002
+  method: get
+  operationId: availableSources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/3000
+  method: get
+  operationId: sourceDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/details/{productType}
+  method: get
+  operationId: availableSourcesByProduct
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/details/{productType}/{sourceId}
+  method: get
+  operationId: getSourceDetailsByProduct
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/details/{productType}/{sourceId}/derivatives
+  method: get
+  operationId: getDerivativeSourceDetailsPaginated
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/2000/prices
+  method: get
+  operationId: getLatestPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/{sourceId}/prices/pairs/{pairCode}
+  method: get
+  operationId: getHistoricalPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/{sourceId}/prices/pairs/{pairCode}/variances
+  method: get
+  operationId: getPriceVariancesByPair
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/5005/mvwaps
+  method: get
+  operationId: getLatestMVWAPs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/{sourceId}/mvwaps/pairs/{pairCode}
+  method: get
+  operationId: getHistoricalMVWAPByPair
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/vwaps/{pairCode}
+  method: get
+  operationId: getMultiSourceVWAPByPair
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/5001/prices
+  method: get
+  operationId: getLatestReferenceRate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/5001/prices/pairs/{pairCode}
+  method: get
+  operationId: getHistoricalReferenceRateByPair
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/{sourceId}/indices
+  method: get
+  operationId: getLatestIndexPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/{sourceId}/indices/historical
+  method: get
+  operationId: getHistoricalIndexPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trades/historical/requests
+  method: post
+  operationId: createHistoricalTradesRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/trades/historical/requests
+  method: get
+  operationId: listHistoricalTradesRequests
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trades/historical/requests/{requestId}
+  method: get
+  operationId: getHistoricalTradesRequestStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/quotes/historical/requests
+  method: post
+  operationId: createHistoricalQuotesRequest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/quotes/historical/requests
+  method: get
+  operationId: listHistoricalQuotesRequests
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/quotes/historical/requests/{requestId}
+  method: get
+  operationId: getHistoricalQuotesRequestStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/latest-markets/SPOT
+  method: get
+  operationId: getLatestMarketsSPOT
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/market-data/sources/{sourceId}/candles/pairs/{pairCode}
+  method: get
+  operationId: getCandlesByExchangeSourceDerivative
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/market-data/market-caps/pairs/{pairCode}
+  method: get
+  operationId: getMarketCapsByPair
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/market-data/market-caps
+  method: get
+  operationId: getLatestMarketCaps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/market-data/sources/{sourceId}/trades/pairs/{pairCode}
+  method: get
+  operationId: getHistoricalSpotTrades
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/5004/rates
+  method: get
+  operationId: getLatestStakingRates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/{sourceId}/rates/asset/{assetCode}
+  method: get
+  operationId: getHistoricalStakingRatesByAsset
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/order-book-liquidity/SPOT
+  method: get
+  operationId: getOrderBookLiquiditySPOT
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/market-data/order-book-snapshot/SPOT
+  method: get
+  operationId: getOrderBookSnapshotSPOT
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/market-data/slippage/pairs/{pairCode}
+  method: get
+  operationId: getSlippageByPair
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/latest-markets/DERIVATIVE
+  method: get
+  operationId: getLatestMarketsDERIVATIVE
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/latest-markets/GREEKS
+  method: get
+  operationId: getLatestMarketsGREEKS
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/market-data/derivative/sources/{sourceId}/trades
+  method: get
+  operationId: getLatestDerivativeTrades
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/market-data/derivative/sources/{sourceId}/trades/historical
+  method: get
+  operationId: getHistoricalDerivativeTrades
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/{sourceId}/markprices
+  method: get
+  operationId: getLatestMarkPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/sources/{sourceId}/{baseAssetCode}/markprices/historical
+  method: get
+  operationId: getHistoricalMarkPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/derivatives/composite-funding-rates
+  method: get
+  operationId: getCompositeFundingRatesByPairCodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/latest-markets/PREDICTION
+  method: get
+  operationId: getLatestMarketsPREDICTION
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/prediction-history/{sourceId}/event/{eventTicker}
+  method: get
+  operationId: getPredictionHistoryByEventTicker
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/prediction-history/{sourceId}/symbol/{lukkaSymbol}
+  method: get
+  operationId: getPredictionHistoryByLukkaSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/prediction-trade-history/{sourceId}/event/{eventTicker}
+  method: get
+  operationId: getPredictionTradeHistoryByEventTicker
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/pricing/prediction-trade-history/{sourceId}/symbol/{lukkaSymbol}
+  method: get
+  operationId: getPredictionTradeHistoryByLukkaSymbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/markets
+  method: get
+  operationId: allMarketplaces
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/markets/LM47PH5UBV0
+  method: get
+  operationId: aMarketplaceAndItsDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/custodians
+  method: get
+  operationId: allCustodians
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/custodians/LC14SKMDN12
+  method: get
+  operationId: aCustodianAndItsDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/assets
+  method: get
+  operationId: allLukkaAssets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/assets/LA3YA6GC8Y5
+  method: get
+  operationId: aLukkaAssetAndItsDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/assets/exposure
+  method: get
+  operationId: assetExposure
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/derivatives
+  method: get
+  operationId: allDerivatives
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/derivatives/L-DERI-OPT-BTC-BTC-C-43000-20210917
+  method: get
+  operationId: aDerivativeAndItsDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/entities
+  method: get
+  operationId: allEntities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/assets/mappings
+  method: get
+  operationId: assetMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/pairs/mappings
+  method: get
+  operationId: pairMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/derivatives/mappings
+  method: get
+  operationId: derivativeMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/legal-entity-mappings
+  method: get
+  operationId: allLegalEntityMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/assets/crypto-actions
+  method: get
+  operationId: allCryptoActions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/assets/LA6EV2NKQ95/crypto-actions
+  method: get
+  operationId: assetCryptoActions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/vasps
+  method: get
+  operationId: aVASPAndItsDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/prediction-markets
+  method: get
+  operationId: allPredictionMarkets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/prediction-markets/2026-ncaa-tournament-winner.POLYMARK
+  method: get
+  operationId: aPredictionMarketAndItsDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/sectors
+  method: get
+  operationId: ldacs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/enums/lukkaCryptoActionCode
+  method: get
+  operationId: anEnum
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/stats/assets/coverage
+  method: get
+  operationId: assetCoverage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/core-asset-score
+  method: get
+  operationId: lcas
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/esg-score
+  method: get
+  operationId: esgScores
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/lukka/market-score
+  method: get
+  operationId: marketScores
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/assets
+  method: get
+  operationId: allLukkaAssets2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/assets/LA4QVLA9QE0
+  method: get
+  operationId: aLukkaAsset
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/entities
+  method: get
+  operationId: allLukkaEntities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/entities/BINA
+  method: get
+  operationId: anEntity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/ref-assets
+  method: get
+  operationId: lukkaAssetMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/ref-pairs
+  method: get
+  operationId: lukkaPairMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/ref-derivatives
+  method: get
+  operationId: lukkaDerivativeMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/assets/crypto-actions
+  method: get
+  operationId: lukkaCryptoActions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/lukka/assets
+  method: get
+  operationId: assetMaster
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/entities/assets/mappings/active
+  method: get
+  operationId: activeAssetMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/entities/assets/mappings/inactive
+  method: get
+  operationId: historicalAssetMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/entities/assets/mappings/added
+  method: get
+  operationId: newlyAddedAssetMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/entities/assets/mappings/deleted
+  method: get
+  operationId: newlyDeletedAssetMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/entities/pairs/mappings/active
+  method: get
+  operationId: activePairMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/entities/pairs/mappings/inactive
+  method: get
+  operationId: historicalPairMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/entities/pairs/mappings/added
+  method: get
+  operationId: newlyAddedPairMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/entities/pairs/mappings/deleted
+  method: get
+  operationId: newlyDeletedPairMappings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /datacalculation
+  method: post
+  operationId: runCalculation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /datacalculation
+  method: get
+  operationId: getResults
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /datacalculation/status
+  method: get
+  operationId: getStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

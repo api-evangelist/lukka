@@ -1,0 +1,87 @@
+{
+ "offset": 0,
+ "limit": 5,
+ "size": 5,
+ "links": {
+  "base": "/v2/lukka/legal-entity-mappings",
+  "next": "/v2/lukka/legal-entity-mappings?identifierTypeCode=LEI&limit=5&offset=5",
+  "prev": null
+ },
+ "data": [
+  {
+   "lukkaAssetMapId": null,
+   "identifierTypeCode": "LEI",
+   "identifierType": "Legal Entity Identifier",
+   "identifierValue": "549300QHD76EP6ZKTT48",
+   "lukkaLegalEntityId": 1,
+   "legalNameEnglish": "Coinbase, Inc.",
+   "mapProcessedStartTime": "2021-05-19T13:11:00.254426Z",
+   "mapProcessedEndTime": null,
+   "mapEffectiveStartTime": null,
+   "mapEffectiveEndTime": null,
+   "lastModifiedTime": "2021-05-19T13:11:00.254426Z",
+   "recordStatus": "Active",
+   "successorMappingId": null
+  },
+  {
+   "lukkaAssetMapId": null,
+   "identifierTypeCode": "LEI",
+   "identifierType": "Legal Entity Identifier",
+   "identifierValue": "254900GNWXLR2G6HFQ44",
+   "lukkaLegalEntityId": 207,
+   "legalNameEnglish": "iFinex Inc.",
+   "mapProcessedStartTime": "2021-05-19T13:11:00.254426Z",
+   "mapProcessedEndTime": null,
+   "mapEffectiveStartTime": null,
+   "mapEffectiveEndTime": null,
+   "lastModifiedTime": "2021-05-19T13:11:00.254426Z",
+   "recordStatus": "Active",
+   "successorMappingId": null
+  },
+  {
+   "lukkaAssetMapId": null,
+   "identifierTypeCode": "LEI",
+   "identifierType": "Legal Entity Identifier",
+   "identifierValue": "48510000WZATNQVLS592",
+   "lukkaLegalEntityId": 3,
+   "legalNameEnglish": "Bitstamp Limited",
+   "mapProcessedStartTime": "2021-05-19T13:11:00.254426Z",
+   "mapProcessedEndTime": null,
+   "mapEffectiveStartTime": null,
+   "mapEffectiveEndTime": null,
+   "lastModifiedTime": "2021-05-19T13:11:00.254426Z",
+   "recordStatus": "Active",
+   "successorMappingId": null
+  },
+  {
+   "lukkaAssetMapId": null,
+   "identifierTypeCode": "LEI",
+   "identifierType": "Legal Entity Identifier",
+   "identifierValue": "254900WY3GMPLZR6V492",
+   "lukkaLegalEntityId": 5,
+   "legalNameEnglish": "Bittrex, Inc.",
+   "mapProcessedStartTime": "2021-05-19T13:11:00.254426Z",
+   "mapProcessedEndTime": null,
+   "mapEffectiveStartTime": null,
+   "mapEffectiveEndTime": null,
+   "lastModifiedTime": "2021-05-19T13:11:00.254426Z",
+   "recordStatus": "Active",
+   "successorMappingId": null
+  },
+  {
+   "lukkaAssetMapId": null,
+   "identifierTypeCode": "LEI",
+   "identifierType": "Legal Entity Identifier",
+   "identifierValue": "254900GBN2V33HKLXO71",
+   "lukkaLegalEntityId": 10,
+   "legalNameEnglish": "Gemini Trust Company, LLC",
+   "mapProcessedStartTime": "2021-05-19T13:11:00.254426Z",
+   "mapProcessedEndTime": null,
+   "mapEffectiveStartTime": null,
+   "mapEffectiveEndTime": null,
+   "lastModifiedTime": "2021-05-19T13:11:00.254426Z",
+   "recordStatus": "Active",
+   "successorMappingId": null
+  }
+ ]
+}

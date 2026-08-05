@@ -1,0 +1,28 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Lukka Analytics API
+  version: 1.0.0
+extends: openapi/lukka-analytics-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provenance: Converted by API Evangelist from the Postman collection Lukka publishes at https://apidocs.lukka.tech/.
+      Lukka does not publish OpenAPI.
+    x-apievangelist-artifacts:
+      authentication: authentication/lukka-authentication.yml
+      conventions: conventions/lukka-conventions.yml
+      errors: errors/lukka-problem-types.yml
+      rate_limits: rate-limits/lukka-rate-limits.yml
+      lifecycle: lifecycle/lukka-lifecycle.yml
+      data_model: data-model/lukka-data-model.yml
+      mcp: mcp/lukka-mcp.yml
+      crosswalk: mcp/lukka-tool-crosswalk.yml
+- target: $.info
+  update:
+    x-apievangelist-gaps:
+    - No components.schemas - the source contract is a Postman collection, so no reusable response schemas exist.
+    - No documented 401/403/429 or 5xx responses despite OAuth bearer auth and a published 5 req/sec rate limit.
+    - No RFC 9457 problem+json error contract.
+- target: $.servers.*
+  update:
+    x-apievangelist-verified: '2026-08-04'

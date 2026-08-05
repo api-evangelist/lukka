@@ -1,0 +1,212 @@
+{
+ "size": 50,
+ "links": {
+  "base": "/v2/lukka/markets",
+  "next": "/v2/lukka/markets?limit=50&offset=50",
+  "prev": null
+ },
+ "limit": 50,
+ "offset": 0,
+ "data": [
+  {
+   "lukkaEntityCode": "OTCBTC",
+   "lukkaMarketId": "LM6KWXUJ1B4"
+  },
+  {
+   "lukkaEntityCode": "BINJESY",
+   "lukkaMarketId": "LM0SEGHU2Q3"
+  },
+  {
+   "lukkaEntityCode": "CEGG",
+   "lukkaMarketId": "LM83ZGSS762"
+  },
+  {
+   "lukkaEntityCode": "BBXEX",
+   "lukkaMarketId": "LM3E8XM3MN5"
+  },
+  {
+   "lukkaEntityCode": "HERMSUS",
+   "lukkaMarketId": "LM6RU6C05Y6"
+  },
+  {
+   "lukkaEntityCode": "BULLISH",
+   "lukkaMarketId": "LM0JWQWJ4G2"
+  },
+  {
+   "lukkaEntityCode": "BITT",
+   "lukkaMarketId": "LM4VG9ELVW6"
+  },
+  {
+   "lukkaEntityCode": "NLEXCH",
+   "lukkaMarketId": "LM6Y28K4XN4"
+  },
+  {
+   "lukkaEntityCode": "ITBT",
+   "lukkaMarketId": "LM561VU33S5"
+  },
+  {
+   "lukkaEntityCode": "FCOIN",
+   "lukkaMarketId": "LM4X5RK5X35"
+  },
+  {
+   "lukkaEntityCode": "HADAX",
+   "lukkaMarketId": "LM4RW16EZ49"
+  },
+  {
+   "lukkaEntityCode": "CNLSTPR",
+   "lukkaMarketId": "LM1JMDLEU40"
+  },
+  {
+   "lukkaEntityCode": "BITVAVO",
+   "lukkaMarketId": "LM8Z1HXM5V6"
+  },
+  {
+   "lukkaEntityCode": "ABUC",
+   "lukkaMarketId": "LM3MD420FN6"
+  },
+  {
+   "lukkaEntityCode": "BGRL",
+   "lukkaMarketId": "LM8XS63VM43"
+  },
+  {
+   "lukkaEntityCode": "NERAEX",
+   "lukkaMarketId": "LM6B43QEGC2"
+  },
+  {
+   "lukkaEntityCode": "ZBCM",
+   "lukkaMarketId": "LM7M91D4TP5"
+  },
+  {
+   "lukkaEntityCode": "WEXX",
+   "lukkaMarketId": "LM8FGEG06T7"
+  },
+  {
+   "lukkaEntityCode": "GOKUMKT",
+   "lukkaMarketId": "LM2PSGBUYN7"
+  },
+  {
+   "lukkaEntityCode": "CONE",
+   "lukkaMarketId": "LM0341GVFQ8"
+  },
+  {
+   "lukkaEntityCode": "CYPBULZ",
+   "lukkaMarketId": "LM2C2TVC2Y5"
+  },
+  {
+   "lukkaEntityCode": "BITWELL",
+   "lukkaMarketId": "LM5RN0Q55V9"
+  },
+  {
+   "lukkaEntityCode": "KYPTMT",
+   "lukkaMarketId": "LM4CBXECYW1"
+  },
+  {
+   "lukkaEntityCode": "KRPTARNA",
+   "lukkaMarketId": "LM4M6F0WKD3"
+  },
+  {
+   "lukkaEntityCode": "CFLR",
+   "lukkaMarketId": "LM5PAQPJZH3"
+  },
+  {
+   "lukkaEntityCode": "ALTMKTS",
+   "lukkaMarketId": "LM5N2XDUH53"
+  },
+  {
+   "lukkaEntityCode": "BANKCEX",
+   "lukkaMarketId": "LM2ATKF40K7"
+  },
+  {
+   "lukkaEntityCode": "BAKKT",
+   "lukkaMarketId": "LM0JDY7QX95"
+  },
+  {
+   "lukkaEntityCode": "BBAY",
+   "lukkaMarketId": "LM7KWVVGYU2"
+  },
+  {
+   "lukkaEntityCode": "STHEXE",
+   "lukkaMarketId": "LM4A1CEPLA1"
+  },
+  {
+   "lukkaEntityCode": "EXNOMY",
+   "lukkaMarketId": "LM27739BDX4"
+  },
+  {
+   "lukkaEntityCode": "BITHESAP",
+   "lukkaMarketId": "LM4S7Q4EAG3"
+  },
+  {
+   "lukkaEntityCode": "BTHMGX",
+   "lukkaMarketId": "LM6GPZH6383"
+  },
+  {
+   "lukkaEntityCode": "BTCT",
+   "lukkaMarketId": "LM4UETF0YJ5"
+  },
+  {
+   "lukkaEntityCode": "COSS",
+   "lukkaMarketId": "LM0RTU134T9"
+  },
+  {
+   "lukkaEntityCode": "KORDEX",
+   "lukkaMarketId": "LM5D4KKRJ01"
+  },
+  {
+   "lukkaEntityCode": "XTECX",
+   "lukkaMarketId": "LM1F4JU1HX9"
+  },
+  {
+   "lukkaEntityCode": "BBNK",
+   "lukkaMarketId": "LM4C7SXCU78"
+  },
+  {
+   "lukkaEntityCode": "CNEX",
+   "lukkaMarketId": "LM8QRGYNBE5"
+  },
+  {
+   "lukkaEntityCode": "BITFRONT",
+   "lukkaMarketId": "LM4FSAWZU57"
+  },
+  {
+   "lukkaEntityCode": "BITKUB",
+   "lukkaMarketId": "LM0DMUBWE44"
+  },
+  {
+   "lukkaEntityCode": "HUOBINDO",
+   "lukkaMarketId": "LM6ZQR3MBT2"
+  },
+  {
+   "lukkaEntityCode": "HBTC",
+   "lukkaMarketId": "LM4AWB221V1"
+  },
+  {
+   "lukkaEntityCode": "MERC",
+   "lukkaMarketId": "LM8SGQU33P4"
+  },
+  {
+   "lukkaEntityCode": "BTSO",
+   "lukkaMarketId": "LM3146MJD51"
+  },
+  {
+   "lukkaEntityCode": "RKNGKUEX",
+   "lukkaMarketId": "LM7AAT6QAC4"
+  },
+  {
+   "lukkaEntityCode": "ALTERDICE",
+   "lukkaMarketId": "LM2G40NBST1"
+  },
+  {
+   "lukkaEntityCode": "DIGI",
+   "lukkaMarketId": "LM2UWAB7LZ8"
+  },
+  {
+   "lukkaEntityCode": "BTPNDPR",
+   "lukkaMarketId": "LM5C53NT8J9"
+  },
+  {
+   "lukkaEntityCode": "DEXTRADE",
+   "lukkaMarketId": "LM1NVY7MQ93"
+  }
+ ]
+}

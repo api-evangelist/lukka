@@ -1,0 +1,19 @@
+{
+ "name": "Exmo",
+ "lukkaEntityCode": "EXMO",
+ "type": "Exchange",
+ "jurisdiction": "UK",
+ "status": "Active",
+ "url": "https://exmo.com/",
+ "startTs": "2013-09-18T00:00:00Z",
+ "endTs": null,
+ "fiat": [
+  "USD",
+  "EUR",
+  "RUB",
+  "UAH",
+  "PLN",
+  "TRY"
+ ],
+ "amlKycProcess": null
+}

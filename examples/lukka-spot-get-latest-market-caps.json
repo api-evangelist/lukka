@@ -1,0 +1,22 @@
+{
+ "data": [
+  {
+   "ts": "2026-04-22T15:35:00Z",
+   "rank": 1,
+   "pairCode": "XBT-USD",
+   "marketCap": "1584057764954.28",
+   "circulatingSupply": "20019318.0",
+   "totalSupply": "20019318.0",
+   "supplyLastUpdateTs": "2026-04-22T14:18:03Z"
+  },
+  {
+   "ts": "2026-04-22T15:35:00Z",
+   "rank": 2,
+   "pairCode": "ETH-USD",
+   "marketCap": "289536260337.262123143",
+   "circulatingSupply": "120689893.0547443",
+   "totalSupply": "120689893.0547443",
+   "supplyLastUpdateTs": "2026-04-22T14:18:03Z"
+  }
+ ]
+}

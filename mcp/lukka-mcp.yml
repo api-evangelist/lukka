@@ -1,0 +1,1583 @@
+generated: '2026-08-04'
+method: searched
+source: https://github.com/lukkatech/lukka-mcps
+status: published
+summary:
+  servers: 7
+  tools: 69
+  transport: streamable HTTP
+  access: read-only across all servers
+  auth: OAuth 2.0 authorization code + PKCE with Dynamic Client Registration (RFC 9728 protected-resource discovery)
+  identity_provider: https://auth0.lukka.tech
+  clients_documented:
+  - Claude Code
+  - Claude Desktop
+  - Claude Cowork
+  - ChatGPT app
+  - OpenAI Codex CLI
+access_request: https://lukka.tech/mcp
+support: mcp-support@lukka.global
+docs_version: 1.0.0
+x-evidence:
+  fetched: '2026-08-04'
+  tool_schemas: derived from the per-tool parameter tables Lukka publishes in lukkatech/lukka-mcps docs; the live
+    tools/list is auth-gated
+  live_probe:
+    method: POST tools/list
+    http_status: 401
+    body: '{"jsonrpc":"2.0","id":0,"error":{"code":-32001,"message":"Missing Bearer token"}}'
+    probed: '2026-08-04'
+    note: All seven endpoints returned 401 Missing Bearer token; /.well-known/oauth-protected-resource returned
+      200 on all seven.
+servers:
+- name: Lukka-Pricing
+  url: https://pricing.mcp.lukka.tech
+  transport: http
+  description: Real-time and historical pricing, candles, VWAP, market cap, order books, spot and derivative trades
+  access: read-only
+  authentication:
+    type: oauth2
+    flow: authorization_code + PKCE
+    dynamic_client_registration: true
+    protected_resource_metadata: https://pricing.mcp.lukka.tech/.well-known/oauth-protected-resource
+    authorization_server: https://auth0.lukka.tech
+    scopes:
+    - mcp
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
+      for the product.
+  docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-pricing-mcp/README.md
+  tool_count: 20
+  tools:
+  - name: list_pricing_sources
+    description: Lists all pricing sources available to your account, including fixed high-level sources and client-assigned
+      exchange/index/custom sources. Call this first when you don't know which `sourceId` to use.
+    inputSchema:
+      type: object
+      properties: {}
+  - name: get_source_details
+    description: Returns coverage detail (pairs, products) for a single source. Large sources are auto-summarized.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: Source to inspect, e.g. `2000`
+      required:
+      - sourceId
+  - name: list_sources_by_product
+    description: Lists the sources that offer a given product type.
+    inputSchema:
+      type: object
+      properties:
+        productType:
+          type: string
+          description: One of `prices`, `trades`, `candles`, `mvwaps`, `market-caps`, `variances`
+          x-published-type: string enum
+      required:
+      - productType
+  - name: get_source_details_by_product
+    description: Source details for a product type at a specific source, with optional asset/instrument filters.
+    inputSchema:
+      type: object
+      properties:
+        productType:
+          type: string
+          description: '`prices`, `trades`, `candles`, `mvwaps`, `market-caps`, `variances`'
+          x-published-type: string enum
+        sourceId:
+          type: integer
+          description: Source to inspect
+        baseAsset:
+          type: string
+          description: Filter by base asset, e.g. `XBT`
+        counterAsset:
+          type: string
+          description: Filter by counter asset, e.g. `USD`
+        instrumentType:
+          type: string
+          description: '`spot` or `derivative`'
+          x-published-type: string enum
+        status:
+          type: string
+          description: '`active` or `inactive` (default returns both)'
+          x-published-type: string enum
+      required:
+      - productType
+      - sourceId
+  - name: get_derivative_source_details
+    description: Returns derivative instrument details (futures, options, perpetuals) for a derivative source -
+      useful for resolving a Lukka derivative code.
+    inputSchema:
+      type: object
+      properties:
+        productType:
+          type: string
+          description: '`prices`, `trades`, `candles`'
+          x-published-type: string enum
+        sourceId:
+          type: integer
+          description: Derivative source ID
+        status:
+          type: string
+          description: '`active` (default) or `inactive`'
+          x-published-type: string enum
+      required:
+      - productType
+      - sourceId
+  - name: get_latest_prices
+    description: Latest spot price(s) for one or more pairs from a given source. Returns pair code, price, and timestamp.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: e.g. `2000` (realtime), `1000` (EOD), or an exchange `4xxx`
+        pairCodes:
+          type: string
+          description: Comma-separated pairs, e.g. `"XBT-USD,ETH-USD"`. Defaults to all pairs for the source.
+        asOf:
+          type: string
+          description: Historical point-in-time; defaults to now
+        lookback:
+          type: integer
+          description: Lookback window; default 172800000 (2 days)
+        fields:
+          type: string
+          description: Extra output fields, e.g. `"partitions"` (for Reference Rate)
+      required:
+      - sourceId
+  - name: get_historical_prices
+    description: Price time series for a pair over a date range. Returns a series of price points.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: Source ID
+        pairCode:
+          type: string
+          description: Single pair, e.g. `"XBT-USD"`
+        from:
+          type: string
+          description: Range start (defaults to epoch)
+        to:
+          type: string
+          description: Range end (defaults to now)
+        interval:
+          type: integer
+          description: '`60000` (1min) or `86400000` (1day). No hourly here - use `get_candles`.'
+        limit:
+          type: integer
+          description: Max points, default and max 1440
+        fill:
+          type: boolean
+          description: Forward-fill gaps with last known price
+      required:
+      - sourceId
+      - pairCode
+  - name: get_candles
+    description: OHLCV candles for a pair. Returns open/high/low/close/volume bars.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: Candle source, e.g. `4002` (Coinbase Pro)
+        pairCode:
+          type: string
+          description: Single pair
+        from:
+          type: string
+          description: Range start
+        to:
+          type: string
+          description: Range end
+        interval:
+          type: integer
+          description: '`60000` (1min), `3600000` (1h), `86400000` (1day); default 60000'
+        limit:
+          type: integer
+          description: Max candles, default 1440
+        units:
+          type: string
+          description: '`native` (default) or `usd` (spot instruments only)'
+          x-published-type: string enum
+      required:
+      - sourceId
+      - pairCode
+  - name: get_latest_index_prices
+    description: Latest index/reference-rate price(s). Returns benchmark price per pair.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: Index source; Reference Rate (`5001`/`5002`) requires entitlement
+        pairCodes:
+          type: string
+          description: Comma-separated pairs
+        asOf:
+          type: string
+          description: Historical point-in-time
+        lookback:
+          type: integer
+          description: Lookback window
+      required:
+      - sourceId
+  - name: get_historical_index_prices
+    description: Index/reference-rate price time series over a date range.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: Index source (default 3000)
+        pairCode:
+          type: string
+          description: Single pair filter
+        from:
+          type: string
+          description: Range start
+        to:
+          type: string
+          description: Range end
+        interval:
+          type: integer
+          description: Interval
+        limit:
+          type: integer
+          description: Max records, default 1440
+        fill:
+          type: boolean
+          description: Forward-fill gaps
+      required:
+      - sourceId
+  - name: get_market_variances
+    description: Price history with exchange-level variance - shows the principal exchange and per-exchange price/volume
+      deviation for a pair.
+    inputSchema:
+      type: object
+      properties:
+        pairCode:
+          type: string
+          description: Pair, e.g. `"XBT-USD"`
+        sourceId:
+          type: integer
+          description: Benchmark source (default 1000)
+        from:
+          type: string
+          description: Range start
+        to:
+          type: string
+          description: Range end
+        limit:
+          type: integer
+          description: Max records, default 1440
+      required:
+      - pairCode
+      - sourceId
+  - name: get_vwap
+    description: Volume-weighted average price across specified sources. Returns VWAP series.
+    inputSchema:
+      type: object
+      properties:
+        pairCode:
+          type: string
+          description: Pair, e.g. `"ETH-USD"`
+        sourceIds:
+          type: string
+          description: Comma-separated sources; default `"4001,4006,4008"`
+        from:
+          type: string
+          description: Range start
+        to:
+          type: string
+          description: Range end, max 7 days from `from`
+        interval:
+          type: integer
+          description: '`60000` (default), `3600000`, `86400000`'
+      required:
+      - pairCode
+  - name: get_market_capitalization
+    description: Market cap history for a single pair (Lukka Prime price x circulating supply from Reference Data).
+      Returns a market-cap time series.
+    inputSchema:
+      type: object
+      properties:
+        pairCode:
+          type: string
+          description: Pair, e.g. `"ETH-USD"`
+        from:
+          type: string
+          description: Range start
+        to:
+          type: string
+          description: Range end
+        limit:
+          type: integer
+          description: Max records, default 1440. Data is minute-by-minute - `limit:7` returns 7 minutes, not 7
+            days.
+        order:
+          type: string
+          description: '`ASC` or `DESC`'
+          x-published-type: string enum
+        fill:
+          type: boolean
+          description: Forward-fill gaps
+      required:
+      - pairCode
+  - name: get_latest_market_caps
+    description: Latest market cap snapshot ranked across pairs (top coins by market cap). Returns `pairCode`, `marketCap`,
+      `circulatingSupply`, `totalSupply`, `rank`, timestamp.
+    inputSchema:
+      type: object
+      properties:
+        pairCodes:
+          type: string
+          description: Comma-separated pairs; defaults to all permissioned pairs
+        limit:
+          type: integer
+          description: Max records, e.g. `10` for top 10
+        order:
+          type: string
+          description: '`ASC` (default) or `DESC` - pass `DESC` for "top N by market cap"'
+          x-published-type: string enum
+        asOf:
+          type: string
+          description: Snapshot timestamp; defaults to latest
+  - name: get_latest_markets
+    description: Latest market data for spot or derivative markets across sources. Returns per-market rollup.
+    inputSchema:
+      type: object
+      properties:
+        marketType:
+          type: string
+          description: '`SPOT` (default) or `DERIVATIVE`'
+          x-published-type: string enum
+        sourceIds:
+          type: string
+          description: Comma-separated source IDs
+        baseAssetCodes:
+          type: string
+          description: Filter by base asset
+        counterAssetCodes:
+          type: string
+          description: Filter by counter asset
+        sortBy:
+          type: string
+          description: e.g. `volume`, `price`, `marketCap`
+        sortDirection:
+          type: string
+          description: '`ASC` or `DESC`'
+          x-published-type: string enum
+        limit:
+          type: integer
+          description: Max records
+        offset:
+          type: integer
+          description: Pagination offset
+        asOf:
+          type: string
+          description: Historical timestamp
+      required:
+      - marketType
+  - name: get_market_depth
+    description: Order book liquidity (aggregated depth) for spot pairs. Returns bid/ask depth per source.
+    inputSchema:
+      type: object
+      properties:
+        sourceIds:
+          type: string
+          description: Comma-separated source IDs, e.g. `"4001,4002"`
+        baseAssetCodes:
+          type: string
+          description: Filter by base asset, e.g. `"XBT"` (strongly recommended - omitting can return a very large
+            response)
+        counterAssetCodes:
+          type: string
+          description: Filter by counter asset, e.g. `"USD"`
+        aggLookback:
+          type: integer
+          description: Aggregation lookback; default 3600000 (1h)
+        asOf:
+          type: string
+          description: Historical timestamp
+      required:
+      - sourceIds
+  - name: get_order_book_snapshot
+    description: Reconstructed L2 order book state at 15-second intervals - bids/asks at a point in time.
+    inputSchema:
+      type: object
+      properties:
+        sourceIds:
+          type: string
+          description: Comma-separated source IDs
+        pairCodes:
+          type: string
+          description: Comma-separated pairs
+        asOf:
+          type: string
+          description: Snapshot timestamp; defaults to now
+      required:
+      - sourceIds
+  - name: get_spot_trades
+    description: Individual spot trade prints for a pair on an exchange source. Max 3600 records per call.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: Exchange source, e.g. `4001`
+        pairCode:
+          type: string
+          description: Single pair
+        from:
+          type: string
+          description: Range start
+        to:
+          type: string
+          description: Range end
+        limit:
+          type: integer
+          description: Max records, default and max 3600
+      required:
+      - sourceId
+      - pairCode
+  - name: get_latest_derivative_trades
+    description: Latest trades for derivatives (futures, options, perpetuals) at a derivative source.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: Derivative source, e.g. `4022`
+        lukkaDerivativeCode:
+          type: string
+          description: Lukka derivative code, e.g. `"BTC-PERPETUAL.DERI"`
+        entityDerivativeCode:
+          type: string
+          description: Exchange-native code, e.g. `"BTC-PERPETUAL"`
+        lookback:
+          type: integer
+          description: Lookback in minutes; default 1440 (1 day)
+        asOf:
+          type: string
+          description: Historical timestamp
+      required:
+      - sourceId
+  - name: get_historical_derivative_trades
+    description: Historical derivative trades for a Lukka derivative code over a range.
+    inputSchema:
+      type: object
+      properties:
+        sourceId:
+          type: integer
+          description: Derivative source
+        lukkaDerivativeCode:
+          type: string
+          description: Lukka derivative code, e.g. `"BTC-PERPETUAL.DERI"`
+        entityDerivativeCode:
+          type: string
+          description: Exchange-native code
+        from:
+          type: string
+          description: Range start
+        to:
+          type: string
+          description: Range end (defaults to now)
+        limit:
+          type: integer
+          description: Max records
+      required:
+      - sourceId
+- name: Lukka-RefData
+  url: https://refdata.mcp.lukka.tech
+  transport: http
+  description: 'Digital asset reference data: taxonomy, entities, exchange/pair mappings, VASPs, crypto actions'
+  access: read-only
+  authentication:
+    type: oauth2
+    flow: authorization_code + PKCE
+    dynamic_client_registration: true
+    protected_resource_metadata: https://refdata.mcp.lukka.tech/.well-known/oauth-protected-resource
+    authorization_server: https://auth0.lukka.tech
+    scopes:
+    - mcp
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
+      for the product.
+  docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-refdata-mcp/README.md
+  tool_count: 21
+  tools:
+  - name: list_assets
+    description: Browse digital assets from Lukka Reference Data (100+ fields per asset). Returns asset summaries;
+      use `expandDetails` for richer sections.
+    inputSchema:
+      type: object
+      properties:
+        lukkaAssetIds:
+          type: string
+          description: Bracketed comma-separated LIDs, e.g. `[LA6EV2NKQ95,LA2EYFUQT32]` (brackets required)
+        assetGroupId:
+          type: integer
+          description: Numeric issuer grouping ID
+        expandDetails:
+          type: string
+          description: Bracketed section list or `[ALL]`; options include `statusDetails`, `nameDetails`, `assetDetails`,
+            `supplyDetails`, `blockchainDetails`, `sectorDetails`, `participantDetails`, `mediaDetails`, `successorDetails`,
+            `underlyingDetails`, `allowedCollateralDetails`, `stableDetails`, `rebaseDetails` (brack
+        limit:
+          type: integer
+          description: Default 100, max 1000
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_asset_by_id
+    description: Full asset detail by Lukka Asset LID - returns all sections (asset, name, status, supply, blockchain,
+      sector, participant, media, successor, underlying, collateral, stable, rebase, governance, tokenomics, value
+      proposition).
+    inputSchema:
+      type: object
+      properties:
+        assetLid:
+          type: string
+          description: Lukka Asset LID, e.g. `LA6EV2NKQ95`
+      required:
+      - assetLid
+  - name: get_asset_exposure
+    description: Crypto asset exposure classification - exposure level (direct/indirect), asset type, underlying
+      assets, collateral, value propositions.
+    inputSchema:
+      type: object
+      properties:
+        assetLids:
+          type: string
+          description: Comma-separated Asset LIDs
+        exposureLevels:
+          type: string
+          description: Exposure level filter, e.g. `TFV`
+        limit:
+          type: integer
+          description: Default 100, max 1000
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_asset_crypto_actions
+    description: Crypto action (LCA) event history for one asset - hard forks, airdrops, chain migrations, token
+      swaps, etc.
+    inputSchema:
+      type: object
+      properties:
+        assetLid:
+          type: string
+          description: Lukka Asset LID
+        domain:
+          type: string
+          description: '`assets`, `derivatives`, `assetMappings`, or `pairMappings`'
+          x-published-type: string enum
+        limit:
+          type: integer
+          description: Default 100, max 1000
+        offset:
+          type: integer
+          description: Pagination offset
+      required:
+      - assetLid
+      - domain
+  - name: get_crypto_actions
+    description: Global crypto actions feed across all assets, with structured metadata (what changed, when, why)
+      for 25+ event types.
+    inputSchema:
+      type: object
+      properties:
+        lukkaCryptoActionCode:
+          type: string
+          description: Action code enum, e.g. `HFORK`, `CTMIG`
+        lukkaCryptoActionId:
+          type: string
+          description: Single event UUID
+        lukkaCryptoActionIds:
+          type: string
+          description: Comma-separated UUIDs (max 75)
+        lukkaCryptoActionParentId:
+          type: string
+          description: Parent UUID for grouped events
+        announceTime:
+          type: string
+          description: Filter by announcement time
+        effectiveTime:
+          type: string
+          description: Returns actions with effectiveTime after this value
+        isFutureEvent:
+          type: string
+          description: '`Yes` / `No`'
+        limit:
+          type: integer
+          description: Default 100, max 1000
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_reference_assets
+    description: Canonical reference asset records.
+    inputSchema:
+      type: object
+      properties:
+        assetCode:
+          type: string
+          description: Lukka canonical asset code, e.g. `XBT`
+        limit:
+          type: integer
+          description: Default 100
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_asset_coverage_stats
+    description: Asset coverage statistics - counts by blockchain, type, and status; optionally historical or filtered.
+    inputSchema:
+      type: object
+      properties:
+        lukkaAssetIds:
+          type: string
+          description: Comma-separated Asset LIDs to filter
+        asOf:
+          type: string
+          description: Coverage as of a given timestamp
+  - name: get_sectors
+    description: Lukka Digital Asset Classification Standard (LDACS) - a 5-tier sector hierarchy (Category -> Super
+      Sector -> Macro Sector -> Mid Sector -> Sub Sector). Assets can have primary and secondary classifications.
+    inputSchema:
+      type: object
+      properties:
+        assetLid:
+          type: string
+          description: Filter by Asset LID
+        isPrimaryClassification:
+          type: string
+          description: '`true` / `false`'
+        lukkaCategoryCode:
+          type: string
+          description: Tier 1 code
+        lukkaSuperSectorCode:
+          type: string
+          description: Tier 2 code
+        lukkaMacroSectorCode:
+          type: string
+          description: Tier 3 code
+        lukkaMidSectorCode:
+          type: string
+          description: Tier 4 code
+        lukkaSubSectorCode:
+          type: string
+          description: Tier 5 code
+        limit:
+          type: integer
+          description: Default 100, max 1000 (max 50 for detailed)
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_core_asset_scores
+    description: Lukka Core Asset Score (LCAS) - a quality/risk grade per asset over time.
+    inputSchema:
+      type: object
+      properties:
+        assetLid:
+          type: string
+          description: Asset LID filter
+        fromDate:
+          type: string
+          description: Range start
+        toDate:
+          type: string
+          description: Range end
+        scoringDetails:
+          type: string
+          description: '`DETAILED` for full breakdown'
+        limit:
+          type: integer
+          description: Default 100
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_market_scores
+    description: Market quality scores per market.
+    inputSchema:
+      type: object
+      properties:
+        marketId:
+          type: string
+          description: Market ID filter
+        fromDate:
+          type: string
+          description: Range start
+        toDate:
+          type: string
+          description: Range end
+        scoringDetails:
+          type: string
+          description: '`DETAILED` for full breakdown'
+        limit:
+          type: integer
+          description: Default 100
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_enums
+    description: Enumerated codes used across Reference Data APIs - returns enumCode + description pairs.
+    inputSchema:
+      type: object
+      properties:
+        enumName:
+          type: string
+          description: 'One of: `lukkaCryptoActionCode`, `classificationCode`, `assetTypeCode`, `hashAlgorithmCode`,
+            `consensusClassificationCode`, `emissionClassificationCode`, `emissionTypeCode`, `lukkaBlockchainId`,
+            `tokenStandardCode`, `participantTypeCode`'
+      required:
+      - enumName
+  - name: list_entities
+    description: All known entities - exchanges, custodians, OTC desks, prime brokers, wallets, blockchains. Returns
+      entityId, entityCode, entityName, entityType, entityUrl, entityStatus.
+    inputSchema:
+      type: object
+      properties:
+        limit:
+          type: integer
+          description: Default 100, max 1000
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_entity_by_code
+    description: Entity detail by its canonical Lukka code.
+    inputSchema:
+      type: object
+      properties:
+        code:
+          type: string
+          description: 'Canonical entity code, e.g. `CPRO` (Coinbase Pro). Note: the literal `COINBASE` is not a
+            canonical exchange code and returns an unrelated record - use `CPRO`/`CBSE`/`CPRM`.'
+      required:
+      - code
+  - name: get_asset_mappings
+    description: Cross-reference asset mappings (LMAP) between Lukka codes and entity-specific ticker codes - normalizes
+      naming across exchanges, custodians, wallets. The primary way to resolve a street ticker to a Lukka code.
+    inputSchema:
+      type: object
+      properties:
+        entityCode:
+          type: string
+          description: Entity code filter, e.g. `KRAK`
+        entityAssetCode:
+          type: string
+          description: Entity-side ticker, e.g. `BTC`
+        lukkaAssetCode:
+          type: string
+          description: Lukka canonical code, e.g. `XBT`
+        lukkaAssetId:
+          type: string
+          description: Lukka Asset LID
+        lukkaAssetMapId:
+          type: string
+          description: Specific mapping UUID
+        isPrimaryMapping:
+          type: string
+          description: '`True` / `False`'
+        mappingStatus:
+          type: string
+          description: '`Active`, `Inactive`, or all (default)'
+        lastModifiedTime:
+          type: string
+          description: Filter
+        limit:
+          type: integer
+          description: Default 1000, max 1000
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_legal_entity_mappings
+    description: Legal entity identifier mappings (e.g. LEI, SICIL) - maps Lukka legal entities to external identifier
+      systems.
+    inputSchema:
+      type: object
+      properties:
+        identifierTypeCode:
+          type: string
+          description: e.g. `LEI`, `SICIL`
+        limit:
+          type: integer
+          description: Default 1000, max 1000
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: list_vasps
+    description: Virtual Asset Service Provider directory. VASPs are not filterable by `entityCode` - each row carries
+      a `lukkaEntityCode` you can filter on client-side.
+    inputSchema:
+      type: object
+      properties:
+        vasp_id:
+          type: string
+          description: Filter by VASP identifier
+        vaspLids:
+          type: string
+          description: Comma-separated VASP LIDs
+        limit:
+          type: integer
+          description: Default 100
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_reference_pairs
+    description: Canonical reference trading pairs.
+    inputSchema:
+      type: object
+      properties:
+        limit:
+          type: integer
+          description: Default 100
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_pair_mappings
+    description: Cross-reference pair mappings (LMAP) between Lukka pair codes and entity-specific pair codes.
+    inputSchema:
+      type: object
+      properties:
+        lukkaPairCode:
+          type: string
+          description: Lukka pair, e.g. `XBT-USD`
+        entityCode:
+          type: string
+          description: Entity, e.g. `KRAK` - always include when checking whether a specific exchange maps a pair
+        entityPairCode:
+          type: string
+          description: Entity-side pair code, e.g. `BTC/USD`
+        lukkaAssetOneCode:
+          type: string
+          description: Lukka base code
+        lukkaPairMapId:
+          type: string
+          description: Specific pair-mapping UUID
+        isPrimaryMapping:
+          type: string
+          description: '`True` / `False`'
+        mappingStatus:
+          type: string
+          description: '`Active`, `Inactive`, or all'
+        limit:
+          type: integer
+          description: Default 1000, max 1000 (a flagship pair can have 80+ venue mappings)
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: list_derivatives
+    description: List derivative contracts from Lukka Derivatives Data (LDRD) - 50+ fields per contract.
+    inputSchema:
+      type: object
+      properties:
+        entityCode:
+          type: string
+          description: Exchange entity code, e.g. `DERI` (Deribit)
+        underlyingAssetCode:
+          type: string
+          description: Underlying asset, e.g. `XBT`
+        assetType:
+          type: string
+          description: e.g. `OPTION`
+        expandDetails:
+          type: string
+          description: Bracketed section list or `[ALL]`; options `derivativeDetails`, `participantDetails`, `settlementDetails`,
+            `statusDetails`, `underlyingDetails` (brackets required)
+        limit:
+          type: integer
+          description: Default 100, max 1000
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: get_derivative_by_id
+    description: Full derivative contract detail by Lukka Derivative LID - all sections (derivative, settlement,
+      underlying, participant, status).
+    inputSchema:
+      type: object
+      properties:
+        lukkaDerivativeLid:
+          type: string
+          description: e.g. `L-BINA-PERP-UNI-USD`
+      required:
+      - lukkaDerivativeLid
+  - name: get_reference_derivatives
+    description: Canonical reference derivative data.
+    inputSchema:
+      type: object
+      properties:
+        limit:
+          type: integer
+          description: Default 100
+        offset:
+          type: integer
+          description: Pagination offset
+- name: Lukka-AML
+  url: https://aml.mcp.lukka.tech
+  transport: http
+  description: AML risk scoring and compliance reports across 108+ blockchains, OFAC sanctions detection
+  access: read-only
+  authentication:
+    type: oauth2
+    flow: authorization_code + PKCE
+    dynamic_client_registration: true
+    protected_resource_metadata: https://aml.mcp.lukka.tech/.well-known/oauth-protected-resource
+    authorization_server: https://auth0.lukka.tech
+    scopes:
+    - mcp
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
+      for the product.
+  docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-aml-mcp/README.md
+  tool_count: 4
+  tools:
+  - name: generateAmlScoringReport
+    description: Light risk check - available on every supported chain. **Returns:** a numeric risk score (0-100),
+      a categorical risk level (LOW/MEDIUM/HIGH), and the top risk indicators triggered (if any). A clean address
+      with no history typically scores ~33 (MEDIUM) - that is the baseline, not a risk signal. Small response.
+    inputSchema:
+      type: object
+      properties:
+        address:
+          type: string
+          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append phrases
+            like "on Ethereum".
+        address_type:
+          type: string
+          description: Blockchain protocol code, e.g. `BTC`, `ETH`, `TRX`, `SOL`.
+      required:
+      - address
+      - address_type
+  - name: generateAmlSimplifiedReport
+    description: Light report tier for chains not covered by Standard/Enhanced (see chain list below). Small response.
+    inputSchema:
+      type: object
+      properties:
+        address:
+          type: string
+          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append phrases
+            like "on Ethereum".
+        address_type:
+          type: string
+          description: Blockchain protocol code, e.g. `BTC`, `ETH`, `TRX`, `SOL`.
+      required:
+      - address
+      - address_type
+  - name: generateAmlStandardReport
+    description: Full compliance report with detailed risk factor and counterparty exposure analysis. **Returns:**
+      risk score/level plus a full breakdown of triggered indicators, counterparty exposure, and (where available)
+      an owner/entity profile. Response is 300-500 KB.
+    inputSchema:
+      type: object
+      properties:
+        address:
+          type: string
+          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append phrases
+            like "on Ethereum".
+        address_type:
+          type: string
+          description: Blockchain protocol code, e.g. `BTC`, `ETH`, `TRX`, `SOL`.
+      required:
+      - address
+      - address_type
+  - name: generateAmlEnhancedReport
+    description: Deepest available analysis, on the same chain list as Standard. Response is 500 KB+.
+    inputSchema:
+      type: object
+      properties:
+        address:
+          type: string
+          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append phrases
+            like "on Ethereum".
+        address_type:
+          type: string
+          description: Blockchain protocol code, e.g. `BTC`, `ETH`, `TRX`, `SOL`.
+      required:
+      - address
+      - address_type
+- name: Lukka-UDA
+  url: https://uda.mcp.lukka.tech
+  transport: http
+  description: 'Raw on-chain data: balances, transactions, blocks across major blockchains'
+  access: read-only
+  authentication:
+    type: oauth2
+    flow: authorization_code + PKCE
+    dynamic_client_registration: true
+    protected_resource_metadata: https://uda.mcp.lukka.tech/.well-known/oauth-protected-resource
+    authorization_server: https://auth0.lukka.tech
+    scopes:
+    - mcp
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
+      for the product.
+  docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-uda-mcp/README.md
+  tool_count: 8
+  tools:
+  - name: Get_newest_block_blockheight_v2
+    description: Latest block height (and hash) for a chain - preferred version.
+    inputSchema:
+      type: object
+      properties:
+        blockchain:
+          type: string
+          description: Lowercase chain symbol, e.g. `eth`
+        status:
+          type: string
+          description: Block status filter
+        verbose:
+          type: string
+          description: Verbosity level
+        version:
+          type: string
+          description: API version selector
+      required:
+      - blockchain
+  - name: Get_newest_block_blockheight
+    description: Latest block height for a chain (legacy v1).
+    inputSchema:
+      type: object
+      properties:
+        blockchain:
+          type: string
+          description: Lowercase chain symbol, e.g. `btc`, `eth`, `sol`
+      required:
+      - blockchain
+  - name: get_block
+    description: Block information with transaction hashes. **Returns:** block metadata plus a transaction list
+      (hashes, or full decoded objects at higher verbosity).
+    inputSchema:
+      type: object
+      properties:
+        blockchain:
+          type: string
+          description: Lowercase chain symbol
+        block:
+          type: string
+          description: Block height number
+        verbose:
+          type: string
+          description: '`1` = transaction hashes only (default), `2` = full decoded transaction objects'
+      required:
+      - blockchain
+      - block
+  - name: get_address_balance
+    description: Current (or point-in-time) balance for an address.
+    inputSchema:
+      type: object
+      properties:
+        blockchain:
+          type: string
+          description: Lowercase chain symbol
+        address:
+          type: string
+          description: Wallet address
+        asset:
+          type: string
+          description: Asset identifier, for a specific token balance
+        block:
+          type: string
+          description: Block number for a historical balance
+      required:
+      - blockchain
+      - address
+  - name: get_canton_address_balance
+    description: Balance for an address on the Canton network (Canton uses migration/timestamp coordinates rather
+      than a plain chain symbol).
+    inputSchema:
+      type: object
+      properties:
+        migration_id:
+          type: string
+          description: Canton migration identifier
+        timestamp:
+          type: string
+          description: Point-in-time for the balance
+        address:
+          type: string
+          description: Address to query
+      required:
+      - migration_id
+      - timestamp
+      - address
+  - name: get_address_assets
+    description: All tokens an address holds or has interacted with.
+    inputSchema:
+      type: object
+      properties:
+        blockchain:
+          type: string
+          description: Lowercase chain symbol
+        address:
+          type: string
+          description: Wallet address
+      required:
+      - blockchain
+      - address
+  - name: get_address_transactions
+    description: Transaction history for an address. **Returns:** a transaction list at the requested verbosity.
+    inputSchema:
+      type: object
+      properties:
+        blockchain:
+          type: string
+          description: Lowercase chain symbol
+        address:
+          type: string
+          description: Wallet address
+        verbose:
+          type: string
+          description: '`0` = hashes only, `1` = key details (default), `2` = full decoded objects (use small `limit`)'
+        limit:
+          type: string
+          description: 1-1000, default 50
+        get_newest:
+          type: string
+          description: Newest-first (mutually exclusive with range filters)
+        asset:
+          type: string
+          description: Filter by a specific asset
+      required:
+      - blockchain
+      - address
+  - name: Get_transaction_for_txhash
+    description: Full decoded detail for a single transaction.
+    inputSchema:
+      type: object
+      properties:
+        blockchain:
+          type: string
+          description: Lowercase chain symbol
+        txhash:
+          type: string
+          description: Transaction hash
+      required:
+      - blockchain
+      - txhash
+- name: Lukka-Analytics
+  url: https://analytics.mcp.lukka.tech
+  transport: http
+  description: Implied forward rate curves, options volatility surfaces, OTC FX rates
+  access: read-only
+  authentication:
+    type: oauth2
+    flow: authorization_code + PKCE
+    dynamic_client_registration: true
+    protected_resource_metadata: https://analytics.mcp.lukka.tech/.well-known/oauth-protected-resource
+    authorization_server: https://auth0.lukka.tech
+    scopes:
+    - mcp
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
+      for the product.
+  docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-analytics-mcp/README.md
+  tool_count: 3
+  tools:
+  - name: getImpliedRates
+    description: Implied interest rate term structure from futures/swaps markets. **Returns:** per-tenor rates (`1D`..`1Y`)
+      with metadata; NSS model rows also include lambda/beta curve-fit params.
+    inputSchema:
+      type: object
+      properties:
+        pairCode:
+          type: string
+          description: Lukka pair, e.g. `XBT-USD` (must be a pair you have access to)
+        lukkaEntityCode:
+          type: string
+          description: Entity/source, e.g. `LUKKA`, `BINANCE`, `COINBASE`, `KRAKEN`
+        curveType:
+          type: string
+          description: Maps to curve type, e.g. `INST_FWD`, `ZERO`, `PAR`
+        source:
+          type: string
+          description: Rate source, e.g. `FUTURES`, `SWAPS`, `ALL`
+        rateType:
+          type: string
+          description: Rate type, e.g. `BASIS`, `COMPOSITE`
+        modelType:
+          type: string
+          description: '`MC` (Monte Carlo, default) or `NSS` (Nelson-Siegel-Svensson)'
+          x-published-type: string enum
+        timeFrom:
+          type: string
+          description: Window start
+        timeTo:
+          type: string
+          description: Window end
+        timeRange:
+          type: string
+          description: Relative window shorthand (anchor with timeFrom/timeTo)
+        dataShape:
+          type: string
+          description: '`flat` (default) or `2L` (tenors nested under `impliedRates`)'
+          x-published-type: string enum
+        offset:
+          type: integer
+          description: Pagination offset
+      required:
+      - pairCode
+      - lukkaEntityCode
+      - curveType
+      - source
+      - rateType
+  - name: getImpliedRatesOtcFx
+    description: OTC FX rate data. **Returns per record:** `lukkaEntityCode`, `pairCode`, `businessTime`, `tenorType`,
+      `tenor`, `fixedEndTime`, `underlyingPrice`, `basisPrice`/`basisBidPrice`/`basisAskPrice`, `price`/`bidPrice`/`askPrice`,
+      `tradeCount`, `volume`, `bidAskSpread`, `staleness`.
+    inputSchema:
+      type: object
+      properties:
+        pairCode:
+          type: string
+          description: Trading pair filter, e.g. `XBT-USD`
+        lukkaEntityCode:
+          type: string
+          description: Entity filter, e.g. `LUKKA`
+        timeFrom:
+          type: string
+          description: Window start
+        timeTo:
+          type: string
+          description: Window end
+        timeRange:
+          type: string
+          description: Relative window shorthand (anchor with timeFrom/timeTo)
+        dataShape:
+          type: string
+          description: '`flat`, `2L`, or `3L`'
+          x-published-type: string enum
+        offset:
+          type: integer
+          description: Pagination offset
+  - name: getImpliedVolatilitySurface
+    description: Options implied volatility surface, by delta or strike. **Returns per point:** business time, entity,
+      underlying, `tenor`, `tenorNumericYearFraction`, `gridLabel`, `impliedVolatility`, plus (delta) `riskReversal`/`butterfly`/`gridLabelNumericCall`/`gridLabelNumericPut`
+      or (strike) `gridLabelNumericRelStrike`.
+    inputSchema:
+      type: object
+      properties:
+        lukkaEntityCode:
+          type: string
+          description: Entity that sourced the surface, e.g. `LUKKA`
+        underlyingAssetLukkaCode:
+          type: string
+          description: Underlying Lukka asset code, e.g. `XBT`, `ETH`
+        moneyness:
+          type: string
+          description: '`delta` (grid labels are put/call deltas) or `strike` (relative strike)'
+          x-published-type: string enum
+        tenor:
+          type: string
+          description: Filter to a tenor, e.g. `1W`, `1M`, `3M`
+        grid_label:
+          type: string
+          description: Moneyness label filter, e.g. `25D`
+        timeFrom:
+          type: string
+          description: Window start
+        timeTo:
+          type: string
+          description: Window end
+        timeRange:
+          type: string
+          description: Relative window shorthand (anchor with timeFrom/timeTo)
+        dataShape:
+          type: string
+          description: '`flat`, `2L`, or `3L`'
+          x-published-type: string enum
+      required:
+      - lukkaEntityCode
+      - underlyingAssetLukkaCode
+      - moneyness
+- name: Lukka-News
+  url: https://news.mcp.lukka.tech
+  transport: http
+  description: AI-curated digital asset news search and daily summaries
+  access: read-only
+  authentication:
+    type: oauth2
+    flow: authorization_code + PKCE
+    dynamic_client_registration: true
+    protected_resource_metadata: https://news.mcp.lukka.tech/.well-known/oauth-protected-resource
+    authorization_server: https://auth0.lukka.tech
+    scopes:
+    - mcp
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
+      for the product.
+  docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-news-mcp/README.md
+  tool_count: 2
+  tools:
+  - name: getNews
+    description: Full-text news search. **Returns:** a JSON array of NewsItem objects (total match count in the
+      `X-Total-Count` response header). All parameters are optional - omitting all returns the most recent articles.
+    inputSchema:
+      type: object
+      properties:
+        keyword:
+          type: string
+          description: Free-text search across title and snippet
+        publishDateFrom:
+          type: string
+          description: '**Full ISO 8601 with a time component**, e.g. `2026-04-01T00:00:00Z`. A bare date (`2026-04-01`)
+            is rejected.'
+        publishDateTo:
+          type: string
+          description: Same format constraint; must be after `publishDateFrom`
+        entityCodes:
+          type: string
+          description: Comma-separated publisher codes, e.g. `theblock,coindesk`
+        primaryCategory:
+          type: string
+          description: Comma-separated categories - see list below
+        sentiment:
+          type: string
+          description: '`positive`, `negative`, `neutral`, `mixed`'
+          x-published-type: string enum
+        industrySegment:
+          type: string
+          description: e.g. `defi`, `trading`
+        technicalLevel:
+          type: string
+          description: '`beginner`, `intermediate`, `advanced`, `expert`, `mixed`'
+          x-published-type: string enum
+        source:
+          type: string
+          description: Publisher source name
+        newsID:
+          type: string
+          description: Fetch one article by UUID (ignores all other filters)
+        sortBy:
+          type: string
+          description: '`date` (default), `source`, `sentiment`, `category`, `qualityScore`, `relevanceScore`'
+          x-published-type: string enum
+        sortOrder:
+          type: string
+          description: '`asc` / `desc` (default `desc`)'
+          x-published-type: string enum
+        limit:
+          type: integer
+          description: Max per page; API hard cap 500
+        offset:
+          type: integer
+          description: Zero-based pagination offset
+  - name: getDailySummaries
+    description: AI-generated daily news digests. **Returns:** per-day summary date, article count, overall sentiment
+      and breakdown, summary text, key themes, notable events, top categories, and top assets.
+    inputSchema:
+      type: object
+      properties:
+        date:
+          type: string
+          description: Single-day lookup. Mutually exclusive with `limit`. First available date is 2026-04-08.
+        limit:
+          type: integer
+          description: Most recent N summaries. Default 14, max 90. Ignored when `date` is supplied.
+- name: Lukka-Predmar
+  url: https://predmar.mcp.lukka.tech
+  transport: http
+  description: Prediction market data from Polymarket, Kalshi and Gemini
+  access: read-only
+  authentication:
+    type: oauth2
+    flow: authorization_code + PKCE
+    dynamic_client_registration: true
+    protected_resource_metadata: https://predmar.mcp.lukka.tech/.well-known/oauth-protected-resource
+    authorization_server: https://auth0.lukka.tech
+    scopes:
+    - mcp
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
+      for the product.
+  docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-predmar-mcp/README.md
+  tool_count: 11
+  tools:
+  - name: GetPredictionMarkets
+    description: Primary discovery endpoint - paginated event-level markets with nested outcome snapshots (prices,
+      volume, open interest). **Returns:** events with outcome probabilities, volumes, and PMCS classification.
+    inputSchema:
+      type: object
+      properties:
+        search:
+          type: string
+          description: Free-text query across market/event names
+        event_ticker:
+          type: string
+          description: Exact event identifier for a direct lookup
+        entity_code:
+          type: string
+          description: 'Exchange filter: `KALSHI`, `POLYMARK`, `GMNI`'
+        status:
+          type: string
+          description: Market status, e.g. `Open`
+        outcome_type:
+          type: string
+          description: '`Binary` or `Multi`'
+        pmcs_category:
+          type: string
+          description: Top-level PMCS category code (e.g. `SCI`, `GEO`, `MKT`, `SPT`, `SOC`, `OTH`)
+        pmcs_supersector:
+          type: string
+          description: PMCS supersector code (e.g. `POL`, `SOC`, `WX`, `CRY`, `AIT`)
+        sort_by:
+          type: string
+          description: e.g. `total_volume_usd_1hr`, `total_volume_24hr`, `total_open_interest_usd`, `end_ts`
+        sort_dir:
+          type: string
+          description: '`asc` or `desc`'
+        limit:
+          type: string
+          description: Max events
+        offset:
+          type: string
+          description: Pagination offset
+  - name: GetSimilarMarkets
+    description: Semantically similar markets for a source event - cross-venue matching and recommendations.
+    inputSchema:
+      type: object
+      properties:
+        event_ticker:
+          type: string
+          description: Source event (from `GetPredictionMarkets`)
+        limit:
+          type: string
+          description: Max similar events
+        offset:
+          type: string
+          description: Pagination offset
+      required:
+      - event_ticker
+      - limit
+      - offset
+  - name: GetPredictionMarketsTaxonomy
+    description: Returns the valid PMCS taxonomy dictionary (all hierarchy levels). Call before using `pmcs_*` filters.
+    inputSchema:
+      type: object
+      properties: {}
+  - name: GetPMCSstats
+    description: Nested PMCS statistics and counts for currently indexed markets - faceted navigation / dashboards.
+    inputSchema:
+      type: object
+      properties: {}
+  - name: GetMarketOverview
+    description: Time-bucketed activity across exchanges - one row per bucket per exchange with `entityCode`, `entityName`,
+      `sourceId`, `volumeUsd`, `tradeCount`, `volume`.
+    inputSchema:
+      type: object
+      properties:
+        from:
+          type: string
+          description: Window start
+        to:
+          type: string
+          description: Window end
+        interval:
+          type: string
+          description: Bucket size, e.g. `300000` or `3600000`
+      required:
+      - from
+      - to
+      - interval
+  - name: GetOpenInterest
+    description: Time-bucketed open interest across exchanges - rows keyed by time/sourceId/entity, with `openInterestUsd`.
+    inputSchema:
+      type: object
+      properties:
+        from:
+          type: string
+          description: Window start
+        to:
+          type: string
+          description: Window end
+        interval:
+          type: string
+          description: Bucket size
+      required:
+      - from
+      - to
+      - interval
+  - name: GetPredictionMarketTotalVolume
+    description: Time-bucketed total market volume trendline (lighter than `GetMarketOverview`).
+    inputSchema:
+      type: object
+      properties:
+        from:
+          type: string
+          description: Window start
+        to:
+          type: string
+          description: Window end
+        interval:
+          type: string
+          description: Bucket size
+      required:
+      - from
+      - to
+      - interval
+  - name: GetMarketRecap
+    description: Short natural-language recap of recent market activity plus summary metrics (`predictionVolume24h`,
+      `newsCount`, generated-at timestamp). Returns an array of narrative paragraphs.
+    inputSchema:
+      type: object
+      properties: {}
+  - name: GetMarketNews
+    description: Recent prediction-market news within a publish-date window (industry segment fixed to prediction-markets;
+      internal quality/relevance thresholds applied).
+    inputSchema:
+      type: object
+      properties:
+        publishDateFrom:
+          type: string
+          description: Inclusive window start
+        publishDateTo:
+          type: string
+          description: Inclusive window end
+      required:
+      - publishDateFrom
+      - publishDateTo
+  - name: GetExchanges
+    description: Prediction market venues / entity metadata, including VASP classification detail.
+    inputSchema:
+      type: object
+      properties:
+        limit:
+          type: string
+          description: Max exchanges
+        offset:
+          type: string
+          description: Pagination offset
+        primary_location:
+          type: string
+          description: Location filter
+        vasp_classification:
+          type: string
+          description: VASP classification filter
+        vasp_score:
+          type: string
+          description: Exact VASP score
+      required:
+      - limit
+      - offset
+  - name: GetPriceHistory
+    description: Historical pricing for one market on one exchange. **Returns:** OHLC candle buckets.
+    inputSchema:
+      type: object
+      properties:
+        event:
+          type: string
+          description: Event ticker or market identifier (from `GetPredictionMarkets`)
+        exchangeId:
+          type: string
+          description: 'Numeric exchange ID: `4141`=Kalshi, `4137`=Polymarket, `4008`=Gemini - must match the event''s
+            own exchange'
+        from:
+          type: string
+          description: Window start
+        to:
+          type: string
+          description: Window end
+        interval:
+          type: string
+          description: Bucket size, e.g. `300000` (5-min)
+        limit:
+          type: string
+          description: Max buckets, e.g. `288` for 24h of 5-min candles
+      required:
+      - event
+      - exchangeId

@@ -1,0 +1,74 @@
+{
+ "dataType": "orderBookSnapshot",
+ "count": 1,
+ "data": [
+  {
+   "ts": "2026-04-22T15:39:45Z",
+   "sourceId": 4002,
+   "entityCode": "CPRO",
+   "lukkaSymbol": "XBT-USD",
+   "baseAssetCode": "XBT",
+   "counterAssetCode": "USD",
+   "instrumentType": "SPOT",
+   "bestBidPrice": "79310.43",
+   "bestAskPrice": "79310.44",
+   "midPrice": "79310.435",
+   "spread": "0.01",
+   "spreadPct": "0.0000001260868132",
+   "bids": [
+    {
+     "price": "79310.43",
+     "size": "0.0000324",
+     "cumulativeSize": "0.0000324"
+    },
+    {
+     "price": "79307.21",
+     "size": "0.00012608",
+     "cumulativeSize": "0.00015848"
+    },
+    {
+     "price": "79305.59",
+     "size": "0.01513134",
+     "cumulativeSize": "0.01528982"
+    },
+    {
+     "price": "79304.95",
+     "size": "0.03879424",
+     "cumulativeSize": "0.05408406"
+    },
+    {
+     "price": "79304.12",
+     "size": "0.00051829",
+     "cumulativeSize": "0.05460235"
+    }
+   ],
+   "asks": [
+    {
+     "price": "79310.44",
+     "size": "0.33795393",
+     "cumulativeSize": "0.33795393"
+    },
+    {
+     "price": "79311.63",
+     "size": "0.01513019",
+     "cumulativeSize": "0.35308412"
+    },
+    {
+     "price": "79311.99",
+     "size": "0.01327104",
+     "cumulativeSize": "0.36635516"
+    },
+    {
+     "price": "79312.0",
+     "size": "0.0107",
+     "cumulativeSize": "0.37705516"
+    },
+    {
+     "price": "79313.22",
+     "size": "0.00012608",
+     "cumulativeSize": "0.37718124"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,104 @@
+generated: '2026-08-04'
+method: searched
+docs: https://apidocs.lukka.tech/
+source:
+- https://apidocs.lukka.tech/
+- https://sso.lukka.tech/.well-known/openid-configuration
+- https://github.com/lukkatech/lukka-mcps
+summary:
+  types:
+  - oauth2
+  - http
+  oauth2_flows:
+  - clientCredentials
+  - authorizationCode
+  identity_providers:
+  - Okta (sso.lukka.tech) - REST and streaming APIs
+  - Auth0 (auth0.lukka.tech) - hosted MCP servers
+  note: 'Lukka runs two distinct identity planes: Okta client-credentials for the machine-to-machine data APIs, and Auth0
+    authorization-code + PKCE with Dynamic Client Registration for the seven hosted MCP servers.'
+schemes:
+- name: oktaClientCredentials
+  type: oauth2
+  surface: REST data APIs
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+    authorization_server: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8
+    note: Pricing / Market Data / Analytics authorization server
+  - flow: clientCredentials
+    tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2g7ugEl49C0h8/v1/token
+    authorization_server: https://sso.lukka.tech/oauth2/aus1imo2g7ugEl49C0h8
+    note: Reference Data / Derived Data authorization server
+  client_authentication: HTTP Basic - base64(client_id:client_secret) on the token request
+  token:
+    type: JWT
+    header: 'Authorization: Bearer <access_token>'
+    expires_in: 86400
+    documented_response_scope: pricing
+  token_endpoint_auth_methods_supported:
+  - client_secret_basic
+  - client_secret_post
+  - client_secret_jwt
+  - private_key_jwt
+  - none
+  introspection_endpoint: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/introspect
+  revocation_endpoint: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/revoke
+  jwks_uri: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/keys
+  sources:
+  - authentication derived from openapi/
+  - https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/.well-known/oauth-authorization-server
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  surface: REST data APIs
+  description: The Okta-issued JWT is presented as a Bearer token on every Lukka data API call.
+  sources:
+  - openapi/lukka-analytics-openapi.yml
+  - openapi/lukka-pricing-market-data-openapi.yml
+  - openapi/lukka-reference-data-openapi.yml
+  - openapi/lukka-reference-data-v1-openapi.yml
+  - openapi/lukka-valuation-openapi.yml
+- name: websocketAccessToken
+  type: apiKey
+  in: query
+  parameter: access_token
+  surface: WebSocket streaming
+  description: Streaming connections carry the same Okta JWT as an access_token query parameter on the wss:// URL. Tokens
+    expire; the server emits a token-expiry notice and the client reauthorizes in-band with an authenticate action message.
+  sources:
+  - asyncapi/lukka-market-data-streaming-asyncapi.yml
+- name: mcpOAuth
+  type: oauth2
+  surface: Hosted MCP servers (7)
+  flows:
+  - flow: authorizationCode
+    pkce: S256
+    authorization_server: https://auth0.lukka.tech
+    authorizationUrl: https://auth0.lukka.tech/authorize
+    tokenUrl: https://auth0.lukka.tech/oauth/token
+    registration_endpoint: https://auth0.lukka.tech/oidc/register
+    jwks_uri: https://auth0.lukka.tech/.well-known/jwks.json
+    revocation_endpoint: https://auth0.lukka.tech/oauth/revoke
+  dynamic_client_registration: true
+  protected_resource_metadata: RFC 9728 - <server>/.well-known/oauth-protected-resource returns 200 on all seven MCP
+    hosts
+  scopes:
+  - mcp
+  description: No static client id or secret. The MCP client discovers the authorization server from the protected-resource
+    metadata and registers dynamically (Client ID Metadata Document), then the user signs in once per server.
+  sources:
+  - https://github.com/lukkatech/lukka-mcps
+  - https://pricing.mcp.lukka.tech/.well-known/oauth-protected-resource
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://sso.lukka.tech/.well-known/openid-configuration
+    http_status: 200
+  - url: https://sso.lukka.tech/.well-known/oauth-authorization-server
+    http_status: 200
+  - url: https://auth0.lukka.tech/.well-known/oauth-authorization-server
+    http_status: 200
+  - url: https://pricing.mcp.lukka.tech/.well-known/oauth-protected-resource
+    http_status: 200

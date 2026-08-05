@@ -1,0 +1,419 @@
+{
+ "assetCode": "ADA",
+ "assetLid": "LA7SQV7F4A4",
+ "recordStatus": "Active",
+ "allowedCollateralDetails": [],
+ "assetDetails": [
+  {
+   "assetTypeCode": "COIN",
+   "assetType": "Coin",
+   "hashAlgorithmCode": "KES",
+   "hashAlgorithm": "Key Evolving Signature",
+   "isDigitalAsset": true,
+   "isCryptoAsset": true,
+   "isTradfiAsset": false,
+   "isFungible": true,
+   "isDerivative": false,
+   "isSynthetic": false,
+   "isMinable": true,
+   "isStakeable": true,
+   "isWrapped": false,
+   "isLevered": false,
+   "isDelevered": false,
+   "isInverse": false,
+   "isRebase": false,
+   "isStable": false,
+   "isPrivacy": false,
+   "isPotentiallyMemeCoin": false,
+   "hasCollateral": false,
+   "hasUnderlyingAsset": false,
+   "isGovernanceToken": true,
+   "isPotentiallyOffensive": false,
+   "isPotentiallySuspicious": false,
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "blockchainDetails": [
+  {
+   "lukkaBlockchainId": "LB41X1W06C6",
+   "assetBlockchain": "Cardano",
+   "tokenStandardCode": "NA",
+   "tokenStandard": "Not Applicable",
+   "precision": 6,
+   "genesisBlock": "6236060",
+   "genesisBlockStartDate": "2021-09-12T21:47:46Z",
+   "genesisTransactionHash": "97779c4e21031457206c64c4f6adee02287178ba24242de475c68d7fbe1f12ba",
+   "contractAddressDetailsList": null,
+   "cryptoActionBeginId": "8ef0e1da-9beb-46ab-9447-d18b2d30c67a",
+   "cryptoActionEndId": null,
+   "startTs": "2021-09-12T21:47:46Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "lukkaBlockchainId": "LB41X1W06C6",
+   "assetBlockchain": "Cardano",
+   "tokenStandardCode": "NA",
+   "tokenStandard": "Not Applicable",
+   "precision": 6,
+   "genesisBlock": "4490511",
+   "genesisBlockStartDate": "2020-07-29T21:44:51Z",
+   "genesisTransactionHash": "79acf08126546b68d0464417af9530473b8c56c63b2a937bf6451e96e55cb96a",
+   "contractAddressDetailsList": null,
+   "cryptoActionBeginId": "70193ba3-08ca-460b-a5f7-59ca0b534371",
+   "cryptoActionEndId": "b3a3d977-b1a7-4338-8f06-7de1369bb56f",
+   "startTs": "2020-07-29T21:44:51Z",
+   "endTs": "2021-03-01T21:44:51Z",
+   "recordStatus": "Inactive"
+  },
+  {
+   "lukkaBlockchainId": "LB41X1W06C6",
+   "assetBlockchain": "Cardano",
+   "tokenStandardCode": "NA",
+   "tokenStandard": "Not Applicable",
+   "precision": 6,
+   "genesisBlock": "5406747",
+   "genesisBlockStartDate": "2021-03-01T21:44:51Z",
+   "genesisTransactionHash": "be4cf1ca8253b924dd0792efda0784a309c136432f54165871e00c404527e68f",
+   "contractAddressDetailsList": null,
+   "cryptoActionBeginId": "b3a3d977-b1a7-4338-8f06-7de1369bb56f",
+   "cryptoActionEndId": "8ef0e1da-9beb-46ab-9447-d18b2d30c67a",
+   "startTs": "2021-03-01T21:44:51Z",
+   "endTs": "2021-09-12T21:47:46Z",
+   "recordStatus": "Inactive"
+  },
+  {
+   "lukkaBlockchainId": "LB41X1W06C6",
+   "assetBlockchain": "Cardano",
+   "tokenStandardCode": "NA",
+   "tokenStandard": "Not Applicable",
+   "precision": 6,
+   "genesisBlock": "0",
+   "genesisBlockStartDate": "2017-09-23T21:44:51Z",
+   "genesisTransactionHash": "927edb96f3386ab91b5f5d85d84cb4253c65b1c2f65fa7df25f81fab1d62987a",
+   "contractAddressDetailsList": null,
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": "70193ba3-08ca-460b-a5f7-59ca0b534371",
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": "2020-07-29T21:44:51Z",
+   "recordStatus": "Inactive"
+  }
+ ],
+ "governanceDetails": [
+  {
+   "hasFoundation": true,
+   "hasBugBounty": false,
+   "hasGrantProgram": false,
+   "isOpenSource": true,
+   "isFounderKnown": true,
+   "projectStructureTypeCode": "HYBD",
+   "projectStructureTypeName": "Hybrid Centralized/Decentralized",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": "2020-09-01T00:00:00Z",
+   "recordStatus": "Inactive"
+  },
+  {
+   "hasFoundation": true,
+   "hasBugBounty": false,
+   "hasGrantProgram": true,
+   "isOpenSource": true,
+   "isFounderKnown": true,
+   "projectStructureTypeCode": "HYBD",
+   "projectStructureTypeName": "Hybrid Centralized/Decentralized",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": "2020-09-01T00:00:01Z",
+   "endTs": "2022-08-26T00:00:00Z",
+   "recordStatus": "Inactive"
+  },
+  {
+   "hasFoundation": true,
+   "hasBugBounty": true,
+   "hasGrantProgram": true,
+   "isOpenSource": true,
+   "isFounderKnown": true,
+   "projectStructureTypeCode": "HYBD",
+   "projectStructureTypeName": "Hybrid Centralized/Decentralized",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": "2022-08-26T00:00:01Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "mediaDetails": [
+  {
+   "mediaProvider": "GitHub",
+   "url": "https://github.com/cardano-foundation",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "LINE",
+   "url": "https://line.me/R/ti/p/%40941hwtne",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "LinkedIn",
+   "url": "https://www.linkedin.com/company/cardano-foundation/",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Meetup",
+   "url": "https://www.meetup.com/pro/cardano/",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Medium",
+   "url": "https://medium.com/@cardano.foundation",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Reddit",
+   "url": "https://www.reddit.com/r/cardano/",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Telegram",
+   "url": "https://t.me/CardanoAnnouncements",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Twitter",
+   "url": "https://twitter.com/CardanoStiftung",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "Weibo",
+   "url": "https://weibo.com/login.php",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "mediaProvider": "YouTube",
+   "url": "https://www.youtube.com/c/cardanofoundation",
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": null,
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "nameDetails": [
+  {
+   "whitepaperCode": "ADA",
+   "commonStreetCode": "ADA",
+   "lukkaAssetName": "Ada",
+   "lukkaAssetNameEnglish": "Ada",
+   "lukkaAssetShortName": "Ada",
+   "commonStreetName": "Cardano",
+   "assetDescription": "A decentralized blockchain based on peer-reviewed research and highly secure Haskell coding language.",
+   "assetWebsite": "https://www.cardano.org/en/home/",
+   "assetGroupId": 5184,
+   "ecosystemGroupId": null,
+   "collectionGroupId": null,
+   "hasWhitepaper": true,
+   "hasWhitepaperCode": true,
+   "hasWebsite": true,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "participantDetails": [
+  {
+   "participantTypeCode": "FNDTN",
+   "participantType": "Foundation",
+   "lukkaLegalEntityId": 3908,
+   "participantLegalNameEnglish": "Cardano Foundation",
+   "legalFormCode": "FNDTN",
+   "legalForm": "Foundation",
+   "incorporationDate": null,
+   "jurisdiction": "Switzerland",
+   "jurisdictionCountryIso3": "CHE",
+   "jurisdictionCountryUnClassification": "Developed",
+   "jurisdictionCountryUnLeastDeveloped": false,
+   "cryptoActionBeginId": null,
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "participantTypeCode": "ISSR",
+   "participantType": "Primary Issuer",
+   "lukkaLegalEntityId": 1587,
+   "participantLegalNameEnglish": "Input Output Global, Inc.",
+   "legalFormCode": "CORP",
+   "legalForm": "Corporation",
+   "incorporationDate": "2016-06-15T00:00:00Z",
+   "jurisdiction": "Delaware (USA)",
+   "jurisdictionCountryIso3": "USA",
+   "jurisdictionCountryUnClassification": "Developed",
+   "jurisdictionCountryUnLeastDeveloped": false,
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "rebaseDetails": [],
+ "sectorDetails": [
+  {
+   "isPrimaryClassification": true,
+   "lukkaCategoryCode": 10,
+   "lukkaCategory": "Fungibles",
+   "lukkaSuperSectorCode": 1030,
+   "lukkaSuperSector": "Utility",
+   "lukkaMacroSectorCode": 103060,
+   "lukkaMacroSector": "Infrastructure",
+   "lukkaMidSectorCode": 10306020,
+   "lukkaMidSector": "Technology",
+   "lukkaSubSectorCode": 1030602070,
+   "lukkaSubSector": "Smart Contract Platforms",
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "stableDetails": [],
+ "statusDetails": [
+  {
+   "assetStatus": "Active",
+   "assetSubstatus": "Active",
+   "subStatusReasonCode": null,
+   "subStatusReason": null,
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "successorDetails": [],
+ "supplyDetails": [
+  {
+   "isSupplyCapped": true,
+   "maximumSupply": "45000000000.0000000000000000000000000",
+   "latestAssetSupplyDetails": {
+    "assetsInCirculation": "35045020830",
+    "totalSupply": "45000000000",
+    "asOf": "2023-08-03T14:05:44.041977Z"
+   },
+   "consensusClassificationCode": "POSK",
+   "consensusClassification": "Proof of Stake",
+   "consensusName": "Ouroboros",
+   "emissionClassificationCode": "LMTD",
+   "emissionClassification": "Limited",
+   "emissionTypeCode": "MTBRN",
+   "emissionType": "Mint and Burn",
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "tokenomicsDetails": [
+  {
+   "hasLockupOrVesting": false,
+   "hasLockupOrVestingContingency": false,
+   "tokenomicsCategoryReported": "ICO",
+   "tokenomicsCategoryNormalized": null,
+   "amount": "25920000000.0000000000000000000000000",
+   "additionalNotes": null,
+   "lockOrVestSchedule": null,
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "hasLockupOrVesting": false,
+   "hasLockupOrVestingContingency": false,
+   "tokenomicsCategoryReported": "Team",
+   "tokenomicsCategoryNormalized": null,
+   "amount": "5175000000.0000000000000000000000000",
+   "additionalNotes": null,
+   "lockOrVestSchedule": null,
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  },
+  {
+   "hasLockupOrVesting": false,
+   "hasLockupOrVestingContingency": false,
+   "tokenomicsCategoryReported": "Staking Rewards",
+   "tokenomicsCategoryNormalized": null,
+   "amount": "13905000000.0000000000000000000000000",
+   "additionalNotes": null,
+   "lockOrVestSchedule": null,
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ],
+ "underlyingDetails": [],
+ "valueProposition": [
+  {
+   "isPrimaryProposition": true,
+   "valuePropositionCode": "DAPINFRA",
+   "valueProposition": "Decentralized Application Infrastructure",
+   "cryptoActionBeginId": "8aa0eb86-2038-4a85-bb11-f18fe8620eb1",
+   "cryptoActionEndId": null,
+   "startTs": "2017-09-23T21:44:51Z",
+   "endTs": null,
+   "recordStatus": "Active"
+  }
+ ]
+}

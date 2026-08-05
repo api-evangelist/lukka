@@ -1,18 +1,173 @@
 aid: lukka
 name: Lukka
-description: 'Lukka is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: Lukka is an enterprise crypto data and financial software company that produces institutional-grade digital
+  asset data for financial institutions, auditors, funds and corporates. Its products include Lukka Prime - the first fair-market-value
+  pricing methodology for crypto assets, aligned to GAAP, IFRS and SEC guidance - plus reference rates and indices, Lukka
+  Reference Data (a normalized 'golden copy' security master mapping thousands of crypto assets across hundreds of exchanges,
+  custodians and VASPs), market data, derivatives analytics, AML risk scoring across 108+ blockchains, on-chain data, news
+  intelligence and prediction markets. Data is delivered over REST, WebSocket streaming, FIX and SFTP, and - unusually for
+  this sector - through seven first-party hosted Model Context Protocol (MCP) servers with an official Claude plugin, making
+  Lukka one of the more agent-forward providers in the catalog. All access requires a Lukka account and per-product entitlement;
+  there is no free tier or self-service signup.
 url: https://raw.githubusercontent.com/api-evangelist/lukka/refs/heads/main/apis.yml
+image: https://lukka.tech/wp-content/uploads/2023/06/lukka-tech.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
-- Company
-apis: []
+- Crypto
+- Digital Assets
+- Market Data
+- Reference Data
+- Pricing
+- Blockchain
+- AML
+- Compliance
+- Financial Services
+- Analytics
+- Prediction Markets
+- MCP
+apis:
+- name: Lukka Pricing & Market Data API
+  description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference
+    rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative
+    trades, staking rates, funding rates and prediction-market history.'
+  humanURL: https://apidocs.lukka.tech/
+  baseURL: https://data-pricing-api.lukka.tech
+  tags:
+  - Pricing
+  - Market Data
+  - Crypto
+  - Derivatives
+  properties:
+  - type: OpenAPI
+    url: openapi/lukka-pricing-market-data-openapi.yml
+  - type: Overlay
+    url: overlays/lukka-pricing-market-data-overlay.yaml
+  - type: Postman
+    url: https://apidocs.lukka.tech/
+  - type: Documentation
+    url: https://apidocs.lukka.tech/
+  - type: Examples
+    url: examples/_index.yml
+  - type: RateLimits
+    url: rate-limits/lukka-rate-limits.yml
+- name: Lukka Reference Data API
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs,
+    asset/pair/derivative cross-reference mappings, crypto actions, LDACS sector classification, Lukka Core Asset Scores,
+    ESG scores and prediction markets.'
+  humanURL: https://apidocs.lukka.tech/
+  baseURL: https://data-refdata-api.lukka.tech
+  tags:
+  - Reference Data
+  - Crypto
+  - Mappings
+  - Compliance
+  properties:
+  - type: OpenAPI
+    url: openapi/lukka-reference-data-openapi.yml
+  - type: Overlay
+    url: overlays/lukka-reference-data-overlay.yaml
+  - type: Postman
+    url: https://apidocs.lukka.tech/
+  - type: Documentation
+    url: https://apidocs.lukka.tech/
+  - type: Examples
+    url: examples/_index.yml
+- name: Lukka Analytics API
+  description: 'Derived analytics for digital assets: implied forward interest rate curves, OTC FX implied rates and options
+    implied volatility surfaces.'
+  humanURL: https://apidocs.lukka.tech/
+  baseURL: https://data-analytics-api-v2.lukka.tech
+  tags:
+  - Analytics
+  - Derivatives
+  - Crypto
+  properties:
+  - type: OpenAPI
+    url: openapi/lukka-analytics-openapi.yml
+  - type: Overlay
+    url: overlays/lukka-analytics-overlay.yaml
+  - type: Documentation
+    url: https://apidocs.lukka.tech/
+- name: Lukka Valuation API
+  description: 'Bespoke pricing and valuation calculations for digital asset derivatives: submit an asynchronous calculation
+    run, poll its status and retrieve results.'
+  humanURL: https://apidocs.lukka.tech/
+  baseURL: https://data-calculation-api.lukka.tech
+  tags:
+  - Valuation
+  - Derivatives
+  - Crypto
+  properties:
+  - type: OpenAPI
+    url: openapi/lukka-valuation-openapi.yml
+  - type: Overlay
+    url: overlays/lukka-valuation-overlay.yaml
+  - type: Documentation
+    url: https://apidocs.lukka.tech/
+- name: Lukka Reference Data API (v1)
+  description: 'The legacy Lukka Reference Data surface: the normalised asset master plus active, historical, newly added
+    and newly deleted asset and pair cross-reference mappings per source entity.'
+  humanURL: https://apidocs-refdata.lukka.tech/
+  baseURL: https://api.lukka.tech/refdata
+  tags:
+  - Reference Data
+  - Crypto
+  - Legacy
+  properties:
+  - type: OpenAPI
+    url: openapi/lukka-reference-data-v1-openapi.yml
+  - type: Overlay
+    url: overlays/lukka-reference-data-v1-overlay.yaml
+  - type: Postman
+    url: https://apidocs-refdata.lukka.tech/
+  - type: Documentation
+    url: https://apidocs-refdata.lukka.tech/
+- name: Lukka Market Data Streaming API
+  description: WebSocket streaming for executed trades, Level-1 order-book quotes, Lukka Prime pricing, Lukka Index valuations,
+    Standard and Median Reference Rates, real-time MVWAP, derivative Greeks and prediction-market trades and quotes. Twelve
+    channels across six hosts, authenticated with the same Okta JWT passed as an access_token query parameter and reauthorized
+    in-band.
+  humanURL: https://apidocs.lukka.tech/
+  baseURL: wss://market-data-ws.lukka.tech
+  tags:
+  - Streaming
+  - Market Data
+  - WebSocket
+  - Crypto
+  properties:
+  - type: AsyncAPI
+    url: asyncapi/lukka-market-data-streaming-asyncapi.yml
+  - type: Documentation
+    url: https://apidocs.lukka.tech/
+- name: Lukka MCP Servers
+  description: Seven first-party hosted Model Context Protocol servers exposing 69 read-only tools over Lukka pricing, reference
+    data, AML risk scoring, on-chain data, analytics, news intelligence and prediction markets. Streamable HTTP with OAuth
+    2.0 authorization code + PKCE and Dynamic Client Registration; documented for Claude Code, Claude Desktop, Claude Cowork,
+    the ChatGPT app and OpenAI Codex CLI. AML, on-chain and news are MCP-only - they have no public REST contract.
+  humanURL: https://github.com/lukkatech/lukka-mcps
+  baseURL: https://pricing.mcp.lukka.tech
+  tags:
+  - MCP
+  - AI
+  - Agents
+  - Crypto
+  properties:
+  - type: MCPServer
+    url: mcp/lukka-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/lukka-tool-crosswalk.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Documentation
+    url: https://github.com/lukkatech/lukka-mcps
+  - type: GettingStarted
+    url: https://github.com/lukkatech/lukka-mcps/blob/main/docs/README.md
+  - type: ChangeLog
+    url: https://github.com/lukkatech/lukka-mcps/blob/main/docs/CHANGELOG.md
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +175,84 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/lukka_stock/
+  url: https://lukka.tech/
+- type: DeveloperPortal
+  url: https://apidocs.lukka.tech/
+- type: Documentation
+  url: https://apidocs.lukka.tech/
+- type: APIReference
+  url: https://apidocs.lukka.tech/
+- type: GettingStarted
+  url: https://github.com/lukkatech/lukka-mcps/blob/main/docs/README.md
+- type: Postman
+  url: https://apidocs.lukka.tech/
+  name: Lukka Data APIs public Postman collection
+- type: Support
+  url: https://lukka.tech/support/
+- type: Blog
+  url: https://lukka.tech/insights/
+- type: GitHubOrganization
+  url: https://github.com/lukkatech
+- type: Login
+  url: https://app.lukka.tech/
+- type: TermsOfService
+  url: https://lukka.tech/terms-of-use/
+- type: PrivacyPolicy
+  url: https://lukka.tech/privacy-policy/
+- type: TrustCenter
+  url: https://lukka.tech/trust-center/
+- type: Compliance
+  url: https://lukka.tech/trust-center/
+  name: SOC 1 Type II, SOC 2 Type II, ISO/IEC 27001 (BSI)
+- type: Security
+  url: https://github.com/lukkatech/lukka-plugin-claude/blob/main/lukka/SECURITY.md
+  name: Vulnerability disclosure policy and security contact
+- type: VulnerabilityDisclosure
+  url: security/lukka-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/lukka-domain-security.yml
+- type: Authentication
+  url: authentication/lukka-authentication.yml
+- type: OAuthScopes
+  url: scopes/lukka-scopes.yml
+- type: WellKnown
+  url: well-known/lukka-well-known.yml
+- type: Conventions
+  url: conventions/lukka-conventions.yml
+- type: Conformance
+  url: conformance/lukka-conformance.yml
+- type: ErrorCatalog
+  url: errors/lukka-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/lukka-lifecycle.yml
+- type: ChangeLog
+  url: changelog/lukka-changelog.yml
+- type: RateLimits
+  url: rate-limits/lukka-rate-limits.yml
+- type: DataModel
+  url: data-model/lukka-data-model.yml
+- type: Packages
+  url: packages/lukka-packages.yml
+- type: Examples
+  url: examples/_index.yml
+- type: MCPServer
+  url: mcp/lukka-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/lukka-tool-crosswalk.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/lukka-agentic-access.yml
+- type: AsyncAPI
+  url: asyncapi/lukka-market-data-streaming-asyncapi.yml
+- type: LLMsTxt
+  url: llms/lukka-llms.txt
+- type: X
+  url: https://twitter.com/Lukka
+- type: LinkedIn
+  url: https://www.linkedin.com/company/lukkaglobal/
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 33
+  pass: local-v1

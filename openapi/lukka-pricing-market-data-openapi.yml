@@ -1,0 +1,2802 @@
+openapi: 3.1.0
+info:
+  title: Lukka Pricing & Market Data API
+  version: 1.0.0
+  description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates,
+    index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades,
+    staking rates, funding rates and prediction-market history.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-pricing-api.lukka.tech
+  description: Lukka production (data-pricing-api.lukka.tech)
+tags:
+- name: Pricing - Legacy Versions
+- name: Pricing
+- name: Market Data - Downloadable Data (CSV)
+- name: Market Data - Spot
+- name: Market Data - Derivatives
+- name: Market Data - Prediction Markets
+security:
+- bearerAuth: []
+paths:
+  /v1/pricing/sources/4002:
+    get:
+      operationId: availableSources
+      summary: Available Sources
+      tags:
+      - Pricing - Legacy Versions
+      description: 'Description: Gets all configured sources for the client. An array of pricing sources available (based
+        on API keys permissions) will be returned by this endpoint.'
+      responses:
+        '200':
+          description: Available Sources
+          content:
+            application/json:
+              example:
+              - sourceId: 4001
+                sourceName: Kraken
+              - sourceId: 4002
+                sourceName: Coinbase
+              - sourceId: 4005
+                sourceName: Binance
+              - sourceId: 4006
+                sourceName: Bitflyer
+              - sourceId: 4008
+                sourceName: Gemini
+              - sourceId: 1000
+                sourceName: EOD Prices
+              - sourceId: 2000
+                sourceName: Intraday Prices
+              - sourceId: 3000
+                sourceName: Hourly Prices
+  /v1/pricing/sources/3000:
+    get:
+      operationId: sourceDetails
+      summary: Source Details
+      tags:
+      - Pricing - Legacy Versions
+      description: 'Description: Get the details for the given pricing source.
+
+        Each source object will contain an array of pairs that it supports.'
+      responses:
+        '200':
+          description: Source Details
+  /v1/pricing/sources/details/{productType}:
+    get:
+      operationId: availableSourcesByProduct
+      summary: Available Sources by Product
+      tags:
+      - Pricing
+      description: "Description: Gets all configured sources for the client based on a defined product type. An array of sources\
+        \ available, based on API key permissions and inputted product type will be returned by this endpoint.\n\n URL should\
+        \ follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/{productType} \n\n Available\
+        \ Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot,\
+        \ order-book-liquidity-derivative"
+      parameters:
+      - name: productType
+        in: path
+        required: true
+        schema:
+          type: string
+        description: productType path parameter
+      responses:
+        '200':
+          description: Available Sources by Product
+  /v1/pricing/sources/details/{productType}/{sourceId}:
+    get:
+      operationId: getSourceDetailsByProduct
+      summary: Get Source Details by Product
+      tags:
+      - Pricing
+      description: "Description: Get the details for the given product type and specified pricing/market data source ID. Each\
+        \ source object will contain an array of pairs and additional metadata that it supports.\n\n This endpoint will only\
+        \ return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should\
+        \ follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}\n\
+        \n Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot,\
+        \ order-book-liquidity-derivative"
+      parameters:
+      - name: productType
+        in: path
+        required: true
+        schema:
+          type: string
+        description: productType path parameter
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      responses:
+        '200':
+          description: Get Source Details by Product
+          content:
+            application/json:
+              example:
+                sourceId: 4002
+                sourceName: Coinbase
+                pairs:
+                - pairCode: XBT-USD
+                  firstDate: '2022-07-03T00:00:59Z'
+                  baseAsset: XBT
+                  counterAsset: USD
+                  baseAssetLukkaId: LA6EV2NKQ95
+                  counterAssetLukkaId: LA3YM6GRUJ4
+                  baseAssetName: Bitcoin
+                  counterAssetName: US Dollar
+                  baseAssetWhitepaperCode: BTC
+                  baseAssetCommonStreetCode: BTC
+                  counterAssetCommonStreetCode: USD
+                  instrumentType: SPOT
+                  status: ACTIVE
+  /v1/pricing/sources/details/{productType}/{sourceId}/derivatives:
+    get:
+      operationId: getDerivativeSourceDetailsPaginated
+      summary: Get Derivative Source Details (Paginated)
+      tags:
+      - Pricing
+      description: "Description: Get the details for the given product type and specified pricing/market data source ID. Each\
+        \ source object will contain an array of pairs and additional metadata.\n\n This endpoint will only return the instruments\
+        \ for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\
+        \n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}/derivatives\n\n Response\
+        \ is paginated via a nextPageUrl cursor. Available Product types are the same as the other /sources/details/* endpoints."
+      parameters:
+      - name: productType
+        in: path
+        required: true
+        schema:
+          type: string
+        description: productType path parameter
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      responses:
+        '200':
+          description: Get Derivative Source Details (Paginated)
+  /v1/pricing/sources/2000/prices:
+    get:
+      operationId: getLatestPrices
+      summary: Get Latest Prices
+      tags:
+      - Pricing
+      description: "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank,\
+        \ then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request.\
+        \ The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which\
+        \ is ALL pairs.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level\
+        \ (source 4001–4999) prices."
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD,ETH-USD
+      - name: lookback
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '172800000'
+      responses:
+        '200':
+          description: Get Latest Prices
+          content:
+            application/json:
+              example:
+              - pairCode: XBT-USD
+                price: '79126.46'
+                ts: '2026-04-22T15:35:00Z'
+              - pairCode: ETH-USD
+                price: '2399.01'
+                ts: '2026-04-22T15:35:00Z'
+  /v1/pricing/sources/{sourceId}/prices/pairs/{pairCode}:
+    get:
+      operationId: getHistoricalPrices
+      summary: Get Historical Prices
+      tags:
+      - Pricing
+      description: "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of\
+        \ records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.\
+        \ The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to\
+        \ what was returned. nextPageUrl will continue to be included in the response until all of the requested records have\
+        \ been returned.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level\
+        \ (source 4001–4999) prices."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      responses:
+        '200':
+          description: Get Historical Prices
+          content:
+            application/json:
+              example:
+                pairCode: XBT-USD
+                firstDate: '2026-04-20T12:00:00Z'
+                lastDate: '2026-04-20T12:09:00Z'
+                nextPageUrl: /v1/pricing/sources/2000/prices/pairs/XBT-USD?from=2026-04-20T12%3A10%3A00Z&to=2026-04-20T13%3A00%3A00Z&limit=10
+                pricesCount: 10
+                prices:
+                - ts: '2026-04-20T12:00:00Z'
+                  price: '75220.66'
+                - ts: '2026-04-20T12:01:00Z'
+                  price: '75186.78'
+                - ts: '2026-04-20T12:02:00Z'
+                  price: '75137.49'
+                - ts: '2026-04-20T12:03:00Z'
+                  price: '75151.02'
+                - ts: '2026-04-20T12:04:00Z'
+                  price: '75132.49'
+                - ts: '2026-04-20T12:05:00Z'
+                  price: '75227.41'
+                - ts: '2026-04-20T12:06:00Z'
+                  price: '75291.91'
+                - ts: '2026-04-20T12:07:00Z'
+                  price: '75311.03'
+                - ts: '2026-04-20T12:08:00Z'
+                  price: '75335.02'
+                - ts: '2026-04-20T12:09:00Z'
+                  price: '75320.39'
+  /v1/pricing/sources/{sourceId}/prices/pairs/{pairCode}/variances:
+    get:
+      operationId: getPriceVariancesByPair
+      summary: Get Price Variances by Pair
+      tags:
+      - Pricing
+      description: "Description: Get the price history for a single pair along with its market variances. For each exchange,\
+        \ daily volume, daily trade counts, hourly volume, and hourly trade counts are provided. Lukka Prime takes all these\
+        \ parameters into consideration when choosing a principal exchange for the minute's price.\n\n Exchanges under market\
+        \ variances are sorted in a descending order by its hourly volume .\n\n If the response exceeds the maximum number\
+        \ of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the\
+        \ response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:10:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Price Variances by Pair
+  /v1/pricing/sources/5005/mvwaps:
+    get:
+      operationId: getLatestMVWAPs
+      summary: Get Latest MVWAPs
+      tags:
+      - Pricing
+      description: 'Description: Get the latest Moving Volume Weighted Average Price (MVWAP) as of the given timestamp from
+        the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example
+        uses source 5005 (15s/1s MVWAP).'
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD,ETH-USD
+      responses:
+        '200':
+          description: Get Latest MVWAPs
+          content:
+            application/json:
+              example:
+              - pairCode: ETH-USD
+                mvwap60min: '2410.769550194882'
+                ts: '2026-04-22T15:39:27Z'
+              - pairCode: XBT-USD
+                mvwap60min: '79304.33066181457'
+                ts: '2026-04-22T15:39:27Z'
+  /v1/pricing/sources/{sourceId}/mvwaps/pairs/{pairCode}:
+    get:
+      operationId: getHistoricalMVWAPByPair
+      summary: Get Historical MVWAP by Pair
+      tags:
+      - Pricing
+      description: "Description: Get the MVWAP history for a single pair.\n\n If the response exceeds the maximum number of\
+        \ records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.\
+        \ The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to\
+        \ what was returned."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:10:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Historical MVWAP by Pair
+          content:
+            application/json:
+              example:
+                pairCode: XBT-USD
+                firstDate: '2026-04-20T12:01:00Z'
+                lastDate: '2026-04-20T12:05:00Z'
+                nextPageUrl: /v1/pricing/sources/5005/mvwaps/pairs/XBT-USD?from=2026-04-20T12%3A06%3A00Z&to=2026-04-20T12%3A10%3A00Z&limit=5
+                mvwaps:
+                - ts: '2026-04-20T12:01:00Z'
+                  mvwap60min: '75177.94675145515'
+                - ts: '2026-04-20T12:02:00Z'
+                  mvwap60min: '75146.26034069767'
+                - ts: '2026-04-20T12:03:00Z'
+                  mvwap60min: '75144.55591463677'
+                - ts: '2026-04-20T12:04:00Z'
+                  mvwap60min: '75121.14617724055'
+                - ts: '2026-04-20T12:05:00Z'
+                  mvwap60min: '75213.56715791079'
+  /v1/pricing/sources/vwaps/{pairCode}:
+    get:
+      operationId: getMultiSourceVWAPByPair
+      summary: Get Multi-Source VWAP by Pair
+      tags:
+      - Pricing
+      description: "Description: Get the 60 minute Volume Weighted Average Price (VWAP) for a given pair code and given Source\
+        \ Exchanges. The VWAP output price for any given timestamp is the volume-weighted price of all executed trades in\
+        \ the previous 60 minutes from the inputted list of Market Data Source IDs that support the requested Pair Code.\n\
+        \n Max date range is 7 days. periodicityCalculation and interval are both in milliseconds.\n\n If the response exceeds\
+        \ the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned\
+        \ at the end of the response."
+      parameters:
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 4002,4005
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '60000'
+      responses:
+        '200':
+          description: Get Multi-Source VWAP by Pair
+          content:
+            application/json:
+              example:
+                pairCode: XBT-USD
+                sourceIds:
+                - 4005
+                interval: 60000
+                nextPageUrl: /v1/pricing/sources/vwaps/XBT-USD?sourceIds=4002%2C4005&from=2026-04-20T12%3A10%3A00Z&to=2026-04-20T13%3A00%3A00Z&interval=60000&limit=10
+                vwaps:
+                - ts: '2026-04-20T12:00:00Z'
+                  vwap: '75261.5824265915004405'
+                - ts: '2026-04-20T12:01:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:02:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:03:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:04:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:05:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:06:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:07:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:08:00Z'
+                  vwap: '75239.4090866061676381'
+                - ts: '2026-04-20T12:09:00Z'
+                  vwap: '75239.4090866061676381'
+  /v1/pricing/sources/5001/prices:
+    get:
+      operationId: getLatestReferenceRate
+      summary: Get Latest Reference Rate
+      tags:
+      - Pricing
+      description: "Description: Get the latest Lukka Reference Rate as of the given timestamp for the given pair codes. If\
+        \ pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5001.\n\n\
+        \ Keep in mind the 2048 character limit in a GET request. The pairCodes query parameter should only be used to get\
+        \ a small sub-set of prices. Otherwise use default, which is ALL pairs."
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD,ETH-USD
+      responses:
+        '200':
+          description: Get Latest Reference Rate
+          content:
+            application/json:
+              example:
+              - ts: '2026-04-22T15:00:00Z'
+                pairCode: ETH-USD
+                price: '2409.734887766603'
+              - ts: '2026-04-22T15:00:00Z'
+                pairCode: XBT-USD
+                price: '78927.50762860353'
+  /v1/pricing/sources/5001/prices/pairs/{pairCode}:
+    get:
+      operationId: getHistoricalReferenceRateByPair
+      summary: Get Historical Reference Rate by Pair
+      tags:
+      - Pricing
+      description: "Description: Get the Lukka Reference Rate history for a single pair.\n\n If the response exceeds the maximum\
+        \ number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end\
+        \ of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of\
+        \ records prior to what was returned.\n\n interval must be 3600000 (1h) or 86400000 (1d)."
+      parameters:
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T03:00:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3600000'
+      responses:
+        '200':
+          description: Get Historical Reference Rate by Pair
+          content:
+            application/json:
+              example:
+                pairCode: XBT-USD
+                firstDate: '2026-04-20T00:00:00Z'
+                lastDate: '2026-04-20T02:00:00Z'
+                nextPageUrl: /v1/pricing/sources/5001/prices/pairs/XBT-USD?from=2026-04-20T03%3A00%3A00Z&to=2026-04-20T03%3A00%3A00Z&interval=3600000&limit=3
+                pricesCount: 3
+                prices:
+                - ts: '2026-04-20T00:00:00Z'
+                  pairCode: XBT-USD
+                  price: '73922.79679093281'
+                - ts: '2026-04-20T01:00:00Z'
+                  pairCode: XBT-USD
+                  price: '74200.48992173481'
+                - ts: '2026-04-20T02:00:00Z'
+                  pairCode: XBT-USD
+                  price: '74485.24994657465'
+  /v1/pricing/sources/{sourceId}/indices:
+    get:
+      operationId: getLatestIndexPrices
+      summary: Get Latest Index Prices
+      tags:
+      - Pricing
+      description: "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank,\
+        \ then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request.\
+        \ The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which\
+        \ is ALL pairs.\n\n sourceId must match the 6xxx (indices) range. Default lookback is 5400000 ms (90 min)."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      responses:
+        '200':
+          description: Get Latest Index Prices
+          content:
+            application/json:
+              example:
+                data:
+                - businessTime: '2026-04-22T15:39:31Z'
+                  constituents:
+                  - instrument: XRP
+                    weight: 0.0554125751556742
+                    quantity: 4269825.123121
+                    value: 6221492.617187838
+                    instrumentId: b70858e5-6396-4acc-9b8b-2227078b53b6
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: USD
+                    weight: 0.0005897919027744
+                    quantity: 65607.55
+                    value: 65607.55
+                    instrumentId: ''
+                    businessTime: 0
+                    type: TRADE
+                  - instrument: SOLN
+                    weight: 0.0302071041984093
+                    quantity: 38500.08144854
+                    value: 3406608.295370725
+                    instrumentId: 5d2cb639-6f9e-4453-af2d-647b378fc9db
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: ETH
+                    weight: 0.1264437363753679
+                    quantity: 5949.05234849
+                    value: 14342312.826203719
+                    instrumentId: 10037d90-5d90-493b-b011-7716bb9bf290
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: XLM
+                    weight: 0.0028874100040171
+                    quantity: 1783532.82900998
+                    value: 323809.89982396894
+                    instrumentId: 9f7bebb0-0467-4207-bd02-9fbb928f39c4
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: LINK
+                    weight: 0.0035887292167665
+                    quantity: 41988.12244401
+                    value: 398886.9363895392
+                    instrumentId: df8e972b-3803-4854-acbb-3f98838a8dfe
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: XBT
+                    weight: 0.7747994781014437
+                    quantity: 1111.3906164
+                    value: 88148329.4569846
+                    instrumentId: 043ee4a3-a84e-4821-a2dd-590b03dcadb3
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: ADA
+                    weight: 0.0060711750455469
+                    quantity: 2655720.48373976
+                    value: 679065.5098328806
+                    instrumentId: fe14b4e4-aabc-4487-b657-d35218cdeefd
+                    businessTime: 1776872370000
+                    type: TRADE
+                  distributionId: '6147'
+                  divisor: '5690000.0'
+                  id: 7da7376e-3e02-4520-8e2e-e9c31ceea32f
+                  indexId: '147'
+                  name: Hashdex Nasdaq Crypto Index ETF Intraday Indicative Value
+                  symbol: NCIQ.IV
+                  value: '19.962410033707076'
+                  valueUnit: USD
+  /v1/pricing/sources/{sourceId}/indices/historical:
+    get:
+      operationId: getHistoricalIndexPrices
+      summary: Get Historical Index Prices
+      tags:
+      - Pricing
+      description: "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of\
+        \ records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.\
+        \ The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to\
+        \ what was returned.\n\n sourceId must match the 6xxx (indices) range."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      responses:
+        '200':
+          description: Get Historical Index Prices
+  /v1/trades/historical/requests:
+    post:
+      operationId: createHistoricalTradesRequest
+      summary: Create Historical Trades Request
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint allows users to post a request to obtain historical market data. Use the returned request\
+        \ id to obtain a pre-signed url allowing you to do download the results.\n\n URL should follow the below format:\n\
+        \n https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests \n\n Available Product Types: quotes,\
+        \ trades"
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 4004,4018
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      responses:
+        '202':
+          description: Create Historical Trades Request
+          content:
+            application/json:
+              example:
+                requestId: 13e35c20-c44e-4325-8296-3453d47771e0
+    get:
+      operationId: listHistoricalTradesRequests
+      summary: List Historical Trades Requests
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint returns the past 3 days of historical market data requests. Append the request id to the\
+        \ end of the url and a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the\
+        \ below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/requests/ \n\n Available Product Types: quotes,\
+        \ trades"
+      responses:
+        '200':
+          description: List Historical Trades Requests
+          content:
+            application/json:
+              example:
+                requests:
+                - requestId: f35f49f5-b8a6-4ce7-849d-3d8e67d441fd
+                  status: COMPLETED
+                  createdAt: '2026-04-22T13:08:05.845765417Z'
+                  completedAt: '2026-04-22T13:08:18.550412030Z'
+                - requestId: 5ea9ea91-d336-4021-9c6c-7fddccf06e43
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:02:42.877753050Z'
+                  completedAt: '2026-04-22T15:02:55.836773842Z'
+                - requestId: f512064e-2623-45c4-8761-177bc9b9e1f6
+                  status: COMPLETED
+                  createdAt: '2026-04-21T23:15:01.059157134Z'
+                  completedAt: '2026-04-21T23:15:12.355075033Z'
+                - requestId: 08791eca-ee46-4e93-a54a-cc9f588b4317
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:26:50.361339981Z'
+                  completedAt: '2026-04-21T22:27:04.698064305Z'
+                - requestId: 2696bc58-2310-44e1-9a6f-1003cf1b8d29
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:53:20.702436286Z'
+                  completedAt: '2026-04-21T22:53:33.001108484Z'
+                - requestId: 04c15450-a752-4b92-bc97-551067ae654f
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:30:24.721214276Z'
+                  completedAt: '2026-04-22T15:30:35.763895944Z'
+                - requestId: 73fe4174-3bfe-4d64-9d35-d7015dae3df4
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:23:38.958155956Z'
+                  completedAt: '2026-04-22T15:23:51.313939867Z'
+  /v1/trades/historical/requests/{requestId}:
+    get:
+      operationId: getHistoricalTradesRequestStatus
+      summary: Get Historical Trades Request Status
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint returns the status and download URL for a previously submitted trades request. Append the\
+        \ request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.\n\n URL should\
+        \ follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/trades/historical/requests/{requestId}"
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: requestId path parameter
+      responses:
+        '200':
+          description: Successful response
+  /v1/quotes/historical/requests:
+    post:
+      operationId: createHistoricalQuotesRequest
+      summary: Create Historical Quotes Request
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint allows users to post a request to obtain historical market data. Use the returned request\
+        \ id to obtain a pre-signed url allowing you to do download the results.\n\n URL should follow the below format:\n\
+        \n https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests \n\n Available Product Types: quotes,\
+        \ trades"
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 4004,4018
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      responses:
+        '202':
+          description: Create Historical Quotes Request
+          content:
+            application/json:
+              example:
+                requestId: 847475e3-22e1-493e-9cb6-470202251347
+    get:
+      operationId: listHistoricalQuotesRequests
+      summary: List Historical Quotes Requests
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint returns the past 3 days of historical market data requests. Append the request id to the\
+        \ end of the url and a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the\
+        \ below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/requests/ \n\n Available Product Types: quotes,\
+        \ trades"
+      responses:
+        '200':
+          description: List Historical Quotes Requests
+          content:
+            application/json:
+              example:
+                requests:
+                - requestId: 859d6718-a5b0-4709-a8a6-47fc4efe9c10
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:23:39.448708262Z'
+                  completedAt: '2026-04-22T15:23:54.865145151Z'
+                - requestId: c4a1fb47-5617-443f-b4c8-32df4d9d5890
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:53:21.118051646Z'
+                  completedAt: '2026-04-21T22:53:36.592013775Z'
+                - requestId: 5ea9ea91-d336-4021-9c6c-7fddccf06e43
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:02:42.877753050Z'
+                  completedAt: '2026-04-22T15:02:55.836773842Z'
+                - requestId: b10034e6-f12d-4fdd-86be-4c2fee09e0ee
+                  status: COMPLETED
+                  createdAt: '2026-04-21T23:15:01.494130412Z'
+                  completedAt: '2026-04-21T23:15:16.680003525Z'
+                - requestId: f35f49f5-b8a6-4ce7-849d-3d8e67d441fd
+                  status: COMPLETED
+                  createdAt: '2026-04-22T13:08:05.845765417Z'
+                  completedAt: '2026-04-22T13:08:18.550412030Z'
+                - requestId: dee81356-69b3-4795-af5b-277401d0b720
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:26:50.722621476Z'
+                  completedAt: '2026-04-21T22:27:08.324124601Z'
+                - requestId: 13e35c20-c44e-4325-8296-3453d47771e0
+                  status: IN_PROGRESS
+                  createdAt: '2026-04-22T15:39:51.117089357Z'
+                - requestId: f512064e-2623-45c4-8761-177bc9b9e1f6
+                  status: COMPLETED
+                  createdAt: '2026-04-21T23:15:01.059157134Z'
+                  completedAt: '2026-04-21T23:15:12.355075033Z'
+                - requestId: 08791eca-ee46-4e93-a54a-cc9f588b4317
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:26:50.361339981Z'
+                  completedAt: '2026-04-21T22:27:04.698064305Z'
+                - requestId: 420b0f02-2830-423d-acf1-3e19ac016bb5
+                  status: COMPLETED
+                  createdAt: '2026-04-22T13:08:06.386806016Z'
+                  completedAt: '2026-04-22T13:08:21.848477760Z'
+                - requestId: 2696bc58-2310-44e1-9a6f-1003cf1b8d29
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:53:20.702436286Z'
+                  completedAt: '2026-04-21T22:53:33.001108484Z'
+                - requestId: 04c15450-a752-4b92-bc97-551067ae654f
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:30:24.721214276Z'
+                  completedAt: '2026-04-22T15:30:35.763895944Z'
+                - requestId: c269f653-704b-4171-a5f0-18c6d9cd353f
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:02:43.361442715Z'
+                  completedAt: '2026-04-22T15:03:01.221927189Z'
+                - requestId: 132d5f5b-a7c3-40db-89f3-05c42479f154
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:30:25.212341870Z'
+                  completedAt: '2026-04-22T15:30:40.429840336Z'
+                - requestId: 73fe4174-3bfe-4d64-9d35-d7015dae3df4
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:23:38.958155956Z'
+                  completedAt: '2026-04-22T15:23:51.313939867Z'
+  /v1/quotes/historical/requests/{requestId}:
+    get:
+      operationId: getHistoricalQuotesRequestStatus
+      summary: Get Historical Quotes Request Status
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint returns the status and download URL for a previously submitted quotes request. Append the\
+        \ request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.\n\n URL should\
+        \ follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/quotes/historical/requests/{requestId}"
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: requestId path parameter
+      responses:
+        '200':
+          description: Successful response
+  /v1/pricing/latest-markets/SPOT:
+    get:
+      operationId: getLatestMarketsSPOT
+      summary: Get Latest Markets (SPOT)
+      tags:
+      - Market Data - Spot
+      description: 'Description: This endpoint returns the spot markets for a specified exchange over the previous 24 hours.
+        Must supply sourceIds OR baseAssetCodes / counterAssetCodes .'
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4002'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Latest Markets (SPOT)
+          content:
+            application/json:
+              example:
+                dataType: markets
+                count: 5
+                data:
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: MOGBASE-USD
+                  baseAssetCode: MOGBASE
+                  counterAssetCode: USD
+                  latestPrice: '0.00000019'
+                  latestPriceUsd: '0.00000019'
+                  volume24h: '6547130441005.0'
+                  volumeUsd24h: '1073942.5124679392'
+                  tradeCount24h: '3373.0'
+                  latestPriceTs: '2026-04-22T15:38:32.152011100Z'
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: PEPE1-USD
+                  baseAssetCode: PEPE1
+                  counterAssetCode: USD
+                  latestPrice: '0.00000392'
+                  latestPriceUsd: '0.00000392'
+                  volume24h: '1842245094219.0'
+                  volumeUsd24h: '7095790.352498492'
+                  tradeCount24h: '10298.0'
+                  latestPriceTs: '2026-04-22T15:38:49.113050046Z'
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: BONK1-USD
+                  baseAssetCode: BONK1
+                  counterAssetCode: USD
+                  latestPrice: '0.00000647'
+                  latestPriceUsd: '0.00000647'
+                  volume24h: '465482329507.0'
+                  volumeUsd24h: '2946669.1759001464'
+                  tradeCount24h: '7036.0'
+                  latestPriceTs: '2026-04-22T15:38:49.107029597Z'
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: SHIB-USD
+                  baseAssetCode: SHIB
+                  counterAssetCode: USD
+                  latestPrice: '0.00000628'
+                  latestPriceUsd: '0.00000628'
+                  volume24h: '135760512133.0'
+                  volumeUsd24h: '838307.1647146696'
+                  tradeCount24h: '2721.0'
+                  latestPriceTs: '2026-04-22T15:39:13.793072413Z'
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: SHIB-EUR
+                  baseAssetCode: SHIB
+                  counterAssetCode: EUR
+                  latestPrice: '0.00000534'
+                  latestPriceUsd: '0.0000062596760027'
+                  volume24h: '13699636548.0'
+                  volumeUsd24h: '84530.93673294535'
+                  tradeCount24h: '453.0'
+                  latestPriceTs: '2026-04-22T15:36:24.102099064Z'
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/SPOT?sourceIds=4002&limit=5&offset=5
+  /v2/market-data/sources/{sourceId}/candles/pairs/{pairCode}:
+    get:
+      operationId: getCandlesByExchangeSourceDerivative
+      summary: Get Candles by Exchange Source (Derivative)
+      tags:
+      - Market Data - Derivatives
+      description: "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of\
+        \ transactions that can be returned in a single payload then a next_url variable will be returned at the end of the\
+        \ response. The next_url is used to paginate the response and can be called to request the next batch of transactions\
+        \ prior to what was returned. next_url will continue to be included in the response until all of the requested transactions\
+        \ have been returned."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T02:00:00Z'
+      responses:
+        '200':
+          description: Get Candles by Exchange Source (Derivative)
+          content:
+            application/json:
+              example:
+                sourceId: 4005
+                pairCode: BTCUSDT.BINA
+                dataType: candles
+                firstDate: '2026-04-20T00:00:00Z'
+                lastDate: '2026-04-20T02:00:00Z'
+                count: 3
+                units: native
+                instrumentType: DERIVATIVE
+                data:
+                - tradeCount: 112847
+                  volume: '5823.14200000'
+                  openPrice: '73819.50'
+                  highPrice: '74392.10'
+                  lowPrice: '73738.00'
+                  closePrice: '74298.70'
+                  ts: '2026-04-20T00:00:00Z'
+                - tradeCount: 98321
+                  volume: '5214.88100000'
+                  openPrice: '74298.70'
+                  highPrice: '74786.20'
+                  lowPrice: '74241.30'
+                  closePrice: '74618.90'
+                  ts: '2026-04-20T01:00:00Z'
+                - tradeCount: 71204
+                  volume: '3891.55600000'
+                  openPrice: '74618.90'
+                  highPrice: '74658.80'
+                  lowPrice: '74329.40'
+                  closePrice: '74437.20'
+                  ts: '2026-04-20T02:00:00Z'
+  /v2/market-data/market-caps/pairs/{pairCode}:
+    get:
+      operationId: getMarketCapsByPair
+      summary: Get Market Caps by Pair
+      tags:
+      - Market Data - Spot
+      description: Market Capitalization data calculated using Circulating Supply, sourced from Lukka Reference Data, and
+        Lukka Prime minute by minute pricing, leveraging the Lukka Prime Pricing Methodology.
+      parameters:
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+        example: DESC
+      responses:
+        '200':
+          description: Get Market Caps by Pair
+          content:
+            application/json:
+              example:
+                sourceId: 1000
+                pairCode: XBT-USD
+                dataType: market-caps
+                firstDate: '2026-04-22T15:33:00Z'
+                lastDate: '2026-04-22T15:35:00Z'
+                count: 3
+                metadata:
+                  assetLid: LA6EV2NKQ95
+                  assetCode: XBT
+                  assetName: Bitcoin
+                nextPageUrl: /v2/market-data/market-caps/pairs/XBT-USD?from=2026-04-22T15%3A36%3A00Z&limit=3&fill=false
+                data:
+                - ts: '2026-04-22T15:35:00Z'
+                  marketCap: '1584057764954.28'
+                  circulatingSupply: '20019318.0'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+                  totalSupply: '20019318.0'
+                - ts: '2026-04-22T15:34:00Z'
+                  marketCap: '1583367899256.0'
+                  circulatingSupply: '20019318.0'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+                  totalSupply: '20019318.0'
+                - ts: '2026-04-22T15:33:00Z'
+                  marketCap: '1584541231483.98'
+                  circulatingSupply: '20019318.0'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+                  totalSupply: '20019318.0'
+                limit: 3
+  /v2/market-data/market-caps:
+    get:
+      operationId: getLatestMarketCaps
+      summary: Get Latest Market Caps
+      tags:
+      - Market Data - Spot
+      description: Get a list of the latest Market Capitalization available for a given as of date or given list of pair codes.
+        This endpoint allows users with full permissioned access to see the top coins by market cap historically and on a
+        go forward basis.
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD,ETH-USD
+      responses:
+        '200':
+          description: Get Latest Market Caps
+          content:
+            application/json:
+              example:
+                data:
+                - ts: '2026-04-22T15:35:00Z'
+                  rank: 1
+                  pairCode: XBT-USD
+                  marketCap: '1584057764954.28'
+                  circulatingSupply: '20019318.0'
+                  totalSupply: '20019318.0'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+                - ts: '2026-04-22T15:35:00Z'
+                  rank: 2
+                  pairCode: ETH-USD
+                  marketCap: '289536260337.262123143'
+                  circulatingSupply: '120689893.0547443'
+                  totalSupply: '120689893.0547443'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+  /v1/market-data/sources/{sourceId}/trades/pairs/{pairCode}:
+    get:
+      operationId: getHistoricalSpotTrades
+      summary: Get Historical Spot Trades
+      tags:
+      - Market Data - Spot
+      description: "Description: Get the trade history.\n\n If the response exceeds the maximum number of records that can\
+        \ be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl\
+        \ is used to paginate the response and can be called to request the next batch of records prior to what was returned.\
+        \ nextPageUrl will continue to be included in the response until all of the requested records have been returned.\n\
+        \n All requests are limited to 3600 records."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:05:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Historical Spot Trades
+          content:
+            application/json:
+              example:
+                sourceId: 4002
+                pairCode: XBT-USD
+                dataType: priceTick
+                firstDate: '2026-04-20T12:00:00.048Z'
+                lastDate: '2026-04-20T12:00:01.486Z'
+                count: 5
+                nextPageUrl: /v1/market-data/sources/4002/trades/pairs/XBT-USD?from=2026-04-20T12%3A00%3A01.487Z&limit=5&fill=false&to=2026-04-20T12%3A05%3A00Z
+                units: native
+                data:
+                - ts: '2026-04-20T12:00:00.048Z'
+                  price: '75220.26'
+                  size: '0.00064585'
+                  side: BUY
+                - ts: '2026-04-20T12:00:00.470Z'
+                  price: '75222.9'
+                  size: '0.00013294'
+                  side: BUY
+                - ts: '2026-04-20T12:00:00.470Z'
+                  price: '75222.9'
+                  size: '0.00078706'
+                  side: BUY
+                - ts: '2026-04-20T12:00:01.358Z'
+                  price: '75222.89'
+                  size: '0.00000013'
+                  side: SELL
+                - ts: '2026-04-20T12:00:01.486Z'
+                  price: '75222.9'
+                  size: '0.00002658'
+                  side: BUY
+  /v1/pricing/sources/5004/rates:
+    get:
+      operationId: getLatestStakingRates
+      summary: Get Latest Staking Rates
+      tags:
+      - Market Data - Spot
+      description: 'Description: Get the latest staking yield rates as of the given timestamp for the given asset codes. assetCodes
+        is required. Available sources are 5003 and 5004.'
+      parameters:
+      - name: assetCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: ETH
+      responses:
+        '200':
+          description: Get Latest Staking Rates
+          content:
+            application/json:
+              example:
+              - businessTime: '2026-04-20T20:00:00Z'
+                assetCode: ETH
+                rate: '0.030477'
+  /v1/pricing/sources/{sourceId}/rates/asset/{assetCode}:
+    get:
+      operationId: getHistoricalStakingRatesByAsset
+      summary: Get Historical Staking Rates by Asset
+      tags:
+      - Market Data - Spot
+      description: "Description: Get the staking rate history for a single asset from a specified Source ID (5003 or 5004).\n\
+        \n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl\
+        \ field will be returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: assetCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: assetCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-14T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      responses:
+        '200':
+          description: Get Historical Staking Rates by Asset
+          content:
+            application/json:
+              example:
+              - businessTime: '2026-04-14T20:00:00Z'
+                assetCode: ETH
+                rate: '0.02777'
+              - businessTime: '2026-04-15T20:00:00Z'
+                assetCode: ETH
+                rate: '0.027151'
+              - businessTime: '2026-04-16T20:00:00Z'
+                assetCode: ETH
+                rate: '0.027688'
+              - businessTime: '2026-04-17T20:00:00Z'
+                assetCode: ETH
+                rate: '0.028891'
+              - businessTime: '2026-04-18T20:00:00Z'
+                assetCode: ETH
+                rate: '0.027685'
+              - businessTime: '2026-04-19T20:00:00Z'
+                assetCode: ETH
+                rate: '0.030825'
+  /v1/pricing/order-book-liquidity/SPOT:
+    get:
+      operationId: getOrderBookLiquiditySPOT
+      summary: Get Order Book Liquidity (SPOT)
+      tags:
+      - Market Data - Spot
+      description: 'Description: This endpoint will calculate the average market depth for a specified pair at multiple levels.
+        Market depth refers to the volume of buy and sell orders at various price levels. This will be done by averaging over
+        all our 15 second snapshots leveraging the aggLookback and asOf parameters.'
+      parameters:
+      - name: asOf
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4002'
+      - name: baseAssetCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT
+      - name: counterAssetCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: USD
+      responses:
+        '200':
+          description: Get Order Book Liquidity (SPOT)
+          content:
+            application/json:
+              example:
+                dataType: aggDepth
+                count: 1
+                data:
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: XBT-USD
+                  baseAssetCode: XBT
+                  counterAssetCode: USD
+                  lastSnapshotTs: '2026-04-20T12:00:00Z'
+                  meanDepth:
+                    asks_0_1: '23.305055795198754'
+                    asks_0_2: '66.30999879236066'
+                    asks_0_3: '92.21595372058168'
+                    asks_0_4: '119.29440345412931'
+                    asks_0_5: '166.72498444622488'
+                    asks_0_6: '175.14251473038183'
+                    asks_0_7: '178.86054413006235'
+                    asks_0_8: '182.21505462590002'
+                    asks_0_9: '185.04751000686835'
+                    asks_1: '188.29375374444734'
+                    asks_1_5: '209.54905474610658'
+                    asks_2: '224.08724221477163'
+                    asks_4: '297.22950897984913'
+                    asks_5: '372.2761769987538'
+                    asks_6: '509.29554262300485'
+                    asks_8: '782.1964279536195'
+                    asks_10: '886.6296944723244'
+                    bids_0_1: '24.623204325613603'
+                    bids_0_2: '68.49150520826953'
+                    bids_0_3: '94.57287786059717'
+                    bids_0_4: '122.80335212013188'
+                    bids_0_5: '151.19052001936993'
+                    bids_0_6: '167.0892548868356'
+                    bids_0_7: '173.31738513472993'
+                    bids_0_8: '178.74647821840983'
+                    bids_0_9: '184.58345613020634'
+                    bids_1: '190.82615909259297'
+                    bids_1_5: '232.3704482237977'
+                    bids_2: '259.8822632749367'
+                    bids_4: '342.1433339767086'
+                    bids_5: '383.99295918481135'
+                    bids_6: '434.04625018802574'
+                    bids_8: '527.6052967039511'
+                    bids_10: '637.4476338556211'
+                  meanSpread: '0.0823763235549356'
+                  meanSpreadPctMid: '0.000001103599903'
+                  lastBestBidPrice: '75220.25'
+                  lastBestAskPrice: '75220.26'
+                  lastMidPrice: '75220.255'
+  /v2/market-data/order-book-snapshot/SPOT:
+    get:
+      operationId: getOrderBookSnapshotSPOT
+      summary: Get Order Book Snapshot (SPOT)
+      tags:
+      - Market Data - Spot
+      description: "This endpoint provides a reconstructed view of the Level 2 (L2) Order Book state at precise 15-second\
+        \ intervals. It bridges the gap between high-frequency raw data and accessible historical analysis by aggregating\
+        \ incremental updates into a static \"snapshot\" of the market depth.\n\n depth = levels per side (0 = unlimited).\
+        \ lookback is in milliseconds (default 3600000, max 172800000)."
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4002'
+      responses:
+        '200':
+          description: Get Order Book Snapshot (SPOT)
+          content:
+            application/json:
+              example:
+                dataType: orderBookSnapshot
+                count: 1
+                data:
+                - ts: '2026-04-22T15:39:45Z'
+                  sourceId: 4002
+                  entityCode: CPRO
+                  lukkaSymbol: XBT-USD
+                  baseAssetCode: XBT
+                  counterAssetCode: USD
+                  instrumentType: SPOT
+                  bestBidPrice: '79310.43'
+                  bestAskPrice: '79310.44'
+                  midPrice: '79310.435'
+                  spread: '0.01'
+                  spreadPct: '0.0000001260868132'
+                  bids:
+                  - price: '79310.43'
+                    size: '0.0000324'
+                    cumulativeSize: '0.0000324'
+                  - price: '79307.21'
+                    size: '0.00012608'
+                    cumulativeSize: '0.00015848'
+                  - price: '79305.59'
+                    size: '0.01513134'
+                    cumulativeSize: '0.01528982'
+                  - price: '79304.95'
+                    size: '0.03879424'
+                    cumulativeSize: '0.05408406'
+                  - price: '79304.12'
+                    size: '0.00051829'
+                    cumulativeSize: '0.05460235'
+                  asks:
+                  - price: '79310.44'
+                    size: '0.33795393'
+                    cumulativeSize: '0.33795393'
+                  - price: '79311.63'
+                    size: '0.01513019'
+                    cumulativeSize: '0.35308412'
+                  - price: '79311.99'
+                    size: '0.01327104'
+                    cumulativeSize: '0.36635516'
+                  - price: '79312.0'
+                    size: '0.0107'
+                    cumulativeSize: '0.37705516'
+                  - price: '79313.22'
+                    size: '0.00012608'
+                    cumulativeSize: '0.37718124'
+  /v2/market-data/slippage/pairs/{pairCode}:
+    get:
+      operationId: getSlippageByPair
+      summary: Get Slippage by Pair
+      tags:
+      - Market Data - Spot
+      description: "This endpoint calculates estimated market slippage for a given trading pair based on live order book snapshots.\
+        \ It simulates walking the order book for both a buy and a sell of the requested trade size, returning VWAP-based\
+        \ slippage metrics relative to the mid-price or best bid/ask. One result is returned per snapshot found within a 1-6\
+        \ minute lookback window for the requested timestamp.\n\n Lukka canonical pair code is required, must end in -USD."
+      parameters:
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: tradeSizeValue
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1000000'
+      - name: tradeSizeDenom
+        in: query
+        required: false
+        schema:
+          type: string
+        example: COUNTER
+      - name: basis
+        in: query
+        required: false
+        schema:
+          type: string
+        example: MID
+      responses:
+        '200':
+          description: Get Slippage by Pair
+          content:
+            application/json:
+              example:
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: ITBT
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '529.9450504058818708'
+                buy_slippage_counter: '6637.7071892858600333'
+                buy_slippage_pct: '0.0066820607519785'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '485.5397255476204311'
+                sell_slippage_counter: '6159.8670472873557553'
+                sell_slippage_pct: '0.0061221553840786'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '1.0914555957459063'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: BIUS
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '7793.6048096770811853'
+                buy_slippage_counter: '67652.46448645'
+                buy_slippage_pct: '0.0982907626991614'
+                buy_fill_ratio: '0.7559416040622'
+                sell_slippage_price_unit: '7684.0781910246360575'
+                sell_slippage_counter: '107308.6668381935572266'
+                sell_slippage_pct: '0.0969094436374299'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '1.0142537095445459'
+              - snapshotTs: '2026-04-22T15:39:50Z'
+                lukkaentitycode: LMAX
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '78.2236128837318157'
+                buy_slippage_counter: '985.5713483938930027'
+                buy_slippage_pct: '0.0009865436575567'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '76.8580278717511863'
+                sell_slippage_counter: '970.2616135164530924'
+                sell_slippage_pct: '0.0009693211184441'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '1.0177676301330466'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: OKEX
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '130.5974241545615742'
+                buy_slippage_counter: '1644.1816213098103731'
+                buy_slippage_pct: '0.0016468894066045'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '134.7807625583605373'
+                sell_slippage_counter: '1702.5367990120366506'
+                sell_slippage_pct: '0.0016996430940991'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.9689619028384146'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: CRCM
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '17.0177523713499209'
+                buy_slippage_counter: '166.4206847'
+                buy_slippage_pct: '0.0002145651398864'
+                buy_fill_ratio: '0.7757848868909'
+                sell_slippage_price_unit: '22.2567408255850514'
+                sell_slippage_counter: '148.6505463'
+                sell_slippage_pct: '0.0002806199434831'
+                sell_fill_ratio: '0.5295733088232'
+                asymmetry_ratio: '0.7646111577930255'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: BSTM
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '35.3196762607595568'
+                buy_slippage_counter: '445.2032740247390905'
+                buy_slippage_pct: '0.0004454015682612'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '28.6786304412690307'
+                sell_slippage_counter: '361.7849762467387683'
+                sell_slippage_pct: '0.000361654135214'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '1.2315677463430734'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: GMNI
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '54.8055499905644692'
+                buy_slippage_counter: '690.6433801946702184'
+                buy_slippage_pct: '0.0006911206981297'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '134.6958235989987301'
+                sell_slippage_counter: '1701.4602063279563556'
+                sell_slippage_pct: '0.0016985701567985'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.4068838106942752'
+              - snapshotTs: '2026-04-22T15:39:48.564Z'
+                lukkaentitycode: BFLY
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '5994.8480724901344664'
+                buy_slippage_counter: '4833.76463889215'
+                buy_slippage_pct: '0.0783825468892177'
+                buy_fill_ratio: '0.0665026543436879'
+                sell_slippage_price_unit: '6631.2728275828669232'
+                sell_slippage_counter: '8085.4797916895'
+                sell_slippage_pct: '0.0867037908314006'
+                sell_fill_ratio: '0.085168571895763'
+                asymmetry_ratio: '0.9040267575109389'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: BINA
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '4068.2837128192388752'
+                buy_slippage_counter: '25383.85281195'
+                buy_slippage_pct: '0.0512984482333089'
+                buy_fill_ratio: '0.5202107664157'
+                sell_slippage_price_unit: '10818.0160774835008507'
+                sell_slippage_counter: '97793.3508182'
+                sell_slippage_pct: '0.1364082440930167'
+                sell_fill_ratio: '0.6191233683173'
+                asymmetry_ratio: '0.376065600538986'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: BFNX
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '85.152375824499676'
+                buy_slippage_counter: '1073.0811981004796333'
+                buy_slippage_pct: '0.0010742339383421'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '101.5502865217457949'
+                sell_slippage_counter: '1282.7439766375761254'
+                sell_slippage_pct: '0.0012811006524921'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.8385242301238149'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: CPRO
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '18.9554592059183225'
+                buy_slippage_counter: '238.9462353888363066'
+                buy_slippage_pct: '0.0002390033443382'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '29.4753063076056007'
+                sell_slippage_counter: '371.7829151095740415'
+                sell_slippage_pct: '0.0003716447439433'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.6430962585459935'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: KRAK
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '17.0139334770806043'
+                buy_slippage_counter: '214.5126384843811051'
+                buy_slippage_pct: '0.0002145586640295'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '18.1348475747583983'
+                sell_slippage_counter: '228.7465578448480969'
+                sell_slippage_pct: '0.0002286942448235'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.9381900458188591'
+  /v1/pricing/latest-markets/DERIVATIVE:
+    get:
+      operationId: getLatestMarketsDERIVATIVE
+      summary: Get Latest Markets (DERIVATIVE)
+      tags:
+      - Market Data - Derivatives
+      description: 'Description: This endpoint returns the derivative markets for a specified exchange over the previous 24
+        hours. In addition to sourceIds , supports underlyingAssetCode , quoteAssetCode , and lukkaInstrumentClassification
+        filters.'
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4005'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Latest Markets (DERIVATIVE)
+          content:
+            application/json:
+              example:
+                dataType: markets
+                count: 5
+                data:
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: BTCUSDT.BINA
+                  derivativeLid: L-BINA-PERP-XBT-USDT
+                  underlyingAssetCode: XBT
+                  quoteAssetCode: USDT
+                  latestPrice: '79171.1'
+                  latestPriceUsd: '79183.767376'
+                  volume24h: '206633.6350000002'
+                  volumeUsd24h: '15961556224.894135'
+                  tradeCount24h: '2052278.0'
+                  latestPriceTs: '2026-04-22T15:37:59.999Z'
+                  indexPrice: '79182.38065217'
+                  markPrice: '79155.25726087'
+                  lukkaInstrumentClassification: Perpetual
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: ETHUSDT.BINA
+                  derivativeLid: L-BINA-PERP-ETH-USDT
+                  underlyingAssetCode: ETH
+                  quoteAssetCode: USDT
+                  latestPrice: '2408.21'
+                  latestPriceUsd: '2408.5953136'
+                  volume24h: '5383001.592999991'
+                  volumeUsd24h: '12705354718.211126'
+                  tradeCount24h: '1788587.0'
+                  latestPriceTs: '2026-04-22T15:37:59.974Z'
+                  indexPrice: '2405.73395349'
+                  markPrice: '2404.78166667'
+                  lukkaInstrumentClassification: Perpetual
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: BTCUSDC.BINA
+                  derivativeLid: L-BINA-PERP-XBT-USDC
+                  underlyingAssetCode: XBT
+                  quoteAssetCode: USDC
+                  latestPrice: '79192.5'
+                  latestPriceUsd: '79176.66466706658'
+                  volume24h: '53998.27399999996'
+                  volumeUsd24h: '4169951644.851292'
+                  tradeCount24h: '726327.0'
+                  latestPriceTs: '2026-04-22T15:37:59.910Z'
+                  indexPrice: '79216.87357103'
+                  markPrice: '79176.90245761'
+                  lukkaInstrumentClassification: Perpetual
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: ETHUSDC.BINA
+                  derivativeLid: L-BINA-PERP-ETH-USDC
+                  underlyingAssetCode: ETH
+                  quoteAssetCode: USDC
+                  latestPrice: '2409.13'
+                  latestPriceUsd: '2408.648270345931'
+                  volume24h: '1422655.1400000006'
+                  volumeUsd24h: '3356264678.6877127'
+                  tradeCount24h: '933714.0'
+                  latestPriceTs: '2026-04-22T15:37:59.906Z'
+                  indexPrice: '2406.64401433'
+                  markPrice: '2405.82802805'
+                  lukkaInstrumentClassification: Perpetual
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: SOLUSDT.BINA
+                  derivativeLid: L-BINA-PERP-SOLN-USDT
+                  underlyingAssetCode: SOLN
+                  quoteAssetCode: USDT
+                  latestPrice: '88.35'
+                  latestPriceUsd: '88.364136'
+                  volume24h: '23872224.92000002'
+                  volumeUsd24h: '2079477069.5996287'
+                  tradeCount24h: '309414.0'
+                  latestPriceTs: '2026-04-22T15:37:59.834Z'
+                  indexPrice: '88.34553881'
+                  markPrice: '88.30572792'
+                  lukkaInstrumentClassification: Perpetual
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/DERIVATIVE?sourceIds=4005&limit=5&offset=5
+  /v1/pricing/latest-markets/GREEKS:
+    get:
+      operationId: getLatestMarketsGREEKS
+      summary: Get Latest Markets (GREEKS)
+      tags:
+      - Market Data - Derivatives
+      description: 'Description: This endpoint returns the options markets for a specified exchange over the previous 24 hours,
+        with Greeks values (delta, gamma, theta, vega, rho) included for each instrument.'
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4005'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Latest Markets (GREEKS)
+          content:
+            application/json:
+              example:
+                dataType: greeks
+                count: 5
+                data:
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: BNB-260422-615-C.BINA
+                  underlyingAssetCode: BNB
+                  quoteAssetCode: USDT
+                  lukkaInstrumentClassification: Option
+                  optionType: C
+                  strikePrice: '615.0'
+                  expiryTime: '2026-04-22T08:00:00Z'
+                  latestPrice: '19.9'
+                  latestPriceUsd: '19.903383'
+                  latestSize: '0.07'
+                  latestSizeUsd: '1.39323681'
+                  aggressor: B
+                  spotPrice: '632.5375131'
+                  forwardPrice: '632.543157850426'
+                  impliedForwardRate: '0.0106319098872809'
+                  riskFreeRate: '0.0366698585651162'
+                  timeToExpiry: '0.0008393541333942'
+                  impliedVolatility: '1.1602341906270601'
+                  delta: '0.8032983099606948'
+                  gamma: '0.0130342444697076'
+                  theta: '-2.945658751348726'
+                  vega: '0.0507875286097051'
+                  rho: '-0.0001670598678959'
+                  modelType: BLACK76
+                  latestPriceTs: '2026-04-22T00:38:31.926Z'
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: BNB-260422-620-C.BINA
+                  underlyingAssetCode: BNB
+                  quoteAssetCode: USDT
+                  lukkaInstrumentClassification: Option
+                  optionType: C
+                  strikePrice: '620.0'
+                  expiryTime: '2026-04-22T08:00:00Z'
+                  latestPrice: '12.1'
+                  latestPriceUsd: '12.101331'
+                  latestSize: '0.32'
+                  latestSizeUsd: '3.87242592'
+                  aggressor: B
+                  spotPrice: '632.1'
+                  forwardPrice: '632.1097851397548'
+                  impliedForwardRate: '0.0084829561121654'
+                  riskFreeRate: '0.0368693920310197'
+                  timeToExpiry: '0.0018248646601769'
+                  impliedVolatility: '0.0000000000454747'
+                  delta: '0.9999327206127999'
+                  gamma: '0.0'
+                  theta: '0.0008147115151455'
+                  vega: '0.0'
+                  rho: '-0.0002209723215561'
+                  modelType: BLACK76
+                  latestPriceTs: '2026-04-21T16:00:11.583Z'
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: BNB-260422-625-C.BINA
+                  underlyingAssetCode: BNB
+                  quoteAssetCode: USDT
+                  lukkaInstrumentClassification: Option
+                  optionType: C
+                  strikePrice: '625.0'
+                  expiryTime: '2026-04-22T08:00:00Z'
+                  latestPrice: '15.0'
+                  latestPriceUsd: '15.0015'
+                  latestSize: '0.6'
+                  latestSizeUsd: '9.0009'
+                  aggressor: B
+                  spotPrice: '640.69'
+                  forwardPrice: '640.6931831860604'
+                  impliedForwardRate: '0.009005500274662'
+                  riskFreeRate: '0.0366698585651162'
+                  timeToExpiry: '0.0005517027593987'
+                  impliedVolatility: '0.0000000000454747'
+                  delta: '0.9999797693424853'
+                  gamma: '0.0'
+                  theta: '0.0003174802028807'
+                  vega: '0.0'
+                  rho: '-0.0000865779731102'
+                  modelType: BLACK76
+                  latestPriceTs: '2026-04-22T03:09:49.509Z'
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: BNB-260422-630-P.BINA
+                  underlyingAssetCode: BNB
+                  quoteAssetCode: USDT
+                  lukkaInstrumentClassification: Option
+                  optionType: P
+                  strikePrice: '630.0'
+                  expiryTime: '2026-04-22T08:00:00Z'
+                  latestPrice: '3.6'
+                  latestPriceUsd: '3.60036'
+                  latestSize: '1.0'
+                  latestSizeUsd: '3.60036'
+                  aggressor: B
+                  spotPrice: '631.153109'
+                  forwardPrice: '631.1657726710662'
+                  impliedForwardRate: '0.0108101749959782'
+                  riskFreeRate: '0.0368693920310197'
+                  timeToExpiry: '0.0018560420627678'
+                  impliedVolatility: '0.3836117645172842'
+                  delta: '-0.4521606373839011'
+                  gamma: '0.0379679877243074'
+                  theta: '-2.065353092440549'
+                  vega: '0.107692185706962'
+                  rho: '-0.0000668241960111'
+                  modelType: BLACK76
+                  latestPriceTs: '2026-04-21T15:43:47.695Z'
+                - sourceId: 4005
+                  entityCode: BINA
+                  entityName: Binance
+                  derivativeCode: BNB-260422-635-C.BINA
+                  underlyingAssetCode: BNB
+                  quoteAssetCode: USDT
+                  lukkaInstrumentClassification: Option
+                  optionType: C
+                  strikePrice: '635.0'
+                  expiryTime: '2026-04-22T08:00:00Z'
+                  latestPrice: '9.3'
+                  latestPriceUsd: '9.299907'
+                  latestSize: '0.48'
+                  latestSizeUsd: '4.46395536'
+                  aggressor: B
+                  spotPrice: '644.8'
+                  forwardPrice: '644.8008305409462'
+                  impliedForwardRate: '0.0053085595378116'
+                  riskFreeRate: '0.0366698585651162'
+                  timeToExpiry: '0.0002426381283748'
+                  impliedVolatility: '0.0000000000454747'
+                  delta: '0.9999911025337327'
+                  gamma: '0.0'
+                  theta: '0.0000872021711877'
+                  vega: '0.0'
+                  rho: '-0.0000237803402031'
+                  modelType: BLACK76
+                  latestPriceTs: '2026-04-22T05:52:22.851Z'
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/GREEKS?sourceIds=4005&limit=5&offset=5
+  /v1/market-data/derivative/sources/{sourceId}/trades:
+    get:
+      operationId: getLatestDerivativeTrades
+      summary: Get Latest Derivative Trades
+      tags:
+      - Market Data - Derivatives
+      description: "Description: Get the Latest Trades for derivative instruments from a specific Source ID.\n\n If the response\
+        \ exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be\
+        \ returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request\
+        \ the next batch of records prior to what was returned.\n\n lookback is specified in minutes (not milliseconds)."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: lookback
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '60'
+      responses:
+        '200':
+          description: Get Latest Derivative Trades
+  /v1/market-data/derivative/sources/{sourceId}/trades/historical:
+    get:
+      operationId: getHistoricalDerivativeTrades
+      summary: Get Historical Derivative Trades
+      tags:
+      - Market Data - Derivatives
+      description: 'Description: Get the trade history for a specific derivative instrument from a specified Source ID. Must
+        supply either entityDerivativeCode (exchange-native code) or lukkaDerivativeCode (Lukka canonical code).'
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:01:00Z'
+      - name: entityDerivativeCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: BTCUSDT
+      responses:
+        '200':
+          description: Get Historical Derivative Trades
+  /v1/pricing/sources/{sourceId}/markprices:
+    get:
+      operationId: getLatestMarkPrices
+      summary: Get Latest Mark Prices
+      tags:
+      - Market Data - Derivatives
+      description: 'Description: Get the latest derivative mark prices as of the given timestamp from a specified derivatives
+        exchange Source ID (e.g. 4005 Binance futures). Optional underlyingAssetCode and lukkaDerivativeCode filters can be
+        applied to narrow the response.'
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: lookback
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '60000'
+      responses:
+        '200':
+          description: Get Latest Mark Prices
+  /v1/pricing/sources/{sourceId}/{baseAssetCode}/markprices/historical:
+    get:
+      operationId: getHistoricalMarkPrices
+      summary: Get Historical Mark Prices
+      tags:
+      - Market Data - Derivatives
+      description: "Description: Get the mark price history for a specific derivative instrument from a specified Source ID.\n\
+        \n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl\
+        \ field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called\
+        \ to request the next batch of records prior to what was returned.\n\n interval (milliseconds) allowed values: 1000,\
+        \ 5000, 30000, 60000, 300000, 1800000, 3600000, 86400000."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: baseAssetCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: baseAssetCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:10:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '60000'
+      responses:
+        '200':
+          description: Get Historical Mark Prices
+          content:
+            application/json:
+              example:
+                data:
+                - ts: '2026-04-20T12:00:00Z'
+                  derivativeCode: BTCUSDT.BINA
+                  underlyingAssetCode: XBT
+                  markPrice: '75160.0'
+                - ts: '2026-04-20T12:01:00Z'
+                  derivativeCode: BTCUSDT.BINA
+                  underlyingAssetCode: XBT
+                  markPrice: '75106.0'
+                - ts: '2026-04-20T12:02:00Z'
+                  derivativeCode: BTCUSDT.BINA
+                  underlyingAssetCode: XBT
+                  markPrice: '75069.63205072'
+                - ts: '2026-04-20T12:03:00Z'
+                  derivativeCode: BTCUSDT.BINA
+                  underlyingAssetCode: XBT
+                  markPrice: '75075.6'
+                - ts: '2026-04-20T12:04:00Z'
+                  derivativeCode: BTCUSDT.BINA
+                  underlyingAssetCode: XBT
+                  markPrice: '75049.6828913'
+  /v1/pricing/derivatives/composite-funding-rates:
+    get:
+      operationId: getCompositeFundingRatesByPairCodes
+      summary: Get Composite Funding Rates (by pairCodes)
+      tags:
+      - Market Data - Derivatives
+      description: 'Description: Get the IQR-cleansed composite funding rate across derivatives exchanges for the specified
+        derivative pair codes. This is the pairCodes variant of the endpoint; it is mutually exclusive with the underlyingAssetCodes
+        + counterAssetCodes variant.'
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USDT
+      responses:
+        '200':
+          description: Get Composite Funding Rates (by pairCodes)
+          content:
+            application/json:
+              example:
+                dataType: composite-funding-rates
+                ts: '2026-04-22T15:39:00.000Z'
+                count: 1
+                data:
+                - pairCode: XBT-USDT
+                  compositeRate: '0.0353'
+                  minRate: '0.0308'
+                  maxRate: '0.0398'
+                  medianRate: '0.0353'
+                  meanRate: '0.0353'
+                  depth: 2
+                  calcInputs:
+                  - sourceId: 4005
+                    entityCode: BINA
+                    yearlyRate: '0.0398'
+                  - sourceId: 4015
+                    entityCode: BYBT
+                    yearlyRate: '0.0308'
+  /v1/pricing/latest-markets/PREDICTION:
+    get:
+      operationId: getLatestMarketsPREDICTION
+      summary: Get Latest Markets (PREDICTION)
+      tags:
+      - Market Data - Prediction Markets
+      description: 'Description: This endpoint returns the prediction markets for a specified exchange (e.g. Kalshi, Polymarket)
+        over the previous 24 hours. displayBy toggles between lukkaSymbol (one row per outcome) and eventTicker (one row per
+        event with all legs nested).'
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4141'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Latest Markets (PREDICTION)
+          content:
+            application/json:
+              example:
+                dataType: markets
+                count: 5
+                data:
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21HOULAL-LAL_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21HOULAL.KALSHI
+                  latestPrice: '0.99'
+                  latestPriceUsd: '0.99'
+                  volume24h: '14129888.499999996'
+                  volumeUsd24h: '6931907.514400001'
+                  tradeCount24h: '59892.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776834860000
+                  openInterestUsd: '10365664.0'
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21PORSAS-SAS_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21PORSAS.KALSHI
+                  latestPrice: '0.01'
+                  latestPriceUsd: '0.01'
+                  volume24h: '9332659.75'
+                  volumeUsd24h: '5730443.209400001'
+                  tradeCount24h: '27496.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776825697000
+                  openInterestUsd: '5485197.0'
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21HOULAL-HOU_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21HOULAL.KALSHI
+                  latestPrice: '0.01'
+                  latestPriceUsd: '0.01'
+                  volume24h: '11430302.879999999'
+                  volumeUsd24h: '5014730.561199998'
+                  tradeCount24h: '34226.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776835152000
+                  openInterestUsd: '8227029.0'
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21PHIBOS-BOS_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21PHIBOS.KALSHI
+                  latestPrice: '0.01'
+                  latestPriceUsd: '0.01'
+                  volume24h: '9424167.259999998'
+                  volumeUsd24h: '4981571.601199999'
+                  tradeCount24h: '23333.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776821330000
+                  openInterestUsd: '7516523.0'
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21PORSAS-POR_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21PORSAS.KALSHI
+                  latestPrice: '0.99'
+                  latestPriceUsd: '0.99'
+                  volume24h: '13158953.660000002'
+                  volumeUsd24h: '4359566.6448'
+                  tradeCount24h: '46690.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776825651000
+                  openInterestUsd: '7976443.0'
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/PREDICTION?sourceIds=4141&limit=5&offset=5
+  /v1/pricing/prediction-history/{sourceId}/event/{eventTicker}:
+    get:
+      operationId: getPredictionHistoryByEventTicker
+      summary: Get Prediction History (by event ticker)
+      tags:
+      - Market Data - Prediction Markets
+      description: "Description: Get the OHLC prediction-market history for all outcomes of a single event. If the response\
+        \ exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be\
+        \ returned at the end of the response.\n\n interval is required and must be one of (milliseconds): 60000, 300000,\
+        \ 900000, 3600000, 86400000, 604800000."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: eventTicker
+        in: path
+        required: true
+        schema:
+          type: string
+        description: eventTicker path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-21T00:00:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3600000'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Prediction History (by event ticker)
+          content:
+            application/json:
+              example:
+                dataType: predictionHistoryCandles
+                sourceId: 4141
+                eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                count: 3
+                firstDate: '2026-04-20T00:00:00Z'
+                lastDate: '2026-04-20T02:00:00Z'
+                data:
+                - ts: '2026-04-20T00:00:00Z'
+                  markets:
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.31'
+                    lowPriceUsd: '0.31'
+                    volume: '158.36'
+                    volumeUsd: '49.0916'
+                    tradeCount: 3
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.7'
+                    highPriceUsd: '0.7'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '1211.08'
+                    volumeUsd: '847.7559999999999'
+                    tradeCount: 25
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_no.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.7'
+                    highPriceUsd: '0.7'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '1.53'
+                    volumeUsd: '1.071'
+                    tradeCount: 1
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.31'
+                    lowPriceUsd: '0.31'
+                    volume: '2095.3800000000006'
+                    volumeUsd: '649.5677999999998'
+                    tradeCount: 45
+                - ts: '2026-04-20T01:00:00Z'
+                  markets:
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.3'
+                    lowPriceUsd: '0.3'
+                    volume: '703.95'
+                    volumeUsd: '217.36499999999998'
+                    tradeCount: 6
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.71'
+                    closePriceUsd: '0.71'
+                    highPrice: '0.72'
+                    highPriceUsd: '0.72'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '6722.86'
+                    volumeUsd: '4745.8966'
+                    tradeCount: 67
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_no.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.7'
+                    highPriceUsd: '0.7'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '36.0'
+                    volumeUsd: '25.200000000000003'
+                    tradeCount: 2
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.31'
+                    lowPriceUsd: '0.31'
+                    volume: '7990.610000000002'
+                    volumeUsd: '2477.0891'
+                    tradeCount: 103
+                - ts: '2026-04-20T02:00:00Z'
+                  markets:
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI
+                    openPrice: '0.3'
+                    openPriceUsd: '0.3'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.3'
+                    lowPriceUsd: '0.3'
+                    volume: '194.0'
+                    volumeUsd: '60.08'
+                    tradeCount: 6
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                    openPrice: '0.71'
+                    openPriceUsd: '0.71'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.72'
+                    highPriceUsd: '0.72'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '2130.36'
+                    volumeUsd: '1515.7585000000008'
+                    tradeCount: 58
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_no.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.7'
+                    highPriceUsd: '0.7'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '707.58'
+                    volumeUsd: '495.30600000000004'
+                    tradeCount: 7
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.31'
+                    lowPriceUsd: '0.31'
+                    volume: '7234.61'
+                    volumeUsd: '2242.7291000000005'
+                    tradeCount: 93
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/prediction-history/4141/event/KXNBAGAME-26APR20MINDEN.KALSHI?from=2026-04-20T00%3A00%3A00Z&to=2026-04-21T00%3A00%3A00Z&interval=3600000&limit=3&offset=3
+  /v1/pricing/prediction-history/{sourceId}/symbol/{lukkaSymbol}:
+    get:
+      operationId: getPredictionHistoryByLukkaSymbol
+      summary: Get Prediction History (by lukkaSymbol)
+      tags:
+      - Market Data - Prediction Markets
+      description: "Description: Get the OHLC prediction-market history for a single outcome (lukkaSymbol).\n\n If the response\
+        \ exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be\
+        \ returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: lukkaSymbol
+        in: path
+        required: true
+        schema:
+          type: string
+        description: lukkaSymbol path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-21T00:00:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3600000'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Prediction History (by lukkaSymbol)
+          content:
+            application/json:
+              example:
+                dataType: predictionHistoryCandles
+                sourceId: 4141
+                lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                count: 3
+                firstDate: '2026-04-20T00:00:00Z'
+                lastDate: '2026-04-20T02:00:00Z'
+                data:
+                - ts: '2026-04-20T00:00:00Z'
+                  openPrice: '0.7'
+                  openPriceUsd: '0.7'
+                  closePrice: '0.7'
+                  closePriceUsd: '0.7'
+                  highPrice: '0.7'
+                  highPriceUsd: '0.7'
+                  lowPrice: '0.7'
+                  lowPriceUsd: '0.7'
+                  volume: '1211.08'
+                  volumeUsd: '847.7559999999999'
+                  tradeCount: 25
+                - ts: '2026-04-20T01:00:00Z'
+                  openPrice: '0.7'
+                  openPriceUsd: '0.7'
+                  closePrice: '0.71'
+                  closePriceUsd: '0.71'
+                  highPrice: '0.72'
+                  highPriceUsd: '0.72'
+                  lowPrice: '0.7'
+                  lowPriceUsd: '0.7'
+                  volume: '6722.86'
+                  volumeUsd: '4745.8966'
+                  tradeCount: 67
+                - ts: '2026-04-20T02:00:00Z'
+                  openPrice: '0.71'
+                  openPriceUsd: '0.71'
+                  closePrice: '0.7'
+                  closePriceUsd: '0.7'
+                  highPrice: '0.72'
+                  highPriceUsd: '0.72'
+                  lowPrice: '0.7'
+                  lowPriceUsd: '0.7'
+                  volume: '2130.36'
+                  volumeUsd: '1515.7585000000008'
+                  tradeCount: 58
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/prediction-history/4141/symbol/KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI?from=2026-04-20T00%3A00%3A00Z&to=2026-04-21T00%3A00%3A00Z&interval=3600000&limit=3&offset=3
+  /v1/pricing/prediction-trade-history/{sourceId}/event/{eventTicker}:
+    get:
+      operationId: getPredictionTradeHistoryByEventTicker
+      summary: Get Prediction Trade History (by event ticker)
+      tags:
+      - Market Data - Prediction Markets
+      description: "Description: Get the raw tick-level trade history for all outcomes of a single prediction-market event.\n\
+        \n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl\
+        \ field will be returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: eventTicker
+        in: path
+        required: true
+        schema:
+          type: string
+        description: eventTicker path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:30:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Prediction Trade History (by event ticker)
+          content:
+            application/json:
+              example:
+                dataType: predictionTradeHistory
+                sourceId: 4141
+                eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                count: 3
+                firstDate: '2026-04-20T12:00:16.000047Z'
+                lastDate: '2026-04-20T12:00:34.000048Z'
+                data:
+                - ts: '2026-04-20T12:00:16.000047Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.72'
+                  priceUsd: '0.72'
+                  volume: '19.0'
+                  volumeUsd: '13.68'
+                  side: UNKNOWN
+                - ts: '2026-04-20T12:00:22.000048Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.31'
+                  priceUsd: '0.31'
+                  volume: '15.38'
+                  volumeUsd: '4.7678'
+                  side: UNKNOWN
+                - ts: '2026-04-20T12:00:34.000048Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.3'
+                  priceUsd: '0.3'
+                  volume: '19.0'
+                  volumeUsd: '5.7'
+                  side: UNKNOWN
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/prediction-trade-history/4141/event/KXNBAGAME-26APR20MINDEN.KALSHI?from=2026-04-20T12%3A00%3A00Z&to=2026-04-20T12%3A30%3A00Z&limit=3&offset=3
+  /v1/pricing/prediction-trade-history/{sourceId}/symbol/{lukkaSymbol}:
+    get:
+      operationId: getPredictionTradeHistoryByLukkaSymbol
+      summary: Get Prediction Trade History (by lukkaSymbol)
+      tags:
+      - Market Data - Prediction Markets
+      description: "Description: Get the raw tick-level trade history for a single prediction-market outcome (lukkaSymbol).\n\
+        \n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl\
+        \ field will be returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: lukkaSymbol
+        in: path
+        required: true
+        schema:
+          type: string
+        description: lukkaSymbol path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:30:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Prediction Trade History (by lukkaSymbol)
+          content:
+            application/json:
+              example:
+                dataType: predictionTradeHistory
+                sourceId: 4141
+                lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                count: 3
+                firstDate: '2026-04-20T12:00:16.000047Z'
+                lastDate: '2026-04-20T12:02:22.000054Z'
+                data:
+                - ts: '2026-04-20T12:00:16.000047Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.72'
+                  priceUsd: '0.72'
+                  volume: '19.0'
+                  volumeUsd: '13.68'
+                  side: UNKNOWN
+                - ts: '2026-04-20T12:00:45.000049Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.72'
+                  priceUsd: '0.72'
+                  volume: '27.0'
+                  volumeUsd: '19.44'
+                  side: UNKNOWN
+                - ts: '2026-04-20T12:02:22.000054Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.72'
+                  priceUsd: '0.72'
+                  volume: '544.87'
+                  volumeUsd: '392.3064'
+                  side: UNKNOWN
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/prediction-trade-history/4141/symbol/KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI?from=2026-04-20T12%3A00%3A00Z&to=2026-04-20T12%3A30%3A00Z&limit=3&offset=3
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials
+        grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token
+        is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

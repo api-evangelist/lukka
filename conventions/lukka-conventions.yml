@@ -1,0 +1,104 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://apidocs.lukka.tech/
+- https://github.com/lukkatech/lukka-mcps
+description: Cross-cutting request/response semantics for the Lukka data APIs, the WebSocket streaming surface and the
+  hosted MCP servers.
+authentication:
+  style: OAuth 2.0 bearer JWT
+  detail: authentication/lukka-authentication.yml
+  summary: Okta client_credentials for REST/streaming; Auth0 authorization-code + PKCE with Dynamic Client Registration
+    for MCP.
+idempotency:
+  supported: false
+  rationale: The public Lukka surface is read-only. All 91 documented REST operations are GET except three POSTs that
+    create asynchronous extract/calculation jobs, and all 69 MCP tools are documented as read-only. Lukka documents no
+    idempotency key.
+  note: No Idempotency-Key header or equivalent appears in any published operation.
+pagination:
+  style: limit/offset
+  parameters:
+  - name: limit
+    description: Maximum records to return. Defaults vary by operation (1440 for time series, 3600 for spot trades).
+  - name: offset
+    description: Zero-based record offset.
+  - name: order
+    description: ASC or DESC, on ranked/time-series operations.
+  note: Some endpoints instead window by time (`from`/`to`/`lookback`/`asOf`) rather than by offset.
+field_expansion:
+  parameter: expandDetails
+  description: Reference Data v2 operations accept expandDetails to select nested detail blocks, e.g. expandDetails=[ALL]
+    or expandDetails=[blockchainDetails,nameDetails]. This is Lukka's sparse-fieldset / expansion mechanism.
+  applies_to:
+  - /v2/lukka/assets
+  - /v2/lukka/markets
+  - /v2/lukka/custodians
+  - /v2/lukka/derivatives
+  - /v2/lukka/vasps
+filtering:
+  note: 'Most collection operations filter by Lukka canonical identifiers: pairCodes, sourceIds, baseAssetCodes, counterAssetCodes,
+    assetLid, entityCode, mappingStatus.'
+time:
+  format: ISO 8601
+  example: '2026-04-20T12:00:00Z'
+  streaming_timestamps: tsNanos - nanosecond epoch integers on streaming records
+  intervals: Interval and lookback parameters are expressed in MILLISECONDS (60000 = 1 minute, 3600000 = 1 hour, 86400000
+    = 1 day), not seconds.
+identifiers:
+  pair_code: Canonical Lukka asset codes joined with a hyphen, e.g. XBT-USD (not BTC-USD), ETH-USD, SOLN-USD (not SOL-USD).
+  lukka_id: 11-character unique Lukka ID (LID) per crypto asset, e.g. LA3YA6GC8Y5 (assets), LM47PH5UBV0 (marketplaces),
+    LC14SKMDN12 (custodians).
+  id_prefixes:
+    LA: asset
+    LM: marketplace
+    LC: custodian
+  derivative_code: Lukka derivative code, e.g. L-DERI-OPT-BTC-BTC-C-43000-20210917 or BTC-PERPETUAL.DERI
+  source_id: 'Integer source identifier. Fixed: 1000 Lukka Prime EOD, 2000 Intraday, 2100 Prime Global Intraday, 3000
+    Hourly, 5001 Reference Rate, 5002 Median Reference Rate, 5004 Staking Rates, 5005 MVWAP. Ranges: 4001-4999 exchange,
+    6xxx index, 10xxx custom.'
+versioning:
+  scheme: uri-path
+  versions_in_use:
+  - v1
+  - v2
+  - v3
+  detail: 'Version is per resource family, not per API: Reference Data is on /v2 with /v1 retained and labelled deprecated;
+    market data mixes /v1 and /v2; the streaming surface runs /v1, /v2 and /v3 channels concurrently.'
+  reference: lifecycle/lukka-lifecycle.yml
+errors:
+  envelope: JSON object; no RFC 9457 application/problem+json anywhere in the published surface.
+  reference: errors/lukka-problem-types.yml
+rate_limiting:
+  limit: 5 requests/second per client id
+  headers:
+  - x-rate-limit-limit
+  - x-rate-limit-remaining
+  - x-rate-limit-reset
+  reference: rate-limits/lukka-rate-limits.yml
+async_jobs:
+  pattern: POST creates a request and returns 202 Accepted with a requestId; poll GET .../requests/{requestId} for status,
+    then download the CSV.
+  applies_to:
+  - /v1/trades/historical/requests
+  - /v1/quotes/historical/requests
+  - /datacalculation
+streaming:
+  protocol: wss
+  subscription: in-band subscribe / unsubscribe action messages
+  reauthorization: in-band authenticate action message; server sends a token-expiry notice first
+  heartbeat: ping/pong supported on the v3 channels
+  reference: asyncapi/lukka-market-data-streaming-asyncapi.yml
+mcp:
+  access: read-only across all seven servers
+  response_shaping: Most tools return a token-optimised summary by default, with detailed/raw output where noted - an
+    explicit agent-facing convention.
+  reference: mcp/lukka-mcp.yml
+request_tracing:
+  headers_observed:
+  - x-envoy-upstream-service-time
+  - cf-request-id
+  - CF-RAY
+  - x-okta-request-id
+  note: These are infrastructure headers (Envoy, Cloudflare, Okta) observed in published response examples, not a documented
+    Lukka request-id contract.
