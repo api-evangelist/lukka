@@ -1,0 +1,185 @@
+openapi: 3.2.0
+info:
+  title: Lukka Reference Data API
+  version: 1.0.0
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-refdata-api.lukka.tech
+  description: Lukka production (data-refdata-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Reference Data
+paths:
+  /v2/lukka/sectors:
+    get:
+      operationId: ldacs
+      summary: LDACS
+      tags:
+      - Reference Data
+      parameters:
+      - name: assetLid
+        in: query
+        required: false
+        schema:
+          type: string
+        example: LA6PY42YA30
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1000'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      responses:
+        '200':
+          description: LDACS
+          content:
+            application/json:
+              example:
+                offset: 0
+                limit: 1000
+                size: 1
+                links:
+                  base: /v2/lukka/sectors
+                  next: null
+                  prev: null
+                data:
+                - assetLid: LA1S39UVDK1
+                  whitepaperCode: USDC
+                  assetName: USD Coin (Ethereum)
+                  isPrimaryClassification: true
+                  lukkaCategoryCode: 10
+                  lukkaCategory: Fungibles
+                  lukkaSuperSectorCode: 1020
+                  lukkaSuperSector: Payment
+                  lukkaMacroSectorCode: 102020
+                  lukkaMacroSector: Stablecoin
+                  lukkaMidSectorCode: 10202020
+                  lukkaMidSector: Collateralized
+                  lukkaSubSectorCode: 1020202015
+                  lukkaSubSector: Fiat-Backed
+                  cryptoActionBeginId: 837f3694-cae5-4317-9d3a-4c6caec6ae8a
+                  cryptoActionEndId: null
+                  startTs: '2018-09-10T06:26:41Z'
+                  endTs: null
+                  recordStatus: Active
+  /v2/lukka/enums/lukkaCryptoActionCode:
+    get:
+      operationId: anEnum
+      summary: An Enum
+      tags:
+      - Reference Data
+      description: "The ENUM (enumerated code) endpoint provides a list of ENUM codes that will be used throughout the reference data product family and suite of reference data APIs. This endpoint is meant to help customers decipher the different codes and static values available as well as the primary endpoint where those codes may be used\n\n \n \n \n ENUM Variable for URL \n Applicable Endpoints \n \n \n \n \n classificationCode \n All Derivatives \nA Derivative and its Details \n \n \n lukkaCryptoActionCode \n Crypto Actions \n \n \n assetTypeCode \n All Assets \nA Lukka Asset and Its Details \n \n \n hashAlgorithmCode \n All Assets \nA Lukka Asset and Its Details \n \n \n consensusClassificationCode \n All Assets \nA Lukka Asset and Its Details \n \n \n emissionClassificationCode \n All Assets \nA Lukka Asset and Its Details \n \n \n emissionTypeCode \n All Assets \nA Lukka Asset and Its Details \n \n \n lukkaBlockchainId \n All Assets \nA Lukka Asset and Its Details \n \n \n tokenStandardCode \n All Assets \nA Lukka Asset and Its Details \n \n \n participantTypeCode \n All Assets \nA Lukka Asset and Its Details"
+      responses:
+        '200':
+          description: Crypto Action Code
+          content:
+            application/json:
+              example:
+              - enumCode: BLKMIG
+                description: Blockchain Migration
+              - enumCode: LORE
+                description: Legal or Regulatory Event
+              - enumCode: HFORK
+                description: Hard Fork
+              - enumCode: SFORK
+                description: Soft Fork
+              - enumCode: REDNOM
+                description: Redenomination
+              - enumCode: EMISN
+                description: Emission
+              - enumCode: BRN
+                description: Burn
+              - enumCode: ABNDN
+                description: Abandoned
+              - enumCode: NAMG
+                description: Rebrand
+              - enumCode: VTFK
+                description: Velvet Fork
+              - enumCode: ASLH
+                description: Asset Launch
+              - enumCode: NWKAD
+                description: Network Airdrop
+              - enumCode: EXPD
+                description: Expired
+              - enumCode: SINDT
+                description: Security Incident
+              - enumCode: CADTR
+                description: Change of Auditor
+              - enumCode: CRTE
+                description: Created in Error
+              - enumCode: SSPOON
+                description: Soft Spoon
+              - enumCode: HSPOON
+                description: Hard Spoon
+              - enumCode: CSDYSRT
+                description: Custody Support Initiated
+              - enumCode: CSDYEND
+                description: Custody Support Terminated
+              - enumCode: TLIST
+                description: Trade Listing
+              - enumCode: TFDLIST
+                description: Transfer Delisting
+              - enumCode: TFLIST
+                description: Transfer Listing
+              - enumCode: CTMIG
+                description: Contract Migration
+              - enumCode: TDLIST
+                description: Trade Delisting
+              - enumCode: RCLM
+                description: Reclaimed
+              - enumCode: CCLTRL
+                description: Change in Collateral
+              - enumCode: NA
+                description: Not Applicable
+              - enumCode: EPE
+                description: Event Period End
+              - enumCode: SUCCN
+                description: Succession Event
+              - enumCode: ENCC
+                description: Exchange Naming Convention Change
+  /v2/lukka/stats/assets/coverage:
+    get:
+      operationId: assetCoverage
+      summary: Asset Coverage
+      tags:
+      - Reference Data
+      parameters:
+      - name: lukkaAssetIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: LA6EV2NKQ95
+      responses:
+        '200':
+          description: Successful response
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

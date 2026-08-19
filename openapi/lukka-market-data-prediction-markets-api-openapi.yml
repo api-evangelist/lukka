@@ -1,0 +1,595 @@
+openapi: 3.2.0
+info:
+  title: Lukka Pricing & Market Data Market Data - Prediction Markets API
+  version: 1.0.0
+  description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-pricing-api.lukka.tech
+  description: Lukka production (data-pricing-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Market Data - Prediction Markets
+paths:
+  /v1/pricing/latest-markets/PREDICTION:
+    get:
+      operationId: getLatestMarketsPREDICTION
+      summary: Get Latest Markets (PREDICTION)
+      tags:
+      - Market Data - Prediction Markets
+      description: 'Description: This endpoint returns the prediction markets for a specified exchange (e.g. Kalshi, Polymarket) over the previous 24 hours. displayBy toggles between lukkaSymbol (one row per outcome) and eventTicker (one row per event with all legs nested).'
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4141'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Latest Markets (PREDICTION)
+          content:
+            application/json:
+              example:
+                dataType: markets
+                count: 5
+                data:
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21HOULAL-LAL_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21HOULAL.KALSHI
+                  latestPrice: '0.99'
+                  latestPriceUsd: '0.99'
+                  volume24h: '14129888.499999996'
+                  volumeUsd24h: '6931907.514400001'
+                  tradeCount24h: '59892.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776834860000
+                  openInterestUsd: '10365664.0'
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21PORSAS-SAS_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21PORSAS.KALSHI
+                  latestPrice: '0.01'
+                  latestPriceUsd: '0.01'
+                  volume24h: '9332659.75'
+                  volumeUsd24h: '5730443.209400001'
+                  tradeCount24h: '27496.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776825697000
+                  openInterestUsd: '5485197.0'
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21HOULAL-HOU_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21HOULAL.KALSHI
+                  latestPrice: '0.01'
+                  latestPriceUsd: '0.01'
+                  volume24h: '11430302.879999999'
+                  volumeUsd24h: '5014730.561199998'
+                  tradeCount24h: '34226.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776835152000
+                  openInterestUsd: '8227029.0'
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21PHIBOS-BOS_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21PHIBOS.KALSHI
+                  latestPrice: '0.01'
+                  latestPriceUsd: '0.01'
+                  volume24h: '9424167.259999998'
+                  volumeUsd24h: '4981571.601199999'
+                  tradeCount24h: '23333.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776821330000
+                  openInterestUsd: '7516523.0'
+                - sourceId: 4141
+                  entityCode: KALSHI
+                  entityName: Kalshi
+                  lukkaSymbol: KXNBAGAME-26APR21PORSAS-POR_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR21PORSAS.KALSHI
+                  latestPrice: '0.99'
+                  latestPriceUsd: '0.99'
+                  volume24h: '13158953.660000002'
+                  volumeUsd24h: '4359566.6448'
+                  tradeCount24h: '46690.0'
+                  volume1h: '0.0'
+                  volumeUsd1h: '0.0'
+                  tradeCount1h: '0.0'
+                  latestPriceTs: 1776825651000
+                  openInterestUsd: '7976443.0'
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/PREDICTION?sourceIds=4141&limit=5&offset=5
+  /v1/pricing/prediction-history/{sourceId}/event/{eventTicker}:
+    get:
+      operationId: getPredictionHistoryByEventTicker
+      summary: Get Prediction History (by event ticker)
+      tags:
+      - Market Data - Prediction Markets
+      description: "Description: Get the OHLC prediction-market history for all outcomes of a single event. If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.\n\n interval is required and must be one of (milliseconds): 60000, 300000, 900000, 3600000, 86400000, 604800000."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: eventTicker
+        in: path
+        required: true
+        schema:
+          type: string
+        description: eventTicker path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-21T00:00:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3600000'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Prediction History (by event ticker)
+          content:
+            application/json:
+              example:
+                dataType: predictionHistoryCandles
+                sourceId: 4141
+                eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                count: 3
+                firstDate: '2026-04-20T00:00:00Z'
+                lastDate: '2026-04-20T02:00:00Z'
+                data:
+                - ts: '2026-04-20T00:00:00Z'
+                  markets:
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.31'
+                    lowPriceUsd: '0.31'
+                    volume: '158.36'
+                    volumeUsd: '49.0916'
+                    tradeCount: 3
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.7'
+                    highPriceUsd: '0.7'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '1211.08'
+                    volumeUsd: '847.7559999999999'
+                    tradeCount: 25
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_no.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.7'
+                    highPriceUsd: '0.7'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '1.53'
+                    volumeUsd: '1.071'
+                    tradeCount: 1
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.31'
+                    lowPriceUsd: '0.31'
+                    volume: '2095.3800000000006'
+                    volumeUsd: '649.5677999999998'
+                    tradeCount: 45
+                - ts: '2026-04-20T01:00:00Z'
+                  markets:
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.3'
+                    lowPriceUsd: '0.3'
+                    volume: '703.95'
+                    volumeUsd: '217.36499999999998'
+                    tradeCount: 6
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.71'
+                    closePriceUsd: '0.71'
+                    highPrice: '0.72'
+                    highPriceUsd: '0.72'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '6722.86'
+                    volumeUsd: '4745.8966'
+                    tradeCount: 67
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_no.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.7'
+                    highPriceUsd: '0.7'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '36.0'
+                    volumeUsd: '25.200000000000003'
+                    tradeCount: 2
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.31'
+                    lowPriceUsd: '0.31'
+                    volume: '7990.610000000002'
+                    volumeUsd: '2477.0891'
+                    tradeCount: 103
+                - ts: '2026-04-20T02:00:00Z'
+                  markets:
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI
+                    openPrice: '0.3'
+                    openPriceUsd: '0.3'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.3'
+                    lowPriceUsd: '0.3'
+                    volume: '194.0'
+                    volumeUsd: '60.08'
+                    tradeCount: 6
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                    openPrice: '0.71'
+                    openPriceUsd: '0.71'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.72'
+                    highPriceUsd: '0.72'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '2130.36'
+                    volumeUsd: '1515.7585000000008'
+                    tradeCount: 58
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_no.KALSHI
+                    openPrice: '0.7'
+                    openPriceUsd: '0.7'
+                    closePrice: '0.7'
+                    closePriceUsd: '0.7'
+                    highPrice: '0.7'
+                    highPriceUsd: '0.7'
+                    lowPrice: '0.7'
+                    lowPriceUsd: '0.7'
+                    volume: '707.58'
+                    volumeUsd: '495.30600000000004'
+                    tradeCount: 7
+                  - lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI
+                    openPrice: '0.31'
+                    openPriceUsd: '0.31'
+                    closePrice: '0.31'
+                    closePriceUsd: '0.31'
+                    highPrice: '0.31'
+                    highPriceUsd: '0.31'
+                    lowPrice: '0.31'
+                    lowPriceUsd: '0.31'
+                    volume: '7234.61'
+                    volumeUsd: '2242.7291000000005'
+                    tradeCount: 93
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/prediction-history/4141/event/KXNBAGAME-26APR20MINDEN.KALSHI?from=2026-04-20T00%3A00%3A00Z&to=2026-04-21T00%3A00%3A00Z&interval=3600000&limit=3&offset=3
+  /v1/pricing/prediction-history/{sourceId}/symbol/{lukkaSymbol}:
+    get:
+      operationId: getPredictionHistoryByLukkaSymbol
+      summary: Get Prediction History (by lukkaSymbol)
+      tags:
+      - Market Data - Prediction Markets
+      description: "Description: Get the OHLC prediction-market history for a single outcome (lukkaSymbol).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: lukkaSymbol
+        in: path
+        required: true
+        schema:
+          type: string
+        description: lukkaSymbol path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-21T00:00:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3600000'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Prediction History (by lukkaSymbol)
+          content:
+            application/json:
+              example:
+                dataType: predictionHistoryCandles
+                sourceId: 4141
+                lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                count: 3
+                firstDate: '2026-04-20T00:00:00Z'
+                lastDate: '2026-04-20T02:00:00Z'
+                data:
+                - ts: '2026-04-20T00:00:00Z'
+                  openPrice: '0.7'
+                  openPriceUsd: '0.7'
+                  closePrice: '0.7'
+                  closePriceUsd: '0.7'
+                  highPrice: '0.7'
+                  highPriceUsd: '0.7'
+                  lowPrice: '0.7'
+                  lowPriceUsd: '0.7'
+                  volume: '1211.08'
+                  volumeUsd: '847.7559999999999'
+                  tradeCount: 25
+                - ts: '2026-04-20T01:00:00Z'
+                  openPrice: '0.7'
+                  openPriceUsd: '0.7'
+                  closePrice: '0.71'
+                  closePriceUsd: '0.71'
+                  highPrice: '0.72'
+                  highPriceUsd: '0.72'
+                  lowPrice: '0.7'
+                  lowPriceUsd: '0.7'
+                  volume: '6722.86'
+                  volumeUsd: '4745.8966'
+                  tradeCount: 67
+                - ts: '2026-04-20T02:00:00Z'
+                  openPrice: '0.71'
+                  openPriceUsd: '0.71'
+                  closePrice: '0.7'
+                  closePriceUsd: '0.7'
+                  highPrice: '0.72'
+                  highPriceUsd: '0.72'
+                  lowPrice: '0.7'
+                  lowPriceUsd: '0.7'
+                  volume: '2130.36'
+                  volumeUsd: '1515.7585000000008'
+                  tradeCount: 58
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/prediction-history/4141/symbol/KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI?from=2026-04-20T00%3A00%3A00Z&to=2026-04-21T00%3A00%3A00Z&interval=3600000&limit=3&offset=3
+  /v1/pricing/prediction-trade-history/{sourceId}/event/{eventTicker}:
+    get:
+      operationId: getPredictionTradeHistoryByEventTicker
+      summary: Get Prediction Trade History (by event ticker)
+      tags:
+      - Market Data - Prediction Markets
+      description: "Description: Get the raw tick-level trade history for all outcomes of a single prediction-market event.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: eventTicker
+        in: path
+        required: true
+        schema:
+          type: string
+        description: eventTicker path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:30:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Prediction Trade History (by event ticker)
+          content:
+            application/json:
+              example:
+                dataType: predictionTradeHistory
+                sourceId: 4141
+                eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                count: 3
+                firstDate: '2026-04-20T12:00:16.000047Z'
+                lastDate: '2026-04-20T12:00:34.000048Z'
+                data:
+                - ts: '2026-04-20T12:00:16.000047Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.72'
+                  priceUsd: '0.72'
+                  volume: '19.0'
+                  volumeUsd: '13.68'
+                  side: UNKNOWN
+                - ts: '2026-04-20T12:00:22.000048Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-MIN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.31'
+                  priceUsd: '0.31'
+                  volume: '15.38'
+                  volumeUsd: '4.7678'
+                  side: UNKNOWN
+                - ts: '2026-04-20T12:00:34.000048Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_no.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.3'
+                  priceUsd: '0.3'
+                  volume: '19.0'
+                  volumeUsd: '5.7'
+                  side: UNKNOWN
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/prediction-trade-history/4141/event/KXNBAGAME-26APR20MINDEN.KALSHI?from=2026-04-20T12%3A00%3A00Z&to=2026-04-20T12%3A30%3A00Z&limit=3&offset=3
+  /v1/pricing/prediction-trade-history/{sourceId}/symbol/{lukkaSymbol}:
+    get:
+      operationId: getPredictionTradeHistoryByLukkaSymbol
+      summary: Get Prediction Trade History (by lukkaSymbol)
+      tags:
+      - Market Data - Prediction Markets
+      description: "Description: Get the raw tick-level trade history for a single prediction-market outcome (lukkaSymbol).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: lukkaSymbol
+        in: path
+        required: true
+        schema:
+          type: string
+        description: lukkaSymbol path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:30:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Prediction Trade History (by lukkaSymbol)
+          content:
+            application/json:
+              example:
+                dataType: predictionTradeHistory
+                sourceId: 4141
+                lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                count: 3
+                firstDate: '2026-04-20T12:00:16.000047Z'
+                lastDate: '2026-04-20T12:02:22.000054Z'
+                data:
+                - ts: '2026-04-20T12:00:16.000047Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.72'
+                  priceUsd: '0.72'
+                  volume: '19.0'
+                  volumeUsd: '13.68'
+                  side: UNKNOWN
+                - ts: '2026-04-20T12:00:45.000049Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.72'
+                  priceUsd: '0.72'
+                  volume: '27.0'
+                  volumeUsd: '19.44'
+                  side: UNKNOWN
+                - ts: '2026-04-20T12:02:22.000054Z'
+                  lukkaSymbol: KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI
+                  eventTicker: KXNBAGAME-26APR20MINDEN.KALSHI
+                  price: '0.72'
+                  priceUsd: '0.72'
+                  volume: '544.87'
+                  volumeUsd: '392.3064'
+                  side: UNKNOWN
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/prediction-trade-history/4141/symbol/KXNBAGAME-26APR20MINDEN-DEN_yes.KALSHI?from=2026-04-20T12%3A00%3A00Z&to=2026-04-20T12%3A30%3A00Z&limit=3&offset=3
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

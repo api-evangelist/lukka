@@ -1,0 +1,194 @@
+openapi: 3.2.0
+info:
+  title: Lukka Reference Data Reference Data - Crypto Actions API
+  version: 1.0.0
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-refdata-api.lukka.tech
+  description: Lukka production (data-refdata-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Reference Data - Crypto Actions
+paths:
+  /v2/lukka/assets/crypto-actions:
+    get:
+      operationId: allCryptoActions
+      summary: All Crypto Actions
+      tags:
+      - Reference Data - Crypto Actions
+      description: "The Crypto Actions endpoint contains information related to the Lukka Crypto Actions (“LCA”) data product  \n\n Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a result of what event.\n\n Market events that have material impact on digital assets or are determined by Lukka to be significant in nature are eligible for induction into the asset’s crypto action history repository. Generally speaking, material impacts revolve around events that affect either an asset’s protocol structure, characteristics, or reporting in the marketplace. The LCA event types are described in detail in the Structure and Definitions section of this document."
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '10'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      - name: lukkaCryptoActionIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 6286a369-8d8c-425a-8824-14d522374fe2,fb5fd1fe-2963-4e2f-a3f2-55a528399f06,ed90ce1d-7ee3-4e5c-bb6c-e7b5deff6a49,f1ef9007-7cdf-4e41-bd5c-70f00b15d262,48f70093-d5f1-4fb9-979c-47772151fdf5
+      responses:
+        '200':
+          description: Asset Crypto Actions
+          content:
+            application/json:
+              example:
+                limit: 5
+                offset: 0
+                data:
+                - lukkaCryptoActionParentId: c07c6354-47eb-4ce2-9267-fbd724c532c0
+                  lukkaCryptoActionId: a93d3b3f-b3a8-4478-a2f9-fe5cdacc7224
+                  announceTime: '2011-10-09T06:14:28Z'
+                  effectiveTime: '2011-10-07T07:31:00Z'
+                  lukkaCryptoActionCode: HFORK
+                  lukkaCryptoActionName: Hard Fork
+                  eventName: null
+                  eventDescription: Litecoin (LTC) Hard Fork from Bitcoin (BTC)
+                  eventUrl: https://bitcointalk.org/index.php?topic=47417.0
+                  announceUrl: null
+                  recordNote: 'Litecoin will come with 150 premined coins: just the genesis block and the first 2 blocks to confirm the genesis is valid.  We believe a coin needs to be released in a fair manner.  Having one person (or a group) control a large amount of coins that can be used as they see fit is against the decentralized vision of Bitcoin.  Yes, it is true that without a stash of premined coins, we will not be able to afford to pay for bounties, but we believe people will see the virtue of this coin, invest in it as early adopters, and will be willing to spend time creating services to make this coin better.'
+                  isFutureEvent: false
+                - lukkaCryptoActionParentId: 2c4aa1ad-82d6-46a8-b143-d8fd024dea63
+                  lukkaCryptoActionId: 000a15f4-1ef0-4f0c-8245-0e28d71547d5
+                  announceTime: '2014-02-28T00:00:00Z'
+                  effectiveTime: '2014-02-28T22:52:17Z'
+                  lukkaCryptoActionCode: HFORK
+                  lukkaCryptoActionName: Hard Fork
+                  eventName: null
+                  eventDescription: DigiByte (DBG) Hard Fork v2
+                  eventUrl: null
+                  announceUrl: https://github.com/digibyte/digibyte/blob/master/README.md
+                  recordNote: 'DigiShield Hardfork: Block 67,200, Feb. 28th, 2014'
+                  isFutureEvent: false
+                - lukkaCryptoActionParentId: a985648f-263d-4f85-abdd-0eeb71260cc6
+                  lukkaCryptoActionId: e5a40304-6269-4704-9acf-3779f888c0f8
+                  announceTime: '2014-09-01T00:00:00Z'
+                  effectiveTime: '2014-09-01T18:32:42Z'
+                  lukkaCryptoActionCode: HFORK
+                  lukkaCryptoActionName: Hard Fork
+                  eventName: null
+                  eventDescription: DigiByte (DBG) Hard Fork v3
+                  eventUrl: null
+                  announceUrl: https://github.com/digibyte/digibyte/blob/master/README.md
+                  recordNote: 'MultiAlgo Hardfork: Block 145k, Sep. 1st 2014'
+                  isFutureEvent: false
+                - lukkaCryptoActionParentId: 16d01e2c-2efa-4a9a-bcd3-e8406c037a36
+                  lukkaCryptoActionId: db9665e2-c9bf-4fd1-9c65-3cabc4f74abd
+                  announceTime: '2014-12-10T00:00:00Z'
+                  effectiveTime: '2014-12-10T16:51:45Z'
+                  lukkaCryptoActionCode: HFORK
+                  lukkaCryptoActionName: Hard Fork
+                  eventName: null
+                  eventDescription: DigiByte (DGB) Hard Fork v4
+                  eventUrl: null
+                  announceUrl: https://github.com/digibyte/digibyte/blob/master/README.md
+                  recordNote: 'MultiShield Hardfork: Block 400k, Dec. 10th 2014'
+                  isFutureEvent: false
+                - lukkaCryptoActionParentId: 4029ac4c-ad27-49e5-a29b-28698bbb7ca4
+                  lukkaCryptoActionId: 84750cd2-4881-4620-95b4-19512ff0abd8
+                  announceTime: null
+                  effectiveTime: '2015-03-15T00:00:00Z'
+                  lukkaCryptoActionCode: HFORK
+                  lukkaCryptoActionName: Hard Fork
+                  eventName: null
+                  eventDescription: X-Coin Hard Fork Mainnet Update
+                  eventUrl: http://x-coin.info/
+                  announceUrl: null
+                  recordNote: Changed to POS on March 15th, 2015 at block 30001
+                  isFutureEvent: false
+                size: 5
+                links:
+                  base: /v2/lukka/assets/crypto-actions
+                  next: /v2/lukka/assets/crypto-actions?lukkaCryptoActionCode=HFORK&limit=5&offset=5
+                  prev: null
+  /v2/lukka/assets/LA6EV2NKQ95/crypto-actions:
+    get:
+      operationId: assetCryptoActions
+      summary: Asset Crypto Actions
+      tags:
+      - Reference Data - Crypto Actions
+      description: "Provides crypto action information for a given Lukka ID from the Lukka Crypto Actions (\"LCA\") data product\n\n Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a result of what event.\n\n Market events that have material impact on digital assets or are determined by Lukka to be significant in nature are eligible for induction into the asset’s crypto action history repository. Generally speaking, material impacts revolve around events that affect either an asset’s protocol structure, characteristics, or reporting in the marketplace. The LCA event types are described in detail in the Structure and Definitions section of this document."
+      parameters:
+      - name: domain
+        in: query
+        required: false
+        schema:
+          type: string
+        example: assets
+      responses:
+        '200':
+          description: Asset Crypto Actions
+          content:
+            application/json:
+              example:
+                offset: 0
+                limit: 500
+                size: 2
+                links:
+                  base: /v2/lukka/assets/LA2EYFUQT32/crypto-actions
+                  next: null
+                  prev: null
+                data:
+                - assetLid: LA2EYFUQT32
+                  currentWhitepaperCode: AAVE
+                  currentName: Aave Token
+                  lukkaCryptoActionParentId: e2fbbc5e-b8b7-468f-a67d-7270cdbfe83b
+                  lukkaCryptoActionId: a5fa7ef9-849a-48ab-a1a5-817db43dea73
+                  announceTime: '2020-12-03T21:20:00Z'
+                  effectiveTime: '2020-09-24T18:06:28Z'
+                  lukkaCryptoActionCode: ASLH
+                  lukkaCryptoActionName: Asset Launch
+                  eventName: null
+                  eventDescription: Aave Token (AAVE) Asset Launch
+                  eventUrl: https://etherscan.io/tx/0xfd5f0c65fdea26d0b94362532554d4c6cb4935b198d75e1cc07c7df4bfd8d1ad
+                  announceUrl: https://twitter.com/AaveAave/status/1334608524672962561
+                  recordNote: Aave V2 completed formal verification by  @CertoraInc , as well
+                  isFutureEvent: false
+                - assetLid: LA2EYFUQT32
+                  currentWhitepaperCode: AAVE
+                  currentName: Aave Token
+                  lukkaCryptoActionParentId: 6e8903f5-2b13-4342-b174-b229df9fd906
+                  lukkaCryptoActionId: 493557a2-5260-4d9f-a22e-37c0af0202ba
+                  announceTime: null
+                  effectiveTime: '2020-07-22T00:00:00Z'
+                  lukkaCryptoActionCode: CADTR
+                  lukkaCryptoActionName: Change of Auditor
+                  eventName: null
+                  eventDescription: Aave Token (AAVE) Change in Auditor
+                  eventUrl: https://www.certik.com/projects/aave
+                  announceUrl: null
+                  recordNote: Aave Token (AAVE) has been onboarded for Certik auditing.
+                  isFutureEvent: false
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

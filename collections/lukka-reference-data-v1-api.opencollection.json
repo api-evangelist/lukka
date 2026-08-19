@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data API (v1) Reference Data v1 API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Asset Master",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/lukka/assets"
+          },
+          "docs": "Get a list of all the Lukka normalized assets with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n lukka_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n whitepaper_code \n CHARACTER \n 256 \n T"
+        },
+        {
+          "info": {
+            "name": "Active Asset Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/entities/assets/mappings/active"
+          },
+          "docs": "Get the cross reference of all the current assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided "
+        },
+        {
+          "info": {
+            "name": "Historical Asset Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/entities/assets/mappings/inactive"
+          },
+          "docs": "Get the cross reference of all the historical assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provid"
+        },
+        {
+          "info": {
+            "name": "Newly Added Asset Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/entities/assets/mappings/added"
+          },
+          "docs": "Get the cross reference of all the assets listed by an entity the previous day mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) pro"
+        },
+        {
+          "info": {
+            "name": "Newly Deleted Asset Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/entities/assets/mappings/deleted"
+          },
+          "docs": "Get the cross reference of all the assets delisted by an entity the previous day mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) p"
+        },
+        {
+          "info": {
+            "name": "Active Pair Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/entities/pairs/mappings/active"
+          },
+          "docs": "Get the cross reference of all the current pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n"
+        },
+        {
+          "info": {
+            "name": "Historical Pair Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/entities/pairs/mappings/inactive"
+          },
+          "docs": "Get the cross reference of all the historical pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entit"
+        },
+        {
+          "info": {
+            "name": "Newly Added Pair Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/entities/pairs/mappings/added"
+          },
+          "docs": "Get the cross reference of all the pairs listed by an entity the previous day mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source en"
+        },
+        {
+          "info": {
+            "name": "Newly Deleted Pair Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lukka.tech/refdata/v1/entities/pairs/mappings/deleted"
+          },
+          "docs": "Get the cross reference of all the pairs delisted by an entity the previous day mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

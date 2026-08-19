@@ -1,0 +1,186 @@
+openapi: 3.2.0
+info:
+  title: Lukka Reference Data Reference Data - Marketplace Terms and Conditions API
+  version: 1.0.0
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-refdata-api.lukka.tech
+  description: Lukka production (data-refdata-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Reference Data - Marketplace Terms and Conditions
+paths:
+  /v2/lukka/markets:
+    get:
+      operationId: allMarketplaces
+      summary: All Marketplaces
+      tags:
+      - Reference Data - Marketplace Terms and Conditions
+      description: "Get a list of all known markets within Lukka that apply to Lukka Marketplace Reference Data (\"LMPRD\")\n\n Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a marketplace.\n\n Marketplaces that are eligible to be tracked within the Lukka Marketplace Reference Data are trading venues where transactions in cryptocurrencies take place. Such transactions include venues where cryptocurrencies, or derivatives of those cryptocurrencies, can be bought, sold, lent, borrowed or swapped for other cryptocurrencies or fiat currencies. Venue types include, but are not limited to: Centralized Exchanges, Decentralized Exchanges, Exchange Aggregators or Relayers, Lending Platforms, Over-The-Counter Desks or Brokers.\n\n Response Details \n\n Data Type Description name STRING Lukka's long name for the entity"
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '10'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      - name: expandDetails
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '[ALL]'
+      responses:
+        '200':
+          description: All Marketplaces
+          content:
+            application/json:
+              example:
+                size: 50
+                links:
+                  base: /v2/lukka/markets
+                  next: /v2/lukka/markets?limit=50&offset=50
+                  prev: null
+                limit: 50
+                offset: 0
+                data:
+                - lukkaEntityCode: OTCBTC
+                  lukkaMarketId: LM6KWXUJ1B4
+                - lukkaEntityCode: BINJESY
+                  lukkaMarketId: LM0SEGHU2Q3
+                - lukkaEntityCode: CEGG
+                  lukkaMarketId: LM83ZGSS762
+                - lukkaEntityCode: BBXEX
+                  lukkaMarketId: LM3E8XM3MN5
+                - lukkaEntityCode: HERMSUS
+                  lukkaMarketId: LM6RU6C05Y6
+                - lukkaEntityCode: BULLISH
+                  lukkaMarketId: LM0JWQWJ4G2
+                - lukkaEntityCode: BITT
+                  lukkaMarketId: LM4VG9ELVW6
+                - lukkaEntityCode: NLEXCH
+                  lukkaMarketId: LM6Y28K4XN4
+                - lukkaEntityCode: ITBT
+                  lukkaMarketId: LM561VU33S5
+                - lukkaEntityCode: FCOIN
+                  lukkaMarketId: LM4X5RK5X35
+                - lukkaEntityCode: HADAX
+                  lukkaMarketId: LM4RW16EZ49
+                - lukkaEntityCode: CNLSTPR
+                  lukkaMarketId: LM1JMDLEU40
+                - lukkaEntityCode: BITVAVO
+                  lukkaMarketId: LM8Z1HXM5V6
+                - lukkaEntityCode: ABUC
+                  lukkaMarketId: LM3MD420FN6
+                - lukkaEntityCode: BGRL
+                  lukkaMarketId: LM8XS63VM43
+                - lukkaEntityCode: NERAEX
+                  lukkaMarketId: LM6B43QEGC2
+                - lukkaEntityCode: ZBCM
+                  lukkaMarketId: LM7M91D4TP5
+                - lukkaEntityCode: WEXX
+                  lukkaMarketId: LM8FGEG06T7
+                - lukkaEntityCode: GOKUMKT
+                  lukkaMarketId: LM2PSGBUYN7
+                - lukkaEntityCode: CONE
+                  lukkaMarketId: LM0341GVFQ8
+                - lukkaEntityCode: CYPBULZ
+                  lukkaMarketId: LM2C2TVC2Y5
+                - lukkaEntityCode: BITWELL
+                  lukkaMarketId: LM5RN0Q55V9
+                - lukkaEntityCode: KYPTMT
+                  lukkaMarketId: LM4CBXECYW1
+                - lukkaEntityCode: KRPTARNA
+                  lukkaMarketId: LM4M6F0WKD3
+                - lukkaEntityCode: CFLR
+                  lukkaMarketId: LM5PAQPJZH3
+                - lukkaEntityCode: ALTMKTS
+                  lukkaMarketId: LM5N2XDUH53
+                - lukkaEntityCode: BANKCEX
+                  lukkaMarketId: LM2ATKF40K7
+                - lukkaEntityCode: BAKKT
+                  lukkaMarketId: LM0JDY7QX95
+                - lukkaEntityCode: BBAY
+                  lukkaMarketId: LM7KWVVGYU2
+                - lukkaEntityCode: STHEXE
+                  lukkaMarketId: LM4A1CEPLA1
+                - lukkaEntityCode: EXNOMY
+                  lukkaMarketId: LM27739BDX4
+                - lukkaEntityCode: BITHESAP
+                  lukkaMarketId: LM4S7Q4EAG3
+                - lukkaEntityCode: BTHMGX
+                  lukkaMarketId: LM6GPZH6383
+                - lukkaEntityCode: BTCT
+                  lukkaMarketId: LM4UETF0YJ5
+                - lukkaEntityCode: COSS
+                  lukkaMarketId: LM0RTU134T9
+                - lukkaEntityCode: KORDEX
+                  lukkaMarketId: LM5D4KKRJ01
+                - lukkaEntityCode: XTECX
+                  lukkaMarketId: LM1F4JU1HX9
+                - lukkaEntityCode: BBNK
+                  lukkaMarketId: LM4C7SXCU78
+                - lukkaEntityCode: CNEX
+                  lukkaMarketId: LM8QRGYNBE5
+                - lukkaEntityCode: BITFRONT
+                  lukkaMarketId: LM4FSAWZU57
+                - lukkaEntityCode: BITKUB
+                  lukkaMarketId: LM0DMUBWE44
+                - lukkaEntityCode: HUOBINDO
+                  lukkaMarketId: LM6ZQR3MBT2
+                - lukkaEntityCode: HBTC
+                  lukkaMarketId: LM4AWB221V1
+                - lukkaEntityCode: MERC
+                  lukkaMarketId: LM8SGQU33P4
+                - lukkaEntityCode: BTSO
+                  lukkaMarketId: LM3146MJD51
+                - lukkaEntityCode: RKNGKUEX
+                  lukkaMarketId: LM7AAT6QAC4
+                - lukkaEntityCode: ALTERDICE
+                  lukkaMarketId: LM2G40NBST1
+                - lukkaEntityCode: DIGI
+                  lukkaMarketId: LM2UWAB7LZ8
+                - lukkaEntityCode: BTPNDPR
+                  lukkaMarketId: LM5C53NT8J9
+                - lukkaEntityCode: DEXTRADE
+                  lukkaMarketId: LM1NVY7MQ93
+  /v2/lukka/markets/LM47PH5UBV0:
+    get:
+      operationId: aMarketplaceAndItsDetails
+      summary: A Marketplace and its Details
+      tags:
+      - Reference Data - Marketplace Terms and Conditions
+      description: "Get all known details for a given Lukka Marketplace Identifier from the Lukka Marketplace Reference Data (\"LMPRD\") Product\n\n Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a marketplace.\n\n Marketplaces that are eligible to be tracked within the Lukka Marketplace Reference Data are trading venues where transactions in cryptocurrencies take place. Such transactions include venues where cryptocurrencies, or derivatives of those cryptocurrencies, can be bought, sold, lent, borrowed or swapped for other cryptocurrencies or fiat currencies. Venue types include, but are not limited to: Centralized Exchanges, Decentralized Exchanges, Exchange Aggregators or Relayers, Lending Platforms, Over-The-Counter Desks or Brokers.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity"
+      responses:
+        '200':
+          description: A Market and its Details
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

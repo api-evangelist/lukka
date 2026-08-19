@@ -1,0 +1,77 @@
+openapi: 3.2.0
+info:
+  title: Lukka Pricing & Market Data Pricing - Legacy Versions API
+  version: 1.0.0
+  description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-pricing-api.lukka.tech
+  description: Lukka production (data-pricing-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Pricing - Legacy Versions
+paths:
+  /v1/pricing/sources/4002:
+    get:
+      operationId: availableSources
+      summary: Available Sources
+      tags:
+      - Pricing - Legacy Versions
+      description: 'Description: Gets all configured sources for the client. An array of pricing sources available (based on API keys permissions) will be returned by this endpoint.'
+      responses:
+        '200':
+          description: Available Sources
+          content:
+            application/json:
+              example:
+              - sourceId: 4001
+                sourceName: Kraken
+              - sourceId: 4002
+                sourceName: Coinbase
+              - sourceId: 4005
+                sourceName: Binance
+              - sourceId: 4006
+                sourceName: Bitflyer
+              - sourceId: 4008
+                sourceName: Gemini
+              - sourceId: 1000
+                sourceName: EOD Prices
+              - sourceId: 2000
+                sourceName: Intraday Prices
+              - sourceId: 3000
+                sourceName: Hourly Prices
+  /v1/pricing/sources/3000:
+    get:
+      operationId: sourceDetails
+      summary: Source Details
+      tags:
+      - Pricing - Legacy Versions
+      description: 'Description: Get the details for the given pricing source.
+
+        Each source object will contain an array of pairs that it supports.'
+      responses:
+        '200':
+          description: Source Details
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

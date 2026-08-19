@@ -1,0 +1,895 @@
+{
+  "item": [
+    {
+      "id": "a5f2e433-84b1-4f41-b9ef-7f3f6436d53f",
+      "name": "Reference Data (Deprecated)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48b005e1-e70b-4fad-9591-aa5d7fad574e",
+          "name": "All Lukka Assets",
+          "request": {
+            "name": "All Lukka Assets",
+            "description": {
+              "content": "Get a list of all the Lukka normalized assets with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n lukkaId \n STRING \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n STRING \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n STRING \n Lukka's long name for the asset \n \n \n whitepaperCode \n STRING \n Ticker of the crypto asset found in the primary source \n \n \n assetType \n STRING \n Type of crypto asset such as coin, token, stablecoin, etc. \n \n \n totalSupply \n STRING \n Total supply of assets that can enter circulation \n \n \n cuirculatingSupply \n STRING \n Assets active and currently in circulation \n \n \n supplyUpdateTime \n DATE \n Time when the circulating supply was updated \n \n \n assetWebsite \n STRING \n Official website of the asset or primary source of asset information \n \n \n blockchain \n STRING \n Blockchain on which the asset resides \n \n \n contractAddress \n STRING \n The address of the contract of an asset in its respective blockchain",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "860bdb04-9467-4059-8b10-b5467801e305",
+              "name": "All Lukka Assets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "7527"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"lukkaId\": \"LA6EV2NKQ95\",\n      \"lukkaAssetCode\": \"XBT\",\n      \"lukkaAssetName\": \"Bitcoin\",\n      \"whitepaperCode\": \"BTC\",\n      \"assetType\": \"coin\",\n      \"totalSupply\": 21000000,\n      \"circulatingSupply\": 18702306,\n      \"supplyUpdateTime\": \"2021-05-07T11:16:29.259Z\",\n      \"assetWebsite\": \"https://bitcoin.org/en/\",\n      \"blockchain\": \"Blockchain\",\n      \"contractAddress\": null,\n      \"lukkaAssetInternalId\": 10007\n    },\n    {\n      \"lukkaId\": \"LA8VRAGEMT1\",\n      \"lukkaAssetCode\": \"ETH\",\n      \"lukkaAssetName\": \"Ether\",\n      \"whitepaperCode\": \"ETH\",\n      \"assetType\": \"coin\",\n      \"totalSupply\": null,\n      \"circulatingSupply\": 115773579,\n      \"supplyUpdateTime\": \"2021-05-07T11:16:29.26Z\",\n      \"assetWebsite\": \"https://www.ethereum.org/\",\n      \"blockchain\": \"Ethereum\",\n      \"contractAddress\": null,\n      \"lukkaAssetInternalId\": 10029\n    },\n    {\n      \"lukkaId\": \"LA58RADHS00\",\n      \"lukkaAssetCode\": \"XLT\",\n      \"lukkaAssetName\": \"Litecoin\",\n      \"whitepaperCode\": \"LTC\",\n      \"assetType\": \"coin\",\n      \"totalSupply\": 84000000,\n      \"circulatingSupply\": 66752414,\n      \"supplyUpdateTime\": \"2021-03-29T10:36:23.081Z\",\n      \"assetWebsite\": \"https://litecoin.org/\",\n      \"blockchain\": \"Litecoin\",\n      \"contractAddress\": null,\n      \"lukkaAssetInternalId\": 10043\n    },\n    {\n      \"lukkaId\": \"LA176YWNB05\",\n      \"lukkaAssetCode\": \"USDT\",\n      \"lukkaAssetName\": \"Tether ERC20\",\n      \"whitepaperCode\": \"USDT\",\n      \"assetType\": \"stable coin\",\n      \"totalSupply\": 53740188339,\n      \"circulatingSupply\": 54869185682,\n      \"supplyUpdateTime\": \"2021-05-07T11:16:29.261Z\",\n      \"assetWebsite\": \"https://tether.to/\",\n      \"blockchain\": \"ERC20\",\n      \"contractAddress\": null,\n      \"lukkaAssetInternalId\": 10058\n    },\n    {\n      \"lukkaId\": \"LA46AZCHRX1\",\n      \"lukkaAssetCode\": \"BRY1\",\n      \"lukkaAssetName\": \"Berry Data\",\n      \"whitepaperCode\": \"BRY\",\n      \"assetType\": \"token\",\n      \"totalSupply\": 7797868,\n      \"circulatingSupply\": 2875000,\n      \"supplyUpdateTime\": \"2021-05-07T11:16:29.475Z\",\n      \"assetWebsite\": \"https://berrydata.co/\",\n      \"blockchain\": null,\n      \"contractAddress\": \"0xf859Bf77cBe8699013d6Dbc7C2b926Aaf307F830\",\n      \"lukkaAssetInternalId\": 17398\n    },\n    {\n      \"lukkaId\": \"LA10Q21P3Q6\",\n      \"lukkaAssetCode\": \"SMO\",\n      \"lukkaAssetName\": \"Sun Money Token\",\n      \"whitepaperCode\": \"SMT\",\n      \"assetType\": \"token\",\n      \"totalSupply\": null,\n      \"circulatingSupply\": null,\n      \"supplyUpdateTime\": null,\n      \"assetWebsite\": \"https://sunmoney.com/en/\",\n      \"blockchain\": \"ERC20\",\n      \"contractAddress\": \"0xc761c8dc05ae52a8a785665e528ddbb00c098ad1\",\n      \"lukkaAssetInternalId\": 12683\n    },\n    {\n      \"lukkaId\": \"LA4ZXXX0ES8\",\n      \"lukkaAssetCode\": \"SMH\",\n      \"lukkaAssetName\": \"Smathium\",\n      \"whitepaperCode\": \"SMT\",\n      \"assetType\": null,\n      \"totalSupply\": null,\n      \"circulatingSupply\": null,\n      \"supplyUpdateTime\": null,\n      \"assetWebsite\": \"https://smathium.io/\",\n      \"blockchain\": null,\n      \"contractAddress\": \"0x4B4787AAce23Eb70Da046bCC0CcFE28D4e4fB899\",\n      \"lukkaAssetInternalId\": 13169\n    },\n    {\n      \"lukkaId\": \"LA3FUC7XS35\",\n      \"lukkaAssetCode\": \"SMT\",\n      \"lukkaAssetName\": \"SmartMesh\",\n      \"whitepaperCode\": \"SMT\",\n      \"assetType\": \"token\",\n      \"totalSupply\": 3141592653,\n      \"circulatingSupply\": 1665044106,\n      \"supplyUpdateTime\": \"2021-03-16T10:07:20.363Z\",\n      \"assetWebsite\": \"https://smartmesh.io/\",\n      \"blockchain\": \"ERC20\",\n      \"contractAddress\": \"0x55f93985431fc9304077687a35a1ba103dc1e081\",\n      \"lukkaAssetInternalId\": 11684\n    }\n  ],\n  \"limit\": 1000,\n  \"offset\": 7527,\n  \"size\": 971,\n  \"links\": {\n    \"base\": \"/v1/lukka/assets\",\n    \"next\": null,\n    \"prev\": \"/v1/lukka/assets?limit=1000&offset=6556\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a78b524-c781-467d-9492-cf1944f5a89c",
+          "name": "A Lukka Asset",
+          "request": {
+            "name": "A Lukka Asset",
+            "description": {
+              "content": "Get a Lukka normalized asset by its Lukka ID.\n\n Parameters \n\n \n \n \n Field Name \n Mandatory \n \n \n lukkaId \n YES \n \n \n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n lukkaId \n STRING \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n STRING \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n STRING \n Lukka's long name for the asset \n \n \n whitepaperCode \n STRING \n Ticker of the crypto asset found in the primary source \n \n \n assetType \n STRING \n Type of crypto asset such as coin, token, stablecoin, etc. \n \n \n totalSupply \n STRING \n Total supply of assets that can enter circulation \n \n \n cuirculatingSupply \n STRING \n Assets active and currently in circulation \n \n \n supplyUpdateTime \n DATE \n Time when the circulating supply was updated \n \n \n assetWebsite \n STRING \n Official website of the asset or primary source of asset information \n \n \n blockchain \n STRING \n Blockchain on which the asset resides \n \n \n contractAddress \n STRING \n The address of the contract of an asset in its respective blockchain",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "assets",
+                "LA4QVLA9QE0"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da04d14c-45d7-4c10-95ee-68e738d748d4",
+              "name": "A Lukka Asset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "assets",
+                    "LA4QVLA9QE0"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lukkaId\": \"LA4QVLA9QE0\",\n  \"lukkaAssetCode\": \"PAX\",\n  \"lukkaAssetName\": \"Paxos Standard Token\",\n  \"whitepaperCode\": \"PAX\",\n  \"assetType\": \"stable coin\",\n  \"totalSupply\": 1212563073,\n  \"circulatingSupply\": 1212563073,\n  \"supplyUpdateTime\": \"2021-05-07T11:16:29.278Z\",\n  \"assetWebsite\": \"https://www.paxos.com/pax/\",\n  \"blockchain\": \"ERC20\",\n  \"contractAddress\": \"0x8E870D67F660D95d5be530380D0eC0bd388289E1\",\n  \"lukkaAssetInternalId\": 12410\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb52cbd3-84c6-460d-808a-82a6d5457ac4",
+          "name": "All Lukka Entities",
+          "request": {
+            "name": "All Lukka Entities",
+            "description": {
+              "content": "Get a list of all the Lukka entities with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n name \n STRING \n Lukka's long name for the entity \n \n \n lukkaEntityCode \n STRING \n Unique Lukka code for the source entity \n \n \n type \n STRING \n The main function of the entity in the crypto ecosystem \n \n \n jurisdiction \n STRING \n The location of the entity where it is registered \n \n \n status \n STRING \n Indicates if the entity is still operational in the crypto ecosystem \n \n \n url \n STRING \n Official website of the entity \n \n \n startTs \n DATE \n The date when the entity started operating \n \n \n endTs \n DATE \n The date when the entity stopped operating, if the entity is no longer active \n \n \n fiat \n STRING \n The fiats supported by the entity for trading \n \n \n amlKycProcess \n STRING \n Indicates if the entity has an AML/KYC process when onboarding customers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "entities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84f16568-0bdd-46a5-8ab8-a15d39b4351b",
+              "name": "All Lukka Entities",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"Kraken\",\n      \"lukkaEntityCode\": \"KRAK\",\n      \"type\": \"exchange\",\n      \"jurisdiction\": \"USA\",\n      \"status\": \"active\",\n      \"url\": \"https://www.kraken.com\",\n      \"startTs\": \"2011-04-03 00:00:00\",\n      \"endTs\": null,\n      \"fiat\": [\n        \"USD\",\n        \"EUR\",\n        \"GBP\",\n        \"JPY\",\n        \"CAD\"\n      ],\n      \"amlKycProcess\": \"y\"\n    },\n    {\n      \"name\": \"Bithumb\",\n      \"lukkaEntityCode\": \"BTHM\",\n      \"type\": \"exchange\",\n      \"jurisdiction\": \"South Korea\",\n      \"status\": \"active\",\n      \"url\": \"https://www.bithumb.com/\",\n      \"startTs\": \"2015-06-16 00:00:00\",\n      \"endTs\": null,\n      \"fiat\": [\n        \"KRW\"\n      ],\n      \"amlKycProcess\": null\n    },\n    {\n      \"name\": \"Liqui\",\n      \"lukkaEntityCode\": \"LIQU\",\n      \"type\": \"exchange\",\n      \"jurisdiction\": \"Ukraine\",\n      \"status\": \"inactive\",\n      \"url\": \"https://liqui.io/\",\n      \"startTs\": \"2017-04-26 00:00:00\",\n      \"endTs\": \"2019-01-28 00:00:00\",\n      \"fiat\": [],\n      \"amlKycProcess\": \"y\"\n    },\n    {\n      \"name\": \"CoinMarketCap\",\n      \"lukkaEntityCode\": \"CMCP\",\n      \"type\": \"pricing service\",\n      \"jurisdiction\": \"USA\",\n      \"status\": \"active\",\n      \"url\": \"https://coinmarketcap.com/\",\n      \"startTs\": \"2013-06-01 00:00:00\",\n      \"endTs\": null,\n      \"fiat\": [],\n      \"amlKycProcess\": null\n    }\n  ],\n  \"limit\": 4,\n  \"offset\": 0,\n  \"size\": 4,\n  \"links\": {\n    \"base\": \"/v1/lukka/entities\",\n    \"next\": \"/v1/lukka/entities?limit=4&offset=4\",\n    \"prev\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbbe47ad-a0ed-4d0d-a738-66c54469eacc",
+          "name": "An Entity",
+          "request": {
+            "name": "An Entity",
+            "description": {
+              "content": "Get an entity by its Lukka Entity Code.\n\n Parameters \n\n \n \n \n Field Name \n Mandatory \n \n \n lukkaEntityCode \n YES \n \n \n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n name \n STRING \n Lukka's long name for the entity \n \n \n lukkaEntityCode \n STRING \n Unique Lukka code for the source entity \n \n \n type \n STRING \n The main function of the entity in the crypto ecosystem \n \n \n jurisdiction \n STRING \n The location of the entity where it is registered \n \n \n status \n STRING \n Indicates if the entity is still operational in the crypto ecosystem \n \n \n url \n STRING \n Official website of the entity \n \n \n startTs \n DATE \n The date when the entity started operating \n \n \n endTs \n DATE \n The date when the entity stopped operating, if the entity is no longer active \n \n \n fiat \n STRING \n The fiats supported by the entity for trading \n \n \n amlKycProcess \n STRING \n Indicates if the entity has an AML/KYC process when onboarding customers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "entities",
+                "BINA"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e279559-e41b-49bf-9858-6df62ab55068",
+              "name": "An Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "entities",
+                    "BINA"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Exmo\",\n  \"lukkaEntityCode\": \"EXMO\",\n  \"type\": \"Exchange\",\n  \"jurisdiction\": \"UK\",\n  \"status\": \"Active\",\n  \"url\": \"https://exmo.com/\",\n  \"startTs\": \"2013-09-18T00:00:00Z\",\n  \"endTs\": null,\n  \"fiat\": [\n    \"USD\",\n    \"EUR\",\n    \"RUB\",\n    \"UAH\",\n    \"PLN\",\n    \"TRY\"\n  ],\n  \"amlKycProcess\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f46b968-02fb-4b3b-be3f-8528fc74cf7a",
+          "name": "Lukka Asset Mappings",
+          "request": {
+            "name": "Lukka Asset Mappings",
+            "description": {
+              "content": "Get the cross reference of all the assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityAssetCode \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entityAssetName \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entityAssetInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entityWithdrawalFeeAssetCode \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entityWithdrawalFeeAmount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entityWithdrawalFeeType \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukkaAssetId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "ref-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "entityCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityAssetCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c7b1c52-c481-48c7-97b0-704f1d8c9804",
+              "name": "Lukka Asset Mappings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "ref-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entityCode",
+                      "value": "KRAK"
+                    },
+                    {
+                      "key": "entityAssetCode",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"entityName\": \"Bibox\",\n      \"entityCode\": \"BIBO\",\n      \"entityType\": \"Exchange\",\n      \"entityAssetCode\": \"BIX\",\n      \"entityAssetName\": \"BIX Token\",\n      \"entityAssetInternalId\": null,\n      \"entityWithdrawalFeeAssetCode\": \"BIX\",\n      \"entityWithdrawalFeeAmount\": 12,\n      \"entityWithdrawalFeeType\": \"Unit\",\n      \"lukkaAssetId\": \"LA52E52WCD9\",\n      \"lukkaAssetCode\": \"BIX\",\n      \"lukkaAssetName\": \"Bibox Token\",\n      \"lukkaAssetInternalId\": 11234,\n      \"startTime\": \"2019-09-13T14:15:46.149Z\",\n      \"endTime\": null\n    },\n    {\n      \"entityName\": \"Bibox\",\n      \"entityCode\": \"BIBO\",\n      \"entityType\": \"Exchange\",\n      \"entityAssetCode\": \"ETH\",\n      \"entityAssetName\": \"Ethereum\",\n      \"entityAssetInternalId\": null,\n      \"entityWithdrawalFeeAssetCode\": \"ETH\",\n      \"entityWithdrawalFeeAmount\": 0.009,\n      \"entityWithdrawalFeeType\": \"Unit\",\n      \"lukkaAssetId\": \"LA8VRAGEMT1\",\n      \"lukkaAssetCode\": \"ETH\",\n      \"lukkaAssetName\": \"Ether\",\n      \"lukkaAssetInternalId\": 10029,\n      \"startTime\": \"2019-09-12T21:44:43.999Z\",\n      \"endTime\": null\n    }\n  ],\n  \"limit\": 100,\n  \"offset\": 0,\n  \"size\": 100,\n  \"links\": {\n    \"base\": \"/v1/lukka/ref-assets\",\n    \"next\": \"/v1/lukka/ref-assets?entityCode=BIBO&limit=100&offset=100\",\n    \"prev\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f48abf39-c45b-4327-b039-3067e3eaa686",
+          "name": "Lukka Pair Mappings",
+          "request": {
+            "name": "Lukka Pair Mappings",
+            "description": {
+              "content": "Get the cross reference of all the pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityPairCode \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entityAssetOneCode \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entityAssetOneName \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entityAssetOneInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entityAssetTwoCode \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entityAssetTwoName \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entityAssetTwoInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entityPricePrecision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entityQuantityPrecision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entityMinimumTickSize \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entityMinimumTradeQuantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entityTradeFeeAssetCode \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entityTradeFeeAmount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entityTradeFeeType \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukkaPairCode \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukkaAssetOneId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetOneCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukkaAssetOneName \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukkaAssetTwoId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetTwoCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukkaAssetTwoName \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the tim",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "ref-pairs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lukkaCounterAssetCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2b058a5-e1d9-4edd-b399-5eea630e540c",
+              "name": "Lukka Pair Mappings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "ref-pairs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lukkaCounterAssetCode",
+                      "value": "ETH"
+                    },
+                    {
+                      "key": "entityCode",
+                      "value": "KUCO"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"entityName\": \"Binance\",\n      \"entityCode\": \"BINA\",\n      \"entityType\": \"Exchange\",\n      \"entityPairCode\": \"ETHBTC\",\n      \"entityAssetOneCode\": \"ETH\",\n      \"entityAssetOneName\": \"Ethereum\",\n      \"entityAssetTwoCode\": \"BTC\",\n      \"entityAssetOneInternalId\": null,\n      \"entityAssetTwoName\": \"Bitcoin\",\n      \"lukkaPairCode\": \"ETH-XBT\",\n      \"lukkaPairInternalId\": 116139,\n      \"entityAssetTwoInternalId\": null,\n      \"entityPricePrecision\": 8,\n      \"entityQuantityPrecision\": 8,\n      \"entityMinimumTickSize\": 0,\n      \"entityMinimumTradeQuantity\": 0,\n      \"entityTradeFeeAssetCode\": \"BTC\",\n      \"entityTradeFeeAmount\": 0.1,\n      \"entityTradeFeeType\": \"Percent\",\n      \"lukkaAssetOneId\": \"LA8VRAGEMT1\",\n      \"lukkaAssetOneInternalId\": 10029,\n      \"lukkaAssetOneCode\": \"ETH\",\n      \"lukkaAssetOneName\": \"Ether\",\n      \"lukkaAssetTwoId\": \"LA6EV2NKQ95\",\n      \"lukkaAssetTwoInternalId\": 10007,\n      \"lukkaAssetTwoCode\": \"XBT\",\n      \"lukkaAssetTwoName\": \"Bitcoin\",\n      \"isReversed\": false,\n      \"startTime\": \"2018-05-03T00:57:49.356Z\",\n      \"endTime\": \"2021-04-25T10:49:46.889Z\"\n    },\n    {\n      \"entityName\": \"Binance\",\n      \"entityCode\": \"BINA\",\n      \"entityType\": \"Exchange\",\n      \"entityPairCode\": \"LTCBTC\",\n      \"entityAssetOneCode\": \"LTC\",\n      \"entityAssetOneName\": \"Litecoin\",\n      \"entityAssetTwoCode\": \"BTC\",\n      \"entityAssetOneInternalId\": null,\n      \"entityAssetTwoName\": \"Bitcoin\",\n      \"lukkaPairCode\": \"XLT-XBT\",\n      \"lukkaPairInternalId\": 114677,\n      \"entityAssetTwoInternalId\": null,\n      \"entityPricePrecision\": 8,\n      \"entityQuantityPrecision\": 8,\n      \"entityMinimumTickSize\": 0,\n      \"entityMinimumTradeQuantity\": 0,\n      \"entityTradeFeeAssetCode\": \"BTC\",\n      \"entityTradeFeeAmount\": 0.1,\n      \"entityTradeFeeType\": \"Percent\",\n      \"lukkaAssetOneId\": \"LA58RADHS00\",\n      \"lukkaAssetOneInternalId\": 10043,\n      \"lukkaAssetOneCode\": \"XLT\",\n      \"lukkaAssetOneName\": \"Litecoin\",\n      \"lukkaAssetTwoId\": \"LA6EV2NKQ95\",\n      \"lukkaAssetTwoInternalId\": 10007,\n      \"lukkaAssetTwoCode\": \"XBT\",\n      \"lukkaAssetTwoName\": \"Bitcoin\",\n      \"isReversed\": false,\n      \"startTime\": \"2018-05-03T00:57:49.356Z\",\n      \"endTime\": \"2021-04-25T10:49:46.859Z\"\n    },\n    {\n      \"entityName\": \"Binance\",\n      \"entityCode\": \"BINA\",\n      \"entityType\": \"Exchange\",\n      \"entityPairCode\": \"BNBBTC\",\n      \"entityAssetOneCode\": \"BNB\",\n      \"entityAssetOneName\": \"Binance Coin\",\n      \"entityAssetTwoCode\": \"BTC\",\n      \"entityAssetOneInternalId\": null,\n      \"entityAssetTwoName\": \"Bitcoin\",\n      \"lukkaPairCode\": \"BNB-XBT\",\n      \"lukkaPairInternalId\": 117575,\n      \"entityAssetTwoInternalId\": null,\n      \"entityPricePrecision\": 8,\n      \"entityQuantityPrecision\": 8,\n      \"entityMinimumTickSize\": 0,\n      \"entityMinimumTradeQuantity\": 0,\n      \"entityTradeFeeAssetCode\": \"BTC\",\n      \"entityTradeFeeAmount\": 0,\n      \"entityTradeFeeType\": \"Unit\",\n      \"lukkaAssetOneId\": \"LA6QAR0HMW5\",\n      \"lukkaAssetOneInternalId\": 10184,\n      \"lukkaAssetOneCode\": \"BNB\",\n      \"lukkaAssetOneName\": \"Binance Coin\",\n      \"lukkaAssetTwoId\": \"LA6EV2NKQ95\",\n      \"lukkaAssetTwoInternalId\": 10007,\n      \"lukkaAssetTwoCode\": \"XBT\",\n      \"lukkaAssetTwoName\": \"Bitcoin\",\n      \"isReversed\": false,\n      \"startTime\": \"2018-07-17T21:54:32.537Z\",\n      \"endTime\": \"2019-09-19T08:01:51.831Z\"\n    }\n  ],\n  \"limit\": 100,\n  \"offset\": 0,\n  \"size\": 100,\n  \"links\": {\n    \"base\": \"/v1/lukka/ref-pairs\",\n    \"next\": \"/v1/lukka/ref-pairs?includeDeleted=true&entityCode=BINA&limit=100&offset=100\",\n    \"prev\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d5c139f-e8bc-4e9b-ad0c-13ab8da31623",
+          "name": "Lukka Derivative Mappings",
+          "request": {
+            "name": "Lukka Derivative Mappings",
+            "description": {
+              "content": "Get the list of all the contracts supported by an entity.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityDerivativeCode \n CHARACTER \n 256 \n Code used by the source entity to uniquely identify the contract \n \n \n entityDerivativeName \n CHARACTER \n 256 \n Additional descriptive information provided by the source entity \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the derivative contract was listed by the source entity \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) for the expiration date of the contract provided by the source entity \n \n \n settlementTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) for the settlement time of the contract provided by the source entity \n \n \n instrumentType \n CHARACTER \n 256 \n Type of contract classified by the source entity \n \n \n instrumentSubtype \n CHARACTER \n 256 \n Additional information on the type of contract \n \n \n multiplier \n NUMERIC \n \n Value of one point of quoted price in quote currency for one contract. Contract size in futures trading is the amount of underlying asset represented by each futures contract \n \n \n strike \n NUMERIC \n \n Price at which the put or call option can be exercised \n \n \n entitySettleAssetCode \n CHARACTER \n 256 \n The asset in which a contract is settled \n \n \n entityUnderlyingAssetCode \n CHARACTER \n 256 \n The asset making up the contract and upon which the price is based \n \n \n entityQuoteAssetCode \n CHARACTER \n 256 \n The asset by which a contract is valued \n \n \n underlyingSymbol \n CHARACTER \n 256 \n Source entity-specific information such as underlying index, descriptive data, unique identifiers, etc. \n \n \n lukkaDerivativeId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto contract. Please refer to the Lukka ID document for more information \n \n \n lukkaSettleAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the settle asset. Please refer to the Lukka ID document for more information \n \n \n lukkaUnderlyingAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the underlying asset. Please refer to the Lukka ID document for more information \n \n \n lukkaQuoteAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the quote asset. Please refer to the Lukka ID document for more information",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "ref-derivatives"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeDeleted",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbf83553-4b79-44bc-823c-1cf018d7c4e9",
+              "name": "Lukka Derivative Mappings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "ref-derivatives"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeDeleted",
+                      "value": "true"
+                    },
+                    {
+                      "key": "entityCode",
+                      "value": "OKEX"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"entityName\": \"OKEx\",\n      \"entityCode\": \"OKEX\",\n      \"entityType\": \"Exchange\",\n      \"entityDerivativeCode\": \"BTC-USD-190712\",\n      \"entityDerivativeName\": \"BTC-USD-190712\",\n      \"startTime\": \"2019-06-28T00:00:00Z\",\n      \"endTime\": \"2019-07-12T00:00:00Z\",\n      \"settlementTime\": null,\n      \"instrumentType\": \"FUTURE\",\n      \"instrumentSubtype\": \"NEXT_WEEK\",\n      \"multiplier\": 100,\n      \"entitySettleAsset\": null,\n      \"entityUnderlyingAsset\": \"BTC\",\n      \"entityQuoteAsset\": \"USD\",\n      \"underlyingSymbol\": null,\n      \"lukkaId\": null,\n      \"lukkaSettleAsset\": null,\n      \"lukkaUnderlyingAsset\": \"XBT\",\n      \"lukkaQuoteAsset\": null,\n      \"lukkaDerivativeInternalId\": 1000000022475,\n      \"lukkaUnderlyingAssetInternalId\": 10007,\n      \"lukkaSettleAssetInternalId\": null,\n      \"lukkaQuoteAssetInternalId\": null\n    },\n    {\n      \"entityName\": \"OKEx\",\n      \"entityCode\": \"OKEX\",\n      \"entityType\": \"Exchange\",\n      \"entityDerivativeCode\": \"LTC-USD-190712\",\n      \"entityDerivativeName\": \"LTC-USD-190712\",\n      \"startTime\": \"2019-06-28T00:00:00Z\",\n      \"endTime\": \"2019-07-12T00:00:00Z\",\n      \"settlementTime\": null,\n      \"instrumentType\": \"FUTURE\",\n      \"instrumentSubtype\": \"NEXT_WEEK\",\n      \"multiplier\": 10,\n      \"entitySettleAsset\": null,\n      \"entityUnderlyingAsset\": \"LTC\",\n      \"entityQuoteAsset\": \"USD\",\n      \"underlyingSymbol\": null,\n      \"lukkaId\": null,\n      \"lukkaSettleAsset\": null,\n      \"lukkaUnderlyingAsset\": \"XLT\",\n      \"lukkaQuoteAsset\": null,\n      \"lukkaDerivativeInternalId\": 1000000022476,\n      \"lukkaUnderlyingAssetInternalId\": 10043,\n      \"lukkaSettleAssetInternalId\": null,\n      \"lukkaQuoteAssetInternalId\": null\n    },\n    {\n      \"entityName\": \"OKEx\",\n      \"entityCode\": \"OKEX\",\n      \"entityType\": \"Exchange\",\n      \"entityDerivativeCode\": \"ETH-USD-190712\",\n      \"entityDerivativeName\": \"ETH-USD-190712\",\n      \"startTime\": \"2019-06-28T00:00:00Z\",\n      \"endTime\": \"2019-07-12T00:00:00Z\",\n      \"settlementTime\": null,\n      \"instrumentType\": \"FUTURE\",\n      \"instrumentSubtype\": \"NEXT_WEEK\",\n      \"multiplier\": 10,\n      \"entitySettleAsset\": null,\n      \"entityUnderlyingAsset\": \"ETH\",\n      \"entityQuoteAsset\": \"USD\",\n      \"underlyingSymbol\": null,\n      \"lukkaId\": null,\n      \"lukkaSettleAsset\": null,\n      \"lukkaUnderlyingAsset\": \"ETH\",\n      \"lukkaQuoteAsset\": null,\n      \"lukkaDerivativeInternalId\": 1000000022477,\n      \"lukkaUnderlyingAssetInternalId\": 10029,\n      \"lukkaSettleAssetInternalId\": null,\n      \"lukkaQuoteAssetInternalId\": null\n    }\n  ],\n  \"limit\": 100,\n  \"offset\": 0,\n  \"size\": 100,\n  \"links\": {\n    \"base\": \"/v1/lukka/ref-derivatives\",\n    \"next\": \"/v1/lukka/ref-derivatives?entityCode=OKEX&limit=100&offset=100\",\n    \"prev\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9dabcd29-638b-4a9a-8c51-46904fc15a2c",
+          "name": "Lukka Crypto Actions",
+          "request": {
+            "name": "Lukka Crypto Actions",
+            "description": {
+              "content": "Get a list of all the crypto actions occurring on an asset.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n event \n CHARACTER \n 256 \n Type of crypto action \n \n \n eventTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the crypto action has taken place or will take place (for future events) \n \n \n oldLukkaId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset before the crypto action event. Please refer to the Lukka ID document for more information \n \n \n oldWhitepaperAssetCode \n CHARACTER \n 256 \n Ticker of the crypto asset found in the primary source before the crypto action event \n \n \n oldWhitepaperAssetName \n CHARACTER \n 256 \n Name of the crypto asset found in the primary source before the crypto action event \n \n \n oldBlockchain \n CHARACTER \n 256 \n Blockchain on which the asset resided before the crypto action event \n \n \n oldContractAddress \n CHARACTER \n 4000 \n Address of the contract of an asset in its respective blockchain before the crypto action event \n \n \n newLukkaId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset after the crypto action event. Please refer to the Lukka ID document for more information \n \n \n newWhitepaperAssetCode \n CHARACTER \n 256 \n Ticker of the crypto asset found in the primary source after the crypto action event \n \n \n newWhitepaperAssetName \n CHARACTER \n 256 \n Name of the crypto asset found in the primary source after the crypto action event \n \n \n newBlockchain \n CHARACTER \n 256 \n Blockchain on which the asset resides after the crypto action event \n \n \n newContractAddress \n CHARACTER \n 4000 \n Address of the contract of an asset in its respective blockchain after the crypto action event \n \n \n newSplitMultiplier \n NUMBER \n \n Change in the balance of the new asset after a crypto action event such as an \"Asset Swap\" has taken place \n \n \n eventDetails \n CHARACTER \n 4000 \n Additional information such as a link to the website or publication of the crypto action event",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "assets",
+                "crypto-actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventBefore",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventAfter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "event",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e06dd01a-61d2-485f-b59f-4f3f943ae781",
+              "name": "Lukka Crypto Actions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "assets",
+                    "crypto-actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "eventBefore",
+                      "value": "2020-04-29T23:40:11.924Z"
+                    },
+                    {
+                      "key": "eventAfter",
+                      "value": "2020-04-29T23:40:11.924Z"
+                    },
+                    {
+                      "key": "event",
+                      "value": "Fork"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"event\": \"Name Change\",\n      \"eventTime\": null,\n      \"oldLukkaId\": \"LA4T6QCC611\",\n      \"oldWhitepaperAssetCode\": \"BUS\",\n      \"oldWhitepaperAssetName\": \"BTU Support\",\n      \"oldBlockchain\": null,\n      \"oldContractAddress\": null,\n      \"newLukkaId\": \"LA4T6QCC611\",\n      \"newWhitepaperAssetCode\": \"BUS\",\n      \"newWhitepaperAssetName\": \"Bitcoin Unlimited Support\",\n      \"newBlockchain\": null,\n      \"newContractAddress\": null,\n      \"newSplitMultiplier\": null,\n      \"eventDetails\": null\n    },\n    {\n      \"event\": \"Asset Swap\",\n      \"eventTime\": null,\n      \"oldLukkaId\": \"LA37C925373\",\n      \"oldWhitepaperAssetCode\": \"APIS\",\n      \"oldWhitepaperAssetName\": \"APIS\",\n      \"oldBlockchain\": null,\n      \"oldContractAddress\": null,\n      \"newLukkaId\": \"LA2W3K7SNX9\",\n      \"newWhitepaperAssetCode\": \"APIX\",\n      \"newWhitepaperAssetName\": \"APIX\",\n      \"newBlockchain\": null,\n      \"newContractAddress\": null,\n      \"newSplitMultiplier\": 0.01,\n      \"eventDetails\": null\n    },\n    {\n      \"event\": \"Blockchain Migration\",\n      \"eventTime\": null,\n      \"oldLukkaId\": \"LA1BX58PPZ7\",\n      \"oldWhitepaperAssetCode\": \"MEDX\",\n      \"oldWhitepaperAssetName\": \"MediBloc\",\n      \"oldBlockchain\": \"ERC20\",\n      \"oldContractAddress\": null,\n      \"newLukkaId\": \"LA8ZWA13L82\",\n      \"newWhitepaperAssetCode\": \"MEDB\",\n      \"newWhitepaperAssetName\": \"MediBloc [Panacea]\",\n      \"newBlockchain\": \"Panacea\",\n      \"newContractAddress\": null,\n      \"newSplitMultiplier\": 0.5,\n      \"eventDetails\": null\n    },\n    {\n      \"event\": \"Hard Fork\",\n      \"eventTime\": null,\n      \"oldLukkaId\": \"LA4TKP4Q8H4\",\n      \"oldWhitepaperAssetCode\": \"DASC\",\n      \"oldWhitepaperAssetName\": \"DasCoin\",\n      \"oldBlockchain\": null,\n      \"oldContractAddress\": null,\n      \"newLukkaId\": \"LA1BUTBD5C6\",\n      \"newWhitepaperAssetCode\": \"GRP\",\n      \"newWhitepaperAssetName\": \"GreenPower\",\n      \"newBlockchain\": null,\n      \"newContractAddress\": null,\n      \"newSplitMultiplier\": null,\n      \"eventDetails\": null\n    },\n    {\n      \"event\": \"Contract Migration\",\n      \"eventTime\": null,\n      \"oldLukkaId\": \"LA47Y9PUK43\",\n      \"oldWhitepaperAssetCode\": \"YAMv2\",\n      \"oldWhitepaperAssetName\": \"YAMv2\",\n      \"oldBlockchain\": null,\n      \"oldContractAddress\": \"0xaba8cac6866b83ae4eec97dd07ed254282f6ad8a\",\n      \"newLukkaId\": \"LA3TTQUP5T9\",\n      \"newWhitepaperAssetCode\": \"YAMv3\",\n      \"newWhitepaperAssetName\": \"YAMv3\",\n      \"newBlockchain\": null,\n      \"newContractAddress\": \"0x0aacfbec6a24756c20d41914f2caba817c0d8521\",\n      \"newSplitMultiplier\": 2.5,\n      \"eventDetails\": \"https://docs.yam.finance/faq#how-does-yamv2-to-yam-migration-work\"\n    }\n  ],\n  \"limit\": 100,\n  \"offset\": 0,\n  \"size\": 100,\n  \"links\": {\n    \"base\": \"/v1/lukka/assets/crypto-actions\",\n    \"next\": \"/v1/lukka/assets/crypto-actions?event=&limit=100&offset=100\",\n    \"prev\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-refdata-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "479e0642-57ce-4618-b70e-aeb89292dbab",
+    "name": "Lukka Reference Data Reference Data (Deprecated) Reference Data (Deprecated) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

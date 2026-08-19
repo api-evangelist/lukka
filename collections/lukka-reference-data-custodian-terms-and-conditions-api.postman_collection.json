@@ -1,0 +1,218 @@
+{
+  "item": [
+    {
+      "id": "eadf5e52-a2a6-4d26-8b79-b60eb28a3d01",
+      "name": "Reference Data - Custodian Terms and Conditions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c93ab9a2-34eb-4d4e-ad44-188aabfae938",
+          "name": "All Custodians",
+          "request": {
+            "name": "All Custodians",
+            "description": {
+              "content": "Lukka Custodian Data provides information about digital asset custodians. The dataset provides its users information about the legal entities, location, applicable regulatory licenses, compliance, certifications, security provisions, operating status, successor entities and other various information about a custodian.\n\n Custodians that are eligible to be tracked within the Lukka Custodian Reference Data (“LCRD”) are custodians that provide custody services for digital assets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "custodians"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expandDetails",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8a5ffd8-5b79-4b64-af21-9b7270e8b517",
+              "name": "All Custodians",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "custodians"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expandDetails",
+                      "value": "[ALL]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 0,\n  \"limit\": 10,\n  \"size\": 10,\n  \"links\": {\n    \"base\": \"/v2/lukka/custodians\",\n    \"next\": \"/v2/lukka/custodians?limit=10&offset=10\",\n    \"prev\": null\n  },\n  \"data\": [\n    {\n      \"custodianLid\": \"LC6K8SAF5D6\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC26MFWJKP5\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC1C1K91866\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC72B7WGRF5\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC6C47UMUG7\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC14SKMDN12\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC15CZWZHC1\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC1CDKZBZ71\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC1R87EKPC9\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"custodianLid\": \"LC8D6CSYP53\",\n      \"recordStatus\": \"Active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "386718cb-106f-45a6-ae24-3aa86dd72942",
+          "name": "A Custodian and its Details",
+          "request": {
+            "name": "A Custodian and its Details",
+            "description": {
+              "content": "Lukka Custodian Data provides information about digital asset custodians. The dataset provides its users information about the legal entities, location, applicable regulatory licenses, compliance, certifications, security provisions, operating status, successor entities and other various information about a custodian.\n\n Custodians that are eligible to be tracked within the Lukka Custodian Reference Data (“LCRD”) are custodians that provide custody services for digital assets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "custodians",
+                "LC14SKMDN12"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10a9499c-5b47-4707-b5b3-9501d4b8e95a",
+              "name": "A Custodian and its Details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "custodians",
+                    "LC14SKMDN12"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"custodianLid\": \"LC0M49L1B55\",\n  \"recordStatus\": \"Active\",\n  \"custodianStatusDetails\": [\n    {\n      \"custodianStatus\": \"Active\",\n      \"custodianSubstatus\": \"Operational\",\n      \"startTs\": \"2018-08-28T00:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianNameDetails\": [\n    {\n      \"lukkaEntityCode\": \"KNGDMTST\",\n      \"lukkaCustodian\": \"Kingdom Trust\",\n      \"lukkaParentCustodianId\": \"LC0M49L1B55\",\n      \"lukkaParentCustodian\": \"Kingdom Trust\",\n      \"url\": \"https://www.kingdomtrust.com/\",\n      \"startTs\": \"2018-08-28T00:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianLocationDetails\": [\n    {\n      \"isPrimaryLocation\": true,\n      \"regionCode\": 19,\n      \"regionName\": \"Americas\",\n      \"subregionCode\": 21,\n      \"subregionName\": \"Northern America\",\n      \"intermediateRegionCode\": 985,\n      \"intermediateRegionName\": \"Northern America\",\n      \"marketCountryIso3\": \"USA\",\n      \"marketCountryTerritoryName\": \"United States\",\n      \"countryTerritoryUnClassification\": \"Developed\",\n      \"countryTerritoryUnLeastDeveloped\": false,\n      \"startTs\": \"2018-08-28T00:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianParticipantsDetails\": [\n    {\n      \"participantType\": \"Primary Venue Operator\",\n      \"lukkaLegalEntityId\": 1621,\n      \"participantLegalNameEnglish\": \"The Kingdom Trust Company\",\n      \"legalFormCode\": \"TSCROP\",\n      \"legalForm\": \"Trust Corporation\",\n      \"incorporationDate\": \"2010-12-20T00:00:00Z\",\n      \"jurisdiction\": \"South Dakota (USA)\",\n      \"jurisdictionCountryIso3\": \"USA\",\n      \"jurisdictionCountryUnClassification\": \"Developed\",\n      \"jurisdictionCountryUnLeastDeveloped\": false,\n      \"startTs\": \"2018-08-28T00:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianRegulatoryDetails\": [\n    {\n      \"licenseeLukkaLegalEntityId\": 1621,\n      \"licensee\": \"The Kingdom Trust Company\",\n      \"licenseCode\": \"SDCTTR\",\n      \"license\": \"South Dakota Trust Charter\",\n      \"licenseCountry\": \"USA\",\n      \"licensingLukkaLegalEntityId\": 1644,\n      \"licensingAuthority\": \"South Dakota Division of Banking\",\n      \"licenseNumber\": \"TC.058-2\",\n      \"licenseStartTime\": \"2010-12-29T00:00:00Z\",\n      \"licenseEndTime\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianComplianceDetails\": [\n    {\n      \"conductsKyc\": true,\n      \"kycStructure\": \"Non-tiered\",\n      \"conductsAml\": true,\n      \"maintainsDigitalInsuranceCoverage\": true,\n      \"insuranceAmount\": null,\n      \"insuranceAmountCurrency\": null,\n      \"startTs\": \"2018-08-28T00:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianCertificationDetails\": [],\n  \"custodianSpecificDetails\": [\n    {\n      \"supportsInstitutionalClients\": true,\n      \"supportsRetailClients\": true,\n      \"supportsApis\": false,\n      \"supportsProtocolParticipation\": false,\n      \"supportsAssetTrading\": false,\n      \"supportsLending\": false,\n      \"supportsStaking\": false,\n      \"startTs\": \"2018-08-28T00:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianSecurityDetails\": [\n    {\n      \"hasMultipartyComputation\": false,\n      \"hasMultiSignature\": false,\n      \"hasHardwareSecurityModule\": false,\n      \"supportsHotStorage\": false,\n      \"supportsWarmStorage\": false,\n      \"supportsColdStorage\": true,\n      \"conductsSecurityAudit\": false,\n      \"securityAuditCategory\": \"Not Applicable\",\n      \"startTs\": \"2018-08-28T00:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianDateDetails\": [\n    {\n      \"dateTypeCode\": \"OFCLL\",\n      \"dateType\": \"Official Launch\",\n      \"year\": 2018,\n      \"month\": 8,\n      \"day\": 28,\n      \"startTs\": \"2018-08-28T00:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianSuccessorDetails\": [],\n  \"custodianMediaDetails\": [\n    {\n      \"mediaProvider\": \"Twitter\",\n      \"url\": \"https://twitter.com/choicebyKT\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"mediaProvider\": \"Facebook\",\n      \"url\": \"https://www.facebook.com/KingdomTrustCo/\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"mediaProvider\": \"Instagram\",\n      \"url\": \"https://www.instagram.com/choiceapp.io/\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"mediaProvider\": \"Discord\",\n      \"url\": \"https://discord.com/invite/f4avvmtUzh\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianSupportedAssetDetails\": [\n    {\n      \"lukkaAssetId\": \"LA33P8DWU59\",\n      \"lukkaAssetCode\": \"XTZ\",\n      \"lukkaAssetName\": \"Tezos\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA2XB0HNPU9\",\n      \"lukkaAssetCode\": \"XRP\",\n      \"lukkaAssetName\": \"Ripple\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA582W6NAZ0\",\n      \"lukkaAssetCode\": \"BTT\",\n      \"lukkaAssetName\": \"Basic Attention Token\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA1626U9BZ5\",\n      \"lukkaAssetCode\": \"BCG\",\n      \"lukkaAssetName\": \"Bitcoin Gold\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA2KTXEB1J7\",\n      \"lukkaAssetCode\": \"DOGE\",\n      \"lukkaAssetName\": \"Dogecoin\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA58RADHS00\",\n      \"lukkaAssetCode\": \"XLT\",\n      \"lukkaAssetName\": \"Litecoin\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA7TRQHGAX9\",\n      \"lukkaAssetCode\": \"XLM\",\n      \"lukkaAssetName\": \"Stellar Lumens\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA0KKUNXTT0\",\n      \"lukkaAssetCode\": \"ZEC\",\n      \"lukkaAssetName\": \"Zcash\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA8VRAGEMT1\",\n      \"lukkaAssetCode\": \"ETH\",\n      \"lukkaAssetName\": \"Ether\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA7LPZBEZZ0\",\n      \"lukkaAssetCode\": \"BCH\",\n      \"lukkaAssetName\": \"Bitcoin Cash\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA6EV2NKQ95\",\n      \"lukkaAssetCode\": \"XBT\",\n      \"lukkaAssetName\": \"Bitcoin\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA14K10R487\",\n      \"lukkaAssetCode\": \"EOS\",\n      \"lukkaAssetName\": \"EOS\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"lukkaAssetId\": \"LA8WJ1MTZL8\",\n      \"lukkaAssetCode\": \"DASH\",\n      \"lukkaAssetName\": \"Dash\",\n      \"startTs\": null,\n      \"endTs\": null,\n      \"cryptoActionBeginId\": null,\n      \"cryptoActionEndId\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"custodianReserveDetails\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-refdata-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a3d74819-c873-4e1a-b664-e44028ea10bc",
+    "name": "Lukka Reference Data Reference Data - Custodian Terms and Conditions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

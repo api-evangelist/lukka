@@ -1,0 +1,427 @@
+openapi: 3.2.0
+info:
+  title: Lukka Reference Data Reference Data - Asset Terms and Conditions API
+  version: 1.0.0
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-refdata-api.lukka.tech
+  description: Lukka production (data-refdata-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Reference Data - Asset Terms and Conditions
+paths:
+  /v2/lukka/assets:
+    get:
+      operationId: allLukkaAssets
+      summary: All Lukka Assets
+      tags:
+      - Reference Data - Asset Terms and Conditions
+      description: "The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio performance measurement and evaluation, pre and post-trade analysis and risk management assessments.\n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the asset type, the asset’s structure, participants, how the supply is determined, underlying asset information (if applicable) and other various pieces of reference data. In total, the dataset tracks over 100 fields for its users.\n\n Digital assets and derivative products on digital assets are eligible for addition to the Lukka Reference Data product."
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '100'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      - name: expandDetails
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '[blockchainDetails,nameDetails]'
+      - name: lukkaAssetIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '[LA1S39UVDK1,LA6EV2NKQ95,LA8VRAGEMT1]'
+      - name: assetGroupId
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '73'
+      responses:
+        '200':
+          description: All Lukka Assets
+          content:
+            application/json:
+              example:
+                size: 100
+                links:
+                  base: /v2/lukka/assets
+                  next: /v2/lukka/assets?limit=100&offset=100
+                  prev: null
+                limit: 100
+                offset: 0
+                data:
+                - assetCode: DYDX
+                  assetLid: LA6HPVHEH60
+                - assetCode: 1INCH2
+                  assetLid: LA0ML2D0V15
+                - assetCode: CNHT
+                  assetLid: LA4L92NWQ87
+                - assetCode: ATA1
+                  assetLid: LA6F6V1QFQ0
+                - assetCode: NBNG
+                  assetLid: LA8M6J56WH7
+                - assetCode: USDTL
+                  assetLid: LA3GVFJEU44
+                - assetCode: USDTT
+                  assetLid: LA55QYXAAS0
+                - assetCode: EURT
+                  assetLid: LA0DFVB9P85
+                - assetCode: EURT1
+                  assetLid: LA1NS66PE08
+                - assetCode: USDT
+                  assetLid: LA176YWNB05
+                - assetCode: LBNKCRV5S
+                  assetLid: LA4RQWJL023
+                - assetCode: CGAZ
+                  assetLid: LA0KHMKKW09
+                - assetCode: USDT20
+                  assetLid: LA3D899T4D0
+                - assetCode: OOGI
+                  assetLid: LA5L5HZBZ38
+                - assetCode: NGL
+                  assetLid: LA7HDECKR86
+                - assetCode: SOURCE
+                  assetLid: LA11M3SMJX0
+                - assetCode: WIT1
+                  assetLid: LA3V4R7VX30
+                - assetCode: XDEFI
+                  assetLid: LA37YZLUF16
+                - assetCode: BBETH
+                  assetLid: LA6N1Q20RW4
+                - assetCode: XCC2
+                  assetLid: LA867YC8CY7
+                - assetCode: ZINU
+                  assetLid: LA1F1FVKW71
+                - assetCode: SON1
+                  assetLid: LA50X423058
+                - assetCode: VIKINGS
+                  assetLid: LA7U0B13GC2
+                - assetCode: MOVE
+                  assetLid: LA8EKGDWA56
+                - assetCode: HIMA
+                  assetLid: LA4WW0Q7343
+                - assetCode: DEHUB
+                  assetLid: LA2DR8NX401
+                - assetCode: TCG2
+                  assetLid: LA5NSXW8919
+                - assetCode: UEDC
+                  assetLid: LA5FB9AQMH0
+                - assetCode: BOHR
+                  assetLid: LA1718B2GK2
+                - assetCode: IOTX3
+                  assetLid: LA28P1PQL62
+                - assetCode: 28VCK
+                  assetLid: LA01HATK1W6
+                - assetCode: QUIDD
+                  assetLid: LA8GK0NX4W8
+                - assetCode: VLX1
+                  assetLid: LA2LTLPBN58
+                - assetCode: DANA
+                  assetLid: LA5YTCN7M20
+                - assetCode: HELIOS
+                  assetLid: LA8XXNGKTQ8
+                - assetCode: BATMAN
+                  assetLid: LA58XLUA1B3
+                - assetCode: LBNKBTS3L
+                  assetLid: LA6WCRGNGH2
+                - assetCode: LBNKBTT3L
+                  assetLid: LA467TKG208
+                - assetCode: LBNKBTT3S
+                  assetLid: LA2C4WPU625
+                - assetCode: TPOS
+                  assetLid: LA3G3ULM2A3
+                - assetCode: LBNKBTS3S
+                  assetLid: LA4QL8PWC86
+                - assetCode: HGHG
+                  assetLid: LA4BE98EPP1
+                - assetCode: XSP1
+                  assetLid: LA06CPR1ZP0
+                - assetCode: GRBE
+                  assetLid: LA3NG7U9BA2
+                - assetCode: DFL1
+                  assetLid: LA3JNQDW1Y2
+                - assetCode: LTNM
+                  assetLid: LA1LT5BJ9E1
+                - assetCode: WOOL
+                  assetLid: LA719SF7EX9
+                - assetCode: SHIBELON
+                  assetLid: LA07XB4GDC1
+                - assetCode: BMI1
+                  assetLid: LA280T2JHF1
+                - assetCode: BASK
+                  assetLid: LA8NZQ62YL0
+                - assetCode: PSLP1
+                  assetLid: LA1JXQSVXZ0
+                - assetCode: XAUT
+                  assetLid: LA5FZPR23H2
+                - assetCode: PDT
+                  assetLid: LA8FGEG06T7
+                - assetCode: YVCURVEIRONBANK
+                  assetLid: LA39CT21UK0
+                - assetCode: HEDGE
+                  assetLid: LA1H7XL6DY1
+                - assetCode: YVCURVE3POOL
+                  assetLid: LA1R5AYQLK3
+                - assetCode: CRVCONVEXABRA
+                  assetLid: LA39EURGNJ5
+                - assetCode: CRVIBGBPSGBPF
+                  assetLid: LA1ZGUBM6N0
+                - assetCode: CRVIBGBPSGBPGAUGE
+                  assetLid: LA43JHH6H50
+                - assetCode: CYUSDT
+                  assetLid: LA4HA5EENG9
+                - assetCode: FDT1
+                  assetLid: LA5JVZF69A7
+                - assetCode: RKP3R
+                  assetLid: LA8PBKPPAQ4
+                - assetCode: CVXCRV
+                  assetLid: LA3NKADALK3
+                - assetCode: EGC1
+                  assetLid: LA41RZ5F4E5
+                - assetCode: CDEX1
+                  assetLid: LA6UVMD5ZB0
+                - assetCode: NCR
+                  assetLid: LA1RXVPGVH0
+                - assetCode: ELS2
+                  assetLid: LA0U7Q6A817
+                - assetCode: GOTG
+                  assetLid: LA2LCGJ11M6
+                - assetCode: ILA
+                  assetLid: LA794HSS394
+                - assetCode: BNBH
+                  assetLid: LA7LDV02QS5
+                - assetCode: LBNKSC3S
+                  assetLid: LA6PAKUT077
+                - assetCode: LBNKSC3L
+                  assetLid: LA8Y9EUQ016
+                - assetCode: LBNKXEM3L
+                  assetLid: LA53FU3RRQ3
+                - assetCode: LBNKXEM3S
+                  assetLid: LA11EDH2WQ3
+                - assetCode: ELF2
+                  assetLid: LA1RJHCR9V2
+                - assetCode: KAVAX3L
+                  assetLid: LA6VDWTETN2
+                - assetCode: KAVAX3S
+                  assetLid: LA6SPP53566
+                - assetCode: SPS2
+                  assetLid: LA8UQWKG4M9
+                - assetCode: BEM1
+                  assetLid: LA2CJ1455H7
+                - assetCode: MIM2
+                  assetLid: LA5CKQG1G23
+                - assetCode: LOBI
+                  assetLid: LA4USYE7U56
+                - assetCode: PTU
+                  assetLid: LA2HAJSJWN5
+                - assetCode: SENSO1
+                  assetLid: LA4PD1U8DK1
+                - assetCode: WNDR
+                  assetLid: LA3EDS2MM75
+                - assetCode: ZLK
+                  assetLid: LA59K7Z8864
+                - assetCode: ICONS
+                  assetLid: LA6S7MS3JD6
+                - assetCode: CHEQ
+                  assetLid: LA3N7KW0055
+                - assetCode: MONO
+                  assetLid: LA5P16CFSS2
+                - assetCode: UPS
+                  assetLid: LA826746RN0
+                - assetCode: LBNKAUDIO3L
+                  assetLid: LA1Z9FY4WC1
+                - assetCode: LBNKAUDIO3S
+                  assetLid: LA5D41B9TU1
+                - assetCode: BLWA
+                  assetLid: LA1TC9RGKY1
+                - assetCode: KOROMARU
+                  assetLid: LA8XZPN89F8
+                - assetCode: BEZOGE
+                  assetLid: LA8ZC7A7FA5
+                - assetCode: LBNKAGLD3S
+                  assetLid: LA1W2X5JT71
+                - assetCode: LBNKAGLD3L
+                  assetLid: LA6KUCPB6X2
+                - assetCode: HZM
+                  assetLid: LA6B3P6C6K0
+                - assetCode: PEOPLE
+                  assetLid: LA3KSU38R99
+                - assetCode: TOTORO
+                  assetLid: LA5E858CQQ6
+                - assetCode: LBNKGALA5L
+                  assetLid: LA1A3BXXJR2
+  /v2/lukka/assets/LA3YA6GC8Y5:
+    get:
+      operationId: aLukkaAssetAndItsDetails
+      summary: A Lukka Asset and its Details
+      tags:
+      - Reference Data - Asset Terms and Conditions
+      description: "The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio performance measurement and evaluation, pre and post-trade analysis and risk management assessments.\n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the asset type, the asset’s structure, participants, how the supply is determined, underlying asset information (if applicable) and other various pieces of reference data. In total, the dataset tracks over 100 fields for its users.\n\n Digital assets and derivative products on digital assets are eligible for addition to the Lukka Reference Data product."
+      responses:
+        '200':
+          description: A Lukka Asset and its Details
+  /v2/lukka/assets/exposure:
+    get:
+      operationId: assetExposure
+      summary: Asset Exposure
+      tags:
+      - Reference Data - Asset Terms and Conditions
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1000'
+      responses:
+        '200':
+          description: Asset Exposure Example
+          content:
+            application/json:
+              example:
+                offset: 0
+                limit: 5
+                size: 5
+                links:
+                  base: /v2/lukka/assets/exposure
+                  next: /v2/lukka/assets/exposure?limit=5&offset=5
+                  prev: null
+                data:
+                - alternateMarketIdentifier: XTP1KT9T86M2
+                  assetLid: LA2SLM0T8T4
+                  assetCode: HUSD
+                  commonStreetCode: HUSD
+                  assetNameEnglish: Huobi Stablecoin-Huobi USD
+                  assetTypeCode: TKN
+                  assetType: Token
+                  isCryptoAsset: true
+                  isDigitalAsset: true
+                  isTradfiAsset: false
+                  hasUnderlyingAsset: true
+                  hasCollateral: true
+                  exposureLevel: 1
+                  exposureLevelName: 'Crypto Exposure: Direct'
+                  valuePropositionList:
+                  - valuePropositionCode: STBLVAL
+                    valueProposition: Stable Value
+                  - valuePropositionCode: FUNG
+                    valueProposition: Fungibility
+                  underlyingAssetList:
+                  - underlyingAssetLid: LA3YM6GRUJ4
+                    underlyingAssetName: US Dollar
+                - alternateMarketIdentifier: XTBSF74H7GR2
+                  assetLid: LA0Y44036E0
+                  assetCode: BUSD
+                  commonStreetCode: BUSD
+                  assetNameEnglish: Binance USD (ERC20)
+                  assetTypeCode: TKN
+                  assetType: Token
+                  isCryptoAsset: true
+                  isDigitalAsset: true
+                  isTradfiAsset: false
+                  hasUnderlyingAsset: true
+                  hasCollateral: true
+                  exposureLevel: 1
+                  exposureLevelName: 'Crypto Exposure: Direct'
+                  valuePropositionList:
+                  - valuePropositionCode: STBLVAL
+                    valueProposition: Stable Value
+                  underlyingAssetList:
+                  - underlyingAssetLid: LA3YM6GRUJ4
+                    underlyingAssetName: US Dollar
+                - alternateMarketIdentifier: XTQ00DC0PHH4
+                  assetLid: LA65GTRH8G7
+                  assetCode: TUSD
+                  commonStreetCode: TUSD
+                  assetNameEnglish: TrueUSD
+                  assetTypeCode: TKN
+                  assetType: Token
+                  isCryptoAsset: true
+                  isDigitalAsset: true
+                  isTradfiAsset: false
+                  hasUnderlyingAsset: true
+                  hasCollateral: true
+                  exposureLevel: 1
+                  exposureLevelName: 'Crypto Exposure: Direct'
+                  valuePropositionList:
+                  - valuePropositionCode: STBLVAL
+                    valueProposition: Stable Value
+                  underlyingAssetList:
+                  - underlyingAssetLid: LA3YM6GRUJ4
+                    underlyingAssetName: US Dollar
+                - alternateMarketIdentifier: XTTJWK5QTRK6
+                  assetLid: LA1S39UVDK1
+                  assetCode: USDC
+                  commonStreetCode: USDC
+                  assetNameEnglish: USD Coin (Ethereum)
+                  assetTypeCode: TKN
+                  assetType: Token
+                  isCryptoAsset: true
+                  isDigitalAsset: true
+                  isTradfiAsset: false
+                  hasUnderlyingAsset: true
+                  hasCollateral: true
+                  exposureLevel: 1
+                  exposureLevelName: 'Crypto Exposure: Direct'
+                  valuePropositionList:
+                  - valuePropositionCode: STBLVAL
+                    valueProposition: Stable Value
+                  underlyingAssetList:
+                  - underlyingAssetLid: LA3YM6GRUJ4
+                    underlyingAssetName: US Dollar
+                - alternateMarketIdentifier: XTL09Q657BK6
+                  assetLid: LA176YWNB05
+                  assetCode: USDT
+                  commonStreetCode: USDT
+                  assetNameEnglish: Tether
+                  assetTypeCode: TKN
+                  assetType: Token
+                  isCryptoAsset: true
+                  isDigitalAsset: true
+                  isTradfiAsset: false
+                  hasUnderlyingAsset: true
+                  hasCollateral: true
+                  exposureLevel: 1
+                  exposureLevelName: 'Crypto Exposure: Direct'
+                  valuePropositionList:
+                  - valuePropositionCode: STBLVAL
+                    valueProposition: Stable Value
+                  underlyingAssetList:
+                  - underlyingAssetLid: LA3YM6GRUJ4
+                    underlyingAssetName: US Dollar
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

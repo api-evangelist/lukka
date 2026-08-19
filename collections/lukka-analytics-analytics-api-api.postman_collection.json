@@ -1,0 +1,461 @@
+{
+  "item": [
+    {
+      "id": "3830131a-3122-4775-bfc9-644477b2d567",
+      "name": "Analytics - Analytics API",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6577fa4f-02ed-4653-8a69-02bba172011c",
+          "name": "Implied Interest Rates",
+          "request": {
+            "name": "Implied Interest Rates",
+            "description": {
+              "content": "Lukka's Implied Interest Rate API provides benchmark rates derived from major exchanges, calculated using futures market trade data aggregated hourly. A risk-sensitive model ensures robustness and market representativeness. Term structures are created using Nelson-Siegel-Svenssen (NSS) and Monotone Convex (MC) interpolation methods. This API delivers spot rates and instantaneous forward rates for standardized tenors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics-api",
+                "implied-rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pairCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lukkaEntityCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeTo",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeFrom",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "curveType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "modelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rateType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dataShape",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9822ba2b-fbf6-42e1-93b9-d8ca307ea45f",
+              "name": "Implied Interest Rates - flat view",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics-api",
+                    "implied-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pairCode",
+                      "value": "XBT-USD"
+                    },
+                    {
+                      "key": "lukkaEntityCode",
+                      "value": "LUKKA"
+                    },
+                    {
+                      "key": "timeTo",
+                      "value": "2024-05-17T23:00:00.000Z"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "timeFrom",
+                      "value": "2024-05-16T20:30:00.000Z"
+                    },
+                    {
+                      "key": "curveType",
+                      "value": "INST_FWD"
+                    },
+                    {
+                      "key": "modelType",
+                      "value": "MC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "FUTURES"
+                    },
+                    {
+                      "key": "rateType",
+                      "value": "BASIS"
+                    },
+                    {
+                      "key": "dataShape",
+                      "value": "2L"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c7c7c3d-0d7a-4fea-9c31-6211e5db80e2",
+          "name": "OTC FX Rates",
+          "request": {
+            "name": "OTC FX Rates",
+            "description": {
+              "content": "Lukka's OTC FX API offers benchmark interest rates formatted to OTC FX market conventions. These rates are derived from futures market trade data, aggregated hourly, and calculated using the Monotone Convex (MC) interpolation method. This API generates spot rates and forward rates for standardized tenors, ensuring robust and market-representative outputs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics-api",
+                "implied-rates-otc-fx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pairCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lukkaEntityCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dataShape",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeFrom",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeTo",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88b73ed2-004f-4719-8296-3e65b05ddf15",
+              "name": "OTC FX Rates - flat view",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics-api",
+                    "implied-rates-otc-fx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pairCode",
+                      "value": "XBT-USD"
+                    },
+                    {
+                      "key": "lukkaEntityCode",
+                      "value": "LUKKA"
+                    },
+                    {
+                      "key": "dataShape",
+                      "value": "2L"
+                    },
+                    {
+                      "key": "timeFrom",
+                      "value": "2024-05-10T07:00:00.000Z"
+                    },
+                    {
+                      "key": "timeTo",
+                      "value": "2024-05-13T07:00:00.000Z"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "24"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd94209b-a8ab-477b-8644-30bae7a48870",
+          "name": "Implied Volatility",
+          "request": {
+            "name": "Implied Volatility",
+            "description": {},
+            "url": {
+              "path": [
+                "analytics-api",
+                "implied-volatility-surface"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lukkaEntityCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "underlyingAssetLukkaCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeTo",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeFrom",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "moneyness",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dataShape",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5c49e11-2a00-4a26-8590-49b2832396bc",
+              "name": "Implied Volatility - flat view and strike moneyness",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics-api",
+                    "implied-volatility-surface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lukkaEntityCode",
+                      "value": "LUKKA"
+                    },
+                    {
+                      "key": "underlyingAssetLukkaCode",
+                      "value": "ETH"
+                    },
+                    {
+                      "key": "timeTo",
+                      "value": "2023-10-02T00:00:00Z"
+                    },
+                    {
+                      "key": "timeFrom",
+                      "value": "2023-10-01T00:00:00Z"
+                    },
+                    {
+                      "key": "moneyness",
+                      "value": "delta"
+                    },
+                    {
+                      "key": "dataShape",
+                      "value": "flat"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-analytics-api-v2.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97398d37-4c6d-4621-b2b8-c9e8bf852a5f",
+    "name": "Lukka Analytics Analytics - Analytics API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Derived analytics for digital assets: implied interest rate curves, OTC FX implied rates and options implied volatility surfaces.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

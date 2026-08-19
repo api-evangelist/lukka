@@ -1,0 +1,317 @@
+{
+  "item": [
+    {
+      "id": "c663ce70-6570-4e79-b6ff-ab207ee6f95c",
+      "name": "Reference Data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "03b86cbe-08c0-4e9a-a49c-c6be004a73ee",
+          "name": "LDACS",
+          "request": {
+            "name": "LDACS",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "sectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "assetLid",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a65e0d6-f9d2-4a73-a50f-534ca445833b",
+              "name": "LDACS",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "sectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetLid",
+                      "value": "LA6PY42YA30"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 0,\n  \"limit\": 1000,\n  \"size\": 1,\n  \"links\": {\n    \"base\": \"/v2/lukka/sectors\",\n    \"next\": null,\n    \"prev\": null\n  },\n  \"data\": [\n    {\n      \"assetLid\": \"LA1S39UVDK1\",\n      \"whitepaperCode\": \"USDC\",\n      \"assetName\": \"USD Coin (Ethereum)\",\n      \"isPrimaryClassification\": true,\n      \"lukkaCategoryCode\": 10,\n      \"lukkaCategory\": \"Fungibles\",\n      \"lukkaSuperSectorCode\": 1020,\n      \"lukkaSuperSector\": \"Payment\",\n      \"lukkaMacroSectorCode\": 102020,\n      \"lukkaMacroSector\": \"Stablecoin\",\n      \"lukkaMidSectorCode\": 10202020,\n      \"lukkaMidSector\": \"Collateralized\",\n      \"lukkaSubSectorCode\": 1020202015,\n      \"lukkaSubSector\": \"Fiat-Backed\",\n      \"cryptoActionBeginId\": \"837f3694-cae5-4317-9d3a-4c6caec6ae8a\",\n      \"cryptoActionEndId\": null,\n      \"startTs\": \"2018-09-10T06:26:41Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac785a31-f35c-4855-a557-f1c94d1f4b8a",
+          "name": "An Enum",
+          "request": {
+            "name": "An Enum",
+            "description": {
+              "content": "The ENUM (enumerated code) endpoint provides a list of ENUM codes that will be used throughout the reference data product family and suite of reference data APIs. This endpoint is meant to help customers decipher the different codes and static values available as well as the primary endpoint where those codes may be used\n\n \n \n \n ENUM Variable for URL \n Applicable Endpoints \n \n \n \n \n classificationCode \n All Derivatives \nA Derivative and its Details \n \n \n lukkaCryptoActionCode \n Crypto Actions \n \n \n assetTypeCode \n All Assets \nA Lukka Asset and Its Details \n \n \n hashAlgorithmCode \n All Assets \nA Lukka Asset and Its Details \n \n \n consensusClassificationCode \n All Assets \nA Lukka Asset and Its Details \n \n \n emissionClassificationCode \n All Assets \nA Lukka Asset and Its Details \n \n \n emissionTypeCode \n All Assets \nA Lukka Asset and Its Details \n \n \n lukkaBlockchainId \n All Assets \nA Lukka Asset and Its Details \n \n \n tokenStandardCode \n All Assets \nA Lukka Asset and Its Details \n \n \n participantTypeCode \n All Assets \nA Lukka Asset and Its Details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "enums",
+                "lukkaCryptoActionCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4abc25d3-c8a0-4a83-848a-5069101e218d",
+              "name": "Crypto Action Code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "enums",
+                    "lukkaCryptoActionCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"enumCode\": \"BLKMIG\",\n    \"description\": \"Blockchain Migration\"\n  },\n  {\n    \"enumCode\": \"LORE\",\n    \"description\": \"Legal or Regulatory Event\"\n  },\n  {\n    \"enumCode\": \"HFORK\",\n    \"description\": \"Hard Fork\"\n  },\n  {\n    \"enumCode\": \"SFORK\",\n    \"description\": \"Soft Fork\"\n  },\n  {\n    \"enumCode\": \"REDNOM\",\n    \"description\": \"Redenomination\"\n  },\n  {\n    \"enumCode\": \"EMISN\",\n    \"description\": \"Emission\"\n  },\n  {\n    \"enumCode\": \"BRN\",\n    \"description\": \"Burn\"\n  },\n  {\n    \"enumCode\": \"ABNDN\",\n    \"description\": \"Abandoned\"\n  },\n  {\n    \"enumCode\": \"NAMG\",\n    \"description\": \"Rebrand\"\n  },\n  {\n    \"enumCode\": \"VTFK\",\n    \"description\": \"Velvet Fork\"\n  },\n  {\n    \"enumCode\": \"ASLH\",\n    \"description\": \"Asset Launch\"\n  },\n  {\n    \"enumCode\": \"NWKAD\",\n    \"description\": \"Network Airdrop\"\n  },\n  {\n    \"enumCode\": \"EXPD\",\n    \"description\": \"Expired\"\n  },\n  {\n    \"enumCode\": \"SINDT\",\n    \"description\": \"Security Incident\"\n  },\n  {\n    \"enumCode\": \"CADTR\",\n    \"description\": \"Change of Auditor\"\n  },\n  {\n    \"enumCode\": \"CRTE\",\n    \"description\": \"Created in Error\"\n  },\n  {\n    \"enumCode\": \"SSPOON\",\n    \"description\": \"Soft Spoon\"\n  },\n  {\n    \"enumCode\": \"HSPOON\",\n    \"description\": \"Hard Spoon\"\n  },\n  {\n    \"enumCode\": \"CSDYSRT\",\n    \"description\": \"Custody Support Initiated\"\n  },\n  {\n    \"enumCode\": \"CSDYEND\",\n    \"description\": \"Custody Support Terminated\"\n  },\n  {\n    \"enumCode\": \"TLIST\",\n    \"description\": \"Trade Listing\"\n  },\n  {\n    \"enumCode\": \"TFDLIST\",\n    \"description\": \"Transfer Delisting\"\n  },\n  {\n    \"enumCode\": \"TFLIST\",\n    \"description\": \"Transfer Listing\"\n  },\n  {\n    \"enumCode\": \"CTMIG\",\n    \"description\": \"Contract Migration\"\n  },\n  {\n    \"enumCode\": \"TDLIST\",\n    \"description\": \"Trade Delisting\"\n  },\n  {\n    \"enumCode\": \"RCLM\",\n    \"description\": \"Reclaimed\"\n  },\n  {\n    \"enumCode\": \"CCLTRL\",\n    \"description\": \"Change in Collateral\"\n  },\n  {\n    \"enumCode\": \"NA\",\n    \"description\": \"Not Applicable\"\n  },\n  {\n    \"enumCode\": \"EPE\",\n    \"description\": \"Event Period End\"\n  },\n  {\n    \"enumCode\": \"SUCCN\",\n    \"description\": \"Succession Event\"\n  },\n  {\n    \"enumCode\": \"ENCC\",\n    \"description\": \"Exchange Naming Convention Change\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07b95215-f7b4-4b96-b829-9df0274f5b1e",
+          "name": "Asset Coverage",
+          "request": {
+            "name": "Asset Coverage",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "stats",
+                "assets",
+                "coverage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lukkaAssetIds",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a94df6bc-1401-4bb1-ad95-4da39ecb1ec3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "stats",
+                    "assets",
+                    "coverage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lukkaAssetIds",
+                      "value": "LA6EV2NKQ95"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-refdata-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ca3df7a7-30b8-42cb-bbd7-bb0035c23605",
+    "name": "Lukka Reference Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

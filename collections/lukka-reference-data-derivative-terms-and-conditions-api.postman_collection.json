@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "f852f9e0-21d7-404e-9765-5f62e2df0e98",
+      "name": "Reference Data - Derivative Terms and Conditions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "96d4301c-9eb9-4854-988f-2022a1c6fb30",
+          "name": "All Derivatives",
+          "request": {
+            "name": "All Derivatives",
+            "description": {
+              "content": "Get a list of all known Derivatives within the Lukka Derivatives Data (\"LDRD\") product \n\n The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues. \n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the derivative type, settlement, participants, underlying asset information, and other various pieces of reference data. In total, the dataset tracks over 50 fields for its users.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "derivatives"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "expandDetails",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5afd78ab-d681-40f6-b266-8e49ae1d3fd0",
+              "name": "All Derivatives - Example",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "derivatives"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "entityCode",
+                      "value": "DERI"
+                    },
+                    {
+                      "key": "expandDetails",
+                      "value": "[ALL]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 10,\n  \"offset\": 0,\n  \"data\": [\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"BTC-20MAY20-9000-P\",\n      \"entityDerivativeName\": \"BTC-20MAY20-9000-P\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-XBT-XBT-P-9000-20200520-1D\",\n      \"lukkaDerivativeCode\": \"XBT-P-9000-20200520\",\n      \"derivativeName\": \"Deribit Daily Bitcoin 9000 Put Option expiring 20May2020\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"ETH-17FEB22-3700-P\",\n      \"entityDerivativeName\": \"ETH-17FEB22-3700-P\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-ETH-ETH-P-3700-20220217-1D\",\n      \"lukkaDerivativeCode\": \"ETH-P-3700-20220217\",\n      \"derivativeName\": \"Deribit Daily Ether 3700 Put Option expiring 17Feb2022\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"ETH-16FEB22-3250-C\",\n      \"entityDerivativeName\": \"ETH-16FEB22-3250-C\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-ETH-ETH-C-3250-20220216-1D\",\n      \"lukkaDerivativeCode\": \"ETH-C-3250-20220216\",\n      \"derivativeName\": \"Deribit Daily Ether 3250 Call Option expiring 16Feb2022\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"BTC-17OCT20-11375-C\",\n      \"entityDerivativeName\": \"BTC-17OCT20-11375-C\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-XBT-XBT-C-11375-20201017-1D\",\n      \"lukkaDerivativeCode\": \"XBT-C-11375-20201017\",\n      \"derivativeName\": \"Deribit Daily Bitcoin 11375 Call Option expiring 17Oct2020\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"BTC-18OCT20-11375-C\",\n      \"entityDerivativeName\": \"BTC-18OCT20-11375-C\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-XBT-XBT-C-11375-20201018-1D\",\n      \"lukkaDerivativeCode\": \"XBT-C-11375-20201018\",\n      \"derivativeName\": \"Deribit Daily Bitcoin 11375 Call Option expiring 18Oct2020\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"BTC-20OCT20-11375-C\",\n      \"entityDerivativeName\": \"BTC-20OCT20-11375-C\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-XBT-XBT-C-11375-20201020-1D\",\n      \"lukkaDerivativeCode\": \"XBT-C-11375-20201020\",\n      \"derivativeName\": \"Deribit Daily Bitcoin 11375 Call Option expiring 20Oct2020\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"BTC-21OCT20-11375-C\",\n      \"entityDerivativeName\": \"BTC-21OCT20-11375-C\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-XBT-XBT-C-11375-20201021-1D\",\n      \"lukkaDerivativeCode\": \"XBT-C-11375-20201021\",\n      \"derivativeName\": \"Deribit Daily Bitcoin 11375 Call Option expiring 21Oct2020\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"BTC-22OCT20-11375-C\",\n      \"entityDerivativeName\": \"BTC-22OCT20-11375-C\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-XBT-XBT-C-11375-20201022-1D\",\n      \"lukkaDerivativeCode\": \"XBT-C-11375-20201022\",\n      \"derivativeName\": \"Deribit Daily Bitcoin 11375 Call Option expiring 22Oct2020\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"BTC-16APR21-46000-P\",\n      \"entityDerivativeName\": \"BTC-16APR21-46000-P\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-XBT-XBT-P-46000-20210416-1W\",\n      \"lukkaDerivativeCode\": \"XBT-P-46000-20210416\",\n      \"derivativeName\": \"Deribit Weekly Bitcoin 46000 Put Option expiring 16Apr2021\",\n      \"recordStatus\": \"Active\"\n    },\n    {\n      \"entityCode\": \"DERI\",\n      \"entityName\": \"Deribit\",\n      \"entityDerivativeCode\": \"BTC-22MAY20-11500-C\",\n      \"entityDerivativeName\": \"BTC-22MAY20-11500-C\",\n      \"lukkaDerivativeLid\": \"L-DERI-OPT-XBT-XBT-C-11500-20200522-1W\",\n      \"lukkaDerivativeCode\": \"XBT-C-11500-20200522\",\n      \"derivativeName\": \"Deribit Weekly Bitcoin 11500 Call Option expiring 22May2020\",\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"size\": 10,\n  \"links\": {\n    \"base\": \"/v2/lukka/derivatives\",\n    \"next\": \"/v2/lukka/derivatives?entityCode=DERI&classificationCode=OPT&limit=10&offset=10\",\n    \"prev\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0c69a6b-4693-48bc-a190-b453b5cbb146",
+          "name": "A Derivative and its Details",
+          "request": {
+            "name": "A Derivative and its Details",
+            "description": {
+              "content": "Get all known details for a given Lukka Derivative Identifier.\n\n The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues. \n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the derivative type, settlement, participants, underlying asset information, and other various pieces of reference data. In total, the dataset tracks over 50 fields for its users.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "derivatives",
+                "L-DERI-OPT-BTC-BTC-C-43000-20210917"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82f7360b-79fd-4151-b5cd-d3f16db5f57e",
+              "name": "A Derivative and its Details - Example",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "derivatives",
+                    "L-DERI-OPT-BTC-BTC-C-43000-20210917"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entityCode\": \"BINA\",\n  \"entityName\": \"Binance\",\n  \"entityDerivativeCode\": \"UNIUSD_PERP\",\n  \"entityDerivativeName\": \"UNIUSD_PERP\",\n  \"lukkaDerivativeLid\": \"L-BINA-PERP-UNI-USD\",\n  \"lukkaDerivativeCode\": \"UNI-PERP\",\n  \"derivativeName\": \"Binance Uniswap Perpetual\",\n  \"recordStatus\": \"Active\",\n  \"statusDetails\": [\n    {\n      \"assetStatus\": \"Active\",\n      \"assetSubstatus\": \"Active\",\n      \"subStatusReasonCode\": \"LISTD\",\n      \"subStatusReason\": \"Contract Listed\",\n      \"cryptoActionBeginId\": \"f7f1b491-4c9f-4895-8c9a-153f1ba82234\",\n      \"cryptoActionEndId\": null,\n      \"startTs\": \"2021-04-13T07:00:00Z\",\n      \"endTs\": null,\n      \"status\": \"Active\"\n    }\n  ],\n  \"derivativeDetails\": [\n    {\n      \"derivativeClassificationCode\": \"PERP\",\n      \"derivativeClassification\": \"Perpetual\",\n      \"quoteLukkaAssetId\": \"LA3YM6GRUJ4\",\n      \"quoteLukkaAssetCode\": \"USD\",\n      \"contractStartTs\": \"2021-04-13T07:00:00Z\",\n      \"contractExpirationTs\": \"2199-12-31T23:59:59Z\",\n      \"isPerpetual\": true,\n      \"isMultipleLeg\": false,\n      \"isVanilla\": true,\n      \"isExotic\": false,\n      \"optionContractTypeCode\": \"NA\",\n      \"optionContractType\": \"Not Applicable\",\n      \"optionContractExerciseTypeCode\": \"NA\",\n      \"optionContractExerciseType\": \"Not Applicable\",\n      \"strike\": null,\n      \"multiplier\": 10,\n      \"fundingPaymentFrequencyHrs\": 8,\n      \"isUsIrcSection1256\": false,\n      \"hasBasketUnderlying\": false,\n      \"cryptoActionBeginId\": \"f7f1b491-4c9f-4895-8c9a-153f1ba82234\",\n      \"cryptoActionEndId\": null,\n      \"startTs\": \"2021-04-13T07:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"settlementDetails\": [\n    {\n      \"contractSettleTs\": null,\n      \"settleClassificationCode\": \"FPMT\",\n      \"settleClassification\": \"Funding Payment\",\n      \"settleLukkaAssetId\": \"LA79U4XBU94\",\n      \"settleLukkaAssetCode\": \"UNISW\",\n      \"cryptoActionBeginId\": \"f7f1b491-4c9f-4895-8c9a-153f1ba82234\",\n      \"cryptoActionEndId\": null,\n      \"startTs\": \"2021-04-13T07:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"underlyingDetails\": [\n    {\n      \"underlyingLukkaAssetId\": \"LA79U4XBU94\",\n      \"underlyingLukkaAssetCode\": \"UNISW\",\n      \"percentOfUnderlying\": 1,\n      \"cryptoActionBeginId\": \"f7f1b491-4c9f-4895-8c9a-153f1ba82234\",\n      \"cryptoActionEndId\": null,\n      \"startTs\": \"2021-04-13T07:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ],\n  \"participantDetails\": [\n    {\n      \"participantType\": \"Primary Issuer\",\n      \"lukkaLegalEntityId\": 336,\n      \"participantLegalNameEnglish\": \"Binance Holdings Limited\",\n      \"legalFormCode\": \"LLC\",\n      \"legalForm\": \"Limited Liability Company\",\n      \"incorporationDate\": null,\n      \"jurisdiction\": \"Cayman Islands\",\n      \"jurisdictionCountryIso3\": \"CYM\",\n      \"jurisdictionCountryUnClassification\": \"Developing\",\n      \"jurisdictionCountryUnLeastDeveloped\": false,\n      \"cryptoActionBeginId\": \"f7f1b491-4c9f-4895-8c9a-153f1ba82234\",\n      \"cryptoActionEndId\": null,\n      \"startTs\": \"2021-04-13T07:00:00Z\",\n      \"endTs\": null,\n      \"recordStatus\": \"Active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-refdata-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b2fa149f-5a98-46a4-b7bc-241f82b084b5",
+    "name": "Lukka Reference Data Reference Data - Derivative Terms and Conditions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

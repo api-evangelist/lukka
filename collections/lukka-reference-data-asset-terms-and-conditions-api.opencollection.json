@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Reference Data - Asset Terms and Conditions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data - Asset Terms and Conditions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Lukka Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/assets",
+            "params": [
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "expandDetails",
+                "value": "[blockchainDetails,nameDetails]",
+                "type": "query"
+              },
+              {
+                "name": "lukkaAssetIds",
+                "value": "[LA1S39UVDK1,LA6EV2NKQ95,LA8VRAGEMT1]",
+                "type": "query"
+              },
+              {
+                "name": "assetGroupId",
+                "value": "73",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio perfo"
+        },
+        {
+          "info": {
+            "name": "A Lukka Asset and its Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/assets/LA3YA6GC8Y5"
+          },
+          "docs": "The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio perfo"
+        },
+        {
+          "info": {
+            "name": "Asset Exposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/assets/exposure",
+            "params": [
+              {
+                "name": "offset",
+                "value": "1000",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Asset Exposure"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

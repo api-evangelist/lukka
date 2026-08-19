@@ -1,0 +1,245 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Pricing & Market Data Market Data - Derivatives API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market Data - Derivatives",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Candles by Exchange Source (Derivative)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v2/market-data/sources/:sourceId/candles/pairs/:pairCode",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T02:00:00Z",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of transactions that can be returned in a single payload then a next_url variable will be returned at the end of the response. The next_url is used to paginate the response and can be called to request the next batch of transactions prior to what was returned. next_url will continue to be included in the response until all of the requested transactions have been returned."
+        },
+        {
+          "info": {
+            "name": "Get Latest Markets (DERIVATIVE)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/DERIVATIVE",
+            "params": [
+              {
+                "name": "sourceIds",
+                "value": "4005",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "5",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: This endpoint returns the derivative markets for a specified exchange over the previous 24 hours. In addition to sourceIds , supports underlyingAssetCode , quoteAssetCode , and lukkaInstrumentClassification filters."
+        },
+        {
+          "info": {
+            "name": "Get Latest Markets (GREEKS)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/GREEKS",
+            "params": [
+              {
+                "name": "sourceIds",
+                "value": "4005",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "5",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: This endpoint returns the options markets for a specified exchange over the previous 24 hours, with Greeks values (delta, gamma, theta, vega, rho) included for each instrument."
+        },
+        {
+          "info": {
+            "name": "Get Latest Derivative Trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/market-data/derivative/sources/:sourceId/trades",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "lookback",
+                "value": "60",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the Latest Trades for derivative instruments from a specific Source ID.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n lookback is specified in minutes (not milliseconds)."
+        },
+        {
+          "info": {
+            "name": "Get Historical Derivative Trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/market-data/derivative/sources/:sourceId/trades/historical",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T12:01:00Z",
+                "type": "query"
+              },
+              {
+                "name": "entityDerivativeCode",
+                "value": "BTCUSDT",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the trade history for a specific derivative instrument from a specified Source ID. Must supply either entityDerivativeCode (exchange-native code) or lukkaDerivativeCode (Lukka canonical code)."
+        },
+        {
+          "info": {
+            "name": "Get Latest Mark Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/:sourceId/markprices",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "lookback",
+                "value": "60000",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the latest derivative mark prices as of the given timestamp from a specified derivatives exchange Source ID (e.g. 4005 Binance futures). Optional underlyingAssetCode and lukkaDerivativeCode filters can be applied to narrow the response."
+        },
+        {
+          "info": {
+            "name": "Get Historical Mark Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/:sourceId/:baseAssetCode/markprices/historical",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "baseAssetCode",
+                "value": "",
+                "type": "path",
+                "description": "baseAssetCode path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T12:10:00Z",
+                "type": "query"
+              },
+              {
+                "name": "interval",
+                "value": "60000",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the mark price history for a specific derivative instrument from a specified Source ID.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n interval (milliseconds) allowed values: 1000, 5000, 30000, 60000, 300000, 1800000, 3600000, 8"
+        },
+        {
+          "info": {
+            "name": "Get Composite Funding Rates (by pairCodes)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/derivatives/composite-funding-rates",
+            "params": [
+              {
+                "name": "pairCodes",
+                "value": "XBT-USDT",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the IQR-cleansed composite funding rate across derivatives exchanges for the specified derivative pair codes. This is the pairCodes variant of the endpoint; it is mutually exclusive with the underlyingAssetCodes + counterAssetCodes variant."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

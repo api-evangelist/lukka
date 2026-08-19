@@ -1,0 +1,206 @@
+openapi: 3.2.0
+info:
+  title: Lukka Analytics Analytics - Analytics API API
+  version: 1.0.0
+  description: 'Derived analytics for digital assets: implied interest rate curves, OTC FX implied rates and options implied volatility surfaces.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-analytics-api-v2.lukka.tech
+  description: Lukka production (data-analytics-api-v2.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Analytics - Analytics API
+paths:
+  /analytics-api/implied-rates:
+    get:
+      operationId: impliedInterestRates
+      summary: Implied Interest Rates
+      tags:
+      - Analytics - Analytics API
+      description: Lukka's Implied Interest Rate API provides benchmark rates derived from major exchanges, calculated using futures market trade data aggregated hourly. A risk-sensitive model ensures robustness and market representativeness. Term structures are created using Nelson-Siegel-Svenssen (NSS) and Monotone Convex (MC) interpolation methods. This API delivers spot rates and instantaneous forward rates for standardized tenors.
+      parameters:
+      - name: pairCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD
+      - name: lukkaEntityCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: LUKKA
+      - name: timeTo
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2024-05-17T23:00:00.000Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '12'
+      - name: timeFrom
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2024-05-16T20:30:00.000Z'
+      - name: curveType
+        in: query
+        required: false
+        schema:
+          type: string
+        example: INST_FWD
+      - name: modelType
+        in: query
+        required: false
+        schema:
+          type: string
+        example: MC
+      - name: source
+        in: query
+        required: false
+        schema:
+          type: string
+        example: FUTURES
+      - name: rateType
+        in: query
+        required: false
+        schema:
+          type: string
+        example: BASIS
+      - name: dataShape
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 2L
+      responses:
+        '200':
+          description: Implied Interest Rates - flat view
+  /analytics-api/implied-rates-otc-fx:
+    get:
+      operationId: otcFXRates
+      summary: OTC FX Rates
+      tags:
+      - Analytics - Analytics API
+      description: Lukka's OTC FX API offers benchmark interest rates formatted to OTC FX market conventions. These rates are derived from futures market trade data, aggregated hourly, and calculated using the Monotone Convex (MC) interpolation method. This API generates spot rates and forward rates for standardized tenors, ensuring robust and market-representative outputs.
+      parameters:
+      - name: pairCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD
+      - name: lukkaEntityCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: LUKKA
+      - name: dataShape
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 2L
+      - name: timeFrom
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2024-05-10T07:00:00.000Z'
+      - name: timeTo
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2024-05-13T07:00:00.000Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '24'
+      responses:
+        '200':
+          description: OTC FX Rates - flat view
+  /analytics-api/implied-volatility-surface:
+    get:
+      operationId: impliedVolatility
+      summary: Implied Volatility
+      tags:
+      - Analytics - Analytics API
+      parameters:
+      - name: lukkaEntityCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: LUKKA
+      - name: underlyingAssetLukkaCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: ETH
+      - name: timeTo
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2023-10-02T00:00:00Z'
+      - name: timeFrom
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2023-10-01T00:00:00Z'
+      - name: moneyness
+        in: query
+        required: false
+        schema:
+          type: string
+        example: delta
+      - name: dataShape
+        in: query
+        required: false
+        schema:
+          type: string
+        example: flat
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Implied Volatility - flat view and strike moneyness
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

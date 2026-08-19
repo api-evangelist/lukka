@@ -1,0 +1,388 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka & Market Data Pricing API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pricing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Available Sources by Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/details/:productType",
+            "params": [
+              {
+                "name": "productType",
+                "value": "",
+                "type": "path",
+                "description": "productType path parameter"
+              }
+            ]
+          },
+          "docs": "Description: Gets all configured sources for the client based on a defined product type. An array of sources available, based on API key permissions and inputted product type will be returned by this endpoint.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/{productType} \n\n Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative"
+        },
+        {
+          "info": {
+            "name": "Get Source Details by Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/details/:productType/:sourceId",
+            "params": [
+              {
+                "name": "productType",
+                "value": "",
+                "type": "path",
+                "description": "productType path parameter"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              }
+            ]
+          },
+          "docs": "Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata that it supports.\n\n This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}\n\n Available Product types include: prices, variances"
+        },
+        {
+          "info": {
+            "name": "Get Derivative Source Details (Paginated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/details/:productType/:sourceId/derivatives",
+            "params": [
+              {
+                "name": "productType",
+                "value": "",
+                "type": "path",
+                "description": "productType path parameter"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              }
+            ]
+          },
+          "docs": "Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata.\n\n This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}/derivatives\n\n Response is paginated via a nextPageUrl cursor. Availab"
+        },
+        {
+          "info": {
+            "name": "Get Latest Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/2000/prices",
+            "params": [
+              {
+                "name": "pairCodes",
+                "value": "XBT-USD,ETH-USD",
+                "type": "query"
+              },
+              {
+                "name": "lookback",
+                "value": "172800000",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices."
+        },
+        {
+          "info": {
+            "name": "Get Historical Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/:sourceId/prices/pairs/:pairCode",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T13:00:00Z",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.\n\n This endpoint is typically used "
+        },
+        {
+          "info": {
+            "name": "Get Price Variances by Pair",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/:sourceId/prices/pairs/:pairCode/variances",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T12:10:00Z",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "3",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the price history for a single pair along with its market variances. For each exchange, daily volume, daily trade counts, hourly volume, and hourly trade counts are provided. Lukka Prime takes all these parameters into consideration when choosing a principal exchange for the minute's price.\n\n Exchanges under market variances are sorted in a descending order by its hourly volume .\n\n If the response exceeds the maximum number of records that can be returned in a single payload, th"
+        },
+        {
+          "info": {
+            "name": "Get Latest MVWAPs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/5005/mvwaps",
+            "params": [
+              {
+                "name": "pairCodes",
+                "value": "XBT-USD,ETH-USD",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the latest Moving Volume Weighted Average Price (MVWAP) as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5005 (15s/1s MVWAP)."
+        },
+        {
+          "info": {
+            "name": "Get Historical MVWAP by Pair",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/:sourceId/mvwaps/pairs/:pairCode",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T12:10:00Z",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "5",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the MVWAP history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned."
+        },
+        {
+          "info": {
+            "name": "Get Multi-Source VWAP by Pair",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/vwaps/:pairCode",
+            "params": [
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "sourceIds",
+                "value": "4002,4005",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T13:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "interval",
+                "value": "60000",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the 60 minute Volume Weighted Average Price (VWAP) for a given pair code and given Source Exchanges. The VWAP output price for any given timestamp is the volume-weighted price of all executed trades in the previous 60 minutes from the inputted list of Market Data Source IDs that support the requested Pair Code.\n\n Max date range is 7 days. periodicityCalculation and interval are both in milliseconds.\n\n If the response exceeds the maximum number of records that can be returned in "
+        },
+        {
+          "info": {
+            "name": "Get Latest Reference Rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/5001/prices",
+            "params": [
+              {
+                "name": "pairCodes",
+                "value": "XBT-USD,ETH-USD",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the latest Lukka Reference Rate as of the given timestamp for the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5001.\n\n Keep in mind the 2048 character limit in a GET request. The pairCodes query parameter should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs."
+        },
+        {
+          "info": {
+            "name": "Get Historical Reference Rate by Pair",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/5001/prices/pairs/:pairCode",
+            "params": [
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T03:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "interval",
+                "value": "3600000",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the Lukka Reference Rate history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n interval must be 3600000 (1h) or 86400000 (1d)."
+        },
+        {
+          "info": {
+            "name": "Get Latest Index Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/:sourceId/indices",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              }
+            ]
+          },
+          "docs": "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.\n\n sourceId must match the 6xxx (indices) range. Default lookback is 5400000 ms (90 min)."
+        },
+        {
+          "info": {
+            "name": "Get Historical Index Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/:sourceId/indices/historical",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T13:00:00Z",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n sourceId must match the 6xxx (indices) range."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

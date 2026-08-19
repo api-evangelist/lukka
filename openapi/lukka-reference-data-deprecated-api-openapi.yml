@@ -1,0 +1,744 @@
+openapi: 3.2.0
+info:
+  title: Lukka Reference Data Reference Data (Deprecated) Reference Data (Deprecated) API
+  version: 1.0.0
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-refdata-api.lukka.tech
+  description: Lukka production (data-refdata-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Reference Data (Deprecated)
+paths:
+  /v1/lukka/assets:
+    get:
+      operationId: allLukkaAssets2
+      summary: All Lukka Assets
+      tags:
+      - Reference Data (Deprecated)
+      description: "Get a list of all the Lukka normalized assets with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n lukkaId \n STRING \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n STRING \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n STRING \n Lukka's long name for the asset \n \n \n whitepaperCode \n STRING \n Ticker of the crypto asset found in the primary source \n \n \n assetType \n STRING \n Type of crypto asset such as coin, token, stablecoin, etc. \n \n \n totalSupply \n STRING \n Total supply of assets that can enter circulation \n \n \n cuirculatingSupply \n STRING \n Assets active and currently in circulation \n \n \n supplyUpdateTime \n DATE \n Time when the circulating supply was updated \n \n \n assetWebsite \n STRING \n Official website of the asset or primary source of asset information \n \n \n blockchain \n STRING \n Blockchain on which the asset resides \n \n \n contractAddress \n STRING \n The address of the contract of an asset in its respective blockchain"
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1000'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '7527'
+      responses:
+        '200':
+          description: All Lukka Assets
+          content:
+            application/json:
+              example:
+                data:
+                - lukkaId: LA6EV2NKQ95
+                  lukkaAssetCode: XBT
+                  lukkaAssetName: Bitcoin
+                  whitepaperCode: BTC
+                  assetType: coin
+                  totalSupply: 21000000
+                  circulatingSupply: 18702306
+                  supplyUpdateTime: '2021-05-07T11:16:29.259Z'
+                  assetWebsite: https://bitcoin.org/en/
+                  blockchain: Blockchain
+                  contractAddress: null
+                  lukkaAssetInternalId: 10007
+                - lukkaId: LA8VRAGEMT1
+                  lukkaAssetCode: ETH
+                  lukkaAssetName: Ether
+                  whitepaperCode: ETH
+                  assetType: coin
+                  totalSupply: null
+                  circulatingSupply: 115773579
+                  supplyUpdateTime: '2021-05-07T11:16:29.26Z'
+                  assetWebsite: https://www.ethereum.org/
+                  blockchain: Ethereum
+                  contractAddress: null
+                  lukkaAssetInternalId: 10029
+                - lukkaId: LA58RADHS00
+                  lukkaAssetCode: XLT
+                  lukkaAssetName: Litecoin
+                  whitepaperCode: LTC
+                  assetType: coin
+                  totalSupply: 84000000
+                  circulatingSupply: 66752414
+                  supplyUpdateTime: '2021-03-29T10:36:23.081Z'
+                  assetWebsite: https://litecoin.org/
+                  blockchain: Litecoin
+                  contractAddress: null
+                  lukkaAssetInternalId: 10043
+                - lukkaId: LA176YWNB05
+                  lukkaAssetCode: USDT
+                  lukkaAssetName: Tether ERC20
+                  whitepaperCode: USDT
+                  assetType: stable coin
+                  totalSupply: 53740188339
+                  circulatingSupply: 54869185682
+                  supplyUpdateTime: '2021-05-07T11:16:29.261Z'
+                  assetWebsite: https://tether.to/
+                  blockchain: ERC20
+                  contractAddress: null
+                  lukkaAssetInternalId: 10058
+                - lukkaId: LA46AZCHRX1
+                  lukkaAssetCode: BRY1
+                  lukkaAssetName: Berry Data
+                  whitepaperCode: BRY
+                  assetType: token
+                  totalSupply: 7797868
+                  circulatingSupply: 2875000
+                  supplyUpdateTime: '2021-05-07T11:16:29.475Z'
+                  assetWebsite: https://berrydata.co/
+                  blockchain: null
+                  contractAddress: '0xf859Bf77cBe8699013d6Dbc7C2b926Aaf307F830'
+                  lukkaAssetInternalId: 17398
+                - lukkaId: LA10Q21P3Q6
+                  lukkaAssetCode: SMO
+                  lukkaAssetName: Sun Money Token
+                  whitepaperCode: SMT
+                  assetType: token
+                  totalSupply: null
+                  circulatingSupply: null
+                  supplyUpdateTime: null
+                  assetWebsite: https://sunmoney.com/en/
+                  blockchain: ERC20
+                  contractAddress: '0xc761c8dc05ae52a8a785665e528ddbb00c098ad1'
+                  lukkaAssetInternalId: 12683
+                - lukkaId: LA4ZXXX0ES8
+                  lukkaAssetCode: SMH
+                  lukkaAssetName: Smathium
+                  whitepaperCode: SMT
+                  assetType: null
+                  totalSupply: null
+                  circulatingSupply: null
+                  supplyUpdateTime: null
+                  assetWebsite: https://smathium.io/
+                  blockchain: null
+                  contractAddress: '0x4B4787AAce23Eb70Da046bCC0CcFE28D4e4fB899'
+                  lukkaAssetInternalId: 13169
+                - lukkaId: LA3FUC7XS35
+                  lukkaAssetCode: SMT
+                  lukkaAssetName: SmartMesh
+                  whitepaperCode: SMT
+                  assetType: token
+                  totalSupply: 3141592653
+                  circulatingSupply: 1665044106
+                  supplyUpdateTime: '2021-03-16T10:07:20.363Z'
+                  assetWebsite: https://smartmesh.io/
+                  blockchain: ERC20
+                  contractAddress: '0x55f93985431fc9304077687a35a1ba103dc1e081'
+                  lukkaAssetInternalId: 11684
+                limit: 1000
+                offset: 7527
+                size: 971
+                links:
+                  base: /v1/lukka/assets
+                  next: null
+                  prev: /v1/lukka/assets?limit=1000&offset=6556
+  /v1/lukka/assets/LA4QVLA9QE0:
+    get:
+      operationId: aLukkaAsset
+      summary: A Lukka Asset
+      tags:
+      - Reference Data (Deprecated)
+      description: "Get a Lukka normalized asset by its Lukka ID.\n\n Parameters \n\n \n \n \n Field Name \n Mandatory \n \n \n lukkaId \n YES \n \n \n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n lukkaId \n STRING \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n STRING \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n STRING \n Lukka's long name for the asset \n \n \n whitepaperCode \n STRING \n Ticker of the crypto asset found in the primary source \n \n \n assetType \n STRING \n Type of crypto asset such as coin, token, stablecoin, etc. \n \n \n totalSupply \n STRING \n Total supply of assets that can enter circulation \n \n \n cuirculatingSupply \n STRING \n Assets active and currently in circulation \n \n \n supplyUpdateTime \n DATE \n Time when the circulating supply was updated \n \n \n assetWebsite \n STRING \n Official website of the asset or primary source of asset information \n \n \n blockchain \n STRING \n Blockchain on which the asset resides \n \n \n contractAddress \n STRING \n The address of the contract of an asset in its respective blockchain"
+      responses:
+        '200':
+          description: A Lukka Asset
+          content:
+            application/json:
+              example:
+                lukkaId: LA4QVLA9QE0
+                lukkaAssetCode: PAX
+                lukkaAssetName: Paxos Standard Token
+                whitepaperCode: PAX
+                assetType: stable coin
+                totalSupply: 1212563073
+                circulatingSupply: 1212563073
+                supplyUpdateTime: '2021-05-07T11:16:29.278Z'
+                assetWebsite: https://www.paxos.com/pax/
+                blockchain: ERC20
+                contractAddress: '0x8E870D67F660D95d5be530380D0eC0bd388289E1'
+                lukkaAssetInternalId: 12410
+  /v1/lukka/entities:
+    get:
+      operationId: allLukkaEntities
+      summary: All Lukka Entities
+      tags:
+      - Reference Data (Deprecated)
+      description: "Get a list of all the Lukka entities with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n name \n STRING \n Lukka's long name for the entity \n \n \n lukkaEntityCode \n STRING \n Unique Lukka code for the source entity \n \n \n type \n STRING \n The main function of the entity in the crypto ecosystem \n \n \n jurisdiction \n STRING \n The location of the entity where it is registered \n \n \n status \n STRING \n Indicates if the entity is still operational in the crypto ecosystem \n \n \n url \n STRING \n Official website of the entity \n \n \n startTs \n DATE \n The date when the entity started operating \n \n \n endTs \n DATE \n The date when the entity stopped operating, if the entity is no longer active \n \n \n fiat \n STRING \n The fiats supported by the entity for trading \n \n \n amlKycProcess \n STRING \n Indicates if the entity has an AML/KYC process when onboarding customers"
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '100'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      responses:
+        '200':
+          description: All Lukka Entities
+          content:
+            application/json:
+              example:
+                data:
+                - name: Kraken
+                  lukkaEntityCode: KRAK
+                  type: exchange
+                  jurisdiction: USA
+                  status: active
+                  url: https://www.kraken.com
+                  startTs: '2011-04-03 00:00:00'
+                  endTs: null
+                  fiat:
+                  - USD
+                  - EUR
+                  - GBP
+                  - JPY
+                  - CAD
+                  amlKycProcess: y
+                - name: Bithumb
+                  lukkaEntityCode: BTHM
+                  type: exchange
+                  jurisdiction: South Korea
+                  status: active
+                  url: https://www.bithumb.com/
+                  startTs: '2015-06-16 00:00:00'
+                  endTs: null
+                  fiat:
+                  - KRW
+                  amlKycProcess: null
+                - name: Liqui
+                  lukkaEntityCode: LIQU
+                  type: exchange
+                  jurisdiction: Ukraine
+                  status: inactive
+                  url: https://liqui.io/
+                  startTs: '2017-04-26 00:00:00'
+                  endTs: '2019-01-28 00:00:00'
+                  fiat: []
+                  amlKycProcess: y
+                - name: CoinMarketCap
+                  lukkaEntityCode: CMCP
+                  type: pricing service
+                  jurisdiction: USA
+                  status: active
+                  url: https://coinmarketcap.com/
+                  startTs: '2013-06-01 00:00:00'
+                  endTs: null
+                  fiat: []
+                  amlKycProcess: null
+                limit: 4
+                offset: 0
+                size: 4
+                links:
+                  base: /v1/lukka/entities
+                  next: /v1/lukka/entities?limit=4&offset=4
+                  prev: null
+  /v1/lukka/entities/BINA:
+    get:
+      operationId: anEntity
+      summary: An Entity
+      tags:
+      - Reference Data (Deprecated)
+      description: "Get an entity by its Lukka Entity Code.\n\n Parameters \n\n \n \n \n Field Name \n Mandatory \n \n \n lukkaEntityCode \n YES \n \n \n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n name \n STRING \n Lukka's long name for the entity \n \n \n lukkaEntityCode \n STRING \n Unique Lukka code for the source entity \n \n \n type \n STRING \n The main function of the entity in the crypto ecosystem \n \n \n jurisdiction \n STRING \n The location of the entity where it is registered \n \n \n status \n STRING \n Indicates if the entity is still operational in the crypto ecosystem \n \n \n url \n STRING \n Official website of the entity \n \n \n startTs \n DATE \n The date when the entity started operating \n \n \n endTs \n DATE \n The date when the entity stopped operating, if the entity is no longer active \n \n \n fiat \n STRING \n The fiats supported by the entity for trading \n \n \n amlKycProcess \n STRING \n Indicates if the entity has an AML/KYC process when onboarding customers"
+      responses:
+        '200':
+          description: An Entity
+          content:
+            application/json:
+              example:
+                name: Exmo
+                lukkaEntityCode: EXMO
+                type: Exchange
+                jurisdiction: UK
+                status: Active
+                url: https://exmo.com/
+                startTs: '2013-09-18T00:00:00Z'
+                endTs: null
+                fiat:
+                - USD
+                - EUR
+                - RUB
+                - UAH
+                - PLN
+                - TRY
+                amlKycProcess: null
+  /v1/lukka/ref-assets:
+    get:
+      operationId: lukkaAssetMappings
+      summary: Lukka Asset Mappings
+      tags:
+      - Reference Data (Deprecated)
+      description: "Get the cross reference of all the assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityAssetCode \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entityAssetName \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entityAssetInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entityWithdrawalFeeAssetCode \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entityWithdrawalFeeAmount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entityWithdrawalFeeType \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukkaAssetId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed"
+      parameters:
+      - name: entityCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: KRAK
+      - name: entityAssetCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: BTC
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '100'
+      responses:
+        '200':
+          description: Lukka Asset Mappings
+          content:
+            application/json:
+              example:
+                data:
+                - entityName: Bibox
+                  entityCode: BIBO
+                  entityType: Exchange
+                  entityAssetCode: BIX
+                  entityAssetName: BIX Token
+                  entityAssetInternalId: null
+                  entityWithdrawalFeeAssetCode: BIX
+                  entityWithdrawalFeeAmount: 12.0
+                  entityWithdrawalFeeType: Unit
+                  lukkaAssetId: LA52E52WCD9
+                  lukkaAssetCode: BIX
+                  lukkaAssetName: Bibox Token
+                  lukkaAssetInternalId: 11234
+                  startTime: '2019-09-13T14:15:46.149Z'
+                  endTime: null
+                - entityName: Bibox
+                  entityCode: BIBO
+                  entityType: Exchange
+                  entityAssetCode: ETH
+                  entityAssetName: Ethereum
+                  entityAssetInternalId: null
+                  entityWithdrawalFeeAssetCode: ETH
+                  entityWithdrawalFeeAmount: 0.009
+                  entityWithdrawalFeeType: Unit
+                  lukkaAssetId: LA8VRAGEMT1
+                  lukkaAssetCode: ETH
+                  lukkaAssetName: Ether
+                  lukkaAssetInternalId: 10029
+                  startTime: '2019-09-12T21:44:43.999Z'
+                  endTime: null
+                limit: 100
+                offset: 0
+                size: 100
+                links:
+                  base: /v1/lukka/ref-assets
+                  next: /v1/lukka/ref-assets?entityCode=BIBO&limit=100&offset=100
+                  prev: null
+  /v1/lukka/ref-pairs:
+    get:
+      operationId: lukkaPairMappings
+      summary: Lukka Pair Mappings
+      tags:
+      - Reference Data (Deprecated)
+      description: "Get the cross reference of all the pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityPairCode \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entityAssetOneCode \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entityAssetOneName \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entityAssetOneInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entityAssetTwoCode \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entityAssetTwoName \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entityAssetTwoInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entityPricePrecision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entityQuantityPrecision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entityMinimumTickSize \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entityMinimumTradeQuantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entityTradeFeeAssetCode \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entityTradeFeeAmount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entityTradeFeeType \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukkaPairCode \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukkaAssetOneId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetOneCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukkaAssetOneName \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukkaAssetTwoId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetTwoCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukkaAssetTwoName \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the tim"
+      parameters:
+      - name: lukkaCounterAssetCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: ETH
+      - name: entityCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: KUCO
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '100'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      responses:
+        '200':
+          description: Lukka Pair Mappings
+          content:
+            application/json:
+              example:
+                data:
+                - entityName: Binance
+                  entityCode: BINA
+                  entityType: Exchange
+                  entityPairCode: ETHBTC
+                  entityAssetOneCode: ETH
+                  entityAssetOneName: Ethereum
+                  entityAssetTwoCode: BTC
+                  entityAssetOneInternalId: null
+                  entityAssetTwoName: Bitcoin
+                  lukkaPairCode: ETH-XBT
+                  lukkaPairInternalId: 116139
+                  entityAssetTwoInternalId: null
+                  entityPricePrecision: 8
+                  entityQuantityPrecision: 8
+                  entityMinimumTickSize: 0
+                  entityMinimumTradeQuantity: 0
+                  entityTradeFeeAssetCode: BTC
+                  entityTradeFeeAmount: 0.1
+                  entityTradeFeeType: Percent
+                  lukkaAssetOneId: LA8VRAGEMT1
+                  lukkaAssetOneInternalId: 10029
+                  lukkaAssetOneCode: ETH
+                  lukkaAssetOneName: Ether
+                  lukkaAssetTwoId: LA6EV2NKQ95
+                  lukkaAssetTwoInternalId: 10007
+                  lukkaAssetTwoCode: XBT
+                  lukkaAssetTwoName: Bitcoin
+                  isReversed: false
+                  startTime: '2018-05-03T00:57:49.356Z'
+                  endTime: '2021-04-25T10:49:46.889Z'
+                - entityName: Binance
+                  entityCode: BINA
+                  entityType: Exchange
+                  entityPairCode: LTCBTC
+                  entityAssetOneCode: LTC
+                  entityAssetOneName: Litecoin
+                  entityAssetTwoCode: BTC
+                  entityAssetOneInternalId: null
+                  entityAssetTwoName: Bitcoin
+                  lukkaPairCode: XLT-XBT
+                  lukkaPairInternalId: 114677
+                  entityAssetTwoInternalId: null
+                  entityPricePrecision: 8
+                  entityQuantityPrecision: 8
+                  entityMinimumTickSize: 0
+                  entityMinimumTradeQuantity: 0
+                  entityTradeFeeAssetCode: BTC
+                  entityTradeFeeAmount: 0.1
+                  entityTradeFeeType: Percent
+                  lukkaAssetOneId: LA58RADHS00
+                  lukkaAssetOneInternalId: 10043
+                  lukkaAssetOneCode: XLT
+                  lukkaAssetOneName: Litecoin
+                  lukkaAssetTwoId: LA6EV2NKQ95
+                  lukkaAssetTwoInternalId: 10007
+                  lukkaAssetTwoCode: XBT
+                  lukkaAssetTwoName: Bitcoin
+                  isReversed: false
+                  startTime: '2018-05-03T00:57:49.356Z'
+                  endTime: '2021-04-25T10:49:46.859Z'
+                - entityName: Binance
+                  entityCode: BINA
+                  entityType: Exchange
+                  entityPairCode: BNBBTC
+                  entityAssetOneCode: BNB
+                  entityAssetOneName: Binance Coin
+                  entityAssetTwoCode: BTC
+                  entityAssetOneInternalId: null
+                  entityAssetTwoName: Bitcoin
+                  lukkaPairCode: BNB-XBT
+                  lukkaPairInternalId: 117575
+                  entityAssetTwoInternalId: null
+                  entityPricePrecision: 8
+                  entityQuantityPrecision: 8
+                  entityMinimumTickSize: 0
+                  entityMinimumTradeQuantity: 0
+                  entityTradeFeeAssetCode: BTC
+                  entityTradeFeeAmount: 0.0
+                  entityTradeFeeType: Unit
+                  lukkaAssetOneId: LA6QAR0HMW5
+                  lukkaAssetOneInternalId: 10184
+                  lukkaAssetOneCode: BNB
+                  lukkaAssetOneName: Binance Coin
+                  lukkaAssetTwoId: LA6EV2NKQ95
+                  lukkaAssetTwoInternalId: 10007
+                  lukkaAssetTwoCode: XBT
+                  lukkaAssetTwoName: Bitcoin
+                  isReversed: false
+                  startTime: '2018-07-17T21:54:32.537Z'
+                  endTime: '2019-09-19T08:01:51.831Z'
+                limit: 100
+                offset: 0
+                size: 100
+                links:
+                  base: /v1/lukka/ref-pairs
+                  next: /v1/lukka/ref-pairs?includeDeleted=true&entityCode=BINA&limit=100&offset=100
+                  prev: null
+  /v1/lukka/ref-derivatives:
+    get:
+      operationId: lukkaDerivativeMappings
+      summary: Lukka Derivative Mappings
+      tags:
+      - Reference Data (Deprecated)
+      description: "Get the list of all the contracts supported by an entity.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityDerivativeCode \n CHARACTER \n 256 \n Code used by the source entity to uniquely identify the contract \n \n \n entityDerivativeName \n CHARACTER \n 256 \n Additional descriptive information provided by the source entity \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the derivative contract was listed by the source entity \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) for the expiration date of the contract provided by the source entity \n \n \n settlementTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) for the settlement time of the contract provided by the source entity \n \n \n instrumentType \n CHARACTER \n 256 \n Type of contract classified by the source entity \n \n \n instrumentSubtype \n CHARACTER \n 256 \n Additional information on the type of contract \n \n \n multiplier \n NUMERIC \n \n Value of one point of quoted price in quote currency for one contract. Contract size in futures trading is the amount of underlying asset represented by each futures contract \n \n \n strike \n NUMERIC \n \n Price at which the put or call option can be exercised \n \n \n entitySettleAssetCode \n CHARACTER \n 256 \n The asset in which a contract is settled \n \n \n entityUnderlyingAssetCode \n CHARACTER \n 256 \n The asset making up the contract and upon which the price is based \n \n \n entityQuoteAssetCode \n CHARACTER \n 256 \n The asset by which a contract is valued \n \n \n underlyingSymbol \n CHARACTER \n 256 \n Source entity-specific information such as underlying index, descriptive data, unique identifiers, etc. \n \n \n lukkaDerivativeId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto contract. Please refer to the Lukka ID document for more information \n \n \n lukkaSettleAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the settle asset. Please refer to the Lukka ID document for more information \n \n \n lukkaUnderlyingAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the underlying asset. Please refer to the Lukka ID document for more information \n \n \n lukkaQuoteAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the quote asset. Please refer to the Lukka ID document for more information"
+      parameters:
+      - name: includeDeleted
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 'true'
+      - name: entityCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: OKEX
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '100'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      responses:
+        '200':
+          description: Lukka Derivative Mappings
+          content:
+            application/json:
+              example:
+                data:
+                - entityName: OKEx
+                  entityCode: OKEX
+                  entityType: Exchange
+                  entityDerivativeCode: BTC-USD-190712
+                  entityDerivativeName: BTC-USD-190712
+                  startTime: '2019-06-28T00:00:00Z'
+                  endTime: '2019-07-12T00:00:00Z'
+                  settlementTime: null
+                  instrumentType: FUTURE
+                  instrumentSubtype: NEXT_WEEK
+                  multiplier: 100
+                  entitySettleAsset: null
+                  entityUnderlyingAsset: BTC
+                  entityQuoteAsset: USD
+                  underlyingSymbol: null
+                  lukkaId: null
+                  lukkaSettleAsset: null
+                  lukkaUnderlyingAsset: XBT
+                  lukkaQuoteAsset: null
+                  lukkaDerivativeInternalId: 1000000022475
+                  lukkaUnderlyingAssetInternalId: 10007
+                  lukkaSettleAssetInternalId: null
+                  lukkaQuoteAssetInternalId: null
+                - entityName: OKEx
+                  entityCode: OKEX
+                  entityType: Exchange
+                  entityDerivativeCode: LTC-USD-190712
+                  entityDerivativeName: LTC-USD-190712
+                  startTime: '2019-06-28T00:00:00Z'
+                  endTime: '2019-07-12T00:00:00Z'
+                  settlementTime: null
+                  instrumentType: FUTURE
+                  instrumentSubtype: NEXT_WEEK
+                  multiplier: 10
+                  entitySettleAsset: null
+                  entityUnderlyingAsset: LTC
+                  entityQuoteAsset: USD
+                  underlyingSymbol: null
+                  lukkaId: null
+                  lukkaSettleAsset: null
+                  lukkaUnderlyingAsset: XLT
+                  lukkaQuoteAsset: null
+                  lukkaDerivativeInternalId: 1000000022476
+                  lukkaUnderlyingAssetInternalId: 10043
+                  lukkaSettleAssetInternalId: null
+                  lukkaQuoteAssetInternalId: null
+                - entityName: OKEx
+                  entityCode: OKEX
+                  entityType: Exchange
+                  entityDerivativeCode: ETH-USD-190712
+                  entityDerivativeName: ETH-USD-190712
+                  startTime: '2019-06-28T00:00:00Z'
+                  endTime: '2019-07-12T00:00:00Z'
+                  settlementTime: null
+                  instrumentType: FUTURE
+                  instrumentSubtype: NEXT_WEEK
+                  multiplier: 10
+                  entitySettleAsset: null
+                  entityUnderlyingAsset: ETH
+                  entityQuoteAsset: USD
+                  underlyingSymbol: null
+                  lukkaId: null
+                  lukkaSettleAsset: null
+                  lukkaUnderlyingAsset: ETH
+                  lukkaQuoteAsset: null
+                  lukkaDerivativeInternalId: 1000000022477
+                  lukkaUnderlyingAssetInternalId: 10029
+                  lukkaSettleAssetInternalId: null
+                  lukkaQuoteAssetInternalId: null
+                limit: 100
+                offset: 0
+                size: 100
+                links:
+                  base: /v1/lukka/ref-derivatives
+                  next: /v1/lukka/ref-derivatives?entityCode=OKEX&limit=100&offset=100
+                  prev: null
+  /v1/lukka/assets/crypto-actions:
+    get:
+      operationId: lukkaCryptoActions
+      summary: Lukka Crypto Actions
+      tags:
+      - Reference Data (Deprecated)
+      description: "Get a list of all the crypto actions occurring on an asset.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n event \n CHARACTER \n 256 \n Type of crypto action \n \n \n eventTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the crypto action has taken place or will take place (for future events) \n \n \n oldLukkaId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset before the crypto action event. Please refer to the Lukka ID document for more information \n \n \n oldWhitepaperAssetCode \n CHARACTER \n 256 \n Ticker of the crypto asset found in the primary source before the crypto action event \n \n \n oldWhitepaperAssetName \n CHARACTER \n 256 \n Name of the crypto asset found in the primary source before the crypto action event \n \n \n oldBlockchain \n CHARACTER \n 256 \n Blockchain on which the asset resided before the crypto action event \n \n \n oldContractAddress \n CHARACTER \n 4000 \n Address of the contract of an asset in its respective blockchain before the crypto action event \n \n \n newLukkaId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset after the crypto action event. Please refer to the Lukka ID document for more information \n \n \n newWhitepaperAssetCode \n CHARACTER \n 256 \n Ticker of the crypto asset found in the primary source after the crypto action event \n \n \n newWhitepaperAssetName \n CHARACTER \n 256 \n Name of the crypto asset found in the primary source after the crypto action event \n \n \n newBlockchain \n CHARACTER \n 256 \n Blockchain on which the asset resides after the crypto action event \n \n \n newContractAddress \n CHARACTER \n 4000 \n Address of the contract of an asset in its respective blockchain after the crypto action event \n \n \n newSplitMultiplier \n NUMBER \n \n Change in the balance of the new asset after a crypto action event such as an \"Asset Swap\" has taken place \n \n \n eventDetails \n CHARACTER \n 4000 \n Additional information such as a link to the website or publication of the crypto action event"
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '100'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      - name: eventBefore
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2020-04-29T23:40:11.924Z'
+      - name: eventAfter
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2020-04-29T23:40:11.924Z'
+      - name: event
+        in: query
+        required: false
+        schema:
+          type: string
+        example: Fork
+      responses:
+        '404':
+          description: Lukka Crypto Actions
+          content:
+            application/json:
+              example:
+                data:
+                - event: Name Change
+                  eventTime: null
+                  oldLukkaId: LA4T6QCC611
+                  oldWhitepaperAssetCode: BUS
+                  oldWhitepaperAssetName: BTU Support
+                  oldBlockchain: null
+                  oldContractAddress: null
+                  newLukkaId: LA4T6QCC611
+                  newWhitepaperAssetCode: BUS
+                  newWhitepaperAssetName: Bitcoin Unlimited Support
+                  newBlockchain: null
+                  newContractAddress: null
+                  newSplitMultiplier: null
+                  eventDetails: null
+                - event: Asset Swap
+                  eventTime: null
+                  oldLukkaId: LA37C925373
+                  oldWhitepaperAssetCode: APIS
+                  oldWhitepaperAssetName: APIS
+                  oldBlockchain: null
+                  oldContractAddress: null
+                  newLukkaId: LA2W3K7SNX9
+                  newWhitepaperAssetCode: APIX
+                  newWhitepaperAssetName: APIX
+                  newBlockchain: null
+                  newContractAddress: null
+                  newSplitMultiplier: 0.01
+                  eventDetails: null
+                - event: Blockchain Migration
+                  eventTime: null
+                  oldLukkaId: LA1BX58PPZ7
+                  oldWhitepaperAssetCode: MEDX
+                  oldWhitepaperAssetName: MediBloc
+                  oldBlockchain: ERC20
+                  oldContractAddress: null
+                  newLukkaId: LA8ZWA13L82
+                  newWhitepaperAssetCode: MEDB
+                  newWhitepaperAssetName: MediBloc [Panacea]
+                  newBlockchain: Panacea
+                  newContractAddress: null
+                  newSplitMultiplier: 0.5
+                  eventDetails: null
+                - event: Hard Fork
+                  eventTime: null
+                  oldLukkaId: LA4TKP4Q8H4
+                  oldWhitepaperAssetCode: DASC
+                  oldWhitepaperAssetName: DasCoin
+                  oldBlockchain: null
+                  oldContractAddress: null
+                  newLukkaId: LA1BUTBD5C6
+                  newWhitepaperAssetCode: GRP
+                  newWhitepaperAssetName: GreenPower
+                  newBlockchain: null
+                  newContractAddress: null
+                  newSplitMultiplier: null
+                  eventDetails: null
+                - event: Contract Migration
+                  eventTime: null
+                  oldLukkaId: LA47Y9PUK43
+                  oldWhitepaperAssetCode: YAMv2
+                  oldWhitepaperAssetName: YAMv2
+                  oldBlockchain: null
+                  oldContractAddress: '0xaba8cac6866b83ae4eec97dd07ed254282f6ad8a'
+                  newLukkaId: LA3TTQUP5T9
+                  newWhitepaperAssetCode: YAMv3
+                  newWhitepaperAssetName: YAMv3
+                  newBlockchain: null
+                  newContractAddress: '0x0aacfbec6a24756c20d41914f2caba817c0d8521'
+                  newSplitMultiplier: 2.5
+                  eventDetails: https://docs.yam.finance/faq#how-does-yamv2-to-yam-migration-work
+                limit: 100
+                offset: 0
+                size: 100
+                links:
+                  base: /v1/lukka/assets/crypto-actions
+                  next: /v1/lukka/assets/crypto-actions?event=&limit=100&offset=100
+                  prev: null
+          x-collection-anomaly: The published Postman collection tags this saved example 404, but the body is a successful data page. Status code preserved as published; see errors/lukka-problem-types.yml.
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

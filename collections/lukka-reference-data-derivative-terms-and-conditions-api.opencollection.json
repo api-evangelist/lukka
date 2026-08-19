@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Reference Data - Derivative Terms and Conditions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data - Derivative Terms and Conditions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Derivatives",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/derivatives",
+            "params": [
+              {
+                "name": "limit",
+                "value": "1000",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "entityCode",
+                "value": "DERI",
+                "type": "query"
+              },
+              {
+                "name": "expandDetails",
+                "value": "[ALL]",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of all known Derivatives within the Lukka Derivatives Data (\"LDRD\") product \n\n The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention a"
+        },
+        {
+          "info": {
+            "name": "A Derivative and its Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/derivatives/L-DERI-OPT-BTC-BTC-C-43000-20210917"
+          },
+          "docs": "Get all known details for a given Lukka Derivative Identifier.\n\n The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues. \n\n "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

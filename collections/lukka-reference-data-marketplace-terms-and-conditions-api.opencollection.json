@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Reference Data - Marketplace Terms and Conditions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data - Marketplace Terms and Conditions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Marketplaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/markets",
+            "params": [
+              {
+                "name": "limit",
+                "value": "10",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "expandDetails",
+                "value": "[ALL]",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of all known markets within Lukka that apply to Lukka Marketplace Reference Data (\"LMPRD\")\n\n Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a ma"
+        },
+        {
+          "info": {
+            "name": "A Marketplace and its Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/markets/LM47PH5UBV0"
+          },
+          "docs": "Get all known details for a given Lukka Marketplace Identifier from the Lukka Marketplace Reference Data (\"LMPRD\") Product\n\n Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various i"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

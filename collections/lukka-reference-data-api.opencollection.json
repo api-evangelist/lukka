@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "LDACS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/sectors",
+            "params": [
+              {
+                "name": "assetLid",
+                "value": "LA6PY42YA30",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "1000",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "LDACS"
+        },
+        {
+          "info": {
+            "name": "An Enum",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/enums/lukkaCryptoActionCode"
+          },
+          "docs": "The ENUM (enumerated code) endpoint provides a list of ENUM codes that will be used throughout the reference data product family and suite of reference data APIs. This endpoint is meant to help customers decipher the different codes and static values available as well as the primary endpoint where those codes may be used\n\n \n \n \n ENUM Variable for URL \n Applicable Endpoints \n \n \n \n \n classificationCode \n All Derivatives \nA Derivative and its Details \n \n \n lukkaCryptoActionCode \n Crypto Actions \n "
+        },
+        {
+          "info": {
+            "name": "Asset Coverage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/stats/assets/coverage",
+            "params": [
+              {
+                "name": "lukkaAssetIds",
+                "value": "LA6EV2NKQ95",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Asset Coverage"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

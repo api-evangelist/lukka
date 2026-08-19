@@ -1,0 +1,637 @@
+{
+  "item": [
+    {
+      "id": "38fd0c8a-09ee-48ff-bafc-8ab34e1239c7",
+      "name": "Market Data - Downloadable Data (CSV)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0a6a397-d77b-4024-afbe-5098a043a5d4",
+          "name": "Create Historical Trades Request",
+          "request": {
+            "name": "Create Historical Trades Request",
+            "description": {
+              "content": "This endpoint allows users to post a request to obtain historical market data. Use the returned request id to obtain a pre-signed url allowing you to do download the results.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests \n\n Available Product Types: quotes, trades",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trades",
+                "historical",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sourceIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pairCodes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c538d3d4-e509-4e06-a670-2572ca451a51",
+              "name": "Create Historical Trades Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trades",
+                    "historical",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceIds",
+                      "value": "4004,4018"
+                    },
+                    {
+                      "key": "pairCodes",
+                      "value": "XBT-USD"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T13:00:00Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"13e35c20-c44e-4325-8296-3453d47771e0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b79db749-bd8f-4e1f-a1f6-80ce4be02204",
+          "name": "List Historical Trades Requests",
+          "request": {
+            "name": "List Historical Trades Requests",
+            "description": {
+              "content": "This endpoint returns the past 3 days of historical market data requests. Append the request id to the end of the url and a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/requests/ \n\n Available Product Types: quotes, trades",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trades",
+                "historical",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d1a762b-143d-461b-80b4-0c2bbe7de984",
+              "name": "List Historical Trades Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trades",
+                    "historical",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requests\": [\n    {\n      \"requestId\": \"f35f49f5-b8a6-4ce7-849d-3d8e67d441fd\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T13:08:05.845765417Z\",\n      \"completedAt\": \"2026-04-22T13:08:18.550412030Z\"\n    },\n    {\n      \"requestId\": \"5ea9ea91-d336-4021-9c6c-7fddccf06e43\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:02:42.877753050Z\",\n      \"completedAt\": \"2026-04-22T15:02:55.836773842Z\"\n    },\n    {\n      \"requestId\": \"f512064e-2623-45c4-8761-177bc9b9e1f6\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T23:15:01.059157134Z\",\n      \"completedAt\": \"2026-04-21T23:15:12.355075033Z\"\n    },\n    {\n      \"requestId\": \"08791eca-ee46-4e93-a54a-cc9f588b4317\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T22:26:50.361339981Z\",\n      \"completedAt\": \"2026-04-21T22:27:04.698064305Z\"\n    },\n    {\n      \"requestId\": \"2696bc58-2310-44e1-9a6f-1003cf1b8d29\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T22:53:20.702436286Z\",\n      \"completedAt\": \"2026-04-21T22:53:33.001108484Z\"\n    },\n    {\n      \"requestId\": \"04c15450-a752-4b92-bc97-551067ae654f\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:30:24.721214276Z\",\n      \"completedAt\": \"2026-04-22T15:30:35.763895944Z\"\n    },\n    {\n      \"requestId\": \"73fe4174-3bfe-4d64-9d35-d7015dae3df4\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:23:38.958155956Z\",\n      \"completedAt\": \"2026-04-22T15:23:51.313939867Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91e60c01-b0bc-4772-9bbb-bd65f4479496",
+          "name": "Get Historical Trades Request Status",
+          "request": {
+            "name": "Get Historical Trades Request Status",
+            "description": {
+              "content": "This endpoint returns the status and download URL for a previously submitted trades request. Append the request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/trades/historical/requests/{requestId}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trades",
+                "historical",
+                "requests",
+                ":requestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "requestId",
+                  "description": "(Required) requestId path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "923e7d40-9578-422a-b1b1-a3eb2ee7daae",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trades",
+                    "historical",
+                    "requests",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "requestId",
+                      "description": "(Required) requestId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f3cf508-ed52-45ff-8186-e7896d63fe98",
+          "name": "Create Historical Quotes Request",
+          "request": {
+            "name": "Create Historical Quotes Request",
+            "description": {
+              "content": "This endpoint allows users to post a request to obtain historical market data. Use the returned request id to obtain a pre-signed url allowing you to do download the results.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests \n\n Available Product Types: quotes, trades",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "quotes",
+                "historical",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sourceIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pairCodes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7fabebe-deea-4f80-b3bf-ec16379cc469",
+              "name": "Create Historical Quotes Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "quotes",
+                    "historical",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceIds",
+                      "value": "4004,4018"
+                    },
+                    {
+                      "key": "pairCodes",
+                      "value": "XBT-USD"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T13:00:00Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"847475e3-22e1-493e-9cb6-470202251347\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2ccba26-8f91-4d17-a2b9-8b30021d44c6",
+          "name": "List Historical Quotes Requests",
+          "request": {
+            "name": "List Historical Quotes Requests",
+            "description": {
+              "content": "This endpoint returns the past 3 days of historical market data requests. Append the request id to the end of the url and a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/requests/ \n\n Available Product Types: quotes, trades",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "quotes",
+                "historical",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3afdfb0-174d-404f-96cd-bdbdcc8553fe",
+              "name": "List Historical Quotes Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "quotes",
+                    "historical",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requests\": [\n    {\n      \"requestId\": \"859d6718-a5b0-4709-a8a6-47fc4efe9c10\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:23:39.448708262Z\",\n      \"completedAt\": \"2026-04-22T15:23:54.865145151Z\"\n    },\n    {\n      \"requestId\": \"c4a1fb47-5617-443f-b4c8-32df4d9d5890\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T22:53:21.118051646Z\",\n      \"completedAt\": \"2026-04-21T22:53:36.592013775Z\"\n    },\n    {\n      \"requestId\": \"5ea9ea91-d336-4021-9c6c-7fddccf06e43\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:02:42.877753050Z\",\n      \"completedAt\": \"2026-04-22T15:02:55.836773842Z\"\n    },\n    {\n      \"requestId\": \"b10034e6-f12d-4fdd-86be-4c2fee09e0ee\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T23:15:01.494130412Z\",\n      \"completedAt\": \"2026-04-21T23:15:16.680003525Z\"\n    },\n    {\n      \"requestId\": \"f35f49f5-b8a6-4ce7-849d-3d8e67d441fd\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T13:08:05.845765417Z\",\n      \"completedAt\": \"2026-04-22T13:08:18.550412030Z\"\n    },\n    {\n      \"requestId\": \"dee81356-69b3-4795-af5b-277401d0b720\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T22:26:50.722621476Z\",\n      \"completedAt\": \"2026-04-21T22:27:08.324124601Z\"\n    },\n    {\n      \"requestId\": \"13e35c20-c44e-4325-8296-3453d47771e0\",\n      \"status\": \"IN_PROGRESS\",\n      \"createdAt\": \"2026-04-22T15:39:51.117089357Z\"\n    },\n    {\n      \"requestId\": \"f512064e-2623-45c4-8761-177bc9b9e1f6\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T23:15:01.059157134Z\",\n      \"completedAt\": \"2026-04-21T23:15:12.355075033Z\"\n    },\n    {\n      \"requestId\": \"08791eca-ee46-4e93-a54a-cc9f588b4317\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T22:26:50.361339981Z\",\n      \"completedAt\": \"2026-04-21T22:27:04.698064305Z\"\n    },\n    {\n      \"requestId\": \"420b0f02-2830-423d-acf1-3e19ac016bb5\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T13:08:06.386806016Z\",\n      \"completedAt\": \"2026-04-22T13:08:21.848477760Z\"\n    },\n    {\n      \"requestId\": \"2696bc58-2310-44e1-9a6f-1003cf1b8d29\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-21T22:53:20.702436286Z\",\n      \"completedAt\": \"2026-04-21T22:53:33.001108484Z\"\n    },\n    {\n      \"requestId\": \"04c15450-a752-4b92-bc97-551067ae654f\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:30:24.721214276Z\",\n      \"completedAt\": \"2026-04-22T15:30:35.763895944Z\"\n    },\n    {\n      \"requestId\": \"c269f653-704b-4171-a5f0-18c6d9cd353f\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:02:43.361442715Z\",\n      \"completedAt\": \"2026-04-22T15:03:01.221927189Z\"\n    },\n    {\n      \"requestId\": \"132d5f5b-a7c3-40db-89f3-05c42479f154\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:30:25.212341870Z\",\n      \"completedAt\": \"2026-04-22T15:30:40.429840336Z\"\n    },\n    {\n      \"requestId\": \"73fe4174-3bfe-4d64-9d35-d7015dae3df4\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-04-22T15:23:38.958155956Z\",\n      \"completedAt\": \"2026-04-22T15:23:51.313939867Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71a2573c-b71e-464c-bcd4-a8819d1e625d",
+          "name": "Get Historical Quotes Request Status",
+          "request": {
+            "name": "Get Historical Quotes Request Status",
+            "description": {
+              "content": "This endpoint returns the status and download URL for a previously submitted quotes request. Append the request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/quotes/historical/requests/{requestId}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "quotes",
+                "historical",
+                "requests",
+                ":requestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "requestId",
+                  "description": "(Required) requestId path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "933d2a45-feaa-460c-a763-8762c9ce5485",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "quotes",
+                    "historical",
+                    "requests",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "requestId",
+                      "description": "(Required) requestId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-pricing-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d153b79b-9e51-49b1-a6df-a2be57eda875",
+    "name": "Lukka Pricing & Market Data Market Data - Downloadable Data (CSV) Market Data - Downloadable Data (CSV) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

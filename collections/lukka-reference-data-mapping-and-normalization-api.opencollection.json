@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Reference Data - Mapping and Normalization API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data - Mapping and Normalization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/entities",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "All Entities"
+        },
+        {
+          "info": {
+            "name": "Asset Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/assets/mappings",
+            "params": [
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "mappingStatus",
+                "value": "Active",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the cross reference of all the assets supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)\n\n The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ec"
+        },
+        {
+          "info": {
+            "name": "Pair Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/pairs/mappings",
+            "params": [
+              {
+                "name": "mappingStatus",
+                "value": "Active",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the cross reference of all the pairs supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)\n\n The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset eco"
+        },
+        {
+          "info": {
+            "name": "Derivative Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/derivatives/mappings",
+            "params": [
+              {
+                "name": "limit",
+                "value": "10",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Derivative Mappings"
+        },
+        {
+          "info": {
+            "name": "All Legal Entity Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/legal-entity-mappings",
+            "params": [
+              {
+                "name": "limit",
+                "value": "1000",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "All Legal Entity Mappings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,226 @@
+{
+  "item": [
+    {
+      "id": "1a05a459-78d5-420e-be67-b540f184acf0",
+      "name": "Reference Data - Marketplace Terms and Conditions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b47966df-bcc6-4661-a120-612a72242481",
+          "name": "All Marketplaces",
+          "request": {
+            "name": "All Marketplaces",
+            "description": {
+              "content": "Get a list of all known markets within Lukka that apply to Lukka Marketplace Reference Data (\"LMPRD\")\n\n Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a marketplace.\n\n Marketplaces that are eligible to be tracked within the Lukka Marketplace Reference Data are trading venues where transactions in cryptocurrencies take place. Such transactions include venues where cryptocurrencies, or derivatives of those cryptocurrencies, can be bought, sold, lent, borrowed or swapped for other cryptocurrencies or fiat currencies. Venue types include, but are not limited to: Centralized Exchanges, Decentralized Exchanges, Exchange Aggregators or Relayers, Lending Platforms, Over-The-Counter Desks or Brokers.\n\n Response Details \n\n Data Type Description name STRING Lukka's long name for the entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "markets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "expandDetails",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea10d215-c536-46f0-9684-4ebb43579d7b",
+              "name": "All Marketplaces",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "markets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "expandDetails",
+                      "value": "[ALL]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size\": 50,\n  \"links\": {\n    \"base\": \"/v2/lukka/markets\",\n    \"next\": \"/v2/lukka/markets?limit=50&offset=50\",\n    \"prev\": null\n  },\n  \"limit\": 50,\n  \"offset\": 0,\n  \"data\": [\n    {\n      \"lukkaEntityCode\": \"OTCBTC\",\n      \"lukkaMarketId\": \"LM6KWXUJ1B4\"\n    },\n    {\n      \"lukkaEntityCode\": \"BINJESY\",\n      \"lukkaMarketId\": \"LM0SEGHU2Q3\"\n    },\n    {\n      \"lukkaEntityCode\": \"CEGG\",\n      \"lukkaMarketId\": \"LM83ZGSS762\"\n    },\n    {\n      \"lukkaEntityCode\": \"BBXEX\",\n      \"lukkaMarketId\": \"LM3E8XM3MN5\"\n    },\n    {\n      \"lukkaEntityCode\": \"HERMSUS\",\n      \"lukkaMarketId\": \"LM6RU6C05Y6\"\n    },\n    {\n      \"lukkaEntityCode\": \"BULLISH\",\n      \"lukkaMarketId\": \"LM0JWQWJ4G2\"\n    },\n    {\n      \"lukkaEntityCode\": \"BITT\",\n      \"lukkaMarketId\": \"LM4VG9ELVW6\"\n    },\n    {\n      \"lukkaEntityCode\": \"NLEXCH\",\n      \"lukkaMarketId\": \"LM6Y28K4XN4\"\n    },\n    {\n      \"lukkaEntityCode\": \"ITBT\",\n      \"lukkaMarketId\": \"LM561VU33S5\"\n    },\n    {\n      \"lukkaEntityCode\": \"FCOIN\",\n      \"lukkaMarketId\": \"LM4X5RK5X35\"\n    },\n    {\n      \"lukkaEntityCode\": \"HADAX\",\n      \"lukkaMarketId\": \"LM4RW16EZ49\"\n    },\n    {\n      \"lukkaEntityCode\": \"CNLSTPR\",\n      \"lukkaMarketId\": \"LM1JMDLEU40\"\n    },\n    {\n      \"lukkaEntityCode\": \"BITVAVO\",\n      \"lukkaMarketId\": \"LM8Z1HXM5V6\"\n    },\n    {\n      \"lukkaEntityCode\": \"ABUC\",\n      \"lukkaMarketId\": \"LM3MD420FN6\"\n    },\n    {\n      \"lukkaEntityCode\": \"BGRL\",\n      \"lukkaMarketId\": \"LM8XS63VM43\"\n    },\n    {\n      \"lukkaEntityCode\": \"NERAEX\",\n      \"lukkaMarketId\": \"LM6B43QEGC2\"\n    },\n    {\n      \"lukkaEntityCode\": \"ZBCM\",\n      \"lukkaMarketId\": \"LM7M91D4TP5\"\n    },\n    {\n      \"lukkaEntityCode\": \"WEXX\",\n      \"lukkaMarketId\": \"LM8FGEG06T7\"\n    },\n    {\n      \"lukkaEntityCode\": \"GOKUMKT\",\n      \"lukkaMarketId\": \"LM2PSGBUYN7\"\n    },\n    {\n      \"lukkaEntityCode\": \"CONE\",\n      \"lukkaMarketId\": \"LM0341GVFQ8\"\n    },\n    {\n      \"lukkaEntityCode\": \"CYPBULZ\",\n      \"lukkaMarketId\": \"LM2C2TVC2Y5\"\n    },\n    {\n      \"lukkaEntityCode\": \"BITWELL\",\n      \"lukkaMarketId\": \"LM5RN0Q55V9\"\n    },\n    {\n      \"lukkaEntityCode\": \"KYPTMT\",\n      \"lukkaMarketId\": \"LM4CBXECYW1\"\n    },\n    {\n      \"lukkaEntityCode\": \"KRPTARNA\",\n      \"lukkaMarketId\": \"LM4M6F0WKD3\"\n    },\n    {\n      \"lukkaEntityCode\": \"CFLR\",\n      \"lukkaMarketId\": \"LM5PAQPJZH3\"\n    },\n    {\n      \"lukkaEntityCode\": \"ALTMKTS\",\n      \"lukkaMarketId\": \"LM5N2XDUH53\"\n    },\n    {\n      \"lukkaEntityCode\": \"BANKCEX\",\n      \"lukkaMarketId\": \"LM2ATKF40K7\"\n    },\n    {\n      \"lukkaEntityCode\": \"BAKKT\",\n      \"lukkaMarketId\": \"LM0JDY7QX95\"\n    },\n    {\n      \"lukkaEntityCode\": \"BBAY\",\n      \"lukkaMarketId\": \"LM7KWVVGYU2\"\n    },\n    {\n      \"lukkaEntityCode\": \"STHEXE\",\n      \"lukkaMarketId\": \"LM4A1CEPLA1\"\n    },\n    {\n      \"lukkaEntityCode\": \"EXNOMY\",\n      \"lukkaMarketId\": \"LM27739BDX4\"\n    },\n    {\n      \"lukkaEntityCode\": \"BITHESAP\",\n      \"lukkaMarketId\": \"LM4S7Q4EAG3\"\n    },\n    {\n      \"lukkaEntityCode\": \"BTHMGX\",\n      \"lukkaMarketId\": \"LM6GPZH6383\"\n    },\n    {\n      \"lukkaEntityCode\": \"BTCT\",\n      \"lukkaMarketId\": \"LM4UETF0YJ5\"\n    },\n    {\n      \"lukkaEntityCode\": \"COSS\",\n      \"lukkaMarketId\": \"LM0RTU134T9\"\n    },\n    {\n      \"lukkaEntityCode\": \"KORDEX\",\n      \"lukkaMarketId\": \"LM5D4KKRJ01\"\n    },\n    {\n      \"lukkaEntityCode\": \"XTECX\",\n      \"lukkaMarketId\": \"LM1F4JU1HX9\"\n    },\n    {\n      \"lukkaEntityCode\": \"BBNK\",\n      \"lukkaMarketId\": \"LM4C7SXCU78\"\n    },\n    {\n      \"lukkaEntityCode\": \"CNEX\",\n      \"lukkaMarketId\": \"LM8QRGYNBE5\"\n    },\n    {\n      \"lukkaEntityCode\": \"BITFRONT\",\n      \"lukkaMarketId\": \"LM4FSAWZU57\"\n    },\n    {\n      \"lukkaEntityCode\": \"BITKUB\",\n      \"lukkaMarketId\": \"LM0DMUBWE44\"\n    },\n    {\n      \"lukkaEntityCode\": \"HUOBINDO\",\n      \"lukkaMarketId\": \"LM6ZQR3MBT2\"\n    },\n    {\n      \"lukkaEntityCode\": \"HBTC\",\n      \"lukkaMarketId\": \"LM4AWB221V1\"\n    },\n    {\n      \"lukkaEntityCode\": \"MERC\",\n      \"lukkaMarketId\": \"LM8SGQU33P4\"\n    },\n    {\n      \"lukkaEntityCode\": \"BTSO\",\n      \"lukkaMarketId\": \"LM3146MJD51\"\n    },\n    {\n      \"lukkaEntityCode\": \"RKNGKUEX\",\n      \"lukkaMarketId\": \"LM7AAT6QAC4\"\n    },\n    {\n      \"lukkaEntityCode\": \"ALTERDICE\",\n      \"lukkaMarketId\": \"LM2G40NBST1\"\n    },\n    {\n      \"lukkaEntityCode\": \"DIGI\",\n      \"lukkaMarketId\": \"LM2UWAB7LZ8\"\n    },\n    {\n      \"lukkaEntityCode\": \"BTPNDPR\",\n      \"lukkaMarketId\": \"LM5C53NT8J9\"\n    },\n    {\n      \"lukkaEntityCode\": \"DEXTRADE\",\n      \"lukkaMarketId\": \"LM1NVY7MQ93\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b181f9f-f4cf-4edc-a488-7e09a862046f",
+          "name": "A Marketplace and its Details",
+          "request": {
+            "name": "A Marketplace and its Details",
+            "description": {
+              "content": "Get all known details for a given Lukka Marketplace Identifier from the Lukka Marketplace Reference Data (\"LMPRD\") Product\n\n Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a marketplace.\n\n Marketplaces that are eligible to be tracked within the Lukka Marketplace Reference Data are trading venues where transactions in cryptocurrencies take place. Such transactions include venues where cryptocurrencies, or derivatives of those cryptocurrencies, can be bought, sold, lent, borrowed or swapped for other cryptocurrencies or fiat currencies. Venue types include, but are not limited to: Centralized Exchanges, Decentralized Exchanges, Exchange Aggregators or Relayers, Lending Platforms, Over-The-Counter Desks or Brokers.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "markets",
+                "LM47PH5UBV0"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee8b7d25-f74c-4835-858a-cacc39a400fc",
+              "name": "A Market and its Details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "markets",
+                    "LM47PH5UBV0"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-refdata-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "307c1ce6-9f64-4d75-ac95-f75890456077",
+    "name": "Lukka Reference Data Reference Data - Marketplace Terms and Conditions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

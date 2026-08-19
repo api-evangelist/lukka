@@ -1,0 +1,277 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Pricing & Market Data Market Data - Spot API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market Data - Spot",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Latest Markets (SPOT)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/SPOT",
+            "params": [
+              {
+                "name": "sourceIds",
+                "value": "4002",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "5",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: This endpoint returns the spot markets for a specified exchange over the previous 24 hours. Must supply sourceIds OR baseAssetCodes / counterAssetCodes ."
+        },
+        {
+          "info": {
+            "name": "Get Market Caps by Pair",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v2/market-data/market-caps/pairs/:pairCode",
+            "params": [
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "limit",
+                "value": "3",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "DESC",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Market Capitalization data calculated using Circulating Supply, sourced from Lukka Reference Data, and Lukka Prime minute by minute pricing, leveraging the Lukka Prime Pricing Methodology."
+        },
+        {
+          "info": {
+            "name": "Get Latest Market Caps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v2/market-data/market-caps",
+            "params": [
+              {
+                "name": "pairCodes",
+                "value": "XBT-USD,ETH-USD",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of the latest Market Capitalization available for a given as of date or given list of pair codes. This endpoint allows users with full permissioned access to see the top coins by market cap historically and on a go forward basis."
+        },
+        {
+          "info": {
+            "name": "Get Historical Spot Trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/market-data/sources/:sourceId/trades/pairs/:pairCode",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T12:05:00Z",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "5",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the trade history.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.\n\n All requests are limited to 3600 records."
+        },
+        {
+          "info": {
+            "name": "Get Latest Staking Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/5004/rates",
+            "params": [
+              {
+                "name": "assetCodes",
+                "value": "ETH",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the latest staking yield rates as of the given timestamp for the given asset codes. assetCodes is required. Available sources are 5003 and 5004."
+        },
+        {
+          "info": {
+            "name": "Get Historical Staking Rates by Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/:sourceId/rates/asset/:assetCode",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "assetCode",
+                "value": "",
+                "type": "path",
+                "description": "assetCode path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-14T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T00:00:00Z",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the staking rate history for a single asset from a specified Source ID (5003 or 5004).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+        },
+        {
+          "info": {
+            "name": "Get Order Book Liquidity (SPOT)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/order-book-liquidity/SPOT",
+            "params": [
+              {
+                "name": "asOf",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "sourceIds",
+                "value": "4002",
+                "type": "query"
+              },
+              {
+                "name": "baseAssetCodes",
+                "value": "XBT",
+                "type": "query"
+              },
+              {
+                "name": "counterAssetCodes",
+                "value": "USD",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: This endpoint will calculate the average market depth for a specified pair at multiple levels. Market depth refers to the volume of buy and sell orders at various price levels. This will be done by averaging over all our 15 second snapshots leveraging the aggLookback and asOf parameters."
+        },
+        {
+          "info": {
+            "name": "Get Order Book Snapshot (SPOT)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v2/market-data/order-book-snapshot/SPOT",
+            "params": [
+              {
+                "name": "pairCodes",
+                "value": "XBT-USD",
+                "type": "query"
+              },
+              {
+                "name": "sourceIds",
+                "value": "4002",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint provides a reconstructed view of the Level 2 (L2) Order Book state at precise 15-second intervals. It bridges the gap between high-frequency raw data and accessible historical analysis by aggregating incremental updates into a static \"snapshot\" of the market depth.\n\n depth = levels per side (0 = unlimited). lookback is in milliseconds (default 3600000, max 172800000)."
+        },
+        {
+          "info": {
+            "name": "Get Slippage by Pair",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v2/market-data/slippage/pairs/:pairCode",
+            "params": [
+              {
+                "name": "pairCode",
+                "value": "",
+                "type": "path",
+                "description": "pairCode path parameter"
+              },
+              {
+                "name": "tradeSizeValue",
+                "value": "1000000",
+                "type": "query"
+              },
+              {
+                "name": "tradeSizeDenom",
+                "value": "COUNTER",
+                "type": "query"
+              },
+              {
+                "name": "basis",
+                "value": "MID",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint calculates estimated market slippage for a given trading pair based on live order book snapshots. It simulates walking the order book for both a buy and a sell of the requested trade size, returning VWAP-based slippage metrics relative to the mid-price or best bid/ask. One result is returned per snapshot found within a 1-6 minute lookback window for the requested timestamp.\n\n Lukka canonical pair code is required, must end in -USD."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

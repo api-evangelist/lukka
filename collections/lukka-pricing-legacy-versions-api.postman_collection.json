@@ -1,0 +1,199 @@
+{
+  "item": [
+    {
+      "id": "d9d26fff-99b9-4608-a6b2-71c91c49a8a6",
+      "name": "Pricing - Legacy Versions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f9363396-e5ef-4676-8a16-235b6fd91e81",
+          "name": "Available Sources",
+          "request": {
+            "name": "Available Sources",
+            "description": {
+              "content": "Description: Gets all configured sources for the client. An array of pricing sources available (based on API keys permissions) will be returned by this endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "4002"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06086822-297a-428c-b738-552378f645b2",
+              "name": "Available Sources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "4002"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"sourceId\": 4001,\n    \"sourceName\": \"Kraken\"\n  },\n  {\n    \"sourceId\": 4002,\n    \"sourceName\": \"Coinbase\"\n  },\n  {\n    \"sourceId\": 4005,\n    \"sourceName\": \"Binance\"\n  },\n  {\n    \"sourceId\": 4006,\n    \"sourceName\": \"Bitflyer\"\n  },\n  {\n    \"sourceId\": 4008,\n    \"sourceName\": \"Gemini\"\n  },\n  {\n    \"sourceId\": 1000,\n    \"sourceName\": \"EOD Prices\"\n  },\n  {\n    \"sourceId\": 2000,\n    \"sourceName\": \"Intraday Prices\"\n  },\n  {\n    \"sourceId\": 3000,\n    \"sourceName\": \"Hourly Prices\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4659dd44-7227-480f-93c1-37a8ffc398c0",
+          "name": "Source Details",
+          "request": {
+            "name": "Source Details",
+            "description": {
+              "content": "Description: Get the details for the given pricing source.\nEach source object will contain an array of pairs that it supports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "3000"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15a7fd3b-a644-4906-b1f1-851849776338",
+              "name": "Source Details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "3000"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-pricing-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "17e2562a-67bf-4245-9998-ed881777eae9",
+    "name": "Lukka Pricing & Market Data Pricing - Legacy Versions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

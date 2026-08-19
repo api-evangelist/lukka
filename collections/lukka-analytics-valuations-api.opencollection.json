@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Valuation (Data Calculation) Analytics - Valuations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analytics - Valuations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-calculation-api.lukka.tech/datacalculation"
+          },
+          "docs": "Get Results"
+        },
+        {
+          "info": {
+            "name": "Run Calculation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://data-calculation-api.lukka.tech/datacalculation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run Calculation"
+        },
+        {
+          "info": {
+            "name": "Get Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-calculation-api.lukka.tech/datacalculation/status"
+          },
+          "docs": "Get Status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Reference Data - Crypto Actions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data - Crypto Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Crypto Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/assets/crypto-actions",
+            "params": [
+              {
+                "name": "limit",
+                "value": "10",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "lukkaCryptoActionIds",
+                "value": "6286a369-8d8c-425a-8824-14d522374fe2,fb5fd1fe-2963-4e2f-a3f2-55a528399f06,ed90ce1d-7ee3-4e5c-bb6c-e7b5deff6a49,f1ef9007-7cdf-4e41-bd5c-70f00b15d262,48f70093-d5f1-4fb9-979c-47772151fdf5",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The Crypto Actions endpoint contains information related to the Lukka Crypto Actions (“LCA”) data product  \n\n Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a resu"
+        },
+        {
+          "info": {
+            "name": "Asset Crypto Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/assets/LA6EV2NKQ95/crypto-actions",
+            "params": [
+              {
+                "name": "domain",
+                "value": "assets",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Provides crypto action information for a given Lukka ID from the Lukka Crypto Actions (\"LCA\") data product\n\n Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a resul"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

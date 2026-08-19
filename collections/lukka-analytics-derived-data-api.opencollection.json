@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Analytics - Derived Data API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analytics - Derived Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "LCAS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/core-asset-score",
+            "params": [
+              {
+                "name": "scoringDetails",
+                "value": "DETAILED",
+                "type": "query"
+              },
+              {
+                "name": "assetLid",
+                "value": "LA07HZNJ663",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "2024-10-01T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "2024-10-01T00:00:00Z",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "LCAS"
+        },
+        {
+          "info": {
+            "name": "ESG Scores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/esg-score",
+            "params": [
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "1800",
+                "type": "query"
+              },
+              {
+                "name": "assetLid",
+                "value": "LA2XB0HNPU9",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "2024-03-05T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "2024-03-06T00:00:00Z",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "ESG Scores"
+        },
+        {
+          "info": {
+            "name": "Market Scores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/market-score"
+          },
+          "docs": "Market Scores"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

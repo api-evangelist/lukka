@@ -1,0 +1,74 @@
+openapi: 3.2.0
+info:
+  title: Lukka Valuation (Data Calculation) Analytics - Valuations API
+  version: 1.0.0
+  description: 'Bespoke pricing and valuation calculations for digital asset derivatives: submit a calculation run, poll its status and retrieve results.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-calculation-api.lukka.tech
+  description: Lukka production (data-calculation-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Analytics - Valuations
+paths:
+  /datacalculation:
+    post:
+      operationId: runCalculation
+      summary: Run Calculation
+      tags:
+      - Analytics - Valuations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              calculation: ''
+              data: {}
+              params:
+                startTs: 2025-01-29T14:50Z
+                endTs: 2025-01-29T15:40Z
+                clientId: clientId
+                parentId: clientId
+      responses:
+        '200':
+          description: Successful response
+    get:
+      operationId: getResults
+      summary: Get Results
+      tags:
+      - Analytics - Valuations
+      responses:
+        '200':
+          description: Successful response
+  /datacalculation/status:
+    get:
+      operationId: getStatus
+      summary: Get Status
+      tags:
+      - Analytics - Valuations
+      responses:
+        '200':
+          description: Successful response
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

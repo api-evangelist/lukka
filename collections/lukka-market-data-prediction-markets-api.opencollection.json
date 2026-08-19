@@ -1,0 +1,217 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Pricing & Market Data Market Data - Prediction Markets API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market Data - Prediction Markets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Latest Markets (PREDICTION)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/PREDICTION",
+            "params": [
+              {
+                "name": "sourceIds",
+                "value": "4141",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "5",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: This endpoint returns the prediction markets for a specified exchange (e.g. Kalshi, Polymarket) over the previous 24 hours. displayBy toggles between lukkaSymbol (one row per outcome) and eventTicker (one row per event with all legs nested)."
+        },
+        {
+          "info": {
+            "name": "Get Prediction History (by event ticker)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/prediction-history/:sourceId/event/:eventTicker",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "eventTicker",
+                "value": "",
+                "type": "path",
+                "description": "eventTicker path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-21T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "interval",
+                "value": "3600000",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "3",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the OHLC prediction-market history for all outcomes of a single event. If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.\n\n interval is required and must be one of (milliseconds): 60000, 300000, 900000, 3600000, 86400000, 604800000."
+        },
+        {
+          "info": {
+            "name": "Get Prediction History (by lukkaSymbol)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/prediction-history/:sourceId/symbol/:lukkaSymbol",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "lukkaSymbol",
+                "value": "",
+                "type": "path",
+                "description": "lukkaSymbol path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-21T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "interval",
+                "value": "3600000",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "3",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the OHLC prediction-market history for a single outcome (lukkaSymbol).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+        },
+        {
+          "info": {
+            "name": "Get Prediction Trade History (by event ticker)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/prediction-trade-history/:sourceId/event/:eventTicker",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "eventTicker",
+                "value": "",
+                "type": "path",
+                "description": "eventTicker path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T12:30:00Z",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "3",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the raw tick-level trade history for all outcomes of a single prediction-market event.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+        },
+        {
+          "info": {
+            "name": "Get Prediction Trade History (by lukkaSymbol)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/prediction-trade-history/:sourceId/symbol/:lukkaSymbol",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "sourceId path parameter"
+              },
+              {
+                "name": "lukkaSymbol",
+                "value": "",
+                "type": "path",
+                "description": "lukkaSymbol path parameter"
+              },
+              {
+                "name": "from",
+                "value": "2026-04-20T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2026-04-20T12:30:00Z",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "3",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Description: Get the raw tick-level trade history for a single prediction-market outcome (lukkaSymbol).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

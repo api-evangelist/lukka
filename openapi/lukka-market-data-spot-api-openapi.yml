@@ -1,0 +1,752 @@
+openapi: 3.2.0
+info:
+  title: Lukka Pricing & Market Data Market Data - Spot API
+  version: 1.0.0
+  description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-pricing-api.lukka.tech
+  description: Lukka production (data-pricing-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Market Data - Spot
+paths:
+  /v1/pricing/latest-markets/SPOT:
+    get:
+      operationId: getLatestMarketsSPOT
+      summary: Get Latest Markets (SPOT)
+      tags:
+      - Market Data - Spot
+      description: 'Description: This endpoint returns the spot markets for a specified exchange over the previous 24 hours. Must supply sourceIds OR baseAssetCodes / counterAssetCodes .'
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4002'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Latest Markets (SPOT)
+          content:
+            application/json:
+              example:
+                dataType: markets
+                count: 5
+                data:
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: MOGBASE-USD
+                  baseAssetCode: MOGBASE
+                  counterAssetCode: USD
+                  latestPrice: '0.00000019'
+                  latestPriceUsd: '0.00000019'
+                  volume24h: '6547130441005.0'
+                  volumeUsd24h: '1073942.5124679392'
+                  tradeCount24h: '3373.0'
+                  latestPriceTs: '2026-04-22T15:38:32.152011100Z'
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: PEPE1-USD
+                  baseAssetCode: PEPE1
+                  counterAssetCode: USD
+                  latestPrice: '0.00000392'
+                  latestPriceUsd: '0.00000392'
+                  volume24h: '1842245094219.0'
+                  volumeUsd24h: '7095790.352498492'
+                  tradeCount24h: '10298.0'
+                  latestPriceTs: '2026-04-22T15:38:49.113050046Z'
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: BONK1-USD
+                  baseAssetCode: BONK1
+                  counterAssetCode: USD
+                  latestPrice: '0.00000647'
+                  latestPriceUsd: '0.00000647'
+                  volume24h: '465482329507.0'
+                  volumeUsd24h: '2946669.1759001464'
+                  tradeCount24h: '7036.0'
+                  latestPriceTs: '2026-04-22T15:38:49.107029597Z'
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: SHIB-USD
+                  baseAssetCode: SHIB
+                  counterAssetCode: USD
+                  latestPrice: '0.00000628'
+                  latestPriceUsd: '0.00000628'
+                  volume24h: '135760512133.0'
+                  volumeUsd24h: '838307.1647146696'
+                  tradeCount24h: '2721.0'
+                  latestPriceTs: '2026-04-22T15:39:13.793072413Z'
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: SHIB-EUR
+                  baseAssetCode: SHIB
+                  counterAssetCode: EUR
+                  latestPrice: '0.00000534'
+                  latestPriceUsd: '0.0000062596760027'
+                  volume24h: '13699636548.0'
+                  volumeUsd24h: '84530.93673294535'
+                  tradeCount24h: '453.0'
+                  latestPriceTs: '2026-04-22T15:36:24.102099064Z'
+                nextPageUrl: https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/SPOT?sourceIds=4002&limit=5&offset=5
+  /v2/market-data/market-caps/pairs/{pairCode}:
+    get:
+      operationId: getMarketCapsByPair
+      summary: Get Market Caps by Pair
+      tags:
+      - Market Data - Spot
+      description: Market Capitalization data calculated using Circulating Supply, sourced from Lukka Reference Data, and Lukka Prime minute by minute pricing, leveraging the Lukka Prime Pricing Methodology.
+      parameters:
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+        example: DESC
+      responses:
+        '200':
+          description: Get Market Caps by Pair
+          content:
+            application/json:
+              example:
+                sourceId: 1000
+                pairCode: XBT-USD
+                dataType: market-caps
+                firstDate: '2026-04-22T15:33:00Z'
+                lastDate: '2026-04-22T15:35:00Z'
+                count: 3
+                metadata:
+                  assetLid: LA6EV2NKQ95
+                  assetCode: XBT
+                  assetName: Bitcoin
+                nextPageUrl: /v2/market-data/market-caps/pairs/XBT-USD?from=2026-04-22T15%3A36%3A00Z&limit=3&fill=false
+                data:
+                - ts: '2026-04-22T15:35:00Z'
+                  marketCap: '1584057764954.28'
+                  circulatingSupply: '20019318.0'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+                  totalSupply: '20019318.0'
+                - ts: '2026-04-22T15:34:00Z'
+                  marketCap: '1583367899256.0'
+                  circulatingSupply: '20019318.0'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+                  totalSupply: '20019318.0'
+                - ts: '2026-04-22T15:33:00Z'
+                  marketCap: '1584541231483.98'
+                  circulatingSupply: '20019318.0'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+                  totalSupply: '20019318.0'
+                limit: 3
+  /v2/market-data/market-caps:
+    get:
+      operationId: getLatestMarketCaps
+      summary: Get Latest Market Caps
+      tags:
+      - Market Data - Spot
+      description: Get a list of the latest Market Capitalization available for a given as of date or given list of pair codes. This endpoint allows users with full permissioned access to see the top coins by market cap historically and on a go forward basis.
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD,ETH-USD
+      responses:
+        '200':
+          description: Get Latest Market Caps
+          content:
+            application/json:
+              example:
+                data:
+                - ts: '2026-04-22T15:35:00Z'
+                  rank: 1
+                  pairCode: XBT-USD
+                  marketCap: '1584057764954.28'
+                  circulatingSupply: '20019318.0'
+                  totalSupply: '20019318.0'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+                - ts: '2026-04-22T15:35:00Z'
+                  rank: 2
+                  pairCode: ETH-USD
+                  marketCap: '289536260337.262123143'
+                  circulatingSupply: '120689893.0547443'
+                  totalSupply: '120689893.0547443'
+                  supplyLastUpdateTs: '2026-04-22T14:18:03Z'
+  /v1/market-data/sources/{sourceId}/trades/pairs/{pairCode}:
+    get:
+      operationId: getHistoricalSpotTrades
+      summary: Get Historical Spot Trades
+      tags:
+      - Market Data - Spot
+      description: "Description: Get the trade history.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.\n\n All requests are limited to 3600 records."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:05:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Historical Spot Trades
+          content:
+            application/json:
+              example:
+                sourceId: 4002
+                pairCode: XBT-USD
+                dataType: priceTick
+                firstDate: '2026-04-20T12:00:00.048Z'
+                lastDate: '2026-04-20T12:00:01.486Z'
+                count: 5
+                nextPageUrl: /v1/market-data/sources/4002/trades/pairs/XBT-USD?from=2026-04-20T12%3A00%3A01.487Z&limit=5&fill=false&to=2026-04-20T12%3A05%3A00Z
+                units: native
+                data:
+                - ts: '2026-04-20T12:00:00.048Z'
+                  price: '75220.26'
+                  size: '0.00064585'
+                  side: BUY
+                - ts: '2026-04-20T12:00:00.470Z'
+                  price: '75222.9'
+                  size: '0.00013294'
+                  side: BUY
+                - ts: '2026-04-20T12:00:00.470Z'
+                  price: '75222.9'
+                  size: '0.00078706'
+                  side: BUY
+                - ts: '2026-04-20T12:00:01.358Z'
+                  price: '75222.89'
+                  size: '0.00000013'
+                  side: SELL
+                - ts: '2026-04-20T12:00:01.486Z'
+                  price: '75222.9'
+                  size: '0.00002658'
+                  side: BUY
+  /v1/pricing/sources/5004/rates:
+    get:
+      operationId: getLatestStakingRates
+      summary: Get Latest Staking Rates
+      tags:
+      - Market Data - Spot
+      description: 'Description: Get the latest staking yield rates as of the given timestamp for the given asset codes. assetCodes is required. Available sources are 5003 and 5004.'
+      parameters:
+      - name: assetCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: ETH
+      responses:
+        '200':
+          description: Get Latest Staking Rates
+          content:
+            application/json:
+              example:
+              - businessTime: '2026-04-20T20:00:00Z'
+                assetCode: ETH
+                rate: '0.030477'
+  /v1/pricing/sources/{sourceId}/rates/asset/{assetCode}:
+    get:
+      operationId: getHistoricalStakingRatesByAsset
+      summary: Get Historical Staking Rates by Asset
+      tags:
+      - Market Data - Spot
+      description: "Description: Get the staking rate history for a single asset from a specified Source ID (5003 or 5004).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: assetCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: assetCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-14T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      responses:
+        '200':
+          description: Get Historical Staking Rates by Asset
+          content:
+            application/json:
+              example:
+              - businessTime: '2026-04-14T20:00:00Z'
+                assetCode: ETH
+                rate: '0.02777'
+              - businessTime: '2026-04-15T20:00:00Z'
+                assetCode: ETH
+                rate: '0.027151'
+              - businessTime: '2026-04-16T20:00:00Z'
+                assetCode: ETH
+                rate: '0.027688'
+              - businessTime: '2026-04-17T20:00:00Z'
+                assetCode: ETH
+                rate: '0.028891'
+              - businessTime: '2026-04-18T20:00:00Z'
+                assetCode: ETH
+                rate: '0.027685'
+              - businessTime: '2026-04-19T20:00:00Z'
+                assetCode: ETH
+                rate: '0.030825'
+  /v1/pricing/order-book-liquidity/SPOT:
+    get:
+      operationId: getOrderBookLiquiditySPOT
+      summary: Get Order Book Liquidity (SPOT)
+      tags:
+      - Market Data - Spot
+      description: 'Description: This endpoint will calculate the average market depth for a specified pair at multiple levels. Market depth refers to the volume of buy and sell orders at various price levels. This will be done by averaging over all our 15 second snapshots leveraging the aggLookback and asOf parameters.'
+      parameters:
+      - name: asOf
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4002'
+      - name: baseAssetCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT
+      - name: counterAssetCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: USD
+      responses:
+        '200':
+          description: Get Order Book Liquidity (SPOT)
+          content:
+            application/json:
+              example:
+                dataType: aggDepth
+                count: 1
+                data:
+                - sourceId: 4002
+                  entityCode: CPRO
+                  entityName: Coinbase
+                  pairCode: XBT-USD
+                  baseAssetCode: XBT
+                  counterAssetCode: USD
+                  lastSnapshotTs: '2026-04-20T12:00:00Z'
+                  meanDepth:
+                    asks_0_1: '23.305055795198754'
+                    asks_0_2: '66.30999879236066'
+                    asks_0_3: '92.21595372058168'
+                    asks_0_4: '119.29440345412931'
+                    asks_0_5: '166.72498444622488'
+                    asks_0_6: '175.14251473038183'
+                    asks_0_7: '178.86054413006235'
+                    asks_0_8: '182.21505462590002'
+                    asks_0_9: '185.04751000686835'
+                    asks_1: '188.29375374444734'
+                    asks_1_5: '209.54905474610658'
+                    asks_2: '224.08724221477163'
+                    asks_4: '297.22950897984913'
+                    asks_5: '372.2761769987538'
+                    asks_6: '509.29554262300485'
+                    asks_8: '782.1964279536195'
+                    asks_10: '886.6296944723244'
+                    bids_0_1: '24.623204325613603'
+                    bids_0_2: '68.49150520826953'
+                    bids_0_3: '94.57287786059717'
+                    bids_0_4: '122.80335212013188'
+                    bids_0_5: '151.19052001936993'
+                    bids_0_6: '167.0892548868356'
+                    bids_0_7: '173.31738513472993'
+                    bids_0_8: '178.74647821840983'
+                    bids_0_9: '184.58345613020634'
+                    bids_1: '190.82615909259297'
+                    bids_1_5: '232.3704482237977'
+                    bids_2: '259.8822632749367'
+                    bids_4: '342.1433339767086'
+                    bids_5: '383.99295918481135'
+                    bids_6: '434.04625018802574'
+                    bids_8: '527.6052967039511'
+                    bids_10: '637.4476338556211'
+                  meanSpread: '0.0823763235549356'
+                  meanSpreadPctMid: '0.000001103599903'
+                  lastBestBidPrice: '75220.25'
+                  lastBestAskPrice: '75220.26'
+                  lastMidPrice: '75220.255'
+  /v2/market-data/order-book-snapshot/SPOT:
+    get:
+      operationId: getOrderBookSnapshotSPOT
+      summary: Get Order Book Snapshot (SPOT)
+      tags:
+      - Market Data - Spot
+      description: "This endpoint provides a reconstructed view of the Level 2 (L2) Order Book state at precise 15-second intervals. It bridges the gap between high-frequency raw data and accessible historical analysis by aggregating incremental updates into a static \"snapshot\" of the market depth.\n\n depth = levels per side (0 = unlimited). lookback is in milliseconds (default 3600000, max 172800000)."
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '4002'
+      responses:
+        '200':
+          description: Get Order Book Snapshot (SPOT)
+          content:
+            application/json:
+              example:
+                dataType: orderBookSnapshot
+                count: 1
+                data:
+                - ts: '2026-04-22T15:39:45Z'
+                  sourceId: 4002
+                  entityCode: CPRO
+                  lukkaSymbol: XBT-USD
+                  baseAssetCode: XBT
+                  counterAssetCode: USD
+                  instrumentType: SPOT
+                  bestBidPrice: '79310.43'
+                  bestAskPrice: '79310.44'
+                  midPrice: '79310.435'
+                  spread: '0.01'
+                  spreadPct: '0.0000001260868132'
+                  bids:
+                  - price: '79310.43'
+                    size: '0.0000324'
+                    cumulativeSize: '0.0000324'
+                  - price: '79307.21'
+                    size: '0.00012608'
+                    cumulativeSize: '0.00015848'
+                  - price: '79305.59'
+                    size: '0.01513134'
+                    cumulativeSize: '0.01528982'
+                  - price: '79304.95'
+                    size: '0.03879424'
+                    cumulativeSize: '0.05408406'
+                  - price: '79304.12'
+                    size: '0.00051829'
+                    cumulativeSize: '0.05460235'
+                  asks:
+                  - price: '79310.44'
+                    size: '0.33795393'
+                    cumulativeSize: '0.33795393'
+                  - price: '79311.63'
+                    size: '0.01513019'
+                    cumulativeSize: '0.35308412'
+                  - price: '79311.99'
+                    size: '0.01327104'
+                    cumulativeSize: '0.36635516'
+                  - price: '79312.0'
+                    size: '0.0107'
+                    cumulativeSize: '0.37705516'
+                  - price: '79313.22'
+                    size: '0.00012608'
+                    cumulativeSize: '0.37718124'
+  /v2/market-data/slippage/pairs/{pairCode}:
+    get:
+      operationId: getSlippageByPair
+      summary: Get Slippage by Pair
+      tags:
+      - Market Data - Spot
+      description: "This endpoint calculates estimated market slippage for a given trading pair based on live order book snapshots. It simulates walking the order book for both a buy and a sell of the requested trade size, returning VWAP-based slippage metrics relative to the mid-price or best bid/ask. One result is returned per snapshot found within a 1-6 minute lookback window for the requested timestamp.\n\n Lukka canonical pair code is required, must end in -USD."
+      parameters:
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: tradeSizeValue
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1000000'
+      - name: tradeSizeDenom
+        in: query
+        required: false
+        schema:
+          type: string
+        example: COUNTER
+      - name: basis
+        in: query
+        required: false
+        schema:
+          type: string
+        example: MID
+      responses:
+        '200':
+          description: Get Slippage by Pair
+          content:
+            application/json:
+              example:
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: ITBT
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '529.9450504058818708'
+                buy_slippage_counter: '6637.7071892858600333'
+                buy_slippage_pct: '0.0066820607519785'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '485.5397255476204311'
+                sell_slippage_counter: '6159.8670472873557553'
+                sell_slippage_pct: '0.0061221553840786'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '1.0914555957459063'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: BIUS
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '7793.6048096770811853'
+                buy_slippage_counter: '67652.46448645'
+                buy_slippage_pct: '0.0982907626991614'
+                buy_fill_ratio: '0.7559416040622'
+                sell_slippage_price_unit: '7684.0781910246360575'
+                sell_slippage_counter: '107308.6668381935572266'
+                sell_slippage_pct: '0.0969094436374299'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '1.0142537095445459'
+              - snapshotTs: '2026-04-22T15:39:50Z'
+                lukkaentitycode: LMAX
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '78.2236128837318157'
+                buy_slippage_counter: '985.5713483938930027'
+                buy_slippage_pct: '0.0009865436575567'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '76.8580278717511863'
+                sell_slippage_counter: '970.2616135164530924'
+                sell_slippage_pct: '0.0009693211184441'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '1.0177676301330466'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: OKEX
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '130.5974241545615742'
+                buy_slippage_counter: '1644.1816213098103731'
+                buy_slippage_pct: '0.0016468894066045'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '134.7807625583605373'
+                sell_slippage_counter: '1702.5367990120366506'
+                sell_slippage_pct: '0.0016996430940991'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.9689619028384146'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: CRCM
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '17.0177523713499209'
+                buy_slippage_counter: '166.4206847'
+                buy_slippage_pct: '0.0002145651398864'
+                buy_fill_ratio: '0.7757848868909'
+                sell_slippage_price_unit: '22.2567408255850514'
+                sell_slippage_counter: '148.6505463'
+                sell_slippage_pct: '0.0002806199434831'
+                sell_fill_ratio: '0.5295733088232'
+                asymmetry_ratio: '0.7646111577930255'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: BSTM
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '35.3196762607595568'
+                buy_slippage_counter: '445.2032740247390905'
+                buy_slippage_pct: '0.0004454015682612'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '28.6786304412690307'
+                sell_slippage_counter: '361.7849762467387683'
+                sell_slippage_pct: '0.000361654135214'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '1.2315677463430734'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: GMNI
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '54.8055499905644692'
+                buy_slippage_counter: '690.6433801946702184'
+                buy_slippage_pct: '0.0006911206981297'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '134.6958235989987301'
+                sell_slippage_counter: '1701.4602063279563556'
+                sell_slippage_pct: '0.0016985701567985'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.4068838106942752'
+              - snapshotTs: '2026-04-22T15:39:48.564Z'
+                lukkaentitycode: BFLY
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '5994.8480724901344664'
+                buy_slippage_counter: '4833.76463889215'
+                buy_slippage_pct: '0.0783825468892177'
+                buy_fill_ratio: '0.0665026543436879'
+                sell_slippage_price_unit: '6631.2728275828669232'
+                sell_slippage_counter: '8085.4797916895'
+                sell_slippage_pct: '0.0867037908314006'
+                sell_fill_ratio: '0.085168571895763'
+                asymmetry_ratio: '0.9040267575109389'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: BINA
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '4068.2837128192388752'
+                buy_slippage_counter: '25383.85281195'
+                buy_slippage_pct: '0.0512984482333089'
+                buy_fill_ratio: '0.5202107664157'
+                sell_slippage_price_unit: '10818.0160774835008507'
+                sell_slippage_counter: '97793.3508182'
+                sell_slippage_pct: '0.1364082440930167'
+                sell_fill_ratio: '0.6191233683173'
+                asymmetry_ratio: '0.376065600538986'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: BFNX
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '85.152375824499676'
+                buy_slippage_counter: '1073.0811981004796333'
+                buy_slippage_pct: '0.0010742339383421'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '101.5502865217457949'
+                sell_slippage_counter: '1282.7439766375761254'
+                sell_slippage_pct: '0.0012811006524921'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.8385242301238149'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: CPRO
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '18.9554592059183225'
+                buy_slippage_counter: '238.9462353888363066'
+                buy_slippage_pct: '0.0002390033443382'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '29.4753063076056007'
+                sell_slippage_counter: '371.7829151095740415'
+                sell_slippage_pct: '0.0003716447439433'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.6430962585459935'
+              - snapshotTs: '2026-04-22T15:39:45Z'
+                lukkaentitycode: KRAK
+                sourcesymbol: XBT-USD
+                basis: MID
+                trade_size_value: '1000000.0'
+                trade_size_denom: COUNTER
+                buy_slippage_price_unit: '17.0139334770806043'
+                buy_slippage_counter: '214.5126384843811051'
+                buy_slippage_pct: '0.0002145586640295'
+                buy_fill_ratio: '1.0'
+                sell_slippage_price_unit: '18.1348475747583983'
+                sell_slippage_counter: '228.7465578448480969'
+                sell_slippage_pct: '0.0002286942448235'
+                sell_fill_ratio: '1.0'
+                asymmetry_ratio: '0.9381900458188591'
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

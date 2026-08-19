@@ -1,0 +1,178 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Analytics Analytics - Analytics API API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analytics - Analytics API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Implied Interest Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-analytics-api-v2.lukka.tech/analytics-api/implied-rates",
+            "params": [
+              {
+                "name": "pairCode",
+                "value": "XBT-USD",
+                "type": "query"
+              },
+              {
+                "name": "lukkaEntityCode",
+                "value": "LUKKA",
+                "type": "query"
+              },
+              {
+                "name": "timeTo",
+                "value": "2024-05-17T23:00:00.000Z",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "12",
+                "type": "query"
+              },
+              {
+                "name": "timeFrom",
+                "value": "2024-05-16T20:30:00.000Z",
+                "type": "query"
+              },
+              {
+                "name": "curveType",
+                "value": "INST_FWD",
+                "type": "query"
+              },
+              {
+                "name": "modelType",
+                "value": "MC",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "FUTURES",
+                "type": "query"
+              },
+              {
+                "name": "rateType",
+                "value": "BASIS",
+                "type": "query"
+              },
+              {
+                "name": "dataShape",
+                "value": "2L",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lukka's Implied Interest Rate API provides benchmark rates derived from major exchanges, calculated using futures market trade data aggregated hourly. A risk-sensitive model ensures robustness and market representativeness. Term structures are created using Nelson-Siegel-Svenssen (NSS) and Monotone Convex (MC) interpolation methods. This API delivers spot rates and instantaneous forward rates for standardized tenors."
+        },
+        {
+          "info": {
+            "name": "OTC FX Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-analytics-api-v2.lukka.tech/analytics-api/implied-rates-otc-fx",
+            "params": [
+              {
+                "name": "pairCode",
+                "value": "XBT-USD",
+                "type": "query"
+              },
+              {
+                "name": "lukkaEntityCode",
+                "value": "LUKKA",
+                "type": "query"
+              },
+              {
+                "name": "dataShape",
+                "value": "2L",
+                "type": "query"
+              },
+              {
+                "name": "timeFrom",
+                "value": "2024-05-10T07:00:00.000Z",
+                "type": "query"
+              },
+              {
+                "name": "timeTo",
+                "value": "2024-05-13T07:00:00.000Z",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "24",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lukka's OTC FX API offers benchmark interest rates formatted to OTC FX market conventions. These rates are derived from futures market trade data, aggregated hourly, and calculated using the Monotone Convex (MC) interpolation method. This API generates spot rates and forward rates for standardized tenors, ensuring robust and market-representative outputs."
+        },
+        {
+          "info": {
+            "name": "Implied Volatility",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-analytics-api-v2.lukka.tech/analytics-api/implied-volatility-surface",
+            "params": [
+              {
+                "name": "lukkaEntityCode",
+                "value": "LUKKA",
+                "type": "query"
+              },
+              {
+                "name": "underlyingAssetLukkaCode",
+                "value": "ETH",
+                "type": "query"
+              },
+              {
+                "name": "timeTo",
+                "value": "2023-10-02T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "timeFrom",
+                "value": "2023-10-01T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "moneyness",
+                "value": "delta",
+                "type": "query"
+              },
+              {
+                "name": "dataShape",
+                "value": "flat",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "3",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Implied Volatility"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

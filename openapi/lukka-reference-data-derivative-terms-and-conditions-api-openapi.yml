@@ -1,0 +1,254 @@
+openapi: 3.2.0
+info:
+  title: Lukka Reference Data Reference Data - Derivative Terms and Conditions API
+  version: 1.0.0
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-refdata-api.lukka.tech
+  description: Lukka production (data-refdata-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Reference Data - Derivative Terms and Conditions
+paths:
+  /v2/lukka/derivatives:
+    get:
+      operationId: allDerivatives
+      summary: All Derivatives
+      tags:
+      - Reference Data - Derivative Terms and Conditions
+      description: "Get a list of all known Derivatives within the Lukka Derivatives Data (\"LDRD\") product \n\n The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues. \n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the derivative type, settlement, participants, underlying asset information, and other various pieces of reference data. In total, the dataset tracks over 50 fields for its users.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity"
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1000'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      - name: entityCode
+        in: query
+        required: false
+        schema:
+          type: string
+        example: DERI
+      - name: expandDetails
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '[ALL]'
+      responses:
+        '200':
+          description: All Derivatives - Example
+          content:
+            application/json:
+              example:
+                limit: 10
+                offset: 0
+                data:
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: BTC-20MAY20-9000-P
+                  entityDerivativeName: BTC-20MAY20-9000-P
+                  lukkaDerivativeLid: L-DERI-OPT-XBT-XBT-P-9000-20200520-1D
+                  lukkaDerivativeCode: XBT-P-9000-20200520
+                  derivativeName: Deribit Daily Bitcoin 9000 Put Option expiring 20May2020
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: ETH-17FEB22-3700-P
+                  entityDerivativeName: ETH-17FEB22-3700-P
+                  lukkaDerivativeLid: L-DERI-OPT-ETH-ETH-P-3700-20220217-1D
+                  lukkaDerivativeCode: ETH-P-3700-20220217
+                  derivativeName: Deribit Daily Ether 3700 Put Option expiring 17Feb2022
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: ETH-16FEB22-3250-C
+                  entityDerivativeName: ETH-16FEB22-3250-C
+                  lukkaDerivativeLid: L-DERI-OPT-ETH-ETH-C-3250-20220216-1D
+                  lukkaDerivativeCode: ETH-C-3250-20220216
+                  derivativeName: Deribit Daily Ether 3250 Call Option expiring 16Feb2022
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: BTC-17OCT20-11375-C
+                  entityDerivativeName: BTC-17OCT20-11375-C
+                  lukkaDerivativeLid: L-DERI-OPT-XBT-XBT-C-11375-20201017-1D
+                  lukkaDerivativeCode: XBT-C-11375-20201017
+                  derivativeName: Deribit Daily Bitcoin 11375 Call Option expiring 17Oct2020
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: BTC-18OCT20-11375-C
+                  entityDerivativeName: BTC-18OCT20-11375-C
+                  lukkaDerivativeLid: L-DERI-OPT-XBT-XBT-C-11375-20201018-1D
+                  lukkaDerivativeCode: XBT-C-11375-20201018
+                  derivativeName: Deribit Daily Bitcoin 11375 Call Option expiring 18Oct2020
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: BTC-20OCT20-11375-C
+                  entityDerivativeName: BTC-20OCT20-11375-C
+                  lukkaDerivativeLid: L-DERI-OPT-XBT-XBT-C-11375-20201020-1D
+                  lukkaDerivativeCode: XBT-C-11375-20201020
+                  derivativeName: Deribit Daily Bitcoin 11375 Call Option expiring 20Oct2020
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: BTC-21OCT20-11375-C
+                  entityDerivativeName: BTC-21OCT20-11375-C
+                  lukkaDerivativeLid: L-DERI-OPT-XBT-XBT-C-11375-20201021-1D
+                  lukkaDerivativeCode: XBT-C-11375-20201021
+                  derivativeName: Deribit Daily Bitcoin 11375 Call Option expiring 21Oct2020
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: BTC-22OCT20-11375-C
+                  entityDerivativeName: BTC-22OCT20-11375-C
+                  lukkaDerivativeLid: L-DERI-OPT-XBT-XBT-C-11375-20201022-1D
+                  lukkaDerivativeCode: XBT-C-11375-20201022
+                  derivativeName: Deribit Daily Bitcoin 11375 Call Option expiring 22Oct2020
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: BTC-16APR21-46000-P
+                  entityDerivativeName: BTC-16APR21-46000-P
+                  lukkaDerivativeLid: L-DERI-OPT-XBT-XBT-P-46000-20210416-1W
+                  lukkaDerivativeCode: XBT-P-46000-20210416
+                  derivativeName: Deribit Weekly Bitcoin 46000 Put Option expiring 16Apr2021
+                  recordStatus: Active
+                - entityCode: DERI
+                  entityName: Deribit
+                  entityDerivativeCode: BTC-22MAY20-11500-C
+                  entityDerivativeName: BTC-22MAY20-11500-C
+                  lukkaDerivativeLid: L-DERI-OPT-XBT-XBT-C-11500-20200522-1W
+                  lukkaDerivativeCode: XBT-C-11500-20200522
+                  derivativeName: Deribit Weekly Bitcoin 11500 Call Option expiring 22May2020
+                  recordStatus: Active
+                size: 10
+                links:
+                  base: /v2/lukka/derivatives
+                  next: /v2/lukka/derivatives?entityCode=DERI&classificationCode=OPT&limit=10&offset=10
+                  prev: null
+  /v2/lukka/derivatives/L-DERI-OPT-BTC-BTC-C-43000-20210917:
+    get:
+      operationId: aDerivativeAndItsDetails
+      summary: A Derivative and its Details
+      tags:
+      - Reference Data - Derivative Terms and Conditions
+      description: "Get all known details for a given Lukka Derivative Identifier.\n\n The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues. \n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the derivative type, settlement, participants, underlying asset information, and other various pieces of reference data. In total, the dataset tracks over 50 fields for its users.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity"
+      responses:
+        '200':
+          description: A Derivative and its Details - Example
+          content:
+            application/json:
+              example:
+                entityCode: BINA
+                entityName: Binance
+                entityDerivativeCode: UNIUSD_PERP
+                entityDerivativeName: UNIUSD_PERP
+                lukkaDerivativeLid: L-BINA-PERP-UNI-USD
+                lukkaDerivativeCode: UNI-PERP
+                derivativeName: Binance Uniswap Perpetual
+                recordStatus: Active
+                statusDetails:
+                - assetStatus: Active
+                  assetSubstatus: Active
+                  subStatusReasonCode: LISTD
+                  subStatusReason: Contract Listed
+                  cryptoActionBeginId: f7f1b491-4c9f-4895-8c9a-153f1ba82234
+                  cryptoActionEndId: null
+                  startTs: '2021-04-13T07:00:00Z'
+                  endTs: null
+                  status: Active
+                derivativeDetails:
+                - derivativeClassificationCode: PERP
+                  derivativeClassification: Perpetual
+                  quoteLukkaAssetId: LA3YM6GRUJ4
+                  quoteLukkaAssetCode: USD
+                  contractStartTs: '2021-04-13T07:00:00Z'
+                  contractExpirationTs: '2199-12-31T23:59:59Z'
+                  isPerpetual: true
+                  isMultipleLeg: false
+                  isVanilla: true
+                  isExotic: false
+                  optionContractTypeCode: NA
+                  optionContractType: Not Applicable
+                  optionContractExerciseTypeCode: NA
+                  optionContractExerciseType: Not Applicable
+                  strike: null
+                  multiplier: 10
+                  fundingPaymentFrequencyHrs: 8
+                  isUsIrcSection1256: false
+                  hasBasketUnderlying: false
+                  cryptoActionBeginId: f7f1b491-4c9f-4895-8c9a-153f1ba82234
+                  cryptoActionEndId: null
+                  startTs: '2021-04-13T07:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                settlementDetails:
+                - contractSettleTs: null
+                  settleClassificationCode: FPMT
+                  settleClassification: Funding Payment
+                  settleLukkaAssetId: LA79U4XBU94
+                  settleLukkaAssetCode: UNISW
+                  cryptoActionBeginId: f7f1b491-4c9f-4895-8c9a-153f1ba82234
+                  cryptoActionEndId: null
+                  startTs: '2021-04-13T07:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                underlyingDetails:
+                - underlyingLukkaAssetId: LA79U4XBU94
+                  underlyingLukkaAssetCode: UNISW
+                  percentOfUnderlying: 1
+                  cryptoActionBeginId: f7f1b491-4c9f-4895-8c9a-153f1ba82234
+                  cryptoActionEndId: null
+                  startTs: '2021-04-13T07:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                participantDetails:
+                - participantType: Primary Issuer
+                  lukkaLegalEntityId: 336
+                  participantLegalNameEnglish: Binance Holdings Limited
+                  legalFormCode: LLC
+                  legalForm: Limited Liability Company
+                  incorporationDate: null
+                  jurisdiction: Cayman Islands
+                  jurisdictionCountryIso3: CYM
+                  jurisdictionCountryUnClassification: Developing
+                  jurisdictionCountryUnLeastDeveloped: false
+                  cryptoActionBeginId: f7f1b491-4c9f-4895-8c9a-153f1ba82234
+                  cryptoActionEndId: null
+                  startTs: '2021-04-13T07:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

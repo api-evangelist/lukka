@@ -1,0 +1,212 @@
+openapi: 3.2.0
+info:
+  title: Lukka Reference Data Reference Data - Mapping and Normalization API
+  version: 1.0.0
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-refdata-api.lukka.tech
+  description: Lukka production (data-refdata-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Reference Data - Mapping and Normalization
+paths:
+  /v2/lukka/entities:
+    get:
+      operationId: allEntities
+      summary: All Entities
+      tags:
+      - Reference Data - Mapping and Normalization
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      responses:
+        '200':
+          description: All Entities
+  /v2/lukka/assets/mappings:
+    get:
+      operationId: assetMappings
+      summary: Asset Mappings
+      tags:
+      - Reference Data - Mapping and Normalization
+      description: "Get the cross reference of all the assets supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)\n\n The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ecosystem, especially at scale.\n\n The Lukka Mapping Data Product is a comprehensive mapping and normalization dataset that can be leveraged to easily take the unstandardized, inconsistent and uncleansed data from trading venues, custodians, wallets, lending platforms or other entities within the ecosystem and normalize the data to one consistent, standardized, cleansed and timelined data record. \n\n LMAP is designed to fulfill the need for a mechanism to facilitate an easy way to compare assets and their respective market data, across any platform, for use in front, middle and back office processes. The product provides its users a significant reduction in time and effort preparing data and provides its users with more time to analyze and use the data."
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '100'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      - name: mappingStatus
+        in: query
+        required: false
+        schema:
+          type: string
+        example: Active
+      responses:
+        '200':
+          description: Asset Mappings
+  /v2/lukka/pairs/mappings:
+    get:
+      operationId: pairMappings
+      summary: Pair Mappings
+      tags:
+      - Reference Data - Mapping and Normalization
+      description: "Get the cross reference of all the pairs supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)\n\n The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ecosystem, especially at scale.\n\n The Lukka Mapping Data Product is a comprehensive mapping and normalization dataset that can be leveraged to easily take the unstandardized, inconsistent and uncleansed data from trading venues, custodians, wallets, lending platforms or other entities within the ecosystem and normalize the data to one consistent, standardized, cleansed and timelined data record. \n\n LMAP is designed to fulfill the need for a mechanism to facilitate an easy way to compare assets and their respective market data, across any platform, for use in front, middle and back office processes. The product provides its users a significant reduction in time and effort preparing data and provides its users with more time to analyze and use the data."
+      parameters:
+      - name: mappingStatus
+        in: query
+        required: false
+        schema:
+          type: string
+        example: Active
+      responses:
+        '200':
+          description: Pair Mappings
+  /v2/lukka/derivatives/mappings:
+    get:
+      operationId: derivativeMappings
+      summary: Derivative Mappings
+      tags:
+      - Reference Data - Mapping and Normalization
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '10'
+      responses:
+        '200':
+          description: Derivative Mappings
+  /v2/lukka/legal-entity-mappings:
+    get:
+      operationId: allLegalEntityMappings
+      summary: All Legal Entity Mappings
+      tags:
+      - Reference Data - Mapping and Normalization
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1000'
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '0'
+      responses:
+        '200':
+          description: All Legal Entity Mappings
+          content:
+            application/json:
+              example:
+                offset: 0
+                limit: 5
+                size: 5
+                links:
+                  base: /v2/lukka/legal-entity-mappings
+                  next: /v2/lukka/legal-entity-mappings?identifierTypeCode=LEI&limit=5&offset=5
+                  prev: null
+                data:
+                - lukkaAssetMapId: null
+                  identifierTypeCode: LEI
+                  identifierType: Legal Entity Identifier
+                  identifierValue: 549300QHD76EP6ZKTT48
+                  lukkaLegalEntityId: 1
+                  legalNameEnglish: Coinbase, Inc.
+                  mapProcessedStartTime: '2021-05-19T13:11:00.254426Z'
+                  mapProcessedEndTime: null
+                  mapEffectiveStartTime: null
+                  mapEffectiveEndTime: null
+                  lastModifiedTime: '2021-05-19T13:11:00.254426Z'
+                  recordStatus: Active
+                  successorMappingId: null
+                - lukkaAssetMapId: null
+                  identifierTypeCode: LEI
+                  identifierType: Legal Entity Identifier
+                  identifierValue: 254900GNWXLR2G6HFQ44
+                  lukkaLegalEntityId: 207
+                  legalNameEnglish: iFinex Inc.
+                  mapProcessedStartTime: '2021-05-19T13:11:00.254426Z'
+                  mapProcessedEndTime: null
+                  mapEffectiveStartTime: null
+                  mapEffectiveEndTime: null
+                  lastModifiedTime: '2021-05-19T13:11:00.254426Z'
+                  recordStatus: Active
+                  successorMappingId: null
+                - lukkaAssetMapId: null
+                  identifierTypeCode: LEI
+                  identifierType: Legal Entity Identifier
+                  identifierValue: 48510000WZATNQVLS592
+                  lukkaLegalEntityId: 3
+                  legalNameEnglish: Bitstamp Limited
+                  mapProcessedStartTime: '2021-05-19T13:11:00.254426Z'
+                  mapProcessedEndTime: null
+                  mapEffectiveStartTime: null
+                  mapEffectiveEndTime: null
+                  lastModifiedTime: '2021-05-19T13:11:00.254426Z'
+                  recordStatus: Active
+                  successorMappingId: null
+                - lukkaAssetMapId: null
+                  identifierTypeCode: LEI
+                  identifierType: Legal Entity Identifier
+                  identifierValue: 254900WY3GMPLZR6V492
+                  lukkaLegalEntityId: 5
+                  legalNameEnglish: Bittrex, Inc.
+                  mapProcessedStartTime: '2021-05-19T13:11:00.254426Z'
+                  mapProcessedEndTime: null
+                  mapEffectiveStartTime: null
+                  mapEffectiveEndTime: null
+                  lastModifiedTime: '2021-05-19T13:11:00.254426Z'
+                  recordStatus: Active
+                  successorMappingId: null
+                - lukkaAssetMapId: null
+                  identifierTypeCode: LEI
+                  identifierType: Legal Entity Identifier
+                  identifierValue: 254900GBN2V33HKLXO71
+                  lukkaLegalEntityId: 10
+                  legalNameEnglish: Gemini Trust Company, LLC
+                  mapProcessedStartTime: '2021-05-19T13:11:00.254426Z'
+                  mapProcessedEndTime: null
+                  mapEffectiveStartTime: null
+                  mapEffectiveEndTime: null
+                  lastModifiedTime: '2021-05-19T13:11:00.254426Z'
+                  recordStatus: Active
+                  successorMappingId: null
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

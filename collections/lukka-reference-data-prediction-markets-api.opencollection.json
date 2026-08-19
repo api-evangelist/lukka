@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Reference Data - Prediction Markets API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data - Prediction Markets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Prediction Markets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/prediction-markets",
+            "params": [
+              {
+                "name": "status",
+                "value": "Open",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "All Prediction Markets"
+        },
+        {
+          "info": {
+            "name": "A Prediction Market and its Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/prediction-markets/2026-ncaa-tournament-winner.POLYMARK"
+          },
+          "docs": "A Prediction Market and its Details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

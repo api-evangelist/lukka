@@ -1,0 +1,326 @@
+openapi: 3.2.0
+info:
+  title: Lukka Reference Data Reference Data - Custodian Terms and Conditions API
+  version: 1.0.0
+  description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-refdata-api.lukka.tech
+  description: Lukka production (data-refdata-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Reference Data - Custodian Terms and Conditions
+paths:
+  /v2/lukka/custodians:
+    get:
+      operationId: allCustodians
+      summary: All Custodians
+      tags:
+      - Reference Data - Custodian Terms and Conditions
+      description: "Lukka Custodian Data provides information about digital asset custodians. The dataset provides its users information about the legal entities, location, applicable regulatory licenses, compliance, certifications, security provisions, operating status, successor entities and other various information about a custodian.\n\n Custodians that are eligible to be tracked within the Lukka Custodian Reference Data (“LCRD”) are custodians that provide custody services for digital assets."
+      parameters:
+      - name: expandDetails
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '[ALL]'
+      responses:
+        '200':
+          description: All Custodians
+          content:
+            application/json:
+              example:
+                offset: 0
+                limit: 10
+                size: 10
+                links:
+                  base: /v2/lukka/custodians
+                  next: /v2/lukka/custodians?limit=10&offset=10
+                  prev: null
+                data:
+                - custodianLid: LC6K8SAF5D6
+                  recordStatus: Active
+                - custodianLid: LC26MFWJKP5
+                  recordStatus: Active
+                - custodianLid: LC1C1K91866
+                  recordStatus: Active
+                - custodianLid: LC72B7WGRF5
+                  recordStatus: Active
+                - custodianLid: LC6C47UMUG7
+                  recordStatus: Active
+                - custodianLid: LC14SKMDN12
+                  recordStatus: Active
+                - custodianLid: LC15CZWZHC1
+                  recordStatus: Active
+                - custodianLid: LC1CDKZBZ71
+                  recordStatus: Active
+                - custodianLid: LC1R87EKPC9
+                  recordStatus: Active
+                - custodianLid: LC8D6CSYP53
+                  recordStatus: Active
+  /v2/lukka/custodians/LC14SKMDN12:
+    get:
+      operationId: aCustodianAndItsDetails
+      summary: A Custodian and its Details
+      tags:
+      - Reference Data - Custodian Terms and Conditions
+      description: "Lukka Custodian Data provides information about digital asset custodians. The dataset provides its users information about the legal entities, location, applicable regulatory licenses, compliance, certifications, security provisions, operating status, successor entities and other various information about a custodian.\n\n Custodians that are eligible to be tracked within the Lukka Custodian Reference Data (“LCRD”) are custodians that provide custody services for digital assets."
+      responses:
+        '200':
+          description: A Custodian and its Details
+          content:
+            application/json:
+              example:
+                custodianLid: LC0M49L1B55
+                recordStatus: Active
+                custodianStatusDetails:
+                - custodianStatus: Active
+                  custodianSubstatus: Operational
+                  startTs: '2018-08-28T00:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                custodianNameDetails:
+                - lukkaEntityCode: KNGDMTST
+                  lukkaCustodian: Kingdom Trust
+                  lukkaParentCustodianId: LC0M49L1B55
+                  lukkaParentCustodian: Kingdom Trust
+                  url: https://www.kingdomtrust.com/
+                  startTs: '2018-08-28T00:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                custodianLocationDetails:
+                - isPrimaryLocation: true
+                  regionCode: 19
+                  regionName: Americas
+                  subregionCode: 21
+                  subregionName: Northern America
+                  intermediateRegionCode: 985
+                  intermediateRegionName: Northern America
+                  marketCountryIso3: USA
+                  marketCountryTerritoryName: United States
+                  countryTerritoryUnClassification: Developed
+                  countryTerritoryUnLeastDeveloped: false
+                  startTs: '2018-08-28T00:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                custodianParticipantsDetails:
+                - participantType: Primary Venue Operator
+                  lukkaLegalEntityId: 1621
+                  participantLegalNameEnglish: The Kingdom Trust Company
+                  legalFormCode: TSCROP
+                  legalForm: Trust Corporation
+                  incorporationDate: '2010-12-20T00:00:00Z'
+                  jurisdiction: South Dakota (USA)
+                  jurisdictionCountryIso3: USA
+                  jurisdictionCountryUnClassification: Developed
+                  jurisdictionCountryUnLeastDeveloped: false
+                  startTs: '2018-08-28T00:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                custodianRegulatoryDetails:
+                - licenseeLukkaLegalEntityId: 1621
+                  licensee: The Kingdom Trust Company
+                  licenseCode: SDCTTR
+                  license: South Dakota Trust Charter
+                  licenseCountry: USA
+                  licensingLukkaLegalEntityId: 1644
+                  licensingAuthority: South Dakota Division of Banking
+                  licenseNumber: TC.058-2
+                  licenseStartTime: '2010-12-29T00:00:00Z'
+                  licenseEndTime: null
+                  recordStatus: Active
+                custodianComplianceDetails:
+                - conductsKyc: true
+                  kycStructure: Non-tiered
+                  conductsAml: true
+                  maintainsDigitalInsuranceCoverage: true
+                  insuranceAmount: null
+                  insuranceAmountCurrency: null
+                  startTs: '2018-08-28T00:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                custodianCertificationDetails: []
+                custodianSpecificDetails:
+                - supportsInstitutionalClients: true
+                  supportsRetailClients: true
+                  supportsApis: false
+                  supportsProtocolParticipation: false
+                  supportsAssetTrading: false
+                  supportsLending: false
+                  supportsStaking: false
+                  startTs: '2018-08-28T00:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                custodianSecurityDetails:
+                - hasMultipartyComputation: false
+                  hasMultiSignature: false
+                  hasHardwareSecurityModule: false
+                  supportsHotStorage: false
+                  supportsWarmStorage: false
+                  supportsColdStorage: true
+                  conductsSecurityAudit: false
+                  securityAuditCategory: Not Applicable
+                  startTs: '2018-08-28T00:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                custodianDateDetails:
+                - dateTypeCode: OFCLL
+                  dateType: Official Launch
+                  year: 2018
+                  month: 8
+                  day: 28
+                  startTs: '2018-08-28T00:00:00Z'
+                  endTs: null
+                  recordStatus: Active
+                custodianSuccessorDetails: []
+                custodianMediaDetails:
+                - mediaProvider: Twitter
+                  url: https://twitter.com/choicebyKT
+                  startTs: null
+                  endTs: null
+                  recordStatus: Active
+                - mediaProvider: Facebook
+                  url: https://www.facebook.com/KingdomTrustCo/
+                  startTs: null
+                  endTs: null
+                  recordStatus: Active
+                - mediaProvider: Instagram
+                  url: https://www.instagram.com/choiceapp.io/
+                  startTs: null
+                  endTs: null
+                  recordStatus: Active
+                - mediaProvider: Discord
+                  url: https://discord.com/invite/f4avvmtUzh
+                  startTs: null
+                  endTs: null
+                  recordStatus: Active
+                custodianSupportedAssetDetails:
+                - lukkaAssetId: LA33P8DWU59
+                  lukkaAssetCode: XTZ
+                  lukkaAssetName: Tezos
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA2XB0HNPU9
+                  lukkaAssetCode: XRP
+                  lukkaAssetName: Ripple
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA582W6NAZ0
+                  lukkaAssetCode: BTT
+                  lukkaAssetName: Basic Attention Token
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA1626U9BZ5
+                  lukkaAssetCode: BCG
+                  lukkaAssetName: Bitcoin Gold
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA2KTXEB1J7
+                  lukkaAssetCode: DOGE
+                  lukkaAssetName: Dogecoin
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA58RADHS00
+                  lukkaAssetCode: XLT
+                  lukkaAssetName: Litecoin
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA7TRQHGAX9
+                  lukkaAssetCode: XLM
+                  lukkaAssetName: Stellar Lumens
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA0KKUNXTT0
+                  lukkaAssetCode: ZEC
+                  lukkaAssetName: Zcash
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA8VRAGEMT1
+                  lukkaAssetCode: ETH
+                  lukkaAssetName: Ether
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA7LPZBEZZ0
+                  lukkaAssetCode: BCH
+                  lukkaAssetName: Bitcoin Cash
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA6EV2NKQ95
+                  lukkaAssetCode: XBT
+                  lukkaAssetName: Bitcoin
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA14K10R487
+                  lukkaAssetCode: EOS
+                  lukkaAssetName: EOS
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                - lukkaAssetId: LA8WJ1MTZL8
+                  lukkaAssetCode: DASH
+                  lukkaAssetName: Dash
+                  startTs: null
+                  endTs: null
+                  cryptoActionBeginId: null
+                  cryptoActionEndId: null
+                  recordStatus: Active
+                custodianReserveDetails: []
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

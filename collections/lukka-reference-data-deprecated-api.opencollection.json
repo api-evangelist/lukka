@@ -1,0 +1,224 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Reference Data (Deprecated) Reference Data (Deprecated) API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data (Deprecated)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Lukka Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v1/lukka/assets",
+            "params": [
+              {
+                "name": "limit",
+                "value": "1000",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "7527",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of all the Lukka normalized assets with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n lukkaId \n STRING \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n STRING \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n STRING \n Lukka's long name for the asset \n \n \n whitepaperCode \n STRING \n Ticker of the crypto asset found in the primary source \n \n \n a"
+        },
+        {
+          "info": {
+            "name": "A Lukka Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v1/lukka/assets/LA4QVLA9QE0"
+          },
+          "docs": "Get a Lukka normalized asset by its Lukka ID.\n\n Parameters \n\n \n \n \n Field Name \n Mandatory \n \n \n lukkaId \n YES \n \n \n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n lukkaId \n STRING \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n STRING \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n STRING \n Lukka's long name for the asset \n \n \n whitepaperCode \n STRING \n Ticker"
+        },
+        {
+          "info": {
+            "name": "All Lukka Entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v1/lukka/entities",
+            "params": [
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of all the Lukka entities with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n name \n STRING \n Lukka's long name for the entity \n \n \n lukkaEntityCode \n STRING \n Unique Lukka code for the source entity \n \n \n type \n STRING \n The main function of the entity in the crypto ecosystem \n \n \n jurisdiction \n STRING \n The location of the entity where it is registered \n \n \n status \n STRING \n Indicates if the entity is still operational in the crypto ecosystem \n \n \n"
+        },
+        {
+          "info": {
+            "name": "An Entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v1/lukka/entities/BINA"
+          },
+          "docs": "Get an entity by its Lukka Entity Code.\n\n Parameters \n\n \n \n \n Field Name \n Mandatory \n \n \n lukkaEntityCode \n YES \n \n \n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n name \n STRING \n Lukka's long name for the entity \n \n \n lukkaEntityCode \n STRING \n Unique Lukka code for the source entity \n \n \n type \n STRING \n The main function of the entity in the crypto ecosystem \n \n \n jurisdiction \n STRING \n The location of the entity where it is registered \n \n \n status \n STRING \n Indicat"
+        },
+        {
+          "info": {
+            "name": "Lukka Asset Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v1/lukka/ref-assets",
+            "params": [
+              {
+                "name": "entityCode",
+                "value": "KRAK",
+                "type": "query"
+              },
+              {
+                "name": "entityAssetCode",
+                "value": "BTC",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the cross reference of all the assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityAssetCode \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n"
+        },
+        {
+          "info": {
+            "name": "Lukka Pair Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v1/lukka/ref-pairs",
+            "params": [
+              {
+                "name": "lukkaCounterAssetCode",
+                "value": "ETH",
+                "type": "query"
+              },
+              {
+                "name": "entityCode",
+                "value": "KUCO",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the cross reference of all the pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityPairCode \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entityAs"
+        },
+        {
+          "info": {
+            "name": "Lukka Derivative Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v1/lukka/ref-derivatives",
+            "params": [
+              {
+                "name": "includeDeleted",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "entityCode",
+                "value": "OKEX",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the list of all the contracts supported by an entity.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityDerivativeCode \n CHARACTER \n 256 \n Code used by the source entity to uniquely identify the contract \n \n \n entityDerivativeN"
+        },
+        {
+          "info": {
+            "name": "Lukka Crypto Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v1/lukka/assets/crypto-actions",
+            "params": [
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "eventBefore",
+                "value": "2020-04-29T23:40:11.924Z",
+                "type": "query"
+              },
+              {
+                "name": "eventAfter",
+                "value": "2020-04-29T23:40:11.924Z",
+                "type": "query"
+              },
+              {
+                "name": "event",
+                "value": "Fork",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of all the crypto actions occurring on an asset.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n event \n CHARACTER \n 256 \n Type of crypto action \n \n \n eventTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the crypto action has taken place or will take place (for future events) \n \n \n oldLukkaId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset before the crypto action event. Please refer to the Lukka ID document for mor"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

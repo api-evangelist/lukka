@@ -1,0 +1,261 @@
+openapi: 3.2.0
+info:
+  title: Lukka Pricing & Market Data Market Data - Downloadable Data (CSV) Market Data - Downloadable Data (CSV) API
+  version: 1.0.0
+  description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-pricing-api.lukka.tech
+  description: Lukka production (data-pricing-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Market Data - Downloadable Data (CSV)
+paths:
+  /v1/trades/historical/requests:
+    post:
+      operationId: createHistoricalTradesRequest
+      summary: Create Historical Trades Request
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint allows users to post a request to obtain historical market data. Use the returned request id to obtain a pre-signed url allowing you to do download the results.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests \n\n Available Product Types: quotes, trades"
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 4004,4018
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      responses:
+        '202':
+          description: Create Historical Trades Request
+          content:
+            application/json:
+              example:
+                requestId: 13e35c20-c44e-4325-8296-3453d47771e0
+    get:
+      operationId: listHistoricalTradesRequests
+      summary: List Historical Trades Requests
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint returns the past 3 days of historical market data requests. Append the request id to the end of the url and a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/requests/ \n\n Available Product Types: quotes, trades"
+      responses:
+        '200':
+          description: List Historical Trades Requests
+          content:
+            application/json:
+              example:
+                requests:
+                - requestId: f35f49f5-b8a6-4ce7-849d-3d8e67d441fd
+                  status: COMPLETED
+                  createdAt: '2026-04-22T13:08:05.845765417Z'
+                  completedAt: '2026-04-22T13:08:18.550412030Z'
+                - requestId: 5ea9ea91-d336-4021-9c6c-7fddccf06e43
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:02:42.877753050Z'
+                  completedAt: '2026-04-22T15:02:55.836773842Z'
+                - requestId: f512064e-2623-45c4-8761-177bc9b9e1f6
+                  status: COMPLETED
+                  createdAt: '2026-04-21T23:15:01.059157134Z'
+                  completedAt: '2026-04-21T23:15:12.355075033Z'
+                - requestId: 08791eca-ee46-4e93-a54a-cc9f588b4317
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:26:50.361339981Z'
+                  completedAt: '2026-04-21T22:27:04.698064305Z'
+                - requestId: 2696bc58-2310-44e1-9a6f-1003cf1b8d29
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:53:20.702436286Z'
+                  completedAt: '2026-04-21T22:53:33.001108484Z'
+                - requestId: 04c15450-a752-4b92-bc97-551067ae654f
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:30:24.721214276Z'
+                  completedAt: '2026-04-22T15:30:35.763895944Z'
+                - requestId: 73fe4174-3bfe-4d64-9d35-d7015dae3df4
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:23:38.958155956Z'
+                  completedAt: '2026-04-22T15:23:51.313939867Z'
+  /v1/trades/historical/requests/{requestId}:
+    get:
+      operationId: getHistoricalTradesRequestStatus
+      summary: Get Historical Trades Request Status
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint returns the status and download URL for a previously submitted trades request. Append the request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/trades/historical/requests/{requestId}"
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: requestId path parameter
+      responses:
+        '200':
+          description: Successful response
+  /v1/quotes/historical/requests:
+    post:
+      operationId: createHistoricalQuotesRequest
+      summary: Create Historical Quotes Request
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint allows users to post a request to obtain historical market data. Use the returned request id to obtain a pre-signed url allowing you to do download the results.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests \n\n Available Product Types: quotes, trades"
+      parameters:
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 4004,4018
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      responses:
+        '202':
+          description: Create Historical Quotes Request
+          content:
+            application/json:
+              example:
+                requestId: 847475e3-22e1-493e-9cb6-470202251347
+    get:
+      operationId: listHistoricalQuotesRequests
+      summary: List Historical Quotes Requests
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint returns the past 3 days of historical market data requests. Append the request id to the end of the url and a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/requests/ \n\n Available Product Types: quotes, trades"
+      responses:
+        '200':
+          description: List Historical Quotes Requests
+          content:
+            application/json:
+              example:
+                requests:
+                - requestId: 859d6718-a5b0-4709-a8a6-47fc4efe9c10
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:23:39.448708262Z'
+                  completedAt: '2026-04-22T15:23:54.865145151Z'
+                - requestId: c4a1fb47-5617-443f-b4c8-32df4d9d5890
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:53:21.118051646Z'
+                  completedAt: '2026-04-21T22:53:36.592013775Z'
+                - requestId: 5ea9ea91-d336-4021-9c6c-7fddccf06e43
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:02:42.877753050Z'
+                  completedAt: '2026-04-22T15:02:55.836773842Z'
+                - requestId: b10034e6-f12d-4fdd-86be-4c2fee09e0ee
+                  status: COMPLETED
+                  createdAt: '2026-04-21T23:15:01.494130412Z'
+                  completedAt: '2026-04-21T23:15:16.680003525Z'
+                - requestId: f35f49f5-b8a6-4ce7-849d-3d8e67d441fd
+                  status: COMPLETED
+                  createdAt: '2026-04-22T13:08:05.845765417Z'
+                  completedAt: '2026-04-22T13:08:18.550412030Z'
+                - requestId: dee81356-69b3-4795-af5b-277401d0b720
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:26:50.722621476Z'
+                  completedAt: '2026-04-21T22:27:08.324124601Z'
+                - requestId: 13e35c20-c44e-4325-8296-3453d47771e0
+                  status: IN_PROGRESS
+                  createdAt: '2026-04-22T15:39:51.117089357Z'
+                - requestId: f512064e-2623-45c4-8761-177bc9b9e1f6
+                  status: COMPLETED
+                  createdAt: '2026-04-21T23:15:01.059157134Z'
+                  completedAt: '2026-04-21T23:15:12.355075033Z'
+                - requestId: 08791eca-ee46-4e93-a54a-cc9f588b4317
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:26:50.361339981Z'
+                  completedAt: '2026-04-21T22:27:04.698064305Z'
+                - requestId: 420b0f02-2830-423d-acf1-3e19ac016bb5
+                  status: COMPLETED
+                  createdAt: '2026-04-22T13:08:06.386806016Z'
+                  completedAt: '2026-04-22T13:08:21.848477760Z'
+                - requestId: 2696bc58-2310-44e1-9a6f-1003cf1b8d29
+                  status: COMPLETED
+                  createdAt: '2026-04-21T22:53:20.702436286Z'
+                  completedAt: '2026-04-21T22:53:33.001108484Z'
+                - requestId: 04c15450-a752-4b92-bc97-551067ae654f
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:30:24.721214276Z'
+                  completedAt: '2026-04-22T15:30:35.763895944Z'
+                - requestId: c269f653-704b-4171-a5f0-18c6d9cd353f
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:02:43.361442715Z'
+                  completedAt: '2026-04-22T15:03:01.221927189Z'
+                - requestId: 132d5f5b-a7c3-40db-89f3-05c42479f154
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:30:25.212341870Z'
+                  completedAt: '2026-04-22T15:30:40.429840336Z'
+                - requestId: 73fe4174-3bfe-4d64-9d35-d7015dae3df4
+                  status: COMPLETED
+                  createdAt: '2026-04-22T15:23:38.958155956Z'
+                  completedAt: '2026-04-22T15:23:51.313939867Z'
+  /v1/quotes/historical/requests/{requestId}:
+    get:
+      operationId: getHistoricalQuotesRequestStatus
+      summary: Get Historical Quotes Request Status
+      tags:
+      - Market Data - Downloadable Data (CSV)
+      description: "This endpoint returns the status and download URL for a previously submitted quotes request. Append the request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/quotes/historical/requests/{requestId}"
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: requestId path parameter
+      responses:
+        '200':
+          description: Successful response
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

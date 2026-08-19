@@ -1,0 +1,490 @@
+{
+  "item": [
+    {
+      "id": "c298e59c-4aea-4acd-b093-7206678ca3a4",
+      "name": "Reference Data - Mapping and Normalization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2179c6a-49a2-4995-861c-7dc72800da6e",
+          "name": "All Entities",
+          "request": {
+            "name": "All Entities",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "entities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "700f5ff0-800c-447b-b1ac-68b9a78db979",
+              "name": "All Entities",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "879263c8-8bb4-4589-9cd1-c989dbbe6865",
+          "name": "Asset Mappings",
+          "request": {
+            "name": "Asset Mappings",
+            "description": {
+              "content": "Get the cross reference of all the assets supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)\n\n The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ecosystem, especially at scale.\n\n The Lukka Mapping Data Product is a comprehensive mapping and normalization dataset that can be leveraged to easily take the unstandardized, inconsistent and uncleansed data from trading venues, custodians, wallets, lending platforms or other entities within the ecosystem and normalize the data to one consistent, standardized, cleansed and timelined data record. \n\n LMAP is designed to fulfill the need for a mechanism to facilitate an easy way to compare assets and their respective market data, across any platform, for use in front, middle and back office processes. The product provides its users a significant reduction in time and effort preparing data and provides its users with more time to analyze and use the data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "assets",
+                "mappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mappingStatus",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3d5359a-8e38-4e36-ad3c-130e9b62784b",
+              "name": "Asset Mappings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "assets",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mappingStatus",
+                      "value": "Active"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b2bf190-4d88-4bb8-aa1a-239afb4b55f7",
+          "name": "Pair Mappings",
+          "request": {
+            "name": "Pair Mappings",
+            "description": {
+              "content": "Get the cross reference of all the pairs supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)\n\n The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ecosystem, especially at scale.\n\n The Lukka Mapping Data Product is a comprehensive mapping and normalization dataset that can be leveraged to easily take the unstandardized, inconsistent and uncleansed data from trading venues, custodians, wallets, lending platforms or other entities within the ecosystem and normalize the data to one consistent, standardized, cleansed and timelined data record. \n\n LMAP is designed to fulfill the need for a mechanism to facilitate an easy way to compare assets and their respective market data, across any platform, for use in front, middle and back office processes. The product provides its users a significant reduction in time and effort preparing data and provides its users with more time to analyze and use the data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "pairs",
+                "mappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mappingStatus",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67921627-2883-4e95-bff1-5531b78ee57e",
+              "name": "Pair Mappings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "pairs",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mappingStatus",
+                      "value": "Active"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "072f96f2-3f85-4e58-a6bc-7e73e92a8df9",
+          "name": "Derivative Mappings",
+          "request": {
+            "name": "Derivative Mappings",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "derivatives",
+                "mappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a31b6ac-c111-4a42-8b8f-234b6289e8d2",
+              "name": "Derivative Mappings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "derivatives",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddb4c81c-87b9-470a-bb2b-4d93e6f74b41",
+          "name": "All Legal Entity Mappings",
+          "request": {
+            "name": "All Legal Entity Mappings",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "legal-entity-mappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d83f4515-ac88-4e2f-ae14-c54df328db66",
+              "name": "All Legal Entity Mappings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "legal-entity-mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 0,\n  \"limit\": 5,\n  \"size\": 5,\n  \"links\": {\n    \"base\": \"/v2/lukka/legal-entity-mappings\",\n    \"next\": \"/v2/lukka/legal-entity-mappings?identifierTypeCode=LEI&limit=5&offset=5\",\n    \"prev\": null\n  },\n  \"data\": [\n    {\n      \"lukkaAssetMapId\": null,\n      \"identifierTypeCode\": \"LEI\",\n      \"identifierType\": \"Legal Entity Identifier\",\n      \"identifierValue\": \"549300QHD76EP6ZKTT48\",\n      \"lukkaLegalEntityId\": 1,\n      \"legalNameEnglish\": \"Coinbase, Inc.\",\n      \"mapProcessedStartTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"mapProcessedEndTime\": null,\n      \"mapEffectiveStartTime\": null,\n      \"mapEffectiveEndTime\": null,\n      \"lastModifiedTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"recordStatus\": \"Active\",\n      \"successorMappingId\": null\n    },\n    {\n      \"lukkaAssetMapId\": null,\n      \"identifierTypeCode\": \"LEI\",\n      \"identifierType\": \"Legal Entity Identifier\",\n      \"identifierValue\": \"254900GNWXLR2G6HFQ44\",\n      \"lukkaLegalEntityId\": 207,\n      \"legalNameEnglish\": \"iFinex Inc.\",\n      \"mapProcessedStartTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"mapProcessedEndTime\": null,\n      \"mapEffectiveStartTime\": null,\n      \"mapEffectiveEndTime\": null,\n      \"lastModifiedTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"recordStatus\": \"Active\",\n      \"successorMappingId\": null\n    },\n    {\n      \"lukkaAssetMapId\": null,\n      \"identifierTypeCode\": \"LEI\",\n      \"identifierType\": \"Legal Entity Identifier\",\n      \"identifierValue\": \"48510000WZATNQVLS592\",\n      \"lukkaLegalEntityId\": 3,\n      \"legalNameEnglish\": \"Bitstamp Limited\",\n      \"mapProcessedStartTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"mapProcessedEndTime\": null,\n      \"mapEffectiveStartTime\": null,\n      \"mapEffectiveEndTime\": null,\n      \"lastModifiedTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"recordStatus\": \"Active\",\n      \"successorMappingId\": null\n    },\n    {\n      \"lukkaAssetMapId\": null,\n      \"identifierTypeCode\": \"LEI\",\n      \"identifierType\": \"Legal Entity Identifier\",\n      \"identifierValue\": \"254900WY3GMPLZR6V492\",\n      \"lukkaLegalEntityId\": 5,\n      \"legalNameEnglish\": \"Bittrex, Inc.\",\n      \"mapProcessedStartTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"mapProcessedEndTime\": null,\n      \"mapEffectiveStartTime\": null,\n      \"mapEffectiveEndTime\": null,\n      \"lastModifiedTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"recordStatus\": \"Active\",\n      \"successorMappingId\": null\n    },\n    {\n      \"lukkaAssetMapId\": null,\n      \"identifierTypeCode\": \"LEI\",\n      \"identifierType\": \"Legal Entity Identifier\",\n      \"identifierValue\": \"254900GBN2V33HKLXO71\",\n      \"lukkaLegalEntityId\": 10,\n      \"legalNameEnglish\": \"Gemini Trust Company, LLC\",\n      \"mapProcessedStartTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"mapProcessedEndTime\": null,\n      \"mapEffectiveStartTime\": null,\n      \"mapEffectiveEndTime\": null,\n      \"lastModifiedTime\": \"2021-05-19T13:11:00.254426Z\",\n      \"recordStatus\": \"Active\",\n      \"successorMappingId\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-refdata-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5153b9ef-5086-41f5-a74e-96b0931fb9f6",
+    "name": "Lukka Reference Data Reference Data - Mapping and Normalization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

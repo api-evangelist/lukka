@@ -1,0 +1,966 @@
+{
+  "item": [
+    {
+      "id": "8f730bce-1587-44a0-a31a-f7e389b5208e",
+      "name": "Market Data - Derivatives",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7b095baf-97cc-43ef-85b1-15266a6fed4d",
+          "name": "Get Candles by Exchange Source (Derivative)",
+          "request": {
+            "name": "Get Candles by Exchange Source (Derivative)",
+            "description": {
+              "content": "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of transactions that can be returned in a single payload then a next_url variable will be returned at the end of the response. The next_url is used to paginate the response and can be called to request the next batch of transactions prior to what was returned. next_url will continue to be included in the response until all of the requested transactions have been returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "market-data",
+                "sources",
+                ":sourceId",
+                "candles",
+                "pairs",
+                ":pairCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pairCode",
+                  "description": "(Required) pairCode path parameter"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d65bc95-af50-4e12-9fa2-e49ec95bf7d8",
+              "name": "Get Candles by Exchange Source (Derivative)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "market-data",
+                    "sources",
+                    ":sourceId",
+                    "candles",
+                    "pairs",
+                    ":pairCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T00:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T02:00:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pairCode",
+                      "description": "(Required) pairCode path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sourceId\": 4005,\n  \"pairCode\": \"BTCUSDT.BINA\",\n  \"dataType\": \"candles\",\n  \"firstDate\": \"2026-04-20T00:00:00Z\",\n  \"lastDate\": \"2026-04-20T02:00:00Z\",\n  \"count\": 3,\n  \"units\": \"native\",\n  \"instrumentType\": \"DERIVATIVE\",\n  \"data\": [\n    {\n      \"tradeCount\": 112847,\n      \"volume\": \"5823.14200000\",\n      \"openPrice\": \"73819.50\",\n      \"highPrice\": \"74392.10\",\n      \"lowPrice\": \"73738.00\",\n      \"closePrice\": \"74298.70\",\n      \"ts\": \"2026-04-20T00:00:00Z\"\n    },\n    {\n      \"tradeCount\": 98321,\n      \"volume\": \"5214.88100000\",\n      \"openPrice\": \"74298.70\",\n      \"highPrice\": \"74786.20\",\n      \"lowPrice\": \"74241.30\",\n      \"closePrice\": \"74618.90\",\n      \"ts\": \"2026-04-20T01:00:00Z\"\n    },\n    {\n      \"tradeCount\": 71204,\n      \"volume\": \"3891.55600000\",\n      \"openPrice\": \"74618.90\",\n      \"highPrice\": \"74658.80\",\n      \"lowPrice\": \"74329.40\",\n      \"closePrice\": \"74437.20\",\n      \"ts\": \"2026-04-20T02:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d97c96a4-3891-4eac-a425-66987f8bbec6",
+          "name": "Get Latest Markets (DERIVATIVE)",
+          "request": {
+            "name": "Get Latest Markets (DERIVATIVE)",
+            "description": {
+              "content": "Description: This endpoint returns the derivative markets for a specified exchange over the previous 24 hours. In addition to sourceIds , supports underlyingAssetCode , quoteAssetCode , and lukkaInstrumentClassification filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "latest-markets",
+                "DERIVATIVE"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sourceIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65688180-fe86-43cc-b45c-8d50857f300f",
+              "name": "Get Latest Markets (DERIVATIVE)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "latest-markets",
+                    "DERIVATIVE"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceIds",
+                      "value": "4005"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dataType\": \"markets\",\n  \"count\": 5,\n  \"data\": [\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"BTCUSDT.BINA\",\n      \"derivativeLid\": \"L-BINA-PERP-XBT-USDT\",\n      \"underlyingAssetCode\": \"XBT\",\n      \"quoteAssetCode\": \"USDT\",\n      \"latestPrice\": \"79171.1\",\n      \"latestPriceUsd\": \"79183.767376\",\n      \"volume24h\": \"206633.6350000002\",\n      \"volumeUsd24h\": \"15961556224.894135\",\n      \"tradeCount24h\": \"2052278.0\",\n      \"latestPriceTs\": \"2026-04-22T15:37:59.999Z\",\n      \"indexPrice\": \"79182.38065217\",\n      \"markPrice\": \"79155.25726087\",\n      \"lukkaInstrumentClassification\": \"Perpetual\"\n    },\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"ETHUSDT.BINA\",\n      \"derivativeLid\": \"L-BINA-PERP-ETH-USDT\",\n      \"underlyingAssetCode\": \"ETH\",\n      \"quoteAssetCode\": \"USDT\",\n      \"latestPrice\": \"2408.21\",\n      \"latestPriceUsd\": \"2408.5953136\",\n      \"volume24h\": \"5383001.592999991\",\n      \"volumeUsd24h\": \"12705354718.211126\",\n      \"tradeCount24h\": \"1788587.0\",\n      \"latestPriceTs\": \"2026-04-22T15:37:59.974Z\",\n      \"indexPrice\": \"2405.73395349\",\n      \"markPrice\": \"2404.78166667\",\n      \"lukkaInstrumentClassification\": \"Perpetual\"\n    },\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"BTCUSDC.BINA\",\n      \"derivativeLid\": \"L-BINA-PERP-XBT-USDC\",\n      \"underlyingAssetCode\": \"XBT\",\n      \"quoteAssetCode\": \"USDC\",\n      \"latestPrice\": \"79192.5\",\n      \"latestPriceUsd\": \"79176.66466706658\",\n      \"volume24h\": \"53998.27399999996\",\n      \"volumeUsd24h\": \"4169951644.851292\",\n      \"tradeCount24h\": \"726327.0\",\n      \"latestPriceTs\": \"2026-04-22T15:37:59.910Z\",\n      \"indexPrice\": \"79216.87357103\",\n      \"markPrice\": \"79176.90245761\",\n      \"lukkaInstrumentClassification\": \"Perpetual\"\n    },\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"ETHUSDC.BINA\",\n      \"derivativeLid\": \"L-BINA-PERP-ETH-USDC\",\n      \"underlyingAssetCode\": \"ETH\",\n      \"quoteAssetCode\": \"USDC\",\n      \"latestPrice\": \"2409.13\",\n      \"latestPriceUsd\": \"2408.648270345931\",\n      \"volume24h\": \"1422655.1400000006\",\n      \"volumeUsd24h\": \"3356264678.6877127\",\n      \"tradeCount24h\": \"933714.0\",\n      \"latestPriceTs\": \"2026-04-22T15:37:59.906Z\",\n      \"indexPrice\": \"2406.64401433\",\n      \"markPrice\": \"2405.82802805\",\n      \"lukkaInstrumentClassification\": \"Perpetual\"\n    },\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"SOLUSDT.BINA\",\n      \"derivativeLid\": \"L-BINA-PERP-SOLN-USDT\",\n      \"underlyingAssetCode\": \"SOLN\",\n      \"quoteAssetCode\": \"USDT\",\n      \"latestPrice\": \"88.35\",\n      \"latestPriceUsd\": \"88.364136\",\n      \"volume24h\": \"23872224.92000002\",\n      \"volumeUsd24h\": \"2079477069.5996287\",\n      \"tradeCount24h\": \"309414.0\",\n      \"latestPriceTs\": \"2026-04-22T15:37:59.834Z\",\n      \"indexPrice\": \"88.34553881\",\n      \"markPrice\": \"88.30572792\",\n      \"lukkaInstrumentClassification\": \"Perpetual\"\n    }\n  ],\n  \"nextPageUrl\": \"https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/DERIVATIVE?sourceIds=4005&limit=5&offset=5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e30e8ec-0921-4c33-9a4b-62568747dba3",
+          "name": "Get Latest Markets (GREEKS)",
+          "request": {
+            "name": "Get Latest Markets (GREEKS)",
+            "description": {
+              "content": "Description: This endpoint returns the options markets for a specified exchange over the previous 24 hours, with Greeks values (delta, gamma, theta, vega, rho) included for each instrument.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "latest-markets",
+                "GREEKS"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sourceIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcc14c91-ed59-4389-b03c-bd3b86454140",
+              "name": "Get Latest Markets (GREEKS)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "latest-markets",
+                    "GREEKS"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceIds",
+                      "value": "4005"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dataType\": \"greeks\",\n  \"count\": 5,\n  \"data\": [\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"BNB-260422-615-C.BINA\",\n      \"underlyingAssetCode\": \"BNB\",\n      \"quoteAssetCode\": \"USDT\",\n      \"lukkaInstrumentClassification\": \"Option\",\n      \"optionType\": \"C\",\n      \"strikePrice\": \"615.0\",\n      \"expiryTime\": \"2026-04-22T08:00:00Z\",\n      \"latestPrice\": \"19.9\",\n      \"latestPriceUsd\": \"19.903383\",\n      \"latestSize\": \"0.07\",\n      \"latestSizeUsd\": \"1.39323681\",\n      \"aggressor\": \"B\",\n      \"spotPrice\": \"632.5375131\",\n      \"forwardPrice\": \"632.543157850426\",\n      \"impliedForwardRate\": \"0.0106319098872809\",\n      \"riskFreeRate\": \"0.0366698585651162\",\n      \"timeToExpiry\": \"0.0008393541333942\",\n      \"impliedVolatility\": \"1.1602341906270601\",\n      \"delta\": \"0.8032983099606948\",\n      \"gamma\": \"0.0130342444697076\",\n      \"theta\": \"-2.945658751348726\",\n      \"vega\": \"0.0507875286097051\",\n      \"rho\": \"-0.0001670598678959\",\n      \"modelType\": \"BLACK76\",\n      \"latestPriceTs\": \"2026-04-22T00:38:31.926Z\"\n    },\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"BNB-260422-620-C.BINA\",\n      \"underlyingAssetCode\": \"BNB\",\n      \"quoteAssetCode\": \"USDT\",\n      \"lukkaInstrumentClassification\": \"Option\",\n      \"optionType\": \"C\",\n      \"strikePrice\": \"620.0\",\n      \"expiryTime\": \"2026-04-22T08:00:00Z\",\n      \"latestPrice\": \"12.1\",\n      \"latestPriceUsd\": \"12.101331\",\n      \"latestSize\": \"0.32\",\n      \"latestSizeUsd\": \"3.87242592\",\n      \"aggressor\": \"B\",\n      \"spotPrice\": \"632.1\",\n      \"forwardPrice\": \"632.1097851397548\",\n      \"impliedForwardRate\": \"0.0084829561121654\",\n      \"riskFreeRate\": \"0.0368693920310197\",\n      \"timeToExpiry\": \"0.0018248646601769\",\n      \"impliedVolatility\": \"0.0000000000454747\",\n      \"delta\": \"0.9999327206127999\",\n      \"gamma\": \"0.0\",\n      \"theta\": \"0.0008147115151455\",\n      \"vega\": \"0.0\",\n      \"rho\": \"-0.0002209723215561\",\n      \"modelType\": \"BLACK76\",\n      \"latestPriceTs\": \"2026-04-21T16:00:11.583Z\"\n    },\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"BNB-260422-625-C.BINA\",\n      \"underlyingAssetCode\": \"BNB\",\n      \"quoteAssetCode\": \"USDT\",\n      \"lukkaInstrumentClassification\": \"Option\",\n      \"optionType\": \"C\",\n      \"strikePrice\": \"625.0\",\n      \"expiryTime\": \"2026-04-22T08:00:00Z\",\n      \"latestPrice\": \"15.0\",\n      \"latestPriceUsd\": \"15.0015\",\n      \"latestSize\": \"0.6\",\n      \"latestSizeUsd\": \"9.0009\",\n      \"aggressor\": \"B\",\n      \"spotPrice\": \"640.69\",\n      \"forwardPrice\": \"640.6931831860604\",\n      \"impliedForwardRate\": \"0.009005500274662\",\n      \"riskFreeRate\": \"0.0366698585651162\",\n      \"timeToExpiry\": \"0.0005517027593987\",\n      \"impliedVolatility\": \"0.0000000000454747\",\n      \"delta\": \"0.9999797693424853\",\n      \"gamma\": \"0.0\",\n      \"theta\": \"0.0003174802028807\",\n      \"vega\": \"0.0\",\n      \"rho\": \"-0.0000865779731102\",\n      \"modelType\": \"BLACK76\",\n      \"latestPriceTs\": \"2026-04-22T03:09:49.509Z\"\n    },\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"BNB-260422-630-P.BINA\",\n      \"underlyingAssetCode\": \"BNB\",\n      \"quoteAssetCode\": \"USDT\",\n      \"lukkaInstrumentClassification\": \"Option\",\n      \"optionType\": \"P\",\n      \"strikePrice\": \"630.0\",\n      \"expiryTime\": \"2026-04-22T08:00:00Z\",\n      \"latestPrice\": \"3.6\",\n      \"latestPriceUsd\": \"3.60036\",\n      \"latestSize\": \"1.0\",\n      \"latestSizeUsd\": \"3.60036\",\n      \"aggressor\": \"B\",\n      \"spotPrice\": \"631.153109\",\n      \"forwardPrice\": \"631.1657726710662\",\n      \"impliedForwardRate\": \"0.0108101749959782\",\n      \"riskFreeRate\": \"0.0368693920310197\",\n      \"timeToExpiry\": \"0.0018560420627678\",\n      \"impliedVolatility\": \"0.3836117645172842\",\n      \"delta\": \"-0.4521606373839011\",\n      \"gamma\": \"0.0379679877243074\",\n      \"theta\": \"-2.065353092440549\",\n      \"vega\": \"0.107692185706962\",\n      \"rho\": \"-0.0000668241960111\",\n      \"modelType\": \"BLACK76\",\n      \"latestPriceTs\": \"2026-04-21T15:43:47.695Z\"\n    },\n    {\n      \"sourceId\": 4005,\n      \"entityCode\": \"BINA\",\n      \"entityName\": \"Binance\",\n      \"derivativeCode\": \"BNB-260422-635-C.BINA\",\n      \"underlyingAssetCode\": \"BNB\",\n      \"quoteAssetCode\": \"USDT\",\n      \"lukkaInstrumentClassification\": \"Option\",\n      \"optionType\": \"C\",\n      \"strikePrice\": \"635.0\",\n      \"expiryTime\": \"2026-04-22T08:00:00Z\",\n      \"latestPrice\": \"9.3\",\n      \"latestPriceUsd\": \"9.299907\",\n      \"latestSize\": \"0.48\",\n      \"latestSizeUsd\": \"4.46395536\",\n      \"aggressor\": \"B\",\n      \"spotPrice\": \"644.8\",\n      \"forwardPrice\": \"644.8008305409462\",\n      \"impliedForwardRate\": \"0.0053085595378116\",\n      \"riskFreeRate\": \"0.0366698585651162\",\n      \"timeToExpiry\": \"0.0002426381283748\",\n      \"impliedVolatility\": \"0.0000000000454747\",\n      \"delta\": \"0.9999911025337327\",\n      \"gamma\": \"0.0\",\n      \"theta\": \"0.0000872021711877\",\n      \"vega\": \"0.0\",\n      \"rho\": \"-0.0000237803402031\",\n      \"modelType\": \"BLACK76\",\n      \"latestPriceTs\": \"2026-04-22T05:52:22.851Z\"\n    }\n  ],\n  \"nextPageUrl\": \"https://data-pricing-api.lukka.tech/v1/pricing/latest-markets/GREEKS?sourceIds=4005&limit=5&offset=5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c89e843e-ce18-4f7b-b692-42881a6f5362",
+          "name": "Get Latest Derivative Trades",
+          "request": {
+            "name": "Get Latest Derivative Trades",
+            "description": {
+              "content": "Description: Get the Latest Trades for derivative instruments from a specific Source ID.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n lookback is specified in minutes (not milliseconds).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "market-data",
+                "derivative",
+                "sources",
+                ":sourceId",
+                "trades"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lookback",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69660f4a-584f-4cb7-883d-2e4d53dc55c8",
+              "name": "Get Latest Derivative Trades",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "market-data",
+                    "derivative",
+                    "sources",
+                    ":sourceId",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lookback",
+                      "value": "60"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "418021b5-e890-42c9-9cf3-264abb769df4",
+          "name": "Get Historical Derivative Trades",
+          "request": {
+            "name": "Get Historical Derivative Trades",
+            "description": {
+              "content": "Description: Get the trade history for a specific derivative instrument from a specified Source ID. Must supply either entityDerivativeCode (exchange-native code) or lukkaDerivativeCode (Lukka canonical code).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "market-data",
+                "derivative",
+                "sources",
+                ":sourceId",
+                "trades",
+                "historical"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityDerivativeCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9eb94831-9620-4b31-ae3b-17fb7a69967e",
+              "name": "Get Historical Derivative Trades",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "market-data",
+                    "derivative",
+                    "sources",
+                    ":sourceId",
+                    "trades",
+                    "historical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T12:01:00Z"
+                    },
+                    {
+                      "key": "entityDerivativeCode",
+                      "value": "BTCUSDT"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "144135dd-3da8-47c2-b7bf-57d826b3e7be",
+          "name": "Get Latest Mark Prices",
+          "request": {
+            "name": "Get Latest Mark Prices",
+            "description": {
+              "content": "Description: Get the latest derivative mark prices as of the given timestamp from a specified derivatives exchange Source ID (e.g. 4005 Binance futures). Optional underlyingAssetCode and lukkaDerivativeCode filters can be applied to narrow the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                ":sourceId",
+                "markprices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lookback",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94c811a3-d3ca-4652-81cd-47e45c79d835",
+              "name": "Get Latest Mark Prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    ":sourceId",
+                    "markprices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lookback",
+                      "value": "60000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77fbb1c7-734e-4710-a83b-48fc9d4f7ec1",
+          "name": "Get Historical Mark Prices",
+          "request": {
+            "name": "Get Historical Mark Prices",
+            "description": {
+              "content": "Description: Get the mark price history for a specific derivative instrument from a specified Source ID.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n interval (milliseconds) allowed values: 1000, 5000, 30000, 60000, 300000, 1800000, 3600000, 86400000.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                ":sourceId",
+                ":baseAssetCode",
+                "markprices",
+                "historical"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "baseAssetCode",
+                  "description": "(Required) baseAssetCode path parameter"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc8ed959-b368-4829-8394-a5517ecafaaa",
+              "name": "Get Historical Mark Prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    ":sourceId",
+                    ":baseAssetCode",
+                    "markprices",
+                    "historical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T12:10:00Z"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "60000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "baseAssetCode",
+                      "description": "(Required) baseAssetCode path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"ts\": \"2026-04-20T12:00:00Z\",\n      \"derivativeCode\": \"BTCUSDT.BINA\",\n      \"underlyingAssetCode\": \"XBT\",\n      \"markPrice\": \"75160.0\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:01:00Z\",\n      \"derivativeCode\": \"BTCUSDT.BINA\",\n      \"underlyingAssetCode\": \"XBT\",\n      \"markPrice\": \"75106.0\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:02:00Z\",\n      \"derivativeCode\": \"BTCUSDT.BINA\",\n      \"underlyingAssetCode\": \"XBT\",\n      \"markPrice\": \"75069.63205072\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:03:00Z\",\n      \"derivativeCode\": \"BTCUSDT.BINA\",\n      \"underlyingAssetCode\": \"XBT\",\n      \"markPrice\": \"75075.6\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:04:00Z\",\n      \"derivativeCode\": \"BTCUSDT.BINA\",\n      \"underlyingAssetCode\": \"XBT\",\n      \"markPrice\": \"75049.6828913\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e398671d-121c-4c27-ac68-382bd6d694bf",
+          "name": "Get Composite Funding Rates (by pairCodes)",
+          "request": {
+            "name": "Get Composite Funding Rates (by pairCodes)",
+            "description": {
+              "content": "Description: Get the IQR-cleansed composite funding rate across derivatives exchanges for the specified derivative pair codes. This is the pairCodes variant of the endpoint; it is mutually exclusive with the underlyingAssetCodes + counterAssetCodes variant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "derivatives",
+                "composite-funding-rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pairCodes",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "838bff43-9878-473b-8a47-389749e099b7",
+              "name": "Get Composite Funding Rates (by pairCodes)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "derivatives",
+                    "composite-funding-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pairCodes",
+                      "value": "XBT-USDT"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dataType\": \"composite-funding-rates\",\n  \"ts\": \"2026-04-22T15:39:00.000Z\",\n  \"count\": 1,\n  \"data\": [\n    {\n      \"pairCode\": \"XBT-USDT\",\n      \"compositeRate\": \"0.0353\",\n      \"minRate\": \"0.0308\",\n      \"maxRate\": \"0.0398\",\n      \"medianRate\": \"0.0353\",\n      \"meanRate\": \"0.0353\",\n      \"depth\": 2,\n      \"calcInputs\": [\n        {\n          \"sourceId\": 4005,\n          \"entityCode\": \"BINA\",\n          \"yearlyRate\": \"0.0398\"\n        },\n        {\n          \"sourceId\": 4015,\n          \"entityCode\": \"BYBT\",\n          \"yearlyRate\": \"0.0308\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-pricing-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8d70d76a-ca57-41c5-85da-e8e2ee7e6b44",
+    "name": "Lukka Pricing & Market Data Market Data - Derivatives API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

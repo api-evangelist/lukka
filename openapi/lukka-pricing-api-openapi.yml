@@ -1,0 +1,605 @@
+openapi: 3.2.0
+info:
+  title: Lukka & Market Data Pricing API
+  version: 1.0.0
+  description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.'
+  contact:
+    name: Lukka Support
+    url: https://lukka.tech/support/
+  x-origin:
+  - format: postman
+    version: 2.1.0
+    url: https://apidocs.lukka.tech/
+servers:
+- url: https://data-pricing-api.lukka.tech
+  description: Lukka production (data-pricing-api.lukka.tech)
+security:
+- bearerAuth: []
+tags:
+- name: Pricing
+paths:
+  /v1/pricing/sources/details/{productType}:
+    get:
+      operationId: availableSourcesByProduct
+      summary: Available Sources by Product
+      tags:
+      - Pricing
+      description: "Description: Gets all configured sources for the client based on a defined product type. An array of sources available, based on API key permissions and inputted product type will be returned by this endpoint.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/{productType} \n\n Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative"
+      parameters:
+      - name: productType
+        in: path
+        required: true
+        schema:
+          type: string
+        description: productType path parameter
+      responses:
+        '200':
+          description: Available Sources by Product
+  /v1/pricing/sources/details/{productType}/{sourceId}:
+    get:
+      operationId: getSourceDetailsByProduct
+      summary: Get Source Details by Product
+      tags:
+      - Pricing
+      description: "Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata that it supports.\n\n This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}\n\n Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative"
+      parameters:
+      - name: productType
+        in: path
+        required: true
+        schema:
+          type: string
+        description: productType path parameter
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      responses:
+        '200':
+          description: Get Source Details by Product
+          content:
+            application/json:
+              example:
+                sourceId: 4002
+                sourceName: Coinbase
+                pairs:
+                - pairCode: XBT-USD
+                  firstDate: '2022-07-03T00:00:59Z'
+                  baseAsset: XBT
+                  counterAsset: USD
+                  baseAssetLukkaId: LA6EV2NKQ95
+                  counterAssetLukkaId: LA3YM6GRUJ4
+                  baseAssetName: Bitcoin
+                  counterAssetName: US Dollar
+                  baseAssetWhitepaperCode: BTC
+                  baseAssetCommonStreetCode: BTC
+                  counterAssetCommonStreetCode: USD
+                  instrumentType: SPOT
+                  status: ACTIVE
+  /v1/pricing/sources/details/{productType}/{sourceId}/derivatives:
+    get:
+      operationId: getDerivativeSourceDetailsPaginated
+      summary: Get Derivative Source Details (Paginated)
+      tags:
+      - Pricing
+      description: "Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata.\n\n This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}/derivatives\n\n Response is paginated via a nextPageUrl cursor. Available Product types are the same as the other /sources/details/* endpoints."
+      parameters:
+      - name: productType
+        in: path
+        required: true
+        schema:
+          type: string
+        description: productType path parameter
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      responses:
+        '200':
+          description: Get Derivative Source Details (Paginated)
+  /v1/pricing/sources/2000/prices:
+    get:
+      operationId: getLatestPrices
+      summary: Get Latest Prices
+      tags:
+      - Pricing
+      description: "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices."
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD,ETH-USD
+      - name: lookback
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '172800000'
+      responses:
+        '200':
+          description: Get Latest Prices
+          content:
+            application/json:
+              example:
+              - pairCode: XBT-USD
+                price: '79126.46'
+                ts: '2026-04-22T15:35:00Z'
+              - pairCode: ETH-USD
+                price: '2399.01'
+                ts: '2026-04-22T15:35:00Z'
+  /v1/pricing/sources/{sourceId}/prices/pairs/{pairCode}:
+    get:
+      operationId: getHistoricalPrices
+      summary: Get Historical Prices
+      tags:
+      - Pricing
+      description: "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      responses:
+        '200':
+          description: Get Historical Prices
+          content:
+            application/json:
+              example:
+                pairCode: XBT-USD
+                firstDate: '2026-04-20T12:00:00Z'
+                lastDate: '2026-04-20T12:09:00Z'
+                nextPageUrl: /v1/pricing/sources/2000/prices/pairs/XBT-USD?from=2026-04-20T12%3A10%3A00Z&to=2026-04-20T13%3A00%3A00Z&limit=10
+                pricesCount: 10
+                prices:
+                - ts: '2026-04-20T12:00:00Z'
+                  price: '75220.66'
+                - ts: '2026-04-20T12:01:00Z'
+                  price: '75186.78'
+                - ts: '2026-04-20T12:02:00Z'
+                  price: '75137.49'
+                - ts: '2026-04-20T12:03:00Z'
+                  price: '75151.02'
+                - ts: '2026-04-20T12:04:00Z'
+                  price: '75132.49'
+                - ts: '2026-04-20T12:05:00Z'
+                  price: '75227.41'
+                - ts: '2026-04-20T12:06:00Z'
+                  price: '75291.91'
+                - ts: '2026-04-20T12:07:00Z'
+                  price: '75311.03'
+                - ts: '2026-04-20T12:08:00Z'
+                  price: '75335.02'
+                - ts: '2026-04-20T12:09:00Z'
+                  price: '75320.39'
+  /v1/pricing/sources/{sourceId}/prices/pairs/{pairCode}/variances:
+    get:
+      operationId: getPriceVariancesByPair
+      summary: Get Price Variances by Pair
+      tags:
+      - Pricing
+      description: "Description: Get the price history for a single pair along with its market variances. For each exchange, daily volume, daily trade counts, hourly volume, and hourly trade counts are provided. Lukka Prime takes all these parameters into consideration when choosing a principal exchange for the minute's price.\n\n Exchanges under market variances are sorted in a descending order by its hourly volume .\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:10:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3'
+      responses:
+        '200':
+          description: Get Price Variances by Pair
+  /v1/pricing/sources/5005/mvwaps:
+    get:
+      operationId: getLatestMVWAPs
+      summary: Get Latest MVWAPs
+      tags:
+      - Pricing
+      description: 'Description: Get the latest Moving Volume Weighted Average Price (MVWAP) as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5005 (15s/1s MVWAP).'
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD,ETH-USD
+      responses:
+        '200':
+          description: Get Latest MVWAPs
+          content:
+            application/json:
+              example:
+              - pairCode: ETH-USD
+                mvwap60min: '2410.769550194882'
+                ts: '2026-04-22T15:39:27Z'
+              - pairCode: XBT-USD
+                mvwap60min: '79304.33066181457'
+                ts: '2026-04-22T15:39:27Z'
+  /v1/pricing/sources/{sourceId}/mvwaps/pairs/{pairCode}:
+    get:
+      operationId: getHistoricalMVWAPByPair
+      summary: Get Historical MVWAP by Pair
+      tags:
+      - Pricing
+      description: "Description: Get the MVWAP history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:10:00Z'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '5'
+      responses:
+        '200':
+          description: Get Historical MVWAP by Pair
+          content:
+            application/json:
+              example:
+                pairCode: XBT-USD
+                firstDate: '2026-04-20T12:01:00Z'
+                lastDate: '2026-04-20T12:05:00Z'
+                nextPageUrl: /v1/pricing/sources/5005/mvwaps/pairs/XBT-USD?from=2026-04-20T12%3A06%3A00Z&to=2026-04-20T12%3A10%3A00Z&limit=5
+                mvwaps:
+                - ts: '2026-04-20T12:01:00Z'
+                  mvwap60min: '75177.94675145515'
+                - ts: '2026-04-20T12:02:00Z'
+                  mvwap60min: '75146.26034069767'
+                - ts: '2026-04-20T12:03:00Z'
+                  mvwap60min: '75144.55591463677'
+                - ts: '2026-04-20T12:04:00Z'
+                  mvwap60min: '75121.14617724055'
+                - ts: '2026-04-20T12:05:00Z'
+                  mvwap60min: '75213.56715791079'
+  /v1/pricing/sources/vwaps/{pairCode}:
+    get:
+      operationId: getMultiSourceVWAPByPair
+      summary: Get Multi-Source VWAP by Pair
+      tags:
+      - Pricing
+      description: "Description: Get the 60 minute Volume Weighted Average Price (VWAP) for a given pair code and given Source Exchanges. The VWAP output price for any given timestamp is the volume-weighted price of all executed trades in the previous 60 minutes from the inputted list of Market Data Source IDs that support the requested Pair Code.\n\n Max date range is 7 days. periodicityCalculation and interval are both in milliseconds.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      parameters:
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: sourceIds
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 4002,4005
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '60000'
+      responses:
+        '200':
+          description: Get Multi-Source VWAP by Pair
+          content:
+            application/json:
+              example:
+                pairCode: XBT-USD
+                sourceIds:
+                - 4005
+                interval: 60000
+                nextPageUrl: /v1/pricing/sources/vwaps/XBT-USD?sourceIds=4002%2C4005&from=2026-04-20T12%3A10%3A00Z&to=2026-04-20T13%3A00%3A00Z&interval=60000&limit=10
+                vwaps:
+                - ts: '2026-04-20T12:00:00Z'
+                  vwap: '75261.5824265915004405'
+                - ts: '2026-04-20T12:01:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:02:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:03:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:04:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:05:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:06:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:07:00Z'
+                  vwap: '75238.3213660661282716'
+                - ts: '2026-04-20T12:08:00Z'
+                  vwap: '75239.4090866061676381'
+                - ts: '2026-04-20T12:09:00Z'
+                  vwap: '75239.4090866061676381'
+  /v1/pricing/sources/5001/prices:
+    get:
+      operationId: getLatestReferenceRate
+      summary: Get Latest Reference Rate
+      tags:
+      - Pricing
+      description: "Description: Get the latest Lukka Reference Rate as of the given timestamp for the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5001.\n\n Keep in mind the 2048 character limit in a GET request. The pairCodes query parameter should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs."
+      parameters:
+      - name: pairCodes
+        in: query
+        required: false
+        schema:
+          type: string
+        example: XBT-USD,ETH-USD
+      responses:
+        '200':
+          description: Get Latest Reference Rate
+          content:
+            application/json:
+              example:
+              - ts: '2026-04-22T15:00:00Z'
+                pairCode: ETH-USD
+                price: '2409.734887766603'
+              - ts: '2026-04-22T15:00:00Z'
+                pairCode: XBT-USD
+                price: '78927.50762860353'
+  /v1/pricing/sources/5001/prices/pairs/{pairCode}:
+    get:
+      operationId: getHistoricalReferenceRateByPair
+      summary: Get Historical Reference Rate by Pair
+      tags:
+      - Pricing
+      description: "Description: Get the Lukka Reference Rate history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n interval must be 3600000 (1h) or 86400000 (1d)."
+      parameters:
+      - name: pairCode
+        in: path
+        required: true
+        schema:
+          type: string
+        description: pairCode path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T00:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T03:00:00Z'
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '3600000'
+      responses:
+        '200':
+          description: Get Historical Reference Rate by Pair
+          content:
+            application/json:
+              example:
+                pairCode: XBT-USD
+                firstDate: '2026-04-20T00:00:00Z'
+                lastDate: '2026-04-20T02:00:00Z'
+                nextPageUrl: /v1/pricing/sources/5001/prices/pairs/XBT-USD?from=2026-04-20T03%3A00%3A00Z&to=2026-04-20T03%3A00%3A00Z&interval=3600000&limit=3
+                pricesCount: 3
+                prices:
+                - ts: '2026-04-20T00:00:00Z'
+                  pairCode: XBT-USD
+                  price: '73922.79679093281'
+                - ts: '2026-04-20T01:00:00Z'
+                  pairCode: XBT-USD
+                  price: '74200.48992173481'
+                - ts: '2026-04-20T02:00:00Z'
+                  pairCode: XBT-USD
+                  price: '74485.24994657465'
+  /v1/pricing/sources/{sourceId}/indices:
+    get:
+      operationId: getLatestIndexPrices
+      summary: Get Latest Index Prices
+      tags:
+      - Pricing
+      description: "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.\n\n sourceId must match the 6xxx (indices) range. Default lookback is 5400000 ms (90 min)."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      responses:
+        '200':
+          description: Get Latest Index Prices
+          content:
+            application/json:
+              example:
+                data:
+                - businessTime: '2026-04-22T15:39:31Z'
+                  constituents:
+                  - instrument: XRP
+                    weight: 0.0554125751556742
+                    quantity: 4269825.123121
+                    value: 6221492.617187838
+                    instrumentId: b70858e5-6396-4acc-9b8b-2227078b53b6
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: USD
+                    weight: 0.0005897919027744
+                    quantity: 65607.55
+                    value: 65607.55
+                    instrumentId: ''
+                    businessTime: 0
+                    type: TRADE
+                  - instrument: SOLN
+                    weight: 0.0302071041984093
+                    quantity: 38500.08144854
+                    value: 3406608.295370725
+                    instrumentId: 5d2cb639-6f9e-4453-af2d-647b378fc9db
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: ETH
+                    weight: 0.1264437363753679
+                    quantity: 5949.05234849
+                    value: 14342312.826203719
+                    instrumentId: 10037d90-5d90-493b-b011-7716bb9bf290
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: XLM
+                    weight: 0.0028874100040171
+                    quantity: 1783532.82900998
+                    value: 323809.89982396894
+                    instrumentId: 9f7bebb0-0467-4207-bd02-9fbb928f39c4
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: LINK
+                    weight: 0.0035887292167665
+                    quantity: 41988.12244401
+                    value: 398886.9363895392
+                    instrumentId: df8e972b-3803-4854-acbb-3f98838a8dfe
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: XBT
+                    weight: 0.7747994781014437
+                    quantity: 1111.3906164
+                    value: 88148329.4569846
+                    instrumentId: 043ee4a3-a84e-4821-a2dd-590b03dcadb3
+                    businessTime: 1776872370000
+                    type: TRADE
+                  - instrument: ADA
+                    weight: 0.0060711750455469
+                    quantity: 2655720.48373976
+                    value: 679065.5098328806
+                    instrumentId: fe14b4e4-aabc-4487-b657-d35218cdeefd
+                    businessTime: 1776872370000
+                    type: TRADE
+                  distributionId: '6147'
+                  divisor: '5690000.0'
+                  id: 7da7376e-3e02-4520-8e2e-e9c31ceea32f
+                  indexId: '147'
+                  name: Hashdex Nasdaq Crypto Index ETF Intraday Indicative Value
+                  symbol: NCIQ.IV
+                  value: '19.962410033707076'
+                  valueUnit: USD
+  /v1/pricing/sources/{sourceId}/indices/historical:
+    get:
+      operationId: getHistoricalIndexPrices
+      summary: Get Historical Index Prices
+      tags:
+      - Pricing
+      description: "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n sourceId must match the 6xxx (indices) range."
+      parameters:
+      - name: sourceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: sourceId path parameter
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T12:00:00Z'
+      - name: to
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2026-04-20T13:00:00Z'
+      responses:
+        '200':
+          description: Get Historical Index Prices
+components:
+  securitySchemes:
+    oktaClientCredentials:
+      type: oauth2
+      description: Lukka issues JWT access tokens from its Okta authorization servers using the OAuth 2.0 client_credentials grant. Encode the Lukka-issued client id and secret as HTTP Basic credentials on the token request; the returned access_token is then sent as a Bearer token on every data API call.
+      flows:
+        clientCredentials:
+          tokenUrl: https://sso.lukka.tech/oauth2/aus1imo2fqcx5Ik4Q0h8/v1/token
+          scopes:
+            pricing: Access to Lukka Pricing & Valuation and Market Data endpoints
+            interclient_access: Cross-client access scope advertised by the Lukka Okta authorization servers
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from the Lukka Okta token endpoint.

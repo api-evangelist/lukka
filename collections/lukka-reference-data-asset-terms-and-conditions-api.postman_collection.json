@@ -1,0 +1,336 @@
+{
+  "item": [
+    {
+      "id": "e9cf487c-d0b7-4035-a64a-bd85fc2fb858",
+      "name": "Reference Data - Asset Terms and Conditions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d418c5c1-7f88-4904-a09d-07fce4d49409",
+          "name": "All Lukka Assets",
+          "request": {
+            "name": "All Lukka Assets",
+            "description": {
+              "content": "The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio performance measurement and evaluation, pre and post-trade analysis and risk management assessments.\n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the asset type, the asset’s structure, participants, how the supply is determined, underlying asset information (if applicable) and other various pieces of reference data. In total, the dataset tracks over 100 fields for its users.\n\n Digital assets and derivative products on digital assets are eligible for addition to the Lukka Reference Data product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "expandDetails",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lukkaAssetIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetGroupId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed994510-4b0c-4b67-b91a-af9aa4c02676",
+              "name": "All Lukka Assets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "expandDetails",
+                      "value": "[blockchainDetails,nameDetails]"
+                    },
+                    {
+                      "key": "lukkaAssetIds",
+                      "value": "[LA1S39UVDK1,LA6EV2NKQ95,LA8VRAGEMT1]"
+                    },
+                    {
+                      "key": "assetGroupId",
+                      "value": "73"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size\": 100,\n  \"links\": {\n    \"base\": \"/v2/lukka/assets\",\n    \"next\": \"/v2/lukka/assets?limit=100&offset=100\",\n    \"prev\": null\n  },\n  \"limit\": 100,\n  \"offset\": 0,\n  \"data\": [\n    {\n      \"assetCode\": \"DYDX\",\n      \"assetLid\": \"LA6HPVHEH60\"\n    },\n    {\n      \"assetCode\": \"1INCH2\",\n      \"assetLid\": \"LA0ML2D0V15\"\n    },\n    {\n      \"assetCode\": \"CNHT\",\n      \"assetLid\": \"LA4L92NWQ87\"\n    },\n    {\n      \"assetCode\": \"ATA1\",\n      \"assetLid\": \"LA6F6V1QFQ0\"\n    },\n    {\n      \"assetCode\": \"NBNG\",\n      \"assetLid\": \"LA8M6J56WH7\"\n    },\n    {\n      \"assetCode\": \"USDTL\",\n      \"assetLid\": \"LA3GVFJEU44\"\n    },\n    {\n      \"assetCode\": \"USDTT\",\n      \"assetLid\": \"LA55QYXAAS0\"\n    },\n    {\n      \"assetCode\": \"EURT\",\n      \"assetLid\": \"LA0DFVB9P85\"\n    },\n    {\n      \"assetCode\": \"EURT1\",\n      \"assetLid\": \"LA1NS66PE08\"\n    },\n    {\n      \"assetCode\": \"USDT\",\n      \"assetLid\": \"LA176YWNB05\"\n    },\n    {\n      \"assetCode\": \"LBNKCRV5S\",\n      \"assetLid\": \"LA4RQWJL023\"\n    },\n    {\n      \"assetCode\": \"CGAZ\",\n      \"assetLid\": \"LA0KHMKKW09\"\n    },\n    {\n      \"assetCode\": \"USDT20\",\n      \"assetLid\": \"LA3D899T4D0\"\n    },\n    {\n      \"assetCode\": \"OOGI\",\n      \"assetLid\": \"LA5L5HZBZ38\"\n    },\n    {\n      \"assetCode\": \"NGL\",\n      \"assetLid\": \"LA7HDECKR86\"\n    },\n    {\n      \"assetCode\": \"SOURCE\",\n      \"assetLid\": \"LA11M3SMJX0\"\n    },\n    {\n      \"assetCode\": \"WIT1\",\n      \"assetLid\": \"LA3V4R7VX30\"\n    },\n    {\n      \"assetCode\": \"XDEFI\",\n      \"assetLid\": \"LA37YZLUF16\"\n    },\n    {\n      \"assetCode\": \"BBETH\",\n      \"assetLid\": \"LA6N1Q20RW4\"\n    },\n    {\n      \"assetCode\": \"XCC2\",\n      \"assetLid\": \"LA867YC8CY7\"\n    },\n    {\n      \"assetCode\": \"ZINU\",\n      \"assetLid\": \"LA1F1FVKW71\"\n    },\n    {\n      \"assetCode\": \"SON1\",\n      \"assetLid\": \"LA50X423058\"\n    },\n    {\n      \"assetCode\": \"VIKINGS\",\n      \"assetLid\": \"LA7U0B13GC2\"\n    },\n    {\n      \"assetCode\": \"MOVE\",\n      \"assetLid\": \"LA8EKGDWA56\"\n    },\n    {\n      \"assetCode\": \"HIMA\",\n      \"assetLid\": \"LA4WW0Q7343\"\n    },\n    {\n      \"assetCode\": \"DEHUB\",\n      \"assetLid\": \"LA2DR8NX401\"\n    },\n    {\n      \"assetCode\": \"TCG2\",\n      \"assetLid\": \"LA5NSXW8919\"\n    },\n    {\n      \"assetCode\": \"UEDC\",\n      \"assetLid\": \"LA5FB9AQMH0\"\n    },\n    {\n      \"assetCode\": \"BOHR\",\n      \"assetLid\": \"LA1718B2GK2\"\n    },\n    {\n      \"assetCode\": \"IOTX3\",\n      \"assetLid\": \"LA28P1PQL62\"\n    },\n    {\n      \"assetCode\": \"28VCK\",\n      \"assetLid\": \"LA01HATK1W6\"\n    },\n    {\n      \"assetCode\": \"QUIDD\",\n      \"assetLid\": \"LA8GK0NX4W8\"\n    },\n    {\n      \"assetCode\": \"VLX1\",\n      \"assetLid\": \"LA2LTLPBN58\"\n    },\n    {\n      \"assetCode\": \"DANA\",\n      \"assetLid\": \"LA5YTCN7M20\"\n    },\n    {\n      \"assetCode\": \"HELIOS\",\n      \"assetLid\": \"LA8XXNGKTQ8\"\n    },\n    {\n      \"assetCode\": \"BATMAN\",\n      \"assetLid\": \"LA58XLUA1B3\"\n    },\n    {\n      \"assetCode\": \"LBNKBTS3L\",\n      \"assetLid\": \"LA6WCRGNGH2\"\n    },\n    {\n      \"assetCode\": \"LBNKBTT3L\",\n      \"assetLid\": \"LA467TKG208\"\n    },\n    {\n      \"assetCode\": \"LBNKBTT3S\",\n      \"assetLid\": \"LA2C4WPU625\"\n    },\n    {\n      \"assetCode\": \"TPOS\",\n      \"assetLid\": \"LA3G3ULM2A3\"\n    },\n    {\n      \"assetCode\": \"LBNKBTS3S\",\n      \"assetLid\": \"LA4QL8PWC86\"\n    },\n    {\n      \"assetCode\": \"HGHG\",\n      \"assetLid\": \"LA4BE98EPP1\"\n    },\n    {\n      \"assetCode\": \"XSP1\",\n      \"assetLid\": \"LA06CPR1ZP0\"\n    },\n    {\n      \"assetCode\": \"GRBE\",\n      \"assetLid\": \"LA3NG7U9BA2\"\n    },\n    {\n      \"assetCode\": \"DFL1\",\n      \"assetLid\": \"LA3JNQDW1Y2\"\n    },\n    {\n      \"assetCode\": \"LTNM\",\n      \"assetLid\": \"LA1LT5BJ9E1\"\n    },\n    {\n      \"assetCode\": \"WOOL\",\n      \"assetLid\": \"LA719SF7EX9\"\n    },\n    {\n      \"assetCode\": \"SHIBELON\",\n      \"assetLid\": \"LA07XB4GDC1\"\n    },\n    {\n      \"assetCode\": \"BMI1\",\n      \"assetLid\": \"LA280T2JHF1\"\n    },\n    {\n      \"assetCode\": \"BASK\",\n      \"assetLid\": \"LA8NZQ62YL0\"\n    },\n    {\n      \"assetCode\": \"PSLP1\",\n      \"assetLid\": \"LA1JXQSVXZ0\"\n    },\n    {\n      \"assetCode\": \"XAUT\",\n      \"assetLid\": \"LA5FZPR23H2\"\n    },\n    {\n      \"assetCode\": \"PDT\",\n      \"assetLid\": \"LA8FGEG06T7\"\n    },\n    {\n      \"assetCode\": \"YVCURVEIRONBANK\",\n      \"assetLid\": \"LA39CT21UK0\"\n    },\n    {\n      \"assetCode\": \"HEDGE\",\n      \"assetLid\": \"LA1H7XL6DY1\"\n    },\n    {\n      \"assetCode\": \"YVCURVE3POOL\",\n      \"assetLid\": \"LA1R5AYQLK3\"\n    },\n    {\n      \"assetCode\": \"CRVCONVEXABRA\",\n      \"assetLid\": \"LA39EURGNJ5\"\n    },\n    {\n      \"assetCode\": \"CRVIBGBPSGBPF\",\n      \"assetLid\": \"LA1ZGUBM6N0\"\n    },\n    {\n      \"assetCode\": \"CRVIBGBPSGBPGAUGE\",\n      \"assetLid\": \"LA43JHH6H50\"\n    },\n    {\n      \"assetCode\": \"CYUSDT\",\n      \"assetLid\": \"LA4HA5EENG9\"\n    },\n    {\n      \"assetCode\": \"FDT1\",\n      \"assetLid\": \"LA5JVZF69A7\"\n    },\n    {\n      \"assetCode\": \"RKP3R\",\n      \"assetLid\": \"LA8PBKPPAQ4\"\n    },\n    {\n      \"assetCode\": \"CVXCRV\",\n      \"assetLid\": \"LA3NKADALK3\"\n    },\n    {\n      \"assetCode\": \"EGC1\",\n      \"assetLid\": \"LA41RZ5F4E5\"\n    },\n    {\n      \"assetCode\": \"CDEX1\",\n      \"assetLid\": \"LA6UVMD5ZB0\"\n    },\n    {\n      \"assetCode\": \"NCR\",\n      \"assetLid\": \"LA1RXVPGVH0\"\n    },\n    {\n      \"assetCode\": \"ELS2\",\n      \"assetLid\": \"LA0U7Q6A817\"\n    },\n    {\n      \"assetCode\": \"GOTG\",\n      \"assetLid\": \"LA2LCGJ11M6\"\n    },\n    {\n      \"assetCode\": \"ILA\",\n      \"assetLid\": \"LA794HSS394\"\n    },\n    {\n      \"assetCode\": \"BNBH\",\n      \"assetLid\": \"LA7LDV02QS5\"\n    },\n    {\n      \"assetCode\": \"LBNKSC3S\",\n      \"assetLid\": \"LA6PAKUT077\"\n    },\n    {\n      \"assetCode\": \"LBNKSC3L\",\n      \"assetLid\": \"LA8Y9EUQ016\"\n    },\n    {\n      \"assetCode\": \"LBNKXEM3L\",\n      \"assetLid\": \"LA53FU3RRQ3\"\n    },\n    {\n      \"assetCode\": \"LBNKXEM3S\",\n      \"assetLid\": \"LA11EDH2WQ3\"\n    },\n    {\n      \"assetCode\": \"ELF2\",\n      \"assetLid\": \"LA1RJHCR9V2\"\n    },\n    {\n      \"assetCode\": \"KAVAX3L\",\n      \"assetLid\": \"LA6VDWTETN2\"\n    },\n    {\n      \"assetCode\": \"KAVAX3S\",\n      \"assetLid\": \"LA6SPP53566\"\n    },\n    {\n      \"assetCode\": \"SPS2\",\n      \"assetLid\": \"LA8UQWKG4M9\"\n    },\n    {\n      \"assetCode\": \"BEM1\",\n      \"assetLid\": \"LA2CJ1455H7\"\n    },\n    {\n      \"assetCode\": \"MIM2\",\n      \"assetLid\": \"LA5CKQG1G23\"\n    },\n    {\n      \"assetCode\": \"LOBI\",\n      \"assetLid\": \"LA4USYE7U56\"\n    },\n    {\n      \"assetCode\": \"PTU\",\n      \"assetLid\": \"LA2HAJSJWN5\"\n    },\n    {\n      \"assetCode\": \"SENSO1\",\n      \"assetLid\": \"LA4PD1U8DK1\"\n    },\n    {\n      \"assetCode\": \"WNDR\",\n      \"assetLid\": \"LA3EDS2MM75\"\n    },\n    {\n      \"assetCode\": \"ZLK\",\n      \"assetLid\": \"LA59K7Z8864\"\n    },\n    {\n      \"assetCode\": \"ICONS\",\n      \"assetLid\": \"LA6S7MS3JD6\"\n    },\n    {\n      \"assetCode\": \"CHEQ\",\n      \"assetLid\": \"LA3N7KW0055\"\n    },\n    {\n      \"assetCode\": \"MONO\",\n      \"assetLid\": \"LA5P16CFSS2\"\n    },\n    {\n      \"assetCode\": \"UPS\",\n      \"assetLid\": \"LA826746RN0\"\n    },\n    {\n      \"assetCode\": \"LBNKAUDIO3L\",\n      \"assetLid\": \"LA1Z9FY4WC1\"\n    },\n    {\n      \"assetCode\": \"LBNKAUDIO3S\",\n      \"assetLid\": \"LA5D41B9TU1\"\n    },\n    {\n      \"assetCode\": \"BLWA\",\n      \"assetLid\": \"LA1TC9RGKY1\"\n    },\n    {\n      \"assetCode\": \"KOROMARU\",\n      \"assetLid\": \"LA8XZPN89F8\"\n    },\n    {\n      \"assetCode\": \"BEZOGE\",\n      \"assetLid\": \"LA8ZC7A7FA5\"\n    },\n    {\n      \"assetCode\": \"LBNKAGLD3S\",\n      \"assetLid\": \"LA1W2X5JT71\"\n    },\n    {\n      \"assetCode\": \"LBNKAGLD3L\",\n      \"assetLid\": \"LA6KUCPB6X2\"\n    },\n    {\n      \"assetCode\": \"HZM\",\n      \"assetLid\": \"LA6B3P6C6K0\"\n    },\n    {\n      \"assetCode\": \"PEOPLE\",\n      \"assetLid\": \"LA3KSU38R99\"\n    },\n    {\n      \"assetCode\": \"TOTORO\",\n      \"assetLid\": \"LA5E858CQQ6\"\n    },\n    {\n      \"assetCode\": \"LBNKGALA5L\",\n      \"assetLid\": \"LA1A3BXXJR2\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8dcc902-d92e-4556-a7e3-29541868cac0",
+          "name": "A Lukka Asset and its Details",
+          "request": {
+            "name": "A Lukka Asset and its Details",
+            "description": {
+              "content": "The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio performance measurement and evaluation, pre and post-trade analysis and risk management assessments.\n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the asset type, the asset’s structure, participants, how the supply is determined, underlying asset information (if applicable) and other various pieces of reference data. In total, the dataset tracks over 100 fields for its users.\n\n Digital assets and derivative products on digital assets are eligible for addition to the Lukka Reference Data product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "assets",
+                "LA3YA6GC8Y5"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "98904589-1fef-4631-a236-7a2f5f58c589",
+              "name": "A Lukka Asset and its Details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "assets",
+                    "LA3YA6GC8Y5"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "704f79bc-e45f-45ee-a353-dbebab20a8d9",
+          "name": "Asset Exposure",
+          "request": {
+            "name": "Asset Exposure",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "assets",
+                "exposure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66ed523c-b8c1-47d4-8c41-86336deaed72",
+              "name": "Asset Exposure Example",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "assets",
+                    "exposure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 0,\n  \"limit\": 5,\n  \"size\": 5,\n  \"links\": {\n    \"base\": \"/v2/lukka/assets/exposure\",\n    \"next\": \"/v2/lukka/assets/exposure?limit=5&offset=5\",\n    \"prev\": null\n  },\n  \"data\": [\n    {\n      \"alternateMarketIdentifier\": \"XTP1KT9T86M2\",\n      \"assetLid\": \"LA2SLM0T8T4\",\n      \"assetCode\": \"HUSD\",\n      \"commonStreetCode\": \"HUSD\",\n      \"assetNameEnglish\": \"Huobi Stablecoin-Huobi USD\",\n      \"assetTypeCode\": \"TKN\",\n      \"assetType\": \"Token\",\n      \"isCryptoAsset\": true,\n      \"isDigitalAsset\": true,\n      \"isTradfiAsset\": false,\n      \"hasUnderlyingAsset\": true,\n      \"hasCollateral\": true,\n      \"exposureLevel\": 1,\n      \"exposureLevelName\": \"Crypto Exposure: Direct\",\n      \"valuePropositionList\": [\n        {\n          \"valuePropositionCode\": \"STBLVAL\",\n          \"valueProposition\": \"Stable Value\"\n        },\n        {\n          \"valuePropositionCode\": \"FUNG\",\n          \"valueProposition\": \"Fungibility\"\n        }\n      ],\n      \"underlyingAssetList\": [\n        {\n          \"underlyingAssetLid\": \"LA3YM6GRUJ4\",\n          \"underlyingAssetName\": \"US Dollar\"\n        }\n      ]\n    },\n    {\n      \"alternateMarketIdentifier\": \"XTBSF74H7GR2\",\n      \"assetLid\": \"LA0Y44036E0\",\n      \"assetCode\": \"BUSD\",\n      \"commonStreetCode\": \"BUSD\",\n      \"assetNameEnglish\": \"Binance USD (ERC20)\",\n      \"assetTypeCode\": \"TKN\",\n      \"assetType\": \"Token\",\n      \"isCryptoAsset\": true,\n      \"isDigitalAsset\": true,\n      \"isTradfiAsset\": false,\n      \"hasUnderlyingAsset\": true,\n      \"hasCollateral\": true,\n      \"exposureLevel\": 1,\n      \"exposureLevelName\": \"Crypto Exposure: Direct\",\n      \"valuePropositionList\": [\n        {\n          \"valuePropositionCode\": \"STBLVAL\",\n          \"valueProposition\": \"Stable Value\"\n        }\n      ],\n      \"underlyingAssetList\": [\n        {\n          \"underlyingAssetLid\": \"LA3YM6GRUJ4\",\n          \"underlyingAssetName\": \"US Dollar\"\n        }\n      ]\n    },\n    {\n      \"alternateMarketIdentifier\": \"XTQ00DC0PHH4\",\n      \"assetLid\": \"LA65GTRH8G7\",\n      \"assetCode\": \"TUSD\",\n      \"commonStreetCode\": \"TUSD\",\n      \"assetNameEnglish\": \"TrueUSD\",\n      \"assetTypeCode\": \"TKN\",\n      \"assetType\": \"Token\",\n      \"isCryptoAsset\": true,\n      \"isDigitalAsset\": true,\n      \"isTradfiAsset\": false,\n      \"hasUnderlyingAsset\": true,\n      \"hasCollateral\": true,\n      \"exposureLevel\": 1,\n      \"exposureLevelName\": \"Crypto Exposure: Direct\",\n      \"valuePropositionList\": [\n        {\n          \"valuePropositionCode\": \"STBLVAL\",\n          \"valueProposition\": \"Stable Value\"\n        }\n      ],\n      \"underlyingAssetList\": [\n        {\n          \"underlyingAssetLid\": \"LA3YM6GRUJ4\",\n          \"underlyingAssetName\": \"US Dollar\"\n        }\n      ]\n    },\n    {\n      \"alternateMarketIdentifier\": \"XTTJWK5QTRK6\",\n      \"assetLid\": \"LA1S39UVDK1\",\n      \"assetCode\": \"USDC\",\n      \"commonStreetCode\": \"USDC\",\n      \"assetNameEnglish\": \"USD Coin (Ethereum)\",\n      \"assetTypeCode\": \"TKN\",\n      \"assetType\": \"Token\",\n      \"isCryptoAsset\": true,\n      \"isDigitalAsset\": true,\n      \"isTradfiAsset\": false,\n      \"hasUnderlyingAsset\": true,\n      \"hasCollateral\": true,\n      \"exposureLevel\": 1,\n      \"exposureLevelName\": \"Crypto Exposure: Direct\",\n      \"valuePropositionList\": [\n        {\n          \"valuePropositionCode\": \"STBLVAL\",\n          \"valueProposition\": \"Stable Value\"\n        }\n      ],\n      \"underlyingAssetList\": [\n        {\n          \"underlyingAssetLid\": \"LA3YM6GRUJ4\",\n          \"underlyingAssetName\": \"US Dollar\"\n        }\n      ]\n    },\n    {\n      \"alternateMarketIdentifier\": \"XTL09Q657BK6\",\n      \"assetLid\": \"LA176YWNB05\",\n      \"assetCode\": \"USDT\",\n      \"commonStreetCode\": \"USDT\",\n      \"assetNameEnglish\": \"Tether\",\n      \"assetTypeCode\": \"TKN\",\n      \"assetType\": \"Token\",\n      \"isCryptoAsset\": true,\n      \"isDigitalAsset\": true,\n      \"isTradfiAsset\": false,\n      \"hasUnderlyingAsset\": true,\n      \"hasCollateral\": true,\n      \"exposureLevel\": 1,\n      \"exposureLevelName\": \"Crypto Exposure: Direct\",\n      \"valuePropositionList\": [\n        {\n          \"valuePropositionCode\": \"STBLVAL\",\n          \"valueProposition\": \"Stable Value\"\n        }\n      ],\n      \"underlyingAssetList\": [\n        {\n          \"underlyingAssetLid\": \"LA3YM6GRUJ4\",\n          \"underlyingAssetName\": \"US Dollar\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-refdata-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3b832af0-39c6-4414-af33-c52da312a11d",
+    "name": "Lukka Reference Data Reference Data - Asset Terms and Conditions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

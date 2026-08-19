@@ -7,7 +7,8 @@ summary:
   tools: 69
   transport: streamable HTTP
   access: read-only across all servers
-  auth: OAuth 2.0 authorization code + PKCE with Dynamic Client Registration (RFC 9728 protected-resource discovery)
+  auth: OAuth 2.0 authorization code + PKCE with Dynamic Client Registration (RFC 9728 protected-resource
+    discovery)
   identity_provider: https://auth0.lukka.tech
   clients_documented:
   - Claude Code
@@ -20,20 +21,21 @@ support: mcp-support@lukka.global
 docs_version: 1.0.0
 x-evidence:
   fetched: '2026-08-04'
-  tool_schemas: derived from the per-tool parameter tables Lukka publishes in lukkatech/lukka-mcps docs; the live
-    tools/list is auth-gated
+  tool_schemas: derived from the per-tool parameter tables Lukka publishes in lukkatech/lukka-mcps docs;
+    the live tools/list is auth-gated
   live_probe:
     method: POST tools/list
     http_status: 401
     body: '{"jsonrpc":"2.0","id":0,"error":{"code":-32001,"message":"Missing Bearer token"}}'
     probed: '2026-08-04'
-    note: All seven endpoints returned 401 Missing Bearer token; /.well-known/oauth-protected-resource returned
-      200 on all seven.
+    note: All seven endpoints returned 401 Missing Bearer token; /.well-known/oauth-protected-resource
+      returned 200 on all seven.
 servers:
 - name: Lukka-Pricing
   url: https://pricing.mcp.lukka.tech
   transport: http
-  description: Real-time and historical pricing, candles, VWAP, market cap, order books, spot and derivative trades
+  description: Real-time and historical pricing, candles, VWAP, market cap, order books, spot and derivative
+    trades
   access: read-only
   authentication:
     type: oauth2
@@ -43,14 +45,15 @@ servers:
     authorization_server: https://auth0.lukka.tech
     scopes:
     - mcp
-    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
-      for the product.
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account
+      with entitlement for the product.
   docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-pricing-mcp/README.md
   tool_count: 20
   tools:
   - name: list_pricing_sources
-    description: Lists all pricing sources available to your account, including fixed high-level sources and client-assigned
-      exchange/index/custom sources. Call this first when you don't know which `sourceId` to use.
+    description: Lists all pricing sources available to your account, including fixed high-level sources
+      and client-assigned exchange/index/custom sources. Call this first when you don't know which `sourceId`
+      to use.
     inputSchema:
       type: object
       properties: {}
@@ -76,7 +79,8 @@ servers:
       required:
       - productType
   - name: get_source_details_by_product
-    description: Source details for a product type at a specific source, with optional asset/instrument filters.
+    description: Source details for a product type at a specific source, with optional asset/instrument
+      filters.
     inputSchema:
       type: object
       properties:
@@ -105,8 +109,8 @@ servers:
       - productType
       - sourceId
   - name: get_derivative_source_details
-    description: Returns derivative instrument details (futures, options, perpetuals) for a derivative source -
-      useful for resolving a Lukka derivative code.
+    description: Returns derivative instrument details (futures, options, perpetuals) for a derivative
+      source - useful for resolving a Lukka derivative code.
     inputSchema:
       type: object
       properties:
@@ -125,7 +129,8 @@ servers:
       - productType
       - sourceId
   - name: get_latest_prices
-    description: Latest spot price(s) for one or more pairs from a given source. Returns pair code, price, and timestamp.
+    description: Latest spot price(s) for one or more pairs from a given source. Returns pair code, price,
+      and timestamp.
     inputSchema:
       type: object
       properties:
@@ -134,7 +139,8 @@ servers:
           description: e.g. `2000` (realtime), `1000` (EOD), or an exchange `4xxx`
         pairCodes:
           type: string
-          description: Comma-separated pairs, e.g. `"XBT-USD,ETH-USD"`. Defaults to all pairs for the source.
+          description: Comma-separated pairs, e.g. `"XBT-USD,ETH-USD"`. Defaults to all pairs for the
+            source.
         asOf:
           type: string
           description: Historical point-in-time; defaults to now
@@ -253,8 +259,8 @@ servers:
       required:
       - sourceId
   - name: get_market_variances
-    description: Price history with exchange-level variance - shows the principal exchange and per-exchange price/volume
-      deviation for a pair.
+    description: Price history with exchange-level variance - shows the principal exchange and per-exchange
+      price/volume deviation for a pair.
     inputSchema:
       type: object
       properties:
@@ -299,8 +305,8 @@ servers:
       required:
       - pairCode
   - name: get_market_capitalization
-    description: Market cap history for a single pair (Lukka Prime price x circulating supply from Reference Data).
-      Returns a market-cap time series.
+    description: Market cap history for a single pair (Lukka Prime price x circulating supply from Reference
+      Data). Returns a market-cap time series.
     inputSchema:
       type: object
       properties:
@@ -315,8 +321,8 @@ servers:
           description: Range end
         limit:
           type: integer
-          description: Max records, default 1440. Data is minute-by-minute - `limit:7` returns 7 minutes, not 7
-            days.
+          description: Max records, default 1440. Data is minute-by-minute - `limit:7` returns 7 minutes,
+            not 7 days.
         order:
           type: string
           description: '`ASC` or `DESC`'
@@ -327,8 +333,8 @@ servers:
       required:
       - pairCode
   - name: get_latest_market_caps
-    description: Latest market cap snapshot ranked across pairs (top coins by market cap). Returns `pairCode`, `marketCap`,
-      `circulatingSupply`, `totalSupply`, `rank`, timestamp.
+    description: Latest market cap snapshot ranked across pairs (top coins by market cap). Returns `pairCode`,
+      `marketCap`, `circulatingSupply`, `totalSupply`, `rank`, timestamp.
     inputSchema:
       type: object
       properties:
@@ -346,7 +352,8 @@ servers:
           type: string
           description: Snapshot timestamp; defaults to latest
   - name: get_latest_markets
-    description: Latest market data for spot or derivative markets across sources. Returns per-market rollup.
+    description: Latest market data for spot or derivative markets across sources. Returns per-market
+      rollup.
     inputSchema:
       type: object
       properties:
@@ -391,8 +398,8 @@ servers:
           description: Comma-separated source IDs, e.g. `"4001,4002"`
         baseAssetCodes:
           type: string
-          description: Filter by base asset, e.g. `"XBT"` (strongly recommended - omitting can return a very large
-            response)
+          description: Filter by base asset, e.g. `"XBT"` (strongly recommended - omitting can return
+            a very large response)
         counterAssetCodes:
           type: string
           description: Filter by counter asset, e.g. `"USD"`
@@ -493,7 +500,8 @@ servers:
 - name: Lukka-RefData
   url: https://refdata.mcp.lukka.tech
   transport: http
-  description: 'Digital asset reference data: taxonomy, entities, exchange/pair mappings, VASPs, crypto actions'
+  description: 'Digital asset reference data: taxonomy, entities, exchange/pair mappings, VASPs, crypto
+    actions'
   access: read-only
   authentication:
     type: oauth2
@@ -503,14 +511,14 @@ servers:
     authorization_server: https://auth0.lukka.tech
     scopes:
     - mcp
-    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
-      for the product.
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account
+      with entitlement for the product.
   docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-refdata-mcp/README.md
   tool_count: 21
   tools:
   - name: list_assets
-    description: Browse digital assets from Lukka Reference Data (100+ fields per asset). Returns asset summaries;
-      use `expandDetails` for richer sections.
+    description: Browse digital assets from Lukka Reference Data (100+ fields per asset). Returns asset
+      summaries; use `expandDetails` for richer sections.
     inputSchema:
       type: object
       properties:
@@ -522,9 +530,10 @@ servers:
           description: Numeric issuer grouping ID
         expandDetails:
           type: string
-          description: Bracketed section list or `[ALL]`; options include `statusDetails`, `nameDetails`, `assetDetails`,
-            `supplyDetails`, `blockchainDetails`, `sectorDetails`, `participantDetails`, `mediaDetails`, `successorDetails`,
-            `underlyingDetails`, `allowedCollateralDetails`, `stableDetails`, `rebaseDetails` (brack
+          description: Bracketed section list or `[ALL]`; options include `statusDetails`, `nameDetails`,
+            `assetDetails`, `supplyDetails`, `blockchainDetails`, `sectorDetails`, `participantDetails`,
+            `mediaDetails`, `successorDetails`, `underlyingDetails`, `allowedCollateralDetails`, `stableDetails`,
+            `rebaseDetails` (brack
         limit:
           type: integer
           description: Default 100, max 1000
@@ -532,9 +541,9 @@ servers:
           type: integer
           description: Pagination offset
   - name: get_asset_by_id
-    description: Full asset detail by Lukka Asset LID - returns all sections (asset, name, status, supply, blockchain,
-      sector, participant, media, successor, underlying, collateral, stable, rebase, governance, tokenomics, value
-      proposition).
+    description: Full asset detail by Lukka Asset LID - returns all sections (asset, name, status, supply,
+      blockchain, sector, participant, media, successor, underlying, collateral, stable, rebase, governance,
+      tokenomics, value proposition).
     inputSchema:
       type: object
       properties:
@@ -544,8 +553,8 @@ servers:
       required:
       - assetLid
   - name: get_asset_exposure
-    description: Crypto asset exposure classification - exposure level (direct/indirect), asset type, underlying
-      assets, collateral, value propositions.
+    description: Crypto asset exposure classification - exposure level (direct/indirect), asset type,
+      underlying assets, collateral, value propositions.
     inputSchema:
       type: object
       properties:
@@ -562,8 +571,8 @@ servers:
           type: integer
           description: Pagination offset
   - name: get_asset_crypto_actions
-    description: Crypto action (LCA) event history for one asset - hard forks, airdrops, chain migrations, token
-      swaps, etc.
+    description: Crypto action (LCA) event history for one asset - hard forks, airdrops, chain migrations,
+      token swaps, etc.
     inputSchema:
       type: object
       properties:
@@ -584,8 +593,8 @@ servers:
       - assetLid
       - domain
   - name: get_crypto_actions
-    description: Global crypto actions feed across all assets, with structured metadata (what changed, when, why)
-      for 25+ event types.
+    description: Global crypto actions feed across all assets, with structured metadata (what changed,
+      when, why) for 25+ event types.
     inputSchema:
       type: object
       properties:
@@ -631,7 +640,8 @@ servers:
           type: integer
           description: Pagination offset
   - name: get_asset_coverage_stats
-    description: Asset coverage statistics - counts by blockchain, type, and status; optionally historical or filtered.
+    description: Asset coverage statistics - counts by blockchain, type, and status; optionally historical
+      or filtered.
     inputSchema:
       type: object
       properties:
@@ -642,8 +652,9 @@ servers:
           type: string
           description: Coverage as of a given timestamp
   - name: get_sectors
-    description: Lukka Digital Asset Classification Standard (LDACS) - a 5-tier sector hierarchy (Category -> Super
-      Sector -> Macro Sector -> Mid Sector -> Sub Sector). Assets can have primary and secondary classifications.
+    description: Lukka Digital Asset Classification Standard (LDACS) - a 5-tier sector hierarchy (Category
+      -> Super Sector -> Macro Sector -> Mid Sector -> Sub Sector). Assets can have primary and secondary
+      classifications.
     inputSchema:
       type: object
       properties:
@@ -733,8 +744,8 @@ servers:
       required:
       - enumName
   - name: list_entities
-    description: All known entities - exchanges, custodians, OTC desks, prime brokers, wallets, blockchains. Returns
-      entityId, entityCode, entityName, entityType, entityUrl, entityStatus.
+    description: All known entities - exchanges, custodians, OTC desks, prime brokers, wallets, blockchains.
+      Returns entityId, entityCode, entityName, entityType, entityUrl, entityStatus.
     inputSchema:
       type: object
       properties:
@@ -751,13 +762,14 @@ servers:
       properties:
         code:
           type: string
-          description: 'Canonical entity code, e.g. `CPRO` (Coinbase Pro). Note: the literal `COINBASE` is not a
-            canonical exchange code and returns an unrelated record - use `CPRO`/`CBSE`/`CPRM`.'
+          description: 'Canonical entity code, e.g. `CPRO` (Coinbase Pro). Note: the literal `COINBASE`
+            is not a canonical exchange code and returns an unrelated record - use `CPRO`/`CBSE`/`CPRM`.'
       required:
       - code
   - name: get_asset_mappings
-    description: Cross-reference asset mappings (LMAP) between Lukka codes and entity-specific ticker codes - normalizes
-      naming across exchanges, custodians, wallets. The primary way to resolve a street ticker to a Lukka code.
+    description: Cross-reference asset mappings (LMAP) between Lukka codes and entity-specific ticker
+      codes - normalizes naming across exchanges, custodians, wallets. The primary way to resolve a street
+      ticker to a Lukka code.
     inputSchema:
       type: object
       properties:
@@ -792,8 +804,8 @@ servers:
           type: integer
           description: Pagination offset
   - name: get_legal_entity_mappings
-    description: Legal entity identifier mappings (e.g. LEI, SICIL) - maps Lukka legal entities to external identifier
-      systems.
+    description: Legal entity identifier mappings (e.g. LEI, SICIL) - maps Lukka legal entities to external
+      identifier systems.
     inputSchema:
       type: object
       properties:
@@ -807,8 +819,8 @@ servers:
           type: integer
           description: Pagination offset
   - name: list_vasps
-    description: Virtual Asset Service Provider directory. VASPs are not filterable by `entityCode` - each row carries
-      a `lukkaEntityCode` you can filter on client-side.
+    description: Virtual Asset Service Provider directory. VASPs are not filterable by `entityCode` -
+      each row carries a `lukkaEntityCode` you can filter on client-side.
     inputSchema:
       type: object
       properties:
@@ -836,7 +848,8 @@ servers:
           type: integer
           description: Pagination offset
   - name: get_pair_mappings
-    description: Cross-reference pair mappings (LMAP) between Lukka pair codes and entity-specific pair codes.
+    description: Cross-reference pair mappings (LMAP) between Lukka pair codes and entity-specific pair
+      codes.
     inputSchema:
       type: object
       properties:
@@ -845,7 +858,8 @@ servers:
           description: Lukka pair, e.g. `XBT-USD`
         entityCode:
           type: string
-          description: Entity, e.g. `KRAK` - always include when checking whether a specific exchange maps a pair
+          description: Entity, e.g. `KRAK` - always include when checking whether a specific exchange
+            maps a pair
         entityPairCode:
           type: string
           description: Entity-side pair code, e.g. `BTC/USD`
@@ -883,8 +897,8 @@ servers:
           description: e.g. `OPTION`
         expandDetails:
           type: string
-          description: Bracketed section list or `[ALL]`; options `derivativeDetails`, `participantDetails`, `settlementDetails`,
-            `statusDetails`, `underlyingDetails` (brackets required)
+          description: Bracketed section list or `[ALL]`; options `derivativeDetails`, `participantDetails`,
+            `settlementDetails`, `statusDetails`, `underlyingDetails` (brackets required)
         limit:
           type: integer
           description: Default 100, max 1000
@@ -926,22 +940,23 @@ servers:
     authorization_server: https://auth0.lukka.tech
     scopes:
     - mcp
-    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
-      for the product.
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account
+      with entitlement for the product.
   docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-aml-mcp/README.md
   tool_count: 4
   tools:
   - name: generateAmlScoringReport
-    description: Light risk check - available on every supported chain. **Returns:** a numeric risk score (0-100),
-      a categorical risk level (LOW/MEDIUM/HIGH), and the top risk indicators triggered (if any). A clean address
-      with no history typically scores ~33 (MEDIUM) - that is the baseline, not a risk signal. Small response.
+    description: Light risk check - available on every supported chain. **Returns:** a numeric risk score
+      (0-100), a categorical risk level (LOW/MEDIUM/HIGH), and the top risk indicators triggered (if any).
+      A clean address with no history typically scores ~33 (MEDIUM) - that is the baseline, not a risk
+      signal. Small response.
     inputSchema:
       type: object
       properties:
         address:
           type: string
-          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append phrases
-            like "on Ethereum".
+          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append
+            phrases like "on Ethereum".
         address_type:
           type: string
           description: Blockchain protocol code, e.g. `BTC`, `ETH`, `TRX`, `SOL`.
@@ -949,14 +964,15 @@ servers:
       - address
       - address_type
   - name: generateAmlSimplifiedReport
-    description: Light report tier for chains not covered by Standard/Enhanced (see chain list below). Small response.
+    description: Light report tier for chains not covered by Standard/Enhanced (see chain list below).
+      Small response.
     inputSchema:
       type: object
       properties:
         address:
           type: string
-          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append phrases
-            like "on Ethereum".
+          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append
+            phrases like "on Ethereum".
         address_type:
           type: string
           description: Blockchain protocol code, e.g. `BTC`, `ETH`, `TRX`, `SOL`.
@@ -964,16 +980,16 @@ servers:
       - address
       - address_type
   - name: generateAmlStandardReport
-    description: Full compliance report with detailed risk factor and counterparty exposure analysis. **Returns:**
-      risk score/level plus a full breakdown of triggered indicators, counterparty exposure, and (where available)
-      an owner/entity profile. Response is 300-500 KB.
+    description: Full compliance report with detailed risk factor and counterparty exposure analysis.
+      **Returns:** risk score/level plus a full breakdown of triggered indicators, counterparty exposure,
+      and (where available) an owner/entity profile. Response is 300-500 KB.
     inputSchema:
       type: object
       properties:
         address:
           type: string
-          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append phrases
-            like "on Ethereum".
+          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append
+            phrases like "on Ethereum".
         address_type:
           type: string
           description: Blockchain protocol code, e.g. `BTC`, `ETH`, `TRX`, `SOL`.
@@ -987,8 +1003,8 @@ servers:
       properties:
         address:
           type: string
-          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append phrases
-            like "on Ethereum".
+          description: The bare wallet address, e.g. `0x1234...`. Pass the address only - do not append
+            phrases like "on Ethereum".
         address_type:
           type: string
           description: Blockchain protocol code, e.g. `BTC`, `ETH`, `TRX`, `SOL`.
@@ -1008,8 +1024,8 @@ servers:
     authorization_server: https://auth0.lukka.tech
     scopes:
     - mcp
-    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
-      for the product.
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account
+      with entitlement for the product.
   docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-uda-mcp/README.md
   tool_count: 8
   tools:
@@ -1043,8 +1059,8 @@ servers:
       required:
       - blockchain
   - name: get_block
-    description: Block information with transaction hashes. **Returns:** block metadata plus a transaction list
-      (hashes, or full decoded objects at higher verbosity).
+    description: Block information with transaction hashes. **Returns:** block metadata plus a transaction
+      list (hashes, or full decoded objects at higher verbosity).
     inputSchema:
       type: object
       properties:
@@ -1081,8 +1097,8 @@ servers:
       - blockchain
       - address
   - name: get_canton_address_balance
-    description: Balance for an address on the Canton network (Canton uses migration/timestamp coordinates rather
-      than a plain chain symbol).
+    description: Balance for an address on the Canton network (Canton uses migration/timestamp coordinates
+      rather than a plain chain symbol).
     inputSchema:
       type: object
       properties:
@@ -1114,7 +1130,8 @@ servers:
       - blockchain
       - address
   - name: get_address_transactions
-    description: Transaction history for an address. **Returns:** a transaction list at the requested verbosity.
+    description: Transaction history for an address. **Returns:** a transaction list at the requested
+      verbosity.
     inputSchema:
       type: object
       properties:
@@ -1126,7 +1143,8 @@ servers:
           description: Wallet address
         verbose:
           type: string
-          description: '`0` = hashes only, `1` = key details (default), `2` = full decoded objects (use small `limit`)'
+          description: '`0` = hashes only, `1` = key details (default), `2` = full decoded objects (use
+            small `limit`)'
         limit:
           type: string
           description: 1-1000, default 50
@@ -1166,14 +1184,14 @@ servers:
     authorization_server: https://auth0.lukka.tech
     scopes:
     - mcp
-    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
-      for the product.
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account
+      with entitlement for the product.
   docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-analytics-mcp/README.md
   tool_count: 3
   tools:
   - name: getImpliedRates
-    description: Implied interest rate term structure from futures/swaps markets. **Returns:** per-tenor rates (`1D`..`1Y`)
-      with metadata; NSS model rows also include lambda/beta curve-fit params.
+    description: Implied interest rate term structure from futures/swaps markets. **Returns:** per-tenor
+      rates (`1D`..`1Y`) with metadata; NSS model rows also include lambda/beta curve-fit params.
     inputSchema:
       type: object
       properties:
@@ -1219,9 +1237,9 @@ servers:
       - source
       - rateType
   - name: getImpliedRatesOtcFx
-    description: OTC FX rate data. **Returns per record:** `lukkaEntityCode`, `pairCode`, `businessTime`, `tenorType`,
-      `tenor`, `fixedEndTime`, `underlyingPrice`, `basisPrice`/`basisBidPrice`/`basisAskPrice`, `price`/`bidPrice`/`askPrice`,
-      `tradeCount`, `volume`, `bidAskSpread`, `staleness`.
+    description: OTC FX rate data. **Returns per record:** `lukkaEntityCode`, `pairCode`, `businessTime`,
+      `tenorType`, `tenor`, `fixedEndTime`, `underlyingPrice`, `basisPrice`/`basisBidPrice`/`basisAskPrice`,
+      `price`/`bidPrice`/`askPrice`, `tradeCount`, `volume`, `bidAskSpread`, `staleness`.
     inputSchema:
       type: object
       properties:
@@ -1248,9 +1266,10 @@ servers:
           type: integer
           description: Pagination offset
   - name: getImpliedVolatilitySurface
-    description: Options implied volatility surface, by delta or strike. **Returns per point:** business time, entity,
-      underlying, `tenor`, `tenorNumericYearFraction`, `gridLabel`, `impliedVolatility`, plus (delta) `riskReversal`/`butterfly`/`gridLabelNumericCall`/`gridLabelNumericPut`
-      or (strike) `gridLabelNumericRelStrike`.
+    description: Options implied volatility surface, by delta or strike. **Returns per point:** business
+      time, entity, underlying, `tenor`, `tenorNumericYearFraction`, `gridLabel`, `impliedVolatility`,
+      plus (delta) `riskReversal`/`butterfly`/`gridLabelNumericCall`/`gridLabelNumericPut` or (strike)
+      `gridLabelNumericRelStrike`.
     inputSchema:
       type: object
       properties:
@@ -1300,14 +1319,15 @@ servers:
     authorization_server: https://auth0.lukka.tech
     scopes:
     - mcp
-    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
-      for the product.
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account
+      with entitlement for the product.
   docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-news-mcp/README.md
   tool_count: 2
   tools:
   - name: getNews
-    description: Full-text news search. **Returns:** a JSON array of NewsItem objects (total match count in the
-      `X-Total-Count` response header). All parameters are optional - omitting all returns the most recent articles.
+    description: Full-text news search. **Returns:** a JSON array of NewsItem objects (total match count
+      in the `X-Total-Count` response header). All parameters are optional - omitting all returns the
+      most recent articles.
     inputSchema:
       type: object
       properties:
@@ -1316,8 +1336,8 @@ servers:
           description: Free-text search across title and snippet
         publishDateFrom:
           type: string
-          description: '**Full ISO 8601 with a time component**, e.g. `2026-04-01T00:00:00Z`. A bare date (`2026-04-01`)
-            is rejected.'
+          description: '**Full ISO 8601 with a time component**, e.g. `2026-04-01T00:00:00Z`. A bare date
+            (`2026-04-01`) is rejected.'
         publishDateTo:
           type: string
           description: Same format constraint; must be after `publishDateFrom`
@@ -1359,8 +1379,8 @@ servers:
           type: integer
           description: Zero-based pagination offset
   - name: getDailySummaries
-    description: AI-generated daily news digests. **Returns:** per-day summary date, article count, overall sentiment
-      and breakdown, summary text, key themes, notable events, top categories, and top assets.
+    description: AI-generated daily news digests. **Returns:** per-day summary date, article count, overall
+      sentiment and breakdown, summary text, key themes, notable events, top categories, and top assets.
     inputSchema:
       type: object
       properties:
@@ -1383,14 +1403,15 @@ servers:
     authorization_server: https://auth0.lukka.tech
     scopes:
     - mcp
-    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account with entitlement
-      for the product.
+    note: RFC 9728 protected-resource discovery; no static client id or secret. Requires a Lukka account
+      with entitlement for the product.
   docs: https://github.com/lukkatech/lukka-mcps/blob/main/docs/lukka-predmar-mcp/README.md
   tool_count: 11
   tools:
   - name: GetPredictionMarkets
-    description: Primary discovery endpoint - paginated event-level markets with nested outcome snapshots (prices,
-      volume, open interest). **Returns:** events with outcome probabilities, volumes, and PMCS classification.
+    description: Primary discovery endpoint - paginated event-level markets with nested outcome snapshots
+      (prices, volume, open interest). **Returns:** events with outcome probabilities, volumes, and PMCS
+      classification.
     inputSchema:
       type: object
       properties:
@@ -1446,18 +1467,20 @@ servers:
       - limit
       - offset
   - name: GetPredictionMarketsTaxonomy
-    description: Returns the valid PMCS taxonomy dictionary (all hierarchy levels). Call before using `pmcs_*` filters.
+    description: Returns the valid PMCS taxonomy dictionary (all hierarchy levels). Call before using
+      `pmcs_*` filters.
     inputSchema:
       type: object
       properties: {}
   - name: GetPMCSstats
-    description: Nested PMCS statistics and counts for currently indexed markets - faceted navigation / dashboards.
+    description: Nested PMCS statistics and counts for currently indexed markets - faceted navigation
+      / dashboards.
     inputSchema:
       type: object
       properties: {}
   - name: GetMarketOverview
-    description: Time-bucketed activity across exchanges - one row per bucket per exchange with `entityCode`, `entityName`,
-      `sourceId`, `volumeUsd`, `tradeCount`, `volume`.
+    description: Time-bucketed activity across exchanges - one row per bucket per exchange with `entityCode`,
+      `entityName`, `sourceId`, `volumeUsd`, `tradeCount`, `volume`.
     inputSchema:
       type: object
       properties:
@@ -1475,7 +1498,8 @@ servers:
       - to
       - interval
   - name: GetOpenInterest
-    description: Time-bucketed open interest across exchanges - rows keyed by time/sourceId/entity, with `openInterestUsd`.
+    description: Time-bucketed open interest across exchanges - rows keyed by time/sourceId/entity, with
+      `openInterestUsd`.
     inputSchema:
       type: object
       properties:
@@ -1517,8 +1541,8 @@ servers:
       type: object
       properties: {}
   - name: GetMarketNews
-    description: Recent prediction-market news within a publish-date window (industry segment fixed to prediction-markets;
-      internal quality/relevance thresholds applied).
+    description: Recent prediction-market news within a publish-date window (industry segment fixed to
+      prediction-markets; internal quality/relevance thresholds applied).
     inputSchema:
       type: object
       properties:
@@ -1564,8 +1588,8 @@ servers:
           description: Event ticker or market identifier (from `GetPredictionMarkets`)
         exchangeId:
           type: string
-          description: 'Numeric exchange ID: `4141`=Kalshi, `4137`=Polymarket, `4008`=Gemini - must match the event''s
-            own exchange'
+          description: 'Numeric exchange ID: `4141`=Kalshi, `4137`=Polymarket, `4008`=Gemini - must match
+            the event''s own exchange'
         from:
           type: string
           description: Window start
@@ -1581,3 +1605,10 @@ servers:
       required:
       - event
       - exchangeId
+deployment:
+  mode: remote
+  endpoint: https://pricing.mcp.lukka.tech
+  verified: probed
+  probe: wall
+  checked: '2026-08-12'
+  source: catalog MCP census

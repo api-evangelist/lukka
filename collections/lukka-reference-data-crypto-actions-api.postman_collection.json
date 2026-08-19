@@ -1,0 +1,251 @@
+{
+  "item": [
+    {
+      "id": "b3a89942-fb43-4691-97d4-d21d88a2f9b0",
+      "name": "Reference Data - Crypto Actions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "42742783-745b-4392-a2a3-b531cec4885d",
+          "name": "All Crypto Actions",
+          "request": {
+            "name": "All Crypto Actions",
+            "description": {
+              "content": "The Crypto Actions endpoint contains information related to the Lukka Crypto Actions (“LCA”) data product  \n\n Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a result of what event.\n\n Market events that have material impact on digital assets or are determined by Lukka to be significant in nature are eligible for induction into the asset’s crypto action history repository. Generally speaking, material impacts revolve around events that affect either an asset’s protocol structure, characteristics, or reporting in the marketplace. The LCA event types are described in detail in the Structure and Definitions section of this document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "assets",
+                "crypto-actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lukkaCryptoActionIds",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2300afbc-51c6-45e5-91b0-4768cd1e9928",
+              "name": "Asset Crypto Actions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "assets",
+                    "crypto-actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "lukkaCryptoActionIds",
+                      "value": "6286a369-8d8c-425a-8824-14d522374fe2,fb5fd1fe-2963-4e2f-a3f2-55a528399f06,ed90ce1d-7ee3-4e5c-bb6c-e7b5deff6a49,f1ef9007-7cdf-4e41-bd5c-70f00b15d262,48f70093-d5f1-4fb9-979c-47772151fdf5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 5,\n  \"offset\": 0,\n  \"data\": [\n    {\n      \"lukkaCryptoActionParentId\": \"c07c6354-47eb-4ce2-9267-fbd724c532c0\",\n      \"lukkaCryptoActionId\": \"a93d3b3f-b3a8-4478-a2f9-fe5cdacc7224\",\n      \"announceTime\": \"2011-10-09T06:14:28Z\",\n      \"effectiveTime\": \"2011-10-07T07:31:00Z\",\n      \"lukkaCryptoActionCode\": \"HFORK\",\n      \"lukkaCryptoActionName\": \"Hard Fork\",\n      \"eventName\": null,\n      \"eventDescription\": \"Litecoin (LTC) Hard Fork from Bitcoin (BTC)\",\n      \"eventUrl\": \"https://bitcointalk.org/index.php?topic=47417.0\",\n      \"announceUrl\": null,\n      \"recordNote\": \"Litecoin will come with 150 premined coins: just the genesis block and the first 2 blocks to confirm the genesis is valid.  We believe a coin needs to be released in a fair manner.  Having one person (or a group) control a large amount of coins that can be used as they see fit is against the decentralized vision of Bitcoin.  Yes, it is true that without a stash of premined coins, we will not be able to afford to pay for bounties, but we believe people will see the virtue of this coin, invest in it as early adopters, and will be willing to spend time creating services to make this coin better.\",\n      \"isFutureEvent\": false\n    },\n    {\n      \"lukkaCryptoActionParentId\": \"2c4aa1ad-82d6-46a8-b143-d8fd024dea63\",\n      \"lukkaCryptoActionId\": \"000a15f4-1ef0-4f0c-8245-0e28d71547d5\",\n      \"announceTime\": \"2014-02-28T00:00:00Z\",\n      \"effectiveTime\": \"2014-02-28T22:52:17Z\",\n      \"lukkaCryptoActionCode\": \"HFORK\",\n      \"lukkaCryptoActionName\": \"Hard Fork\",\n      \"eventName\": null,\n      \"eventDescription\": \"DigiByte (DBG) Hard Fork v2\",\n      \"eventUrl\": null,\n      \"announceUrl\": \"https://github.com/digibyte/digibyte/blob/master/README.md\",\n      \"recordNote\": \"DigiShield Hardfork: Block 67,200, Feb. 28th, 2014\",\n      \"isFutureEvent\": false\n    },\n    {\n      \"lukkaCryptoActionParentId\": \"a985648f-263d-4f85-abdd-0eeb71260cc6\",\n      \"lukkaCryptoActionId\": \"e5a40304-6269-4704-9acf-3779f888c0f8\",\n      \"announceTime\": \"2014-09-01T00:00:00Z\",\n      \"effectiveTime\": \"2014-09-01T18:32:42Z\",\n      \"lukkaCryptoActionCode\": \"HFORK\",\n      \"lukkaCryptoActionName\": \"Hard Fork\",\n      \"eventName\": null,\n      \"eventDescription\": \"DigiByte (DBG) Hard Fork v3\",\n      \"eventUrl\": null,\n      \"announceUrl\": \"https://github.com/digibyte/digibyte/blob/master/README.md\",\n      \"recordNote\": \"MultiAlgo Hardfork: Block 145k, Sep. 1st 2014\",\n      \"isFutureEvent\": false\n    },\n    {\n      \"lukkaCryptoActionParentId\": \"16d01e2c-2efa-4a9a-bcd3-e8406c037a36\",\n      \"lukkaCryptoActionId\": \"db9665e2-c9bf-4fd1-9c65-3cabc4f74abd\",\n      \"announceTime\": \"2014-12-10T00:00:00Z\",\n      \"effectiveTime\": \"2014-12-10T16:51:45Z\",\n      \"lukkaCryptoActionCode\": \"HFORK\",\n      \"lukkaCryptoActionName\": \"Hard Fork\",\n      \"eventName\": null,\n      \"eventDescription\": \"DigiByte (DGB) Hard Fork v4\",\n      \"eventUrl\": null,\n      \"announceUrl\": \"https://github.com/digibyte/digibyte/blob/master/README.md\",\n      \"recordNote\": \"MultiShield Hardfork: Block 400k, Dec. 10th 2014\",\n      \"isFutureEvent\": false\n    },\n    {\n      \"lukkaCryptoActionParentId\": \"4029ac4c-ad27-49e5-a29b-28698bbb7ca4\",\n      \"lukkaCryptoActionId\": \"84750cd2-4881-4620-95b4-19512ff0abd8\",\n      \"announceTime\": null,\n      \"effectiveTime\": \"2015-03-15T00:00:00Z\",\n      \"lukkaCryptoActionCode\": \"HFORK\",\n      \"lukkaCryptoActionName\": \"Hard Fork\",\n      \"eventName\": null,\n      \"eventDescription\": \"X-Coin Hard Fork Mainnet Update\",\n      \"eventUrl\": \"http://x-coin.info/\",\n      \"announceUrl\": null,\n      \"recordNote\": \"Changed to POS on March 15th, 2015 at block 30001\",\n      \"isFutureEvent\": false\n    }\n  ],\n  \"size\": 5,\n  \"links\": {\n    \"base\": \"/v2/lukka/assets/crypto-actions\",\n    \"next\": \"/v2/lukka/assets/crypto-actions?lukkaCryptoActionCode=HFORK&limit=5&offset=5\",\n    \"prev\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f276b445-aee1-4089-a395-19100286661f",
+          "name": "Asset Crypto Actions",
+          "request": {
+            "name": "Asset Crypto Actions",
+            "description": {
+              "content": "Provides crypto action information for a given Lukka ID from the Lukka Crypto Actions (\"LCA\") data product\n\n Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a result of what event.\n\n Market events that have material impact on digital assets or are determined by Lukka to be significant in nature are eligible for induction into the asset’s crypto action history repository. Generally speaking, material impacts revolve around events that affect either an asset’s protocol structure, characteristics, or reporting in the marketplace. The LCA event types are described in detail in the Structure and Definitions section of this document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "lukka",
+                "assets",
+                "LA6EV2NKQ95",
+                "crypto-actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domain",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24f98949-dc57-4b87-a6ac-619d731df593",
+              "name": "Asset Crypto Actions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "lukka",
+                    "assets",
+                    "LA6EV2NKQ95",
+                    "crypto-actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain",
+                      "value": "assets"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 0,\n  \"limit\": 500,\n  \"size\": 2,\n  \"links\": {\n    \"base\": \"/v2/lukka/assets/LA2EYFUQT32/crypto-actions\",\n    \"next\": null,\n    \"prev\": null\n  },\n  \"data\": [\n    {\n      \"assetLid\": \"LA2EYFUQT32\",\n      \"currentWhitepaperCode\": \"AAVE\",\n      \"currentName\": \"Aave Token\",\n      \"lukkaCryptoActionParentId\": \"e2fbbc5e-b8b7-468f-a67d-7270cdbfe83b\",\n      \"lukkaCryptoActionId\": \"a5fa7ef9-849a-48ab-a1a5-817db43dea73\",\n      \"announceTime\": \"2020-12-03T21:20:00Z\",\n      \"effectiveTime\": \"2020-09-24T18:06:28Z\",\n      \"lukkaCryptoActionCode\": \"ASLH\",\n      \"lukkaCryptoActionName\": \"Asset Launch\",\n      \"eventName\": null,\n      \"eventDescription\": \"Aave Token (AAVE) Asset Launch\",\n      \"eventUrl\": \"https://etherscan.io/tx/0xfd5f0c65fdea26d0b94362532554d4c6cb4935b198d75e1cc07c7df4bfd8d1ad\",\n      \"announceUrl\": \"https://twitter.com/AaveAave/status/1334608524672962561\",\n      \"recordNote\": \"Aave V2 completed formal verification by  @CertoraInc , as well\",\n      \"isFutureEvent\": false\n    },\n    {\n      \"assetLid\": \"LA2EYFUQT32\",\n      \"currentWhitepaperCode\": \"AAVE\",\n      \"currentName\": \"Aave Token\",\n      \"lukkaCryptoActionParentId\": \"6e8903f5-2b13-4342-b174-b229df9fd906\",\n      \"lukkaCryptoActionId\": \"493557a2-5260-4d9f-a22e-37c0af0202ba\",\n      \"announceTime\": null,\n      \"effectiveTime\": \"2020-07-22T00:00:00Z\",\n      \"lukkaCryptoActionCode\": \"CADTR\",\n      \"lukkaCryptoActionName\": \"Change of Auditor\",\n      \"eventName\": null,\n      \"eventDescription\": \"Aave Token (AAVE) Change in Auditor\",\n      \"eventUrl\": \"https://www.certik.com/projects/aave\",\n      \"announceUrl\": null,\n      \"recordNote\": \"Aave Token (AAVE) has been onboarded for Certik auditing.\",\n      \"isFutureEvent\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-refdata-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7aa12edc-4bdf-49c6-9aa7-229ef5d7a8c7",
+    "name": "Lukka Reference Data Reference Data - Crypto Actions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}

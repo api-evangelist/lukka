@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Reference Data Reference Data - Custodian Terms and Conditions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference Data - Custodian Terms and Conditions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Custodians",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/custodians",
+            "params": [
+              {
+                "name": "expandDetails",
+                "value": "[ALL]",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lukka Custodian Data provides information about digital asset custodians. The dataset provides its users information about the legal entities, location, applicable regulatory licenses, compliance, certifications, security provisions, operating status, successor entities and other various information about a custodian.\n\n Custodians that are eligible to be tracked within the Lukka Custodian Reference Data (“LCRD”) are custodians that provide custody services for digital assets."
+        },
+        {
+          "info": {
+            "name": "A Custodian and its Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-refdata-api.lukka.tech/v2/lukka/custodians/LC14SKMDN12"
+          },
+          "docs": "Lukka Custodian Data provides information about digital asset custodians. The dataset provides its users information about the legal entities, location, applicable regulatory licenses, compliance, certifications, security provisions, operating status, successor entities and other various information about a custodian.\n\n Custodians that are eligible to be tracked within the Lukka Custodian Reference Data (“LCRD”) are custodians that provide custody services for digital assets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

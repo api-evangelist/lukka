@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lukka Pricing & Market Data Pricing - Legacy Versions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pricing - Legacy Versions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Available Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/4002"
+          },
+          "docs": "Description: Gets all configured sources for the client. An array of pricing sources available (based on API keys permissions) will be returned by this endpoint."
+        },
+        {
+          "info": {
+            "name": "Source Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data-pricing-api.lukka.tech/v1/pricing/sources/3000"
+          },
+          "docs": "Description: Get the details for the given pricing source.\nEach source object will contain an array of pairs that it supports."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

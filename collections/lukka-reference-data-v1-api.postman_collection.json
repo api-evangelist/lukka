@@ -1,0 +1,811 @@
+{
+  "item": [
+    {
+      "id": "0fe5f921-d14f-4ef6-9ffb-8e49d69c2dc4",
+      "name": "Reference Data v1",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "10cf8116-7024-4922-9d89-3b98fdf42cbc",
+          "name": "Asset Master",
+          "request": {
+            "name": "Asset Master",
+            "description": {
+              "content": "Get a list of all the Lukka normalized assets with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n lukka_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n whitepaper_code \n CHARACTER \n 256 \n Ticker of the crypto asset found in the primary source \n \n \n asset_type \n CHARACTER \n 20 \n Type of crypto asset such as coin, token, stablecoin, etc. \n \n \n asset_website \n CHARACTER \n 4000 \n Official website of the asset or primary source of asset information \n \n \n blockchain \n CHARACTER \n 256 \n Blockchain on which the asset resides",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lukka",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ada00f9-817d-4887-a680-4230f114fc21",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lukka",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5d04c06-f319-4b8a-9444-816845eb6ff5",
+          "name": "Active Asset Mappings",
+          "request": {
+            "name": "Active Asset Mappings",
+            "description": {
+              "content": "Get the cross reference of all the current assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entity_asset_name \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entity_asset_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entity_withdrawal_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_type \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukka_asset_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "entities",
+                "assets",
+                "mappings",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c44262ae-a8f5-4e6a-afef-49094725dddc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "entities",
+                    "assets",
+                    "mappings",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39dbfd4d-9e93-423a-997f-854d4792558f",
+          "name": "Historical Asset Mappings",
+          "request": {
+            "name": "Historical Asset Mappings",
+            "description": {
+              "content": "Get the cross reference of all the historical assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entity_asset_name \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entity_asset_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entity_withdrawal_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_type \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukka_asset_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "entities",
+                "assets",
+                "mappings",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbe10bed-8f4f-48ce-a102-438f4a609f24",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "entities",
+                    "assets",
+                    "mappings",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4106369-4f20-400e-a0fa-42be5c06256a",
+          "name": "Newly Added Asset Mappings",
+          "request": {
+            "name": "Newly Added Asset Mappings",
+            "description": {
+              "content": "Get the cross reference of all the assets listed by an entity the previous day mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entity_asset_name \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entity_asset_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entity_withdrawal_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_type \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukka_asset_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "entities",
+                "assets",
+                "mappings",
+                "added"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f35f2d9-1e7f-4a87-9ff9-bde1d705fafb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "entities",
+                    "assets",
+                    "mappings",
+                    "added"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e584a09c-0faf-4a79-aa02-863b39a3425f",
+          "name": "Newly Deleted Asset Mappings",
+          "request": {
+            "name": "Newly Deleted Asset Mappings",
+            "description": {
+              "content": "Get the cross reference of all the assets delisted by an entity the previous day mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entity_asset_name \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entity_asset_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entity_withdrawal_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_type \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukka_asset_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "entities",
+                "assets",
+                "mappings",
+                "deleted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f1bbdad-29ec-40a3-8ebc-8adc98d96390",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "entities",
+                    "assets",
+                    "mappings",
+                    "deleted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71711eed-8400-4076-8de8-3251256cb671",
+          "name": "Active Pair Mappings",
+          "request": {
+            "name": "Active Pair Mappings",
+            "description": {
+              "content": "Get the cross reference of all the current pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entity_asset_one_code \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_one_name \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entity_asset_one_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entity_asset_two_code \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_two_name \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entity_asset_two_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entity_price_precision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entity_quantity_precision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entity_minimum_tick_size \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entity_minimum_trade_quantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entity_trade_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entity_trade_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entity_trade_fee_type \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukka_pair_code \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukka_asset_one_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_one_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukka_asset_one_name \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukka_asset_two_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_two_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukka_asset_two_name \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "entities",
+                "pairs",
+                "mappings",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b37098e-5570-459b-b2c8-c81dd4914a08",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "entities",
+                    "pairs",
+                    "mappings",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "119e0d48-a502-4dcf-bc19-998dc4111b18",
+          "name": "Historical Pair Mappings",
+          "request": {
+            "name": "Historical Pair Mappings",
+            "description": {
+              "content": "Get the cross reference of all the historical pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entity_asset_one_code \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_one_name \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entity_asset_one_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entity_asset_two_code \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_two_name \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entity_asset_two_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entity_price_precision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entity_quantity_precision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entity_minimum_tick_size \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entity_minimum_trade_quantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entity_trade_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entity_trade_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entity_trade_fee_type \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukka_pair_code \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukka_asset_one_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_one_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukka_asset_one_name \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukka_asset_two_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_two_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukka_asset_two_name \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "entities",
+                "pairs",
+                "mappings",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4715fb8b-2c6a-49f6-b7b2-75a22b7c79b5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "entities",
+                    "pairs",
+                    "mappings",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab126545-17d5-4775-9771-8120fc10fa2a",
+          "name": "Newly Added Pair Mappings",
+          "request": {
+            "name": "Newly Added Pair Mappings",
+            "description": {
+              "content": "Get the cross reference of all the pairs listed by an entity the previous day mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entity_asset_one_code \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_one_name \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entity_asset_one_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entity_asset_two_code \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_two_name \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entity_asset_two_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entity_price_precision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entity_quantity_precision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entity_minimum_tick_size \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entity_minimum_trade_quantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entity_trade_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entity_trade_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entity_trade_fee_type \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukka_pair_code \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukka_asset_one_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_one_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukka_asset_one_name \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukka_asset_two_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_two_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukka_asset_two_name \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "entities",
+                "pairs",
+                "mappings",
+                "added"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc2341a0-068d-46c2-8ea0-98402c003f2c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "entities",
+                    "pairs",
+                    "mappings",
+                    "added"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27173691-71da-4e2c-8439-3fd68372404f",
+          "name": "Newly Deleted Pair Mappings",
+          "request": {
+            "name": "Newly Deleted Pair Mappings",
+            "description": {
+              "content": "Get the cross reference of all the pairs delisted by an entity the previous day mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entity_asset_one_code \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_one_name \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entity_asset_one_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entity_asset_two_code \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_two_name \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entity_asset_two_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entity_price_precision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entity_quantity_precision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entity_minimum_tick_size \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entity_minimum_trade_quantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entity_trade_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entity_trade_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entity_trade_fee_type \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukka_pair_code \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukka_asset_one_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_one_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukka_asset_one_name \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukka_asset_two_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_two_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukka_asset_two_name \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "entities",
+                "pairs",
+                "mappings",
+                "deleted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a6d040a-99db-43ee-a24f-91c5925e89f8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "entities",
+                    "pairs",
+                    "mappings",
+                    "deleted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.lukka.tech/refdata",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f8c5b9fa-b34a-4b58-aade-f827a922f0e7",
+    "name": "Lukka Reference Data API (v1) Reference Data v1 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lukka Reference Data v1 - a security master of standardized crypto asset data: the Lukka normalized asset master plus active, historical, newly added and newly deleted asset and pair cross-reference mappings per source entity.\n\nContact Support:\n Name: Lukka Reference Data Support\n Email: support_refdata@lukka.tech",
+      "type": "text/plain"
+    }
+  }
+}

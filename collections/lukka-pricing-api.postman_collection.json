@@ -1,0 +1,1582 @@
+{
+  "item": [
+    {
+      "id": "cdc929e1-c657-450b-be77-2d41142e62cb",
+      "name": "Pricing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "00b243ac-464d-4879-bcf8-5adaab24d504",
+          "name": "Available Sources by Product",
+          "request": {
+            "name": "Available Sources by Product",
+            "description": {
+              "content": "Description: Gets all configured sources for the client based on a defined product type. An array of sources available, based on API key permissions and inputted product type will be returned by this endpoint.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/{productType} \n\n Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "details",
+                ":productType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productType",
+                  "description": "(Required) productType path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "457a2fa8-2279-4dc7-a175-7dd07fa3d228",
+              "name": "Available Sources by Product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "details",
+                    ":productType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productType",
+                      "description": "(Required) productType path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f6094e6-b52e-45e7-a7eb-1f7d19a95b13",
+          "name": "Get Source Details by Product",
+          "request": {
+            "name": "Get Source Details by Product",
+            "description": {
+              "content": "Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata that it supports.\n\n This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}\n\n Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "details",
+                ":productType",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productType",
+                  "description": "(Required) productType path parameter"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a49d1cd-bc38-4377-a50b-dc1886475a02",
+              "name": "Get Source Details by Product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "details",
+                    ":productType",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productType",
+                      "description": "(Required) productType path parameter"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sourceId\": 4002,\n  \"sourceName\": \"Coinbase\",\n  \"pairs\": [\n    {\n      \"pairCode\": \"XBT-USD\",\n      \"firstDate\": \"2022-07-03T00:00:59Z\",\n      \"baseAsset\": \"XBT\",\n      \"counterAsset\": \"USD\",\n      \"baseAssetLukkaId\": \"LA6EV2NKQ95\",\n      \"counterAssetLukkaId\": \"LA3YM6GRUJ4\",\n      \"baseAssetName\": \"Bitcoin\",\n      \"counterAssetName\": \"US Dollar\",\n      \"baseAssetWhitepaperCode\": \"BTC\",\n      \"baseAssetCommonStreetCode\": \"BTC\",\n      \"counterAssetCommonStreetCode\": \"USD\",\n      \"instrumentType\": \"SPOT\",\n      \"status\": \"ACTIVE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25b525cb-2ee4-4125-b065-f238ce4fd406",
+          "name": "Get Derivative Source Details (Paginated)",
+          "request": {
+            "name": "Get Derivative Source Details (Paginated)",
+            "description": {
+              "content": "Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata.\n\n This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}/derivatives\n\n Response is paginated via a nextPageUrl cursor. Available Product types are the same as the other /sources/details/* endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "details",
+                ":productType",
+                ":sourceId",
+                "derivatives"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productType",
+                  "description": "(Required) productType path parameter"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70da6e92-4516-4b04-ac24-62c358693f5e",
+              "name": "Get Derivative Source Details (Paginated)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "details",
+                    ":productType",
+                    ":sourceId",
+                    "derivatives"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productType",
+                      "description": "(Required) productType path parameter"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fce4e8bd-fcac-42d2-aa90-0103c7ba3524",
+          "name": "Get Latest Prices",
+          "request": {
+            "name": "Get Latest Prices",
+            "description": {
+              "content": "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "2000",
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pairCodes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lookback",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e90452fb-bc09-42e6-9aee-f0711724db69",
+              "name": "Get Latest Prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "2000",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pairCodes",
+                      "value": "XBT-USD,ETH-USD"
+                    },
+                    {
+                      "key": "lookback",
+                      "value": "172800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"pairCode\": \"XBT-USD\",\n    \"price\": \"79126.46\",\n    \"ts\": \"2026-04-22T15:35:00Z\"\n  },\n  {\n    \"pairCode\": \"ETH-USD\",\n    \"price\": \"2399.01\",\n    \"ts\": \"2026-04-22T15:35:00Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77ce39a9-1ecf-46ee-a3d8-7c1871535bb0",
+          "name": "Get Historical Prices",
+          "request": {
+            "name": "Get Historical Prices",
+            "description": {
+              "content": "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                ":sourceId",
+                "prices",
+                "pairs",
+                ":pairCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pairCode",
+                  "description": "(Required) pairCode path parameter"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f367360-ac11-4bb8-8e1f-468c084f3065",
+              "name": "Get Historical Prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    ":sourceId",
+                    "prices",
+                    "pairs",
+                    ":pairCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T13:00:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pairCode",
+                      "description": "(Required) pairCode path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pairCode\": \"XBT-USD\",\n  \"firstDate\": \"2026-04-20T12:00:00Z\",\n  \"lastDate\": \"2026-04-20T12:09:00Z\",\n  \"nextPageUrl\": \"/v1/pricing/sources/2000/prices/pairs/XBT-USD?from=2026-04-20T12%3A10%3A00Z&to=2026-04-20T13%3A00%3A00Z&limit=10\",\n  \"pricesCount\": 10,\n  \"prices\": [\n    {\n      \"ts\": \"2026-04-20T12:00:00Z\",\n      \"price\": \"75220.66\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:01:00Z\",\n      \"price\": \"75186.78\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:02:00Z\",\n      \"price\": \"75137.49\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:03:00Z\",\n      \"price\": \"75151.02\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:04:00Z\",\n      \"price\": \"75132.49\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:05:00Z\",\n      \"price\": \"75227.41\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:06:00Z\",\n      \"price\": \"75291.91\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:07:00Z\",\n      \"price\": \"75311.03\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:08:00Z\",\n      \"price\": \"75335.02\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:09:00Z\",\n      \"price\": \"75320.39\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecba279c-9dc1-4b43-b210-3ca7cfc5d5a7",
+          "name": "Get Price Variances by Pair",
+          "request": {
+            "name": "Get Price Variances by Pair",
+            "description": {
+              "content": "Description: Get the price history for a single pair along with its market variances. For each exchange, daily volume, daily trade counts, hourly volume, and hourly trade counts are provided. Lukka Prime takes all these parameters into consideration when choosing a principal exchange for the minute's price.\n\n Exchanges under market variances are sorted in a descending order by its hourly volume .\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                ":sourceId",
+                "prices",
+                "pairs",
+                ":pairCode",
+                "variances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pairCode",
+                  "description": "(Required) pairCode path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bad557fa-5427-4a08-a27f-72165cd9b66a",
+              "name": "Get Price Variances by Pair",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    ":sourceId",
+                    "prices",
+                    "pairs",
+                    ":pairCode",
+                    "variances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T12:10:00Z"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pairCode",
+                      "description": "(Required) pairCode path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f989eaf5-a19b-43c7-8ca5-d261110aa64f",
+          "name": "Get Latest MVWAPs",
+          "request": {
+            "name": "Get Latest MVWAPs",
+            "description": {
+              "content": "Description: Get the latest Moving Volume Weighted Average Price (MVWAP) as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5005 (15s/1s MVWAP).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "5005",
+                "mvwaps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pairCodes",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f78d8d6b-bd6d-4fd7-86c6-834c1bb31ca9",
+              "name": "Get Latest MVWAPs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "5005",
+                    "mvwaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pairCodes",
+                      "value": "XBT-USD,ETH-USD"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"pairCode\": \"ETH-USD\",\n    \"mvwap60min\": \"2410.769550194882\",\n    \"ts\": \"2026-04-22T15:39:27Z\"\n  },\n  {\n    \"pairCode\": \"XBT-USD\",\n    \"mvwap60min\": \"79304.33066181457\",\n    \"ts\": \"2026-04-22T15:39:27Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79d9fb9a-1f37-4726-8650-5413497c5da0",
+          "name": "Get Historical MVWAP by Pair",
+          "request": {
+            "name": "Get Historical MVWAP by Pair",
+            "description": {
+              "content": "Description: Get the MVWAP history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                ":sourceId",
+                "mvwaps",
+                "pairs",
+                ":pairCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pairCode",
+                  "description": "(Required) pairCode path parameter"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "349cd999-cba7-48d5-b923-a39fdb60ee73",
+              "name": "Get Historical MVWAP by Pair",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    ":sourceId",
+                    "mvwaps",
+                    "pairs",
+                    ":pairCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T12:10:00Z"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pairCode",
+                      "description": "(Required) pairCode path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pairCode\": \"XBT-USD\",\n  \"firstDate\": \"2026-04-20T12:01:00Z\",\n  \"lastDate\": \"2026-04-20T12:05:00Z\",\n  \"nextPageUrl\": \"/v1/pricing/sources/5005/mvwaps/pairs/XBT-USD?from=2026-04-20T12%3A06%3A00Z&to=2026-04-20T12%3A10%3A00Z&limit=5\",\n  \"mvwaps\": [\n    {\n      \"ts\": \"2026-04-20T12:01:00Z\",\n      \"mvwap60min\": \"75177.94675145515\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:02:00Z\",\n      \"mvwap60min\": \"75146.26034069767\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:03:00Z\",\n      \"mvwap60min\": \"75144.55591463677\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:04:00Z\",\n      \"mvwap60min\": \"75121.14617724055\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:05:00Z\",\n      \"mvwap60min\": \"75213.56715791079\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28c59387-6691-43d1-a30d-354e5a57e6cb",
+          "name": "Get Multi-Source VWAP by Pair",
+          "request": {
+            "name": "Get Multi-Source VWAP by Pair",
+            "description": {
+              "content": "Description: Get the 60 minute Volume Weighted Average Price (VWAP) for a given pair code and given Source Exchanges. The VWAP output price for any given timestamp is the volume-weighted price of all executed trades in the previous 60 minutes from the inputted list of Market Data Source IDs that support the requested Pair Code.\n\n Max date range is 7 days. periodicityCalculation and interval are both in milliseconds.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "vwaps",
+                ":pairCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sourceIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pairCode",
+                  "description": "(Required) pairCode path parameter"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8214fd1-f524-46e0-ac8a-be3734b5eae7",
+              "name": "Get Multi-Source VWAP by Pair",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "vwaps",
+                    ":pairCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceIds",
+                      "value": "4002,4005"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T13:00:00Z"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "60000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pairCode",
+                      "description": "(Required) pairCode path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pairCode\": \"XBT-USD\",\n  \"sourceIds\": [\n    4005\n  ],\n  \"interval\": 60000,\n  \"nextPageUrl\": \"/v1/pricing/sources/vwaps/XBT-USD?sourceIds=4002%2C4005&from=2026-04-20T12%3A10%3A00Z&to=2026-04-20T13%3A00%3A00Z&interval=60000&limit=10\",\n  \"vwaps\": [\n    {\n      \"ts\": \"2026-04-20T12:00:00Z\",\n      \"vwap\": \"75261.5824265915004405\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:01:00Z\",\n      \"vwap\": \"75238.3213660661282716\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:02:00Z\",\n      \"vwap\": \"75238.3213660661282716\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:03:00Z\",\n      \"vwap\": \"75238.3213660661282716\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:04:00Z\",\n      \"vwap\": \"75238.3213660661282716\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:05:00Z\",\n      \"vwap\": \"75238.3213660661282716\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:06:00Z\",\n      \"vwap\": \"75238.3213660661282716\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:07:00Z\",\n      \"vwap\": \"75238.3213660661282716\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:08:00Z\",\n      \"vwap\": \"75239.4090866061676381\"\n    },\n    {\n      \"ts\": \"2026-04-20T12:09:00Z\",\n      \"vwap\": \"75239.4090866061676381\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3394fcf-3af0-40fc-b7c6-c7f18d037380",
+          "name": "Get Latest Reference Rate",
+          "request": {
+            "name": "Get Latest Reference Rate",
+            "description": {
+              "content": "Description: Get the latest Lukka Reference Rate as of the given timestamp for the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5001.\n\n Keep in mind the 2048 character limit in a GET request. The pairCodes query parameter should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "5001",
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pairCodes",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4aa9cdcc-9baf-4b74-aefb-059f1de2638d",
+              "name": "Get Latest Reference Rate",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "5001",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pairCodes",
+                      "value": "XBT-USD,ETH-USD"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ts\": \"2026-04-22T15:00:00Z\",\n    \"pairCode\": \"ETH-USD\",\n    \"price\": \"2409.734887766603\"\n  },\n  {\n    \"ts\": \"2026-04-22T15:00:00Z\",\n    \"pairCode\": \"XBT-USD\",\n    \"price\": \"78927.50762860353\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3a439d5-8aba-4d1a-b824-6c98ce0d3a31",
+          "name": "Get Historical Reference Rate by Pair",
+          "request": {
+            "name": "Get Historical Reference Rate by Pair",
+            "description": {
+              "content": "Description: Get the Lukka Reference Rate history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n interval must be 3600000 (1h) or 86400000 (1d).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                "5001",
+                "prices",
+                "pairs",
+                ":pairCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pairCode",
+                  "description": "(Required) pairCode path parameter"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94e1391b-7465-4c0c-89d8-ea716d627ee7",
+              "name": "Get Historical Reference Rate by Pair",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    "5001",
+                    "prices",
+                    "pairs",
+                    ":pairCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T00:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T03:00:00Z"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "3600000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pairCode",
+                      "description": "(Required) pairCode path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pairCode\": \"XBT-USD\",\n  \"firstDate\": \"2026-04-20T00:00:00Z\",\n  \"lastDate\": \"2026-04-20T02:00:00Z\",\n  \"nextPageUrl\": \"/v1/pricing/sources/5001/prices/pairs/XBT-USD?from=2026-04-20T03%3A00%3A00Z&to=2026-04-20T03%3A00%3A00Z&interval=3600000&limit=3\",\n  \"pricesCount\": 3,\n  \"prices\": [\n    {\n      \"ts\": \"2026-04-20T00:00:00Z\",\n      \"pairCode\": \"XBT-USD\",\n      \"price\": \"73922.79679093281\"\n    },\n    {\n      \"ts\": \"2026-04-20T01:00:00Z\",\n      \"pairCode\": \"XBT-USD\",\n      \"price\": \"74200.48992173481\"\n    },\n    {\n      \"ts\": \"2026-04-20T02:00:00Z\",\n      \"pairCode\": \"XBT-USD\",\n      \"price\": \"74485.24994657465\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95a8e9b5-bd39-4ea9-8200-99bfd3395077",
+          "name": "Get Latest Index Prices",
+          "request": {
+            "name": "Get Latest Index Prices",
+            "description": {
+              "content": "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.\n\n sourceId must match the 6xxx (indices) range. Default lookback is 5400000 ms (90 min).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                ":sourceId",
+                "indices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d559d3da-2c84-436e-b0d8-e7174f6f4553",
+              "name": "Get Latest Index Prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    ":sourceId",
+                    "indices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"businessTime\": \"2026-04-22T15:39:31Z\",\n      \"constituents\": [\n        {\n          \"instrument\": \"XRP\",\n          \"weight\": 0.0554125751556742,\n          \"quantity\": 4269825.123121,\n          \"value\": 6221492.617187838,\n          \"instrumentId\": \"b70858e5-6396-4acc-9b8b-2227078b53b6\",\n          \"businessTime\": 1776872370000,\n          \"type\": \"TRADE\"\n        },\n        {\n          \"instrument\": \"USD\",\n          \"weight\": 0.0005897919027744,\n          \"quantity\": 65607.55,\n          \"value\": 65607.55,\n          \"instrumentId\": \"\",\n          \"businessTime\": 0,\n          \"type\": \"TRADE\"\n        },\n        {\n          \"instrument\": \"SOLN\",\n          \"weight\": 0.0302071041984093,\n          \"quantity\": 38500.08144854,\n          \"value\": 3406608.295370725,\n          \"instrumentId\": \"5d2cb639-6f9e-4453-af2d-647b378fc9db\",\n          \"businessTime\": 1776872370000,\n          \"type\": \"TRADE\"\n        },\n        {\n          \"instrument\": \"ETH\",\n          \"weight\": 0.1264437363753679,\n          \"quantity\": 5949.05234849,\n          \"value\": 14342312.826203719,\n          \"instrumentId\": \"10037d90-5d90-493b-b011-7716bb9bf290\",\n          \"businessTime\": 1776872370000,\n          \"type\": \"TRADE\"\n        },\n        {\n          \"instrument\": \"XLM\",\n          \"weight\": 0.0028874100040171,\n          \"quantity\": 1783532.82900998,\n          \"value\": 323809.89982396894,\n          \"instrumentId\": \"9f7bebb0-0467-4207-bd02-9fbb928f39c4\",\n          \"businessTime\": 1776872370000,\n          \"type\": \"TRADE\"\n        },\n        {\n          \"instrument\": \"LINK\",\n          \"weight\": 0.0035887292167665,\n          \"quantity\": 41988.12244401,\n          \"value\": 398886.9363895392,\n          \"instrumentId\": \"df8e972b-3803-4854-acbb-3f98838a8dfe\",\n          \"businessTime\": 1776872370000,\n          \"type\": \"TRADE\"\n        },\n        {\n          \"instrument\": \"XBT\",\n          \"weight\": 0.7747994781014437,\n          \"quantity\": 1111.3906164,\n          \"value\": 88148329.4569846,\n          \"instrumentId\": \"043ee4a3-a84e-4821-a2dd-590b03dcadb3\",\n          \"businessTime\": 1776872370000,\n          \"type\": \"TRADE\"\n        },\n        {\n          \"instrument\": \"ADA\",\n          \"weight\": 0.0060711750455469,\n          \"quantity\": 2655720.48373976,\n          \"value\": 679065.5098328806,\n          \"instrumentId\": \"fe14b4e4-aabc-4487-b657-d35218cdeefd\",\n          \"businessTime\": 1776872370000,\n          \"type\": \"TRADE\"\n        }\n      ],\n      \"distributionId\": \"6147\",\n      \"divisor\": \"5690000.0\",\n      \"id\": \"7da7376e-3e02-4520-8e2e-e9c31ceea32f\",\n      \"indexId\": \"147\",\n      \"name\": \"Hashdex Nasdaq Crypto Index ETF Intraday Indicative Value\",\n      \"symbol\": \"NCIQ.IV\",\n      \"value\": \"19.962410033707076\",\n      \"valueUnit\": \"USD\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "249e62e3-aeb7-438a-8b2b-968fca8cbd46",
+          "name": "Get Historical Index Prices",
+          "request": {
+            "name": "Get Historical Index Prices",
+            "description": {
+              "content": "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n sourceId must match the 6xxx (indices) range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "pricing",
+                "sources",
+                ":sourceId",
+                "indices",
+                "historical"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) sourceId path parameter"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa8b9f5b-07c6-47eb-b540-8ba8e53bcb9c",
+              "name": "Get Historical Index Prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "pricing",
+                    "sources",
+                    ":sourceId",
+                    "indices",
+                    "historical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2026-04-20T12:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2026-04-20T13:00:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) sourceId path parameter"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data-pricing-api.lukka.tech",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f372307d-3457-490e-aeff-a7e0dc0dbb47",
+    "name": "Lukka & Market Data Pricing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.\n\nContact Support:\n Name: Lukka Support",
+      "type": "text/plain"
+    }
+  }
+}
