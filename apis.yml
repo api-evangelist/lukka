@@ -25,6 +25,19 @@ tags:
 - Blockchain
 - AML
 - Compliance
+- Financial-Services
+- Analytics
+- Prediction Markets
+- MCP
+tags_raw:
+- Crypto
+- Digital Assets
+- Market Data
+- Reference Data
+- Pricing
+- Blockchain
+- AML
+- Compliance
 - Financial Services
 - Analytics
 - Prediction Markets
@@ -58,6 +71,11 @@ apis:
   humanURL: https://github.com/lukkatech/lukka-mcps
   baseURL: https://pricing.mcp.lukka.tech
   tags:
+  - MCP
+  - Artificial Intelligence
+  - Agents
+  - Crypto
+  tags_raw:
   - MCP
   - AI
   - Agents
@@ -310,7 +328,8 @@ apis:
     - asset terms and conditions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
-  tags:
+  tags: []
+  tags_raw:
   - Reference Data - Asset Terms and Conditions
   properties:
   - type: OpenAPI
@@ -357,7 +376,8 @@ apis:
     data - custodian terms and conditions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
-  tags:
+  tags: []
+  tags_raw:
   - Reference Data - Custodian Terms and Conditions
   properties:
   - type: OpenAPI
@@ -404,7 +424,8 @@ apis:
     data - derivative terms and conditions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
-  tags:
+  tags: []
+  tags_raw:
   - Reference Data - Derivative Terms and Conditions
   properties:
   - type: OpenAPI
@@ -452,7 +473,8 @@ apis:
     data - marketplace terms and conditions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
-  tags:
+  tags: []
+  tags_raw:
   - Reference Data - Marketplace Terms and Conditions
   properties:
   - type: OpenAPI
@@ -522,7 +544,8 @@ apis:
     data - virtual asset serivce providers.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
-  tags:
+  tags: []
+  tags_raw:
   - Reference Data - Virtual Asset Serivce Providers
   properties:
   - type: OpenAPI
