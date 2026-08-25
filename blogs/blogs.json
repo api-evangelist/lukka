@@ -2,13 +2,17 @@
   "repo": "lukka",
   "feeds": [
     {
-      "source": "https://lukka.tech/support/",
+      "source": "https://lukka.tech/feed/",
       "feed_url": "https://lukka.tech/feed/",
       "title": "",
-      "saved": 10,
-      "method": "discovered"
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://lukka.tech/support/",
+      "error": "HTTPError"
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-08-15T12:11:08Z"
+  "post_count": 12,
+  "fetched": "2026-08-22T20:20:02Z"
 }
