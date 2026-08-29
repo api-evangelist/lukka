@@ -580,6 +580,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/lukka-capability-edges.yml
+  name: Lukka Business Capability Map
 - type: Overlay
   url: overlays/lukka-analytics-overlay.yaml
 - type: Website

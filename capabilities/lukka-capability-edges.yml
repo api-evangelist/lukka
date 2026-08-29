@@ -1,0 +1,77 @@
+slug: lukka
+provider: Lukka
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Reference Data - Mapping and Normalization
+  spec_file: lukka-reference-data-mapping-and-normalization-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.8
+  evidence: GET /v2/lukka/assets/mappings assetMappings; GET /v2/lukka/legal-entity-mappings allLegalEntityMappings
+  reason: Cross-reference mapping and normalisation of asset, pair, derivative and legal-entity identifiers
+    across sources is precisely identity resolution / golden-record mastering as described under Master
+    Data Management.
+- tag: Reference Data v1
+  spec_file: lukka-reference-data-v1-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.8
+  evidence: '"a security master of standardized crypto asset data: the Lukka normalized asset master plus
+    active, historical, newly added and newly deleted asset and pair cross-reference mappings"; GET /v1/lukka/assets
+    "Asset Master"'
+  reason: Explicit security master / asset master with cross-reference mappings — classic reference and
+    master data management.
+- tag: Reference Data (Deprecated)
+  spec_file: lukka-reference-data-deprecated-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.75
+  evidence: GET /v1/lukka/assets allLukkaAssets2; GET /v1/lukka/entities allLukkaEntities; GET /v1/lukka/ref-assets
+    lukkaAssetMappings
+  reason: Serves normalised asset and entity master records plus cross-reference mappings — the classic
+    master/reference data golden-copy surface, here for crypto instruments and venues.
+- tag: Reference Data - Asset Terms and Conditions
+  spec_file: lukka-reference-data-asset-terms-and-conditions-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: GET /v2/lukka/assets allLukkaAssets; GET /v2/lukka/assets/LA3YA6GC8Y5 A Lukka Asset and its
+    Details
+  reason: Instrument master records with descriptive terms and details for crypto assets; this is security/instrument
+    reference-data mastering rather than any trading or servicing process.
+- tag: Reference Data - Derivative Terms and Conditions
+  spec_file: lukka-reference-data-derivative-terms-and-conditions-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: GET /v2/lukka/derivatives allDerivatives; GET /v2/lukka/derivatives/L-DERI-OPT-BTC-BTC-C-43000-20210917
+    A Derivative and its Details
+  reason: Instrument master data for derivative contracts (option strike/expiry encoded in the identifier).
+    Contract terms and conditions reference data is master data management, not trading or risk computation.
+- tag: Reference Data - Marketplace Terms and Conditions
+  spec_file: lukka-reference-data-marketplace-terms-and-conditions-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: '"The golden copy of crypto asset reference data: normalised assets, entities, marketplaces,
+    custodians, VASPs"; GET /v2/lukka/markets "All Marketplaces"'
+  reason: Reference-data master (golden copy) of marketplaces — this is master/reference data management,
+    not a trading or settlement capability. Mapped to Master Data Management with moderate confidence
+    given the tag is a narrow reference-data slice.
