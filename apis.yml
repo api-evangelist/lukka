@@ -10,6 +10,18 @@ description: Lukka is an enterprise crypto data and financial software company t
   Lukka one of the more agent-forward providers in the catalog. All access requires a Lukka account and per-product entitlement;
   there is no free tier or self-service signup.
 url: https://raw.githubusercontent.com/api-evangelist/lukka/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://lukka.tech/wp-content/uploads/2023/06/lukka-tech.png
 x-type: company
 x-source: harvest:secondary-market
