@@ -1,14 +1,15 @@
 aid: lukka
 name: Lukka
-description: Lukka is an enterprise crypto data and financial software company that produces institutional-grade digital
-  asset data for financial institutions, auditors, funds and corporates. Its products include Lukka Prime - the first fair-market-value
-  pricing methodology for crypto assets, aligned to GAAP, IFRS and SEC guidance - plus reference rates and indices, Lukka
-  Reference Data (a normalized 'golden copy' security master mapping thousands of crypto assets across hundreds of exchanges,
-  custodians and VASPs), market data, derivatives analytics, AML risk scoring across 108+ blockchains, on-chain data, news
-  intelligence and prediction markets. Data is delivered over REST, WebSocket streaming, FIX and SFTP, and - unusually for
-  this sector - through seven first-party hosted Model Context Protocol (MCP) servers with an official Claude plugin, making
-  Lukka one of the more agent-forward providers in the catalog. All access requires a Lukka account and per-product entitlement;
-  there is no free tier or self-service signup.
+description: Lukka is an enterprise crypto data and financial software company that produces institutional-grade
+  digital asset data for financial institutions, auditors, funds and corporates. Its products include
+  Lukka Prime - the first fair-market-value pricing methodology for crypto assets, aligned to GAAP, IFRS
+  and SEC guidance - plus reference rates and indices, Lukka Reference Data (a normalized 'golden copy'
+  security master mapping thousands of crypto assets across hundreds of exchanges, custodians and VASPs),
+  market data, derivatives analytics, AML risk scoring across 108+ blockchains, on-chain data, news intelligence
+  and prediction markets. Data is delivered over REST, WebSocket streaming, FIX and SFTP, and - unusually
+  for this sector - through seven first-party hosted Model Context Protocol (MCP) servers with an official
+  Claude plugin, making Lukka one of the more agent-forward providers in the catalog. All access requires
+  a Lukka account and per-product entitlement; there is no free tier or self-service signup.
 url: https://raw.githubusercontent.com/api-evangelist/lukka/refs/heads/main/apis.yml
 deliveryModel:
   model: saas
@@ -42,7 +43,7 @@ x-type: company
 x-source: harvest:secondary-market
 specificationVersion: '0.23'
 created: '2026-08-04'
-modified: '2026-08-04'
+modified: '2026-09-16'
 tags:
 - Crypto
 - Digital Assets
@@ -71,11 +72,10 @@ tags_raw:
 - MCP
 apis:
 - name: Lukka Market Data Streaming API
-  description: >-
-    WebSocket streaming for executed trades, Level-1 order-book quotes, Lukka Prime pricing, Lukka Index
-    valuations, Standard and Median Reference Rates, real-time MVWAP, derivative Greeks and prediction-market
-    trades and quotes. Twelve channels across six hosts, authenticated with the same Okta JWT passed as
-    an access_token query parameter and reauthorized in-band.
+  description: WebSocket streaming for executed trades, Level-1 order-book quotes, Lukka Prime pricing,
+    Lukka Index valuations, Standard and Median Reference Rates, real-time MVWAP, derivative Greeks and
+    prediction-market trades and quotes. Twelve channels across six hosts, authenticated with the same
+    Okta JWT passed as an access_token query parameter and reauthorized in-band.
   humanURL: https://apidocs.lukka.tech/
   baseURL: wss://market-data-ws.lukka.tech
   tags:
@@ -89,12 +89,11 @@ apis:
   - type: Documentation
     url: https://apidocs.lukka.tech/
 - name: Lukka MCP Servers
-  description: >-
-    Seven first-party hosted Model Context Protocol servers exposing 69 read-only tools over Lukka pricing,
-    reference data, AML risk scoring, on-chain data, analytics, news intelligence and prediction markets.
-    Streamable HTTP with OAuth 2.0 authorization code + PKCE and Dynamic Client Registration; documented
-    for Claude Code, Claude Desktop, Claude Cowork, the ChatGPT app and OpenAI Codex CLI. AML, on-chain
-    and news are MCP-only - they have no public REST contract.
+  description: Seven first-party hosted Model Context Protocol servers exposing 69 read-only tools over
+    Lukka pricing, reference data, AML risk scoring, on-chain data, analytics, news intelligence and prediction
+    markets. Streamable HTTP with OAuth 2.0 authorization code + PKCE and Dynamic Client Registration;
+    documented for Claude Code, Claude Desktop, Claude Cowork, the ChatGPT app and OpenAI Codex CLI. AML,
+    on-chain and news are MCP-only - they have no public REST contract.
   humanURL: https://github.com/lukkatech/lukka-mcps
   baseURL: https://pricing.mcp.lukka.tech
   tags:
@@ -121,9 +120,9 @@ apis:
   - type: ChangeLog
     url: https://github.com/lukkatech/lukka-mcps/blob/main/docs/CHANGELOG.md
 - aid: lukka:lukka-analytics-analytics-api-api
-  name: Lukka Analytics - Analytics API API
-  description: >-
-    The Analytics - Analytics API API from Lukka — 3 operation(s) for analytics - analytics api.
+  name: Lukka Analytics - Analytics API
+  description: The Analytics - Analytics API API from Lukka — 3 operation(s) for analytics - analytics
+    api.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -145,8 +144,7 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-analytics-derived-data-api
   name: Lukka Analytics - Derived Data API
-  description: >-
-    The Analytics - Derived Data API from Lukka — 3 operation(s) for analytics - derived data.
+  description: The Analytics - Derived Data API from Lukka — 3 operation(s) for analytics - derived data.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -190,8 +188,7 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-market-data-derivatives-api
   name: Lukka Market Data - Derivatives API
-  description: >-
-    The Market Data - Derivatives API from Lukka — 8 operation(s) for market data - derivatives.
+  description: The Market Data - Derivatives API from Lukka — 8 operation(s) for market data - derivatives.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -213,9 +210,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-market-data-downloadable-data-csv-api
   name: Lukka Market Data - Downloadable Data (CSV) API
-  description: >-
-    The Market Data - Downloadable Data (CSV) API from Lukka — 4 operation(s) for market data - downloadable
-    data (csv).
+  description: The Market Data - Downloadable Data (CSV) API from Lukka — 4 operation(s) for market data
+    - downloadable data (csv).
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -237,9 +233,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-market-data-prediction-markets-api
   name: Lukka Market Data - Prediction Markets API
-  description: >-
-    The Market Data - Prediction Markets API from Lukka — 5 operation(s) for market data - prediction
-    markets.
+  description: The Market Data - Prediction Markets API from Lukka — 5 operation(s) for market data -
+    prediction markets.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -305,8 +300,7 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-pricing-legacy-versions-api
   name: Lukka Pricing - Legacy Versions API
-  description: >-
-    The Pricing - Legacy Versions API from Lukka — 2 operation(s) for pricing - legacy versions.
+  description: The Pricing - Legacy Versions API from Lukka — 2 operation(s) for pricing - legacy versions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -350,9 +344,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-asset-terms-and-conditions-api
   name: Lukka Reference Data - Asset Terms and Conditions API
-  description: >-
-    The Reference Data - Asset Terms and Conditions API from Lukka — 3 operation(s) for reference data
-    - asset terms and conditions.
+  description: The Reference Data - Asset Terms and Conditions API from Lukka — 3 operation(s) for reference
+    data - asset terms and conditions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags: []
@@ -375,8 +368,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-crypto-actions-api
   name: Lukka Reference Data - Crypto Actions API
-  description: >-
-    The Reference Data - Crypto Actions API from Lukka — 2 operation(s) for reference data - crypto actions.
+  description: The Reference Data - Crypto Actions API from Lukka — 2 operation(s) for reference data
+    - crypto actions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -398,9 +391,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-custodian-terms-and-conditions-api
   name: Lukka Reference Data - Custodian Terms and Conditions API
-  description: >-
-    The Reference Data - Custodian Terms and Conditions API from Lukka — 2 operation(s) for reference
-    data - custodian terms and conditions.
+  description: The Reference Data - Custodian Terms and Conditions API from Lukka — 2 operation(s) for
+    reference data - custodian terms and conditions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags: []
@@ -423,8 +415,7 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-deprecated-api
   name: Lukka Reference Data (Deprecated) API
-  description: >-
-    The Reference Data (Deprecated) API from Lukka — 8 operation(s) for reference data (deprecated).
+  description: The Reference Data (Deprecated) API from Lukka — 8 operation(s) for reference data (deprecated).
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -446,9 +437,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-derivative-terms-and-conditions-api
   name: Lukka Reference Data - Derivative Terms and Conditions API
-  description: >-
-    The Reference Data - Derivative Terms and Conditions API from Lukka — 2 operation(s) for reference
-    data - derivative terms and conditions.
+  description: The Reference Data - Derivative Terms and Conditions API from Lukka — 2 operation(s) for
+    reference data - derivative terms and conditions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags: []
@@ -471,9 +461,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-mapping-and-normalization-api
   name: Lukka Reference Data - Mapping and Normalization API
-  description: >-
-    The Reference Data - Mapping and Normalization API from Lukka — 5 operation(s) for reference data
-    - mapping and normalization.
+  description: The Reference Data - Mapping and Normalization API from Lukka — 5 operation(s) for reference
+    data - mapping and normalization.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -495,9 +484,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-marketplace-terms-and-conditions-api
   name: Lukka Reference Data - Marketplace Terms and Conditions API
-  description: >-
-    The Reference Data - Marketplace Terms and Conditions API from Lukka — 2 operation(s) for reference
-    data - marketplace terms and conditions.
+  description: The Reference Data - Marketplace Terms and Conditions API from Lukka — 2 operation(s) for
+    reference data - marketplace terms and conditions.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags: []
@@ -520,9 +508,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-prediction-markets-api
   name: Lukka Reference Data - Prediction Markets API
-  description: >-
-    The Reference Data - Prediction Markets API from Lukka — 2 operation(s) for reference data - prediction
-    markets.
+  description: The Reference Data - Prediction Markets API from Lukka — 2 operation(s) for reference data
+    - prediction markets.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags:
@@ -566,9 +553,8 @@ apis:
     url: https://apidocs-refdata.lukka.tech/
 - aid: lukka:lukka-reference-data-virtual-asset-serivce-providers-api
   name: Lukka Reference Data - Virtual Asset Serivce Providers API
-  description: >-
-    The Reference Data - Virtual Asset Serivce Providers API from Lukka — 1 operation(s) for reference
-    data - virtual asset serivce providers.
+  description: The Reference Data - Virtual Asset Serivce Providers API from Lukka — 1 operation(s) for
+    reference data - virtual asset serivce providers.
   humanURL: https://apidocs.lukka.tech/
   baseURL: https://data-pricing-api.lukka.tech
   tags: []
