@@ -209,7 +209,13 @@ paths:
       summary: Get Historical Spot Trades
       tags:
       - Market Data - Spot
-      description: "Description: Get the trade history.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.\n\n All requests are limited to 3600 records."
+      description: 'Description: Get the trade history.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.
+
+
+        All requests are limited to 3600 records.'
       parameters:
       - name: sourceId
         in: path
@@ -305,7 +311,10 @@ paths:
       summary: Get Historical Staking Rates by Asset
       tags:
       - Market Data - Spot
-      description: "Description: Get the staking rate history for a single asset from a specified Source ID (5003 or 5004).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      description: 'Description: Get the staking rate history for a single asset from a specified Source ID (5003 or 5004).
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.'
       parameters:
       - name: sourceId
         in: path
@@ -449,7 +458,10 @@ paths:
       summary: Get Order Book Snapshot (SPOT)
       tags:
       - Market Data - Spot
-      description: "This endpoint provides a reconstructed view of the Level 2 (L2) Order Book state at precise 15-second intervals. It bridges the gap between high-frequency raw data and accessible historical analysis by aggregating incremental updates into a static \"snapshot\" of the market depth.\n\n depth = levels per side (0 = unlimited). lookback is in milliseconds (default 3600000, max 172800000)."
+      description: 'This endpoint provides a reconstructed view of the Level 2 (L2) Order Book state at precise 15-second intervals. It bridges the gap between high-frequency raw data and accessible historical analysis by aggregating incremental updates into a static "snapshot" of the market depth.
+
+
+        depth = levels per side (0 = unlimited). lookback is in milliseconds (default 3600000, max 172800000).'
       parameters:
       - name: pairCodes
         in: query
@@ -522,7 +534,10 @@ paths:
       summary: Get Slippage by Pair
       tags:
       - Market Data - Spot
-      description: "This endpoint calculates estimated market slippage for a given trading pair based on live order book snapshots. It simulates walking the order book for both a buy and a sell of the requested trade size, returning VWAP-based slippage metrics relative to the mid-price or best bid/ask. One result is returned per snapshot found within a 1-6 minute lookback window for the requested timestamp.\n\n Lukka canonical pair code is required, must end in -USD."
+      description: 'This endpoint calculates estimated market slippage for a given trading pair based on live order book snapshots. It simulates walking the order book for both a buy and a sell of the requested trade size, returning VWAP-based slippage metrics relative to the mid-price or best bid/ask. One result is returned per snapshot found within a 1-6 minute lookback window for the requested timestamp.
+
+
+        Lukka canonical pair code is required, must end in -USD.'
       parameters:
       - name: pairCode
         in: path

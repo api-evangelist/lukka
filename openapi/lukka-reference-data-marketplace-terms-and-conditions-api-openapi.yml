@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Reference Data Reference Data - Marketplace Terms and Conditions API
+  title: Lukka Reference Data Reference Data - Marketplace Terms and…
   version: 1.0.0
   description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
   contact:
@@ -24,7 +24,19 @@ paths:
       summary: All Marketplaces
       tags:
       - Reference Data - Marketplace Terms and Conditions
-      description: "Get a list of all known markets within Lukka that apply to Lukka Marketplace Reference Data (\"LMPRD\")\n\n Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a marketplace.\n\n Marketplaces that are eligible to be tracked within the Lukka Marketplace Reference Data are trading venues where transactions in cryptocurrencies take place. Such transactions include venues where cryptocurrencies, or derivatives of those cryptocurrencies, can be bought, sold, lent, borrowed or swapped for other cryptocurrencies or fiat currencies. Venue types include, but are not limited to: Centralized Exchanges, Decentralized Exchanges, Exchange Aggregators or Relayers, Lending Platforms, Over-The-Counter Desks or Brokers.\n\n Response Details \n\n Data Type Description name STRING Lukka's long name for the entity"
+      description: 'Get a list of all known markets within Lukka that apply to Lukka Marketplace Reference Data ("LMPRD")
+
+
+        Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a marketplace.
+
+
+        Marketplaces that are eligible to be tracked within the Lukka Marketplace Reference Data are trading venues where transactions in cryptocurrencies take place. Such transactions include venues where cryptocurrencies, or derivatives of those cryptocurrencies, can be bought, sold, lent, borrowed or swapped for other cryptocurrencies or fiat currencies. Venue types include, but are not limited to: Centralized Exchanges, Decentralized Exchanges, Exchange Aggregators or Relayers, Lending Platforms, Over-The-Counter Desks or Brokers.
+
+
+        Response Details
+
+
+        Data Type Description name STRING Lukka''s long name for the entity'
       parameters:
       - name: limit
         in: query
@@ -164,7 +176,19 @@ paths:
       summary: A Marketplace and its Details
       tags:
       - Reference Data - Marketplace Terms and Conditions
-      description: "Get all known details for a given Lukka Marketplace Identifier from the Lukka Marketplace Reference Data (\"LMPRD\") Product\n\n Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a marketplace.\n\n Marketplaces that are eligible to be tracked within the Lukka Marketplace Reference Data are trading venues where transactions in cryptocurrencies take place. Such transactions include venues where cryptocurrencies, or derivatives of those cryptocurrencies, can be bought, sold, lent, borrowed or swapped for other cryptocurrencies or fiat currencies. Venue types include, but are not limited to: Centralized Exchanges, Decentralized Exchanges, Exchange Aggregators or Relayers, Lending Platforms, Over-The-Counter Desks or Brokers.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity"
+      description: 'Get all known details for a given Lukka Marketplace Identifier from the Lukka Marketplace Reference Data ("LMPRD") Product
+
+
+        Lukka Marketplace Data provides information about cryptocurrency marketplaces (i.e. an exchange or other marketplace such as OTC trading desks). The dataset provides its users information about the market type, legal entities, location, applicable regulatory licenses, compliance, certifications, technology, trading details, operating status, successor markets and various information about a marketplace.
+
+
+        Marketplaces that are eligible to be tracked within the Lukka Marketplace Reference Data are trading venues where transactions in cryptocurrencies take place. Such transactions include venues where cryptocurrencies, or derivatives of those cryptocurrencies, can be bought, sold, lent, borrowed or swapped for other cryptocurrencies or fiat currencies. Venue types include, but are not limited to: Centralized Exchanges, Decentralized Exchanges, Exchange Aggregators or Relayers, Lending Platforms, Over-The-Counter Desks or Brokers.
+
+
+        Response Details
+
+
+        Field Name Data Type Description name STRING Lukka''s long name for the entity'
       responses:
         '200':
           description: A Market and its Details

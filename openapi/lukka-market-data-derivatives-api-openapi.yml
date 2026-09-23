@@ -24,7 +24,10 @@ paths:
       summary: Get Candles by Exchange Source (Derivative)
       tags:
       - Market Data - Derivatives
-      description: "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of transactions that can be returned in a single payload then a next_url variable will be returned at the end of the response. The next_url is used to paginate the response and can be called to request the next batch of transactions prior to what was returned. next_url will continue to be included in the response until all of the requested transactions have been returned."
+      description: 'Description: Get the price history for a single pair.
+
+
+        If the response exceeds the maximum number of transactions that can be returned in a single payload then a next_url variable will be returned at the end of the response. The next_url is used to paginate the response and can be called to request the next batch of transactions prior to what was returned. next_url will continue to be included in the response until all of the requested transactions have been returned.'
       parameters:
       - name: sourceId
         in: path
@@ -372,7 +375,13 @@ paths:
       summary: Get Latest Derivative Trades
       tags:
       - Market Data - Derivatives
-      description: "Description: Get the Latest Trades for derivative instruments from a specific Source ID.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n lookback is specified in minutes (not milliseconds)."
+      description: 'Description: Get the Latest Trades for derivative instruments from a specific Source ID.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.
+
+
+        lookback is specified in minutes (not milliseconds).'
       parameters:
       - name: sourceId
         in: path
@@ -453,7 +462,13 @@ paths:
       summary: Get Historical Mark Prices
       tags:
       - Market Data - Derivatives
-      description: "Description: Get the mark price history for a specific derivative instrument from a specified Source ID.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n interval (milliseconds) allowed values: 1000, 5000, 30000, 60000, 300000, 1800000, 3600000, 86400000."
+      description: 'Description: Get the mark price history for a specific derivative instrument from a specified Source ID.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.
+
+
+        interval (milliseconds) allowed values: 1000, 5000, 30000, 60000, 300000, 1800000, 3600000, 86400000.'
       parameters:
       - name: sourceId
         in: path

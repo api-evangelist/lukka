@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Valuation (Data Calculation) Analytics - Valuations API
+  title: Lukka Valuation (Data Calculation) Analytics - Valuations…
   version: 1.0.0
   description: 'Bespoke pricing and valuation calculations for digital asset derivatives: submit a calculation run, poll its status and retrieve results.'
   contact:

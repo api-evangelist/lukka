@@ -24,7 +24,16 @@ paths:
       summary: Available Sources by Product
       tags:
       - Pricing
-      description: "Description: Gets all configured sources for the client based on a defined product type. An array of sources available, based on API key permissions and inputted product type will be returned by this endpoint.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/{productType} \n\n Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative"
+      description: 'Description: Gets all configured sources for the client based on a defined product type. An array of sources available, based on API key permissions and inputted product type will be returned by this endpoint.
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/pricing/sources/details/{productType}
+
+
+        Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative'
       parameters:
       - name: productType
         in: path
@@ -41,7 +50,19 @@ paths:
       summary: Get Source Details by Product
       tags:
       - Pricing
-      description: "Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata that it supports.\n\n This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}\n\n Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative"
+      description: 'Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata that it supports.
+
+
+        This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}
+
+
+        Available Product types include: prices, variances, mvwaps, trades, candles, market-caps, indices, quotes, order-book-liquidity-spot, order-book-liquidity-derivative'
       parameters:
       - name: productType
         in: path
@@ -83,7 +104,19 @@ paths:
       summary: Get Derivative Source Details (Paginated)
       tags:
       - Pricing
-      description: "Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata.\n\n This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}/derivatives\n\n Response is paginated via a nextPageUrl cursor. Available Product types are the same as the other /sources/details/* endpoints."
+      description: 'Description: Get the details for the given product type and specified pricing/market data source ID. Each source object will contain an array of pairs and additional metadata.
+
+
+        This endpoint will only return the instruments for a given source ID that are permissioned for that specific Client API KEY
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/pricing/sources/details/ {productType}/{sourceID}/derivatives
+
+
+        Response is paginated via a nextPageUrl cursor. Available Product types are the same as the other /sources/details/* endpoints.'
       parameters:
       - name: productType
         in: path
@@ -106,7 +139,13 @@ paths:
       summary: Get Latest Prices
       tags:
       - Pricing
-      description: "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices."
+      description: 'Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.
+
+
+        Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.
+
+
+        This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices.'
       parameters:
       - name: pairCodes
         in: query
@@ -138,7 +177,13 @@ paths:
       summary: Get Historical Prices
       tags:
       - Pricing
-      description: "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.\n\n This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices."
+      description: 'Description: Get the price history for a single pair.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned. nextPageUrl will continue to be included in the response until all of the requested records have been returned.
+
+
+        This endpoint is typically used to retrieve Lukka Prime (source 1000, 2000, 3000) or Exchange-level (source 4001–4999) prices.'
       parameters:
       - name: sourceId
         in: path
@@ -202,7 +247,13 @@ paths:
       summary: Get Price Variances by Pair
       tags:
       - Pricing
-      description: "Description: Get the price history for a single pair along with its market variances. For each exchange, daily volume, daily trade counts, hourly volume, and hourly trade counts are provided. Lukka Prime takes all these parameters into consideration when choosing a principal exchange for the minute's price.\n\n Exchanges under market variances are sorted in a descending order by its hourly volume .\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      description: 'Description: Get the price history for a single pair along with its market variances. For each exchange, daily volume, daily trade counts, hourly volume, and hourly trade counts are provided. Lukka Prime takes all these parameters into consideration when choosing a principal exchange for the minute''s price.
+
+
+        Exchanges under market variances are sorted in a descending order by its hourly volume .
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.'
       parameters:
       - name: sourceId
         in: path
@@ -269,7 +320,10 @@ paths:
       summary: Get Historical MVWAP by Pair
       tags:
       - Pricing
-      description: "Description: Get the MVWAP history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned."
+      description: 'Description: Get the MVWAP history for a single pair.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.'
       parameters:
       - name: sourceId
         in: path
@@ -328,7 +382,13 @@ paths:
       summary: Get Multi-Source VWAP by Pair
       tags:
       - Pricing
-      description: "Description: Get the 60 minute Volume Weighted Average Price (VWAP) for a given pair code and given Source Exchanges. The VWAP output price for any given timestamp is the volume-weighted price of all executed trades in the previous 60 minutes from the inputted list of Market Data Source IDs that support the requested Pair Code.\n\n Max date range is 7 days. periodicityCalculation and interval are both in milliseconds.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      description: 'Description: Get the 60 minute Volume Weighted Average Price (VWAP) for a given pair code and given Source Exchanges. The VWAP output price for any given timestamp is the volume-weighted price of all executed trades in the previous 60 minutes from the inputted list of Market Data Source IDs that support the requested Pair Code.
+
+
+        Max date range is 7 days. periodicityCalculation and interval are both in milliseconds.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.'
       parameters:
       - name: pairCode
         in: path
@@ -398,7 +458,10 @@ paths:
       summary: Get Latest Reference Rate
       tags:
       - Pricing
-      description: "Description: Get the latest Lukka Reference Rate as of the given timestamp for the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5001.\n\n Keep in mind the 2048 character limit in a GET request. The pairCodes query parameter should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs."
+      description: 'Description: Get the latest Lukka Reference Rate as of the given timestamp for the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for the given sourceID. Example uses source 5001.
+
+
+        Keep in mind the 2048 character limit in a GET request. The pairCodes query parameter should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.'
       parameters:
       - name: pairCodes
         in: query
@@ -424,7 +487,13 @@ paths:
       summary: Get Historical Reference Rate by Pair
       tags:
       - Pricing
-      description: "Description: Get the Lukka Reference Rate history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n interval must be 3600000 (1h) or 86400000 (1d)."
+      description: 'Description: Get the Lukka Reference Rate history for a single pair.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.
+
+
+        interval must be 3600000 (1h) or 86400000 (1d).'
       parameters:
       - name: pairCode
         in: path
@@ -477,7 +546,13 @@ paths:
       summary: Get Latest Index Prices
       tags:
       - Pricing
-      description: "Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.\n\n Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.\n\n sourceId must match the 6xxx (indices) range. Default lookback is 5400000 ms (90 min)."
+      description: 'Description: Get the price as of the given timestamp from the given pair codes. If pairCodes is left blank, then all pairCodes will be listed for given sourceID.
+
+
+        Keep in mind of the 2048 character limit in a GET request. The pairCodes query parameters should only be used to get a small sub-set of prices. Otherwise use default, which is ALL pairs.
+
+
+        sourceId must match the 6xxx (indices) range. Default lookback is 5400000 ms (90 min).'
       parameters:
       - name: sourceId
         in: path
@@ -564,7 +639,13 @@ paths:
       summary: Get Historical Index Prices
       tags:
       - Pricing
-      description: "Description: Get the price history for a single pair.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.\n\n sourceId must match the 6xxx (indices) range."
+      description: 'Description: Get the price history for a single pair.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response. The nextPageUrl is used to paginate the response and can be called to request the next batch of records prior to what was returned.
+
+
+        sourceId must match the 6xxx (indices) range.'
       parameters:
       - name: sourceId
         in: path

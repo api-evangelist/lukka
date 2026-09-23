@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Reference Data Reference Data - Asset Terms and Conditions API
+  title: Lukka Reference Data Reference Data - Asset Terms and…
   version: 1.0.0
   description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
   contact:
@@ -24,7 +24,13 @@ paths:
       summary: All Lukka Assets
       tags:
       - Reference Data - Asset Terms and Conditions
-      description: "The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio performance measurement and evaluation, pre and post-trade analysis and risk management assessments.\n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the asset type, the asset’s structure, participants, how the supply is determined, underlying asset information (if applicable) and other various pieces of reference data. In total, the dataset tracks over 100 fields for its users.\n\n Digital assets and derivative products on digital assets are eligible for addition to the Lukka Reference Data product."
+      description: 'The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio performance measurement and evaluation, pre and post-trade analysis and risk management assessments.
+
+
+        The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the asset type, the asset’s structure, participants, how the supply is determined, underlying asset information (if applicable) and other various pieces of reference data. In total, the dataset tracks over 100 fields for its users.
+
+
+        Digital assets and derivative products on digital assets are eligible for addition to the Lukka Reference Data product.'
       parameters:
       - name: limit
         in: query
@@ -276,7 +282,13 @@ paths:
       summary: A Lukka Asset and its Details
       tags:
       - Reference Data - Asset Terms and Conditions
-      description: "The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio performance measurement and evaluation, pre and post-trade analysis and risk management assessments.\n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the asset type, the asset’s structure, participants, how the supply is determined, underlying asset information (if applicable) and other various pieces of reference data. In total, the dataset tracks over 100 fields for its users.\n\n Digital assets and derivative products on digital assets are eligible for addition to the Lukka Reference Data product."
+      description: 'The Lukka Reference Data (“LRD”) product is a comprehensive security master for digital assets. LRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, standardized and normalized data source for digital asset reference data. Furthermore, LRD provides a means to conduct a multitude of digital asset investment activities including: researching trading strategies, quantitative research, benchmark construction, portfolio performance measurement and evaluation, pre and post-trade analysis and risk management assessments.
+
+
+        The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the asset type, the asset’s structure, participants, how the supply is determined, underlying asset information (if applicable) and other various pieces of reference data. In total, the dataset tracks over 100 fields for its users.
+
+
+        Digital assets and derivative products on digital assets are eligible for addition to the Lukka Reference Data product.'
       responses:
         '200':
           description: A Lukka Asset and its Details

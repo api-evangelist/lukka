@@ -1,0 +1,26 @@
+# Front Door AI Index — lukka — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: lukka
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: lukka.tech
+  final_host: lukka.tech
+  ownership: own
+  owner: lukka
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 4
+  host_score: 4
+  density: 1.76
+  words: 2270
+  tiers:
+    agentic: 4
+    core: 0
+    model: 0
+  ambiguous: 12
+  top_terms:
+    intelligence: 12
+    MCP: 4

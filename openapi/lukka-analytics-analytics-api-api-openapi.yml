@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Analytics Analytics - Analytics API API
+  title: Lukka Analytics Analytics - Analytics API
   version: 1.0.0
   description: 'Derived analytics for digital assets: implied interest rate curves, OTC FX implied rates and options implied volatility surfaces.'
   contact:

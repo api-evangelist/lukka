@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Reference Data Reference Data (Deprecated) Reference Data (Deprecated) API
+  title: Lukka Reference Data Reference Data (Deprecated) API
   version: 1.0.0
   description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
   contact:
@@ -24,7 +24,94 @@ paths:
       summary: All Lukka Assets
       tags:
       - Reference Data (Deprecated)
-      description: "Get a list of all the Lukka normalized assets with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n lukkaId \n STRING \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n STRING \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n STRING \n Lukka's long name for the asset \n \n \n whitepaperCode \n STRING \n Ticker of the crypto asset found in the primary source \n \n \n assetType \n STRING \n Type of crypto asset such as coin, token, stablecoin, etc. \n \n \n totalSupply \n STRING \n Total supply of assets that can enter circulation \n \n \n cuirculatingSupply \n STRING \n Assets active and currently in circulation \n \n \n supplyUpdateTime \n DATE \n Time when the circulating supply was updated \n \n \n assetWebsite \n STRING \n Official website of the asset or primary source of asset information \n \n \n blockchain \n STRING \n Blockchain on which the asset resides \n \n \n contractAddress \n STRING \n The address of the contract of an asset in its respective blockchain"
+      description: 'Get a list of all the Lukka normalized assets with details.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Description
+
+
+        lukkaId
+
+        STRING
+
+        11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information
+
+
+        lukkaAssetCode
+
+        STRING
+
+        Lukka normalized unique asset code (ticker)
+
+
+        lukkaAssetName
+
+        STRING
+
+        Lukka''s long name for the asset
+
+
+        whitepaperCode
+
+        STRING
+
+        Ticker of the crypto asset found in the primary source
+
+
+        assetType
+
+        STRING
+
+        Type of crypto asset such as coin, token, stablecoin, etc.
+
+
+        totalSupply
+
+        STRING
+
+        Total supply of assets that can enter circulation
+
+
+        cuirculatingSupply
+
+        STRING
+
+        Assets active and currently in circulation
+
+
+        supplyUpdateTime
+
+        DATE
+
+        Time when the circulating supply was updated
+
+
+        assetWebsite
+
+        STRING
+
+        Official website of the asset or primary source of asset information
+
+
+        blockchain
+
+        STRING
+
+        Blockchain on which the asset resides
+
+
+        contractAddress
+
+        STRING
+
+        The address of the contract of an asset in its respective blockchain'
       parameters:
       - name: limit
         in: query
@@ -154,7 +241,107 @@ paths:
       summary: A Lukka Asset
       tags:
       - Reference Data (Deprecated)
-      description: "Get a Lukka normalized asset by its Lukka ID.\n\n Parameters \n\n \n \n \n Field Name \n Mandatory \n \n \n lukkaId \n YES \n \n \n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n lukkaId \n STRING \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n STRING \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n STRING \n Lukka's long name for the asset \n \n \n whitepaperCode \n STRING \n Ticker of the crypto asset found in the primary source \n \n \n assetType \n STRING \n Type of crypto asset such as coin, token, stablecoin, etc. \n \n \n totalSupply \n STRING \n Total supply of assets that can enter circulation \n \n \n cuirculatingSupply \n STRING \n Assets active and currently in circulation \n \n \n supplyUpdateTime \n DATE \n Time when the circulating supply was updated \n \n \n assetWebsite \n STRING \n Official website of the asset or primary source of asset information \n \n \n blockchain \n STRING \n Blockchain on which the asset resides \n \n \n contractAddress \n STRING \n The address of the contract of an asset in its respective blockchain"
+      description: 'Get a Lukka normalized asset by its Lukka ID.
+
+
+        Parameters
+
+
+        Field Name
+
+        Mandatory
+
+
+        lukkaId
+
+        YES
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Description
+
+
+        lukkaId
+
+        STRING
+
+        11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information
+
+
+        lukkaAssetCode
+
+        STRING
+
+        Lukka normalized unique asset code (ticker)
+
+
+        lukkaAssetName
+
+        STRING
+
+        Lukka''s long name for the asset
+
+
+        whitepaperCode
+
+        STRING
+
+        Ticker of the crypto asset found in the primary source
+
+
+        assetType
+
+        STRING
+
+        Type of crypto asset such as coin, token, stablecoin, etc.
+
+
+        totalSupply
+
+        STRING
+
+        Total supply of assets that can enter circulation
+
+
+        cuirculatingSupply
+
+        STRING
+
+        Assets active and currently in circulation
+
+
+        supplyUpdateTime
+
+        DATE
+
+        Time when the circulating supply was updated
+
+
+        assetWebsite
+
+        STRING
+
+        Official website of the asset or primary source of asset information
+
+
+        blockchain
+
+        STRING
+
+        Blockchain on which the asset resides
+
+
+        contractAddress
+
+        STRING
+
+        The address of the contract of an asset in its respective blockchain'
       responses:
         '200':
           description: A Lukka Asset
@@ -179,7 +366,87 @@ paths:
       summary: All Lukka Entities
       tags:
       - Reference Data (Deprecated)
-      description: "Get a list of all the Lukka entities with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n name \n STRING \n Lukka's long name for the entity \n \n \n lukkaEntityCode \n STRING \n Unique Lukka code for the source entity \n \n \n type \n STRING \n The main function of the entity in the crypto ecosystem \n \n \n jurisdiction \n STRING \n The location of the entity where it is registered \n \n \n status \n STRING \n Indicates if the entity is still operational in the crypto ecosystem \n \n \n url \n STRING \n Official website of the entity \n \n \n startTs \n DATE \n The date when the entity started operating \n \n \n endTs \n DATE \n The date when the entity stopped operating, if the entity is no longer active \n \n \n fiat \n STRING \n The fiats supported by the entity for trading \n \n \n amlKycProcess \n STRING \n Indicates if the entity has an AML/KYC process when onboarding customers"
+      description: 'Get a list of all the Lukka entities with details.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Description
+
+
+        name
+
+        STRING
+
+        Lukka''s long name for the entity
+
+
+        lukkaEntityCode
+
+        STRING
+
+        Unique Lukka code for the source entity
+
+
+        type
+
+        STRING
+
+        The main function of the entity in the crypto ecosystem
+
+
+        jurisdiction
+
+        STRING
+
+        The location of the entity where it is registered
+
+
+        status
+
+        STRING
+
+        Indicates if the entity is still operational in the crypto ecosystem
+
+
+        url
+
+        STRING
+
+        Official website of the entity
+
+
+        startTs
+
+        DATE
+
+        The date when the entity started operating
+
+
+        endTs
+
+        DATE
+
+        The date when the entity stopped operating, if the entity is no longer active
+
+
+        fiat
+
+        STRING
+
+        The fiats supported by the entity for trading
+
+
+        amlKycProcess
+
+        STRING
+
+        Indicates if the entity has an AML/KYC process when onboarding customers'
       parameters:
       - name: limit
         in: query
@@ -259,7 +526,100 @@ paths:
       summary: An Entity
       tags:
       - Reference Data (Deprecated)
-      description: "Get an entity by its Lukka Entity Code.\n\n Parameters \n\n \n \n \n Field Name \n Mandatory \n \n \n lukkaEntityCode \n YES \n \n \n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Description \n \n \n name \n STRING \n Lukka's long name for the entity \n \n \n lukkaEntityCode \n STRING \n Unique Lukka code for the source entity \n \n \n type \n STRING \n The main function of the entity in the crypto ecosystem \n \n \n jurisdiction \n STRING \n The location of the entity where it is registered \n \n \n status \n STRING \n Indicates if the entity is still operational in the crypto ecosystem \n \n \n url \n STRING \n Official website of the entity \n \n \n startTs \n DATE \n The date when the entity started operating \n \n \n endTs \n DATE \n The date when the entity stopped operating, if the entity is no longer active \n \n \n fiat \n STRING \n The fiats supported by the entity for trading \n \n \n amlKycProcess \n STRING \n Indicates if the entity has an AML/KYC process when onboarding customers"
+      description: 'Get an entity by its Lukka Entity Code.
+
+
+        Parameters
+
+
+        Field Name
+
+        Mandatory
+
+
+        lukkaEntityCode
+
+        YES
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Description
+
+
+        name
+
+        STRING
+
+        Lukka''s long name for the entity
+
+
+        lukkaEntityCode
+
+        STRING
+
+        Unique Lukka code for the source entity
+
+
+        type
+
+        STRING
+
+        The main function of the entity in the crypto ecosystem
+
+
+        jurisdiction
+
+        STRING
+
+        The location of the entity where it is registered
+
+
+        status
+
+        STRING
+
+        Indicates if the entity is still operational in the crypto ecosystem
+
+
+        url
+
+        STRING
+
+        Official website of the entity
+
+
+        startTs
+
+        DATE
+
+        The date when the entity started operating
+
+
+        endTs
+
+        DATE
+
+        The date when the entity stopped operating, if the entity is no longer active
+
+
+        fiat
+
+        STRING
+
+        The fiats supported by the entity for trading
+
+
+        amlKycProcess
+
+        STRING
+
+        Indicates if the entity has an AML/KYC process when onboarding customers'
       responses:
         '200':
           description: An Entity
@@ -288,7 +648,144 @@ paths:
       summary: Lukka Asset Mappings
       tags:
       - Reference Data (Deprecated)
-      description: "Get the cross reference of all the assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityAssetCode \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entityAssetName \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entityAssetInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entityWithdrawalFeeAssetCode \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entityWithdrawalFeeAmount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entityWithdrawalFeeType \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukkaAssetId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukkaAssetName \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed"
+      description: 'Get the cross reference of all the assets supported by an entity mapped to Lukka normalized assets.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entityName
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entityCode
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code for the source entity
+
+
+        entityType
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entityAssetCode
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) provided by the source entity
+
+
+        entityAssetName
+
+        CHARACTER
+
+        256
+
+        Asset name provided by the source entity
+
+
+        entityAssetInternalId
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the asset
+
+
+        entityWithdrawalFeeAssetCode
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when withdrawing the asset
+
+
+        entityWithdrawalFeeAmount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when withdrawing the asset
+
+
+        entityWithdrawalFeeType
+
+        CHARACTER
+
+        256
+
+        Indicates if the withdrawal fee charged is a percentage or unit
+
+
+        lukkaAssetId
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information
+
+
+        lukkaAssetCode
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker)
+
+
+        lukkaAssetName
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the asset
+
+
+        startTime
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset
+
+
+        endTime
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed'
       parameters:
       - name: entityCode
         in: query
@@ -358,7 +855,248 @@ paths:
       summary: Lukka Pair Mappings
       tags:
       - Reference Data (Deprecated)
-      description: "Get the cross reference of all the pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityPairCode \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entityAssetOneCode \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entityAssetOneName \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entityAssetOneInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entityAssetTwoCode \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entityAssetTwoName \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entityAssetTwoInternalId \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entityPricePrecision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entityQuantityPrecision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entityMinimumTickSize \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entityMinimumTradeQuantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entityTradeFeeAssetCode \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entityTradeFeeAmount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entityTradeFeeType \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukkaPairCode \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukkaAssetOneId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetOneCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukkaAssetOneName \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukkaAssetTwoId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukkaAssetTwoCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukkaAssetTwoName \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the tim"
+      description: 'Get the cross reference of all the pairs supported by an entity mapped to Lukka normalized pairs.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entityName
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entityCode
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code for the source entity
+
+
+        entityType
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entityPairCode
+
+        CHARACTER
+
+        256
+
+        Pair code provided by the source entity
+
+
+        entityAssetOneCode
+
+        CHARACTER
+
+        256
+
+        Base asset code (ticker) of the pair provided by the source entity
+
+
+        entityAssetOneName
+
+        CHARACTER
+
+        256
+
+        Base asset name of the pair provided by the source entity
+
+
+        entityAssetOneInternalId
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the base asset
+
+
+        entityAssetTwoCode
+
+        CHARACTER
+
+        256
+
+        Counter asset code (ticker) of the pair provided by the source entity
+
+
+        entityAssetTwoName
+
+        CHARACTER
+
+        256
+
+        Counter asset name of the pair provided by the source entity
+
+
+        entityAssetTwoInternalId
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the counter asset
+
+
+        entityPricePrecision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the price is rounded off by the source entity
+
+
+        entityQuantityPrecision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the quantity traded is rounded off by the source entity
+
+
+        entityMinimumTickSize
+
+        NUMERIC
+
+
+        Smallest price increment in which the source entity prices are quoted
+
+
+        entityMinimumTradeQuantity
+
+        NUMERIC
+
+
+        Minimum amount of base asset allowed by the source entity to be traded
+
+
+        entityTradeFeeAssetCode
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when trading
+
+
+        entityTradeFeeAmount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when trading
+
+
+        entityTradeFeeType
+
+        CHARACTER
+
+        256
+
+        Indicates if the trade fee charged is a percentage or unit
+
+
+        lukkaPairCode
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique pair code
+
+
+        lukkaAssetOneId
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information
+
+
+        lukkaAssetOneCode
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the base asset
+
+
+        lukkaAssetOneName
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the base asset
+
+
+        lukkaAssetTwoId
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information
+
+
+        lukkaAssetTwoCode
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the counter asset
+
+
+        lukkaAssetTwoName
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the counter asset
+
+
+        startTime
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair
+
+
+        endTime
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the tim'
       parameters:
       - name: lukkaCounterAssetCode
         in: query
@@ -494,7 +1232,197 @@ paths:
       summary: Lukka Derivative Mappings
       tags:
       - Reference Data (Deprecated)
-      description: "Get the list of all the contracts supported by an entity.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entityName \n CHARACTER \n 256 \n Name of the source entity \n \n \n entityCode \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entityType \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entityDerivativeCode \n CHARACTER \n 256 \n Code used by the source entity to uniquely identify the contract \n \n \n entityDerivativeName \n CHARACTER \n 256 \n Additional descriptive information provided by the source entity \n \n \n startTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the derivative contract was listed by the source entity \n \n \n endTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) for the expiration date of the contract provided by the source entity \n \n \n settlementTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) for the settlement time of the contract provided by the source entity \n \n \n instrumentType \n CHARACTER \n 256 \n Type of contract classified by the source entity \n \n \n instrumentSubtype \n CHARACTER \n 256 \n Additional information on the type of contract \n \n \n multiplier \n NUMERIC \n \n Value of one point of quoted price in quote currency for one contract. Contract size in futures trading is the amount of underlying asset represented by each futures contract \n \n \n strike \n NUMERIC \n \n Price at which the put or call option can be exercised \n \n \n entitySettleAssetCode \n CHARACTER \n 256 \n The asset in which a contract is settled \n \n \n entityUnderlyingAssetCode \n CHARACTER \n 256 \n The asset making up the contract and upon which the price is based \n \n \n entityQuoteAssetCode \n CHARACTER \n 256 \n The asset by which a contract is valued \n \n \n underlyingSymbol \n CHARACTER \n 256 \n Source entity-specific information such as underlying index, descriptive data, unique identifiers, etc. \n \n \n lukkaDerivativeId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto contract. Please refer to the Lukka ID document for more information \n \n \n lukkaSettleAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the settle asset. Please refer to the Lukka ID document for more information \n \n \n lukkaUnderlyingAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the underlying asset. Please refer to the Lukka ID document for more information \n \n \n lukkaQuoteAssetCode \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the quote asset. Please refer to the Lukka ID document for more information"
+      description: 'Get the list of all the contracts supported by an entity.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entityName
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entityCode
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code for the source entity
+
+
+        entityType
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entityDerivativeCode
+
+        CHARACTER
+
+        256
+
+        Code used by the source entity to uniquely identify the contract
+
+
+        entityDerivativeName
+
+        CHARACTER
+
+        256
+
+        Additional descriptive information provided by the source entity
+
+
+        startTime
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the derivative contract was listed by the source entity
+
+
+        endTime
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) for the expiration date of the contract provided by the source entity
+
+
+        settlementTime
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) for the settlement time of the contract provided by the source entity
+
+
+        instrumentType
+
+        CHARACTER
+
+        256
+
+        Type of contract classified by the source entity
+
+
+        instrumentSubtype
+
+        CHARACTER
+
+        256
+
+        Additional information on the type of contract
+
+
+        multiplier
+
+        NUMERIC
+
+
+        Value of one point of quoted price in quote currency for one contract. Contract size in futures trading is the amount of underlying asset represented by each futures contract
+
+
+        strike
+
+        NUMERIC
+
+
+        Price at which the put or call option can be exercised
+
+
+        entitySettleAssetCode
+
+        CHARACTER
+
+        256
+
+        The asset in which a contract is settled
+
+
+        entityUnderlyingAssetCode
+
+        CHARACTER
+
+        256
+
+        The asset making up the contract and upon which the price is based
+
+
+        entityQuoteAssetCode
+
+        CHARACTER
+
+        256
+
+        The asset by which a contract is valued
+
+
+        underlyingSymbol
+
+        CHARACTER
+
+        256
+
+        Source entity-specific information such as underlying index, descriptive data, unique identifiers, etc.
+
+
+        lukkaDerivativeId
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto contract. Please refer to the Lukka ID document for more information
+
+
+        lukkaSettleAssetCode
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the settle asset. Please refer to the Lukka ID document for more information
+
+
+        lukkaUnderlyingAssetCode
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the underlying asset. Please refer to the Lukka ID document for more information
+
+
+        lukkaQuoteAssetCode
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the quote asset. Please refer to the Lukka ID document for more information'
       parameters:
       - name: includeDeleted
         in: query
@@ -609,7 +1537,144 @@ paths:
       summary: Lukka Crypto Actions
       tags:
       - Reference Data (Deprecated)
-      description: "Get a list of all the crypto actions occurring on an asset.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n event \n CHARACTER \n 256 \n Type of crypto action \n \n \n eventTime \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the crypto action has taken place or will take place (for future events) \n \n \n oldLukkaId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset before the crypto action event. Please refer to the Lukka ID document for more information \n \n \n oldWhitepaperAssetCode \n CHARACTER \n 256 \n Ticker of the crypto asset found in the primary source before the crypto action event \n \n \n oldWhitepaperAssetName \n CHARACTER \n 256 \n Name of the crypto asset found in the primary source before the crypto action event \n \n \n oldBlockchain \n CHARACTER \n 256 \n Blockchain on which the asset resided before the crypto action event \n \n \n oldContractAddress \n CHARACTER \n 4000 \n Address of the contract of an asset in its respective blockchain before the crypto action event \n \n \n newLukkaId \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset after the crypto action event. Please refer to the Lukka ID document for more information \n \n \n newWhitepaperAssetCode \n CHARACTER \n 256 \n Ticker of the crypto asset found in the primary source after the crypto action event \n \n \n newWhitepaperAssetName \n CHARACTER \n 256 \n Name of the crypto asset found in the primary source after the crypto action event \n \n \n newBlockchain \n CHARACTER \n 256 \n Blockchain on which the asset resides after the crypto action event \n \n \n newContractAddress \n CHARACTER \n 4000 \n Address of the contract of an asset in its respective blockchain after the crypto action event \n \n \n newSplitMultiplier \n NUMBER \n \n Change in the balance of the new asset after a crypto action event such as an \"Asset Swap\" has taken place \n \n \n eventDetails \n CHARACTER \n 4000 \n Additional information such as a link to the website or publication of the crypto action event"
+      description: 'Get a list of all the crypto actions occurring on an asset.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        event
+
+        CHARACTER
+
+        256
+
+        Type of crypto action
+
+
+        eventTime
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the crypto action has taken place or will take place (for future events)
+
+
+        oldLukkaId
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto asset before the crypto action event. Please refer to the Lukka ID document for more information
+
+
+        oldWhitepaperAssetCode
+
+        CHARACTER
+
+        256
+
+        Ticker of the crypto asset found in the primary source before the crypto action event
+
+
+        oldWhitepaperAssetName
+
+        CHARACTER
+
+        256
+
+        Name of the crypto asset found in the primary source before the crypto action event
+
+
+        oldBlockchain
+
+        CHARACTER
+
+        256
+
+        Blockchain on which the asset resided before the crypto action event
+
+
+        oldContractAddress
+
+        CHARACTER
+
+        4000
+
+        Address of the contract of an asset in its respective blockchain before the crypto action event
+
+
+        newLukkaId
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto asset after the crypto action event. Please refer to the Lukka ID document for more information
+
+
+        newWhitepaperAssetCode
+
+        CHARACTER
+
+        256
+
+        Ticker of the crypto asset found in the primary source after the crypto action event
+
+
+        newWhitepaperAssetName
+
+        CHARACTER
+
+        256
+
+        Name of the crypto asset found in the primary source after the crypto action event
+
+
+        newBlockchain
+
+        CHARACTER
+
+        256
+
+        Blockchain on which the asset resides after the crypto action event
+
+
+        newContractAddress
+
+        CHARACTER
+
+        4000
+
+        Address of the contract of an asset in its respective blockchain after the crypto action event
+
+
+        newSplitMultiplier
+
+        NUMBER
+
+
+        Change in the balance of the new asset after a crypto action event such as an "Asset Swap" has taken place
+
+
+        eventDetails
+
+        CHARACTER
+
+        4000
+
+        Additional information such as a link to the website or publication of the crypto action event'
       parameters:
       - name: limit
         in: query

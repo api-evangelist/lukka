@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Pricing & Market Data Market Data - Prediction Markets API
+  title: Lukka Pricing & Market Data Market Data - Prediction…
   version: 1.0.0
   description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.'
   contact:
@@ -129,7 +129,10 @@ paths:
       summary: Get Prediction History (by event ticker)
       tags:
       - Market Data - Prediction Markets
-      description: "Description: Get the OHLC prediction-market history for all outcomes of a single event. If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.\n\n interval is required and must be one of (milliseconds): 60000, 300000, 900000, 3600000, 86400000, 604800000."
+      description: 'Description: Get the OHLC prediction-market history for all outcomes of a single event. If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.
+
+
+        interval is required and must be one of (milliseconds): 60000, 300000, 900000, 3600000, 86400000, 604800000.'
       parameters:
       - name: sourceId
         in: path
@@ -337,7 +340,10 @@ paths:
       summary: Get Prediction History (by lukkaSymbol)
       tags:
       - Market Data - Prediction Markets
-      description: "Description: Get the OHLC prediction-market history for a single outcome (lukkaSymbol).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      description: 'Description: Get the OHLC prediction-market history for a single outcome (lukkaSymbol).
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.'
       parameters:
       - name: sourceId
         in: path
@@ -431,7 +437,10 @@ paths:
       summary: Get Prediction Trade History (by event ticker)
       tags:
       - Market Data - Prediction Markets
-      description: "Description: Get the raw tick-level trade history for all outcomes of a single prediction-market event.\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      description: 'Description: Get the raw tick-level trade history for all outcomes of a single prediction-market event.
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.'
       parameters:
       - name: sourceId
         in: path
@@ -507,7 +516,10 @@ paths:
       summary: Get Prediction Trade History (by lukkaSymbol)
       tags:
       - Market Data - Prediction Markets
-      description: "Description: Get the raw tick-level trade history for a single prediction-market outcome (lukkaSymbol).\n\n If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response."
+      description: 'Description: Get the raw tick-level trade history for a single prediction-market outcome (lukkaSymbol).
+
+
+        If the response exceeds the maximum number of records that can be returned in a single payload, then a nextPageUrl field will be returned at the end of the response.'
       parameters:
       - name: sourceId
         in: path

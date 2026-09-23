@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Reference Data Reference Data - Virtual Asset Serivce Providers API
+  title: Lukka Reference Data Reference Data - Virtual Asset Serivce…
   version: 1.0.0
   description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
   contact:

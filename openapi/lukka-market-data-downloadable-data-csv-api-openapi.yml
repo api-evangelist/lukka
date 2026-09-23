@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Pricing & Market Data Market Data - Downloadable Data (CSV) Market Data - Downloadable Data (CSV) API
+  title: Lukka Pricing & Market Data Market Data - Downloadable Data…
   version: 1.0.0
   description: 'Institutional crypto pricing, valuation and market data: Lukka Prime fair-market-value prices, reference rates, index prices, MVWAP, OHLCV candles, market capitalisation, order-book liquidity and snapshots, spot and derivative trades, staking rates, funding rates and prediction-market history.'
   contact:
@@ -24,7 +24,16 @@ paths:
       summary: Create Historical Trades Request
       tags:
       - Market Data - Downloadable Data (CSV)
-      description: "This endpoint allows users to post a request to obtain historical market data. Use the returned request id to obtain a pre-signed url allowing you to do download the results.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests \n\n Available Product Types: quotes, trades"
+      description: 'This endpoint allows users to post a request to obtain historical market data. Use the returned request id to obtain a pre-signed url allowing you to do download the results.
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests
+
+
+        Available Product Types: quotes, trades'
       parameters:
       - name: sourceIds
         in: query
@@ -62,7 +71,16 @@ paths:
       summary: List Historical Trades Requests
       tags:
       - Market Data - Downloadable Data (CSV)
-      description: "This endpoint returns the past 3 days of historical market data requests. Append the request id to the end of the url and a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/requests/ \n\n Available Product Types: quotes, trades"
+      description: 'This endpoint returns the past 3 days of historical market data requests. Append the request id to the end of the url and a pre-signed URL is returned allowing you to download the data set.
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/{productType}/requests/
+
+
+        Available Product Types: quotes, trades'
       responses:
         '200':
           description: List Historical Trades Requests
@@ -104,7 +122,13 @@ paths:
       summary: Get Historical Trades Request Status
       tags:
       - Market Data - Downloadable Data (CSV)
-      description: "This endpoint returns the status and download URL for a previously submitted trades request. Append the request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/trades/historical/requests/{requestId}"
+      description: 'This endpoint returns the status and download URL for a previously submitted trades request. Append the request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/trades/historical/requests/{requestId}'
       parameters:
       - name: requestId
         in: path
@@ -121,7 +145,16 @@ paths:
       summary: Create Historical Quotes Request
       tags:
       - Market Data - Downloadable Data (CSV)
-      description: "This endpoint allows users to post a request to obtain historical market data. Use the returned request id to obtain a pre-signed url allowing you to do download the results.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests \n\n Available Product Types: quotes, trades"
+      description: 'This endpoint allows users to post a request to obtain historical market data. Use the returned request id to obtain a pre-signed url allowing you to do download the results.
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/{productType}/historical/requests
+
+
+        Available Product Types: quotes, trades'
       parameters:
       - name: sourceIds
         in: query
@@ -159,7 +192,16 @@ paths:
       summary: List Historical Quotes Requests
       tags:
       - Market Data - Downloadable Data (CSV)
-      description: "This endpoint returns the past 3 days of historical market data requests. Append the request id to the end of the url and a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/{productType}/requests/ \n\n Available Product Types: quotes, trades"
+      description: 'This endpoint returns the past 3 days of historical market data requests. Append the request id to the end of the url and a pre-signed URL is returned allowing you to download the data set.
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/{productType}/requests/
+
+
+        Available Product Types: quotes, trades'
       responses:
         '200':
           description: List Historical Quotes Requests
@@ -232,7 +274,13 @@ paths:
       summary: Get Historical Quotes Request Status
       tags:
       - Market Data - Downloadable Data (CSV)
-      description: "This endpoint returns the status and download URL for a previously submitted quotes request. Append the request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.\n\n URL should follow the below format:\n\n https://data-pricing-api.lukka.tech/v1/quotes/historical/requests/{requestId}"
+      description: 'This endpoint returns the status and download URL for a previously submitted quotes request. Append the request id to the end of the url — a pre-signed URL is returned allowing you to download the data set.
+
+
+        URL should follow the below format:
+
+
+        https://data-pricing-api.lukka.tech/v1/quotes/historical/requests/{requestId}'
       parameters:
       - name: requestId
         in: path

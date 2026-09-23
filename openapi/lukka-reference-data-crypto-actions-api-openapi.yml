@@ -24,7 +24,13 @@ paths:
       summary: All Crypto Actions
       tags:
       - Reference Data - Crypto Actions
-      description: "The Crypto Actions endpoint contains information related to the Lukka Crypto Actions (“LCA”) data product  \n\n Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a result of what event.\n\n Market events that have material impact on digital assets or are determined by Lukka to be significant in nature are eligible for induction into the asset’s crypto action history repository. Generally speaking, material impacts revolve around events that affect either an asset’s protocol structure, characteristics, or reporting in the marketplace. The LCA event types are described in detail in the Structure and Definitions section of this document."
+      description: 'The Crypto Actions endpoint contains information related to the Lukka Crypto Actions (“LCA”) data product
+
+
+        Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a result of what event.
+
+
+        Market events that have material impact on digital assets or are determined by Lukka to be significant in nature are eligible for induction into the asset’s crypto action history repository. Generally speaking, material impacts revolve around events that affect either an asset’s protocol structure, characteristics, or reporting in the marketplace. The LCA event types are described in detail in the Structure and Definitions section of this document.'
       parameters:
       - name: limit
         in: query
@@ -124,7 +130,13 @@ paths:
       summary: Asset Crypto Actions
       tags:
       - Reference Data - Crypto Actions
-      description: "Provides crypto action information for a given Lukka ID from the Lukka Crypto Actions (\"LCA\") data product\n\n Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a result of what event.\n\n Market events that have material impact on digital assets or are determined by Lukka to be significant in nature are eligible for induction into the asset’s crypto action history repository. Generally speaking, material impacts revolve around events that affect either an asset’s protocol structure, characteristics, or reporting in the marketplace. The LCA event types are described in detail in the Structure and Definitions section of this document."
+      description: 'Provides crypto action information for a given Lukka ID from the Lukka Crypto Actions ("LCA") data product
+
+
+        Lukka Crypto Actions is a detailed and comprehensive treatment methodology currently consisting of over 25 Crypto Action Event Types with the purpose of providing firms with data around changes to asset structure and asset characteristics within the digital asset landscape, including structured metadata pertaining to what attributes have changed with an asset, on what date, and as a result of what event.
+
+
+        Market events that have material impact on digital assets or are determined by Lukka to be significant in nature are eligible for induction into the asset’s crypto action history repository. Generally speaking, material impacts revolve around events that affect either an asset’s protocol structure, characteristics, or reporting in the marketplace. The LCA event types are described in detail in the Structure and Definitions section of this document.'
       parameters:
       - name: domain
         in: query

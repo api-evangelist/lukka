@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Reference Data Reference Data - Derivative Terms and Conditions API
+  title: Lukka Reference Data Reference Data - Derivative Terms and…
   version: 1.0.0
   description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
   contact:
@@ -24,7 +24,19 @@ paths:
       summary: All Derivatives
       tags:
       - Reference Data - Derivative Terms and Conditions
-      description: "Get a list of all known Derivatives within the Lukka Derivatives Data (\"LDRD\") product \n\n The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues. \n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the derivative type, settlement, participants, underlying asset information, and other various pieces of reference data. In total, the dataset tracks over 50 fields for its users.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity"
+      description: 'Get a list of all known Derivatives within the Lukka Derivatives Data ("LDRD") product
+
+
+        The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues.
+
+
+        The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the derivative type, settlement, participants, underlying asset information, and other various pieces of reference data. In total, the dataset tracks over 50 fields for its users.
+
+
+        Response Details
+
+
+        Field Name Data Type Description name STRING Lukka''s long name for the entity'
       parameters:
       - name: limit
         in: query
@@ -150,7 +162,19 @@ paths:
       summary: A Derivative and its Details
       tags:
       - Reference Data - Derivative Terms and Conditions
-      description: "Get all known details for a given Lukka Derivative Identifier.\n\n The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues. \n\n The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the derivative type, settlement, participants, underlying asset information, and other various pieces of reference data. In total, the dataset tracks over 50 fields for its users.\n\n Response Details \n\n Field Name Data Type Description name STRING Lukka's long name for the entity"
+      description: 'Get all known details for a given Lukka Derivative Identifier.
+
+
+        The Lukka Derivatives Data (“LDRD”) product is a comprehensive security master for derivatives contracts on digital assets. LDRD is designed to fulfill the global digital asset community’s need for an institutional-grade, clean, reliable, comprehensive, enriched, standardized and normalized data source for derivatives on digital assets. The dataset also includes a standardized derivative naming convention across trading venues.
+
+
+        The dataset is comprised of what is commonly referred to as “Terms & Conditions” in traditional finance. The dataset provides its users information regarding the derivative type, settlement, participants, underlying asset information, and other various pieces of reference data. In total, the dataset tracks over 50 fields for its users.
+
+
+        Response Details
+
+
+        Field Name Data Type Description name STRING Lukka''s long name for the entity'
       responses:
         '200':
           description: A Derivative and its Details - Example

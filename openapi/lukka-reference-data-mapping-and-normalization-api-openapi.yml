@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Lukka Reference Data Reference Data - Mapping and Normalization API
+  title: Lukka Reference Data Reference Data - Mapping and…
   version: 1.0.0
   description: 'The golden copy of crypto asset reference data: normalised assets, entities, marketplaces, custodians, VASPs, asset/pair/derivative cross-reference mappings, crypto actions, LDACS sectors, core asset scores, ESG scores and prediction markets.'
   contact:
@@ -40,7 +40,16 @@ paths:
       summary: Asset Mappings
       tags:
       - Reference Data - Mapping and Normalization
-      description: "Get the cross reference of all the assets supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)\n\n The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ecosystem, especially at scale.\n\n The Lukka Mapping Data Product is a comprehensive mapping and normalization dataset that can be leveraged to easily take the unstandardized, inconsistent and uncleansed data from trading venues, custodians, wallets, lending platforms or other entities within the ecosystem and normalize the data to one consistent, standardized, cleansed and timelined data record. \n\n LMAP is designed to fulfill the need for a mechanism to facilitate an easy way to compare assets and their respective market data, across any platform, for use in front, middle and back office processes. The product provides its users a significant reduction in time and effort preparing data and provides its users with more time to analyze and use the data."
+      description: 'Get the cross reference of all the assets supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)
+
+
+        The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ecosystem, especially at scale.
+
+
+        The Lukka Mapping Data Product is a comprehensive mapping and normalization dataset that can be leveraged to easily take the unstandardized, inconsistent and uncleansed data from trading venues, custodians, wallets, lending platforms or other entities within the ecosystem and normalize the data to one consistent, standardized, cleansed and timelined data record.
+
+
+        LMAP is designed to fulfill the need for a mechanism to facilitate an easy way to compare assets and their respective market data, across any platform, for use in front, middle and back office processes. The product provides its users a significant reduction in time and effort preparing data and provides its users with more time to analyze and use the data.'
       parameters:
       - name: limit
         in: query
@@ -69,7 +78,16 @@ paths:
       summary: Pair Mappings
       tags:
       - Reference Data - Mapping and Normalization
-      description: "Get the cross reference of all the pairs supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)\n\n The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ecosystem, especially at scale.\n\n The Lukka Mapping Data Product is a comprehensive mapping and normalization dataset that can be leveraged to easily take the unstandardized, inconsistent and uncleansed data from trading venues, custodians, wallets, lending platforms or other entities within the ecosystem and normalize the data to one consistent, standardized, cleansed and timelined data record. \n\n LMAP is designed to fulfill the need for a mechanism to facilitate an easy way to compare assets and their respective market data, across any platform, for use in front, middle and back office processes. The product provides its users a significant reduction in time and effort preparing data and provides its users with more time to analyze and use the data."
+      description: 'Get the cross reference of all the pairs supported by an entity as a part of the Lukka Mapping Data Product (“LMAP”)
+
+
+        The digital asset ecosystem consists of hundreds of various platforms and service providers, each having their own naming conventions, asset identifiers, notification processes (or lack thereof) and delivery mechanisms (or lack thereof). The absence of standard identifiers across the ecosystem presents challenges to properly identify and compare data across the digital asset ecosystem, especially at scale.
+
+
+        The Lukka Mapping Data Product is a comprehensive mapping and normalization dataset that can be leveraged to easily take the unstandardized, inconsistent and uncleansed data from trading venues, custodians, wallets, lending platforms or other entities within the ecosystem and normalize the data to one consistent, standardized, cleansed and timelined data record.
+
+
+        LMAP is designed to fulfill the need for a mechanism to facilitate an easy way to compare assets and their respective market data, across any platform, for use in front, middle and back office processes. The product provides its users a significant reduction in time and effort preparing data and provides its users with more time to analyze and use the data.'
       parameters:
       - name: mappingStatus
         in: query

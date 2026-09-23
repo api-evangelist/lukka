@@ -24,7 +24,82 @@ paths:
       summary: Asset Master
       tags:
       - Reference Data v1
-      description: "Get a list of all the Lukka normalized assets with details.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n lukka_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n whitepaper_code \n CHARACTER \n 256 \n Ticker of the crypto asset found in the primary source \n \n \n asset_type \n CHARACTER \n 20 \n Type of crypto asset such as coin, token, stablecoin, etc. \n \n \n asset_website \n CHARACTER \n 4000 \n Official website of the asset or primary source of asset information \n \n \n blockchain \n CHARACTER \n 256 \n Blockchain on which the asset resides"
+      description: 'Get a list of all the Lukka normalized assets with details.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        lukka_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker)
+
+
+        lukka_asset_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the asset
+
+
+        whitepaper_code
+
+        CHARACTER
+
+        256
+
+        Ticker of the crypto asset found in the primary source
+
+
+        asset_type
+
+        CHARACTER
+
+        20
+
+        Type of crypto asset such as coin, token, stablecoin, etc.
+
+
+        asset_website
+
+        CHARACTER
+
+        4000
+
+        Official website of the asset or primary source of asset information
+
+
+        blockchain
+
+        CHARACTER
+
+        256
+
+        Blockchain on which the asset resides'
       responses:
         '200':
           description: Successful response
@@ -36,7 +111,144 @@ paths:
       summary: Active Asset Mappings
       tags:
       - Reference Data v1
-      description: "Get the cross reference of all the current assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entity_asset_name \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entity_asset_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entity_withdrawal_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_type \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukka_asset_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed"
+      description: 'Get the cross reference of all the current assets supported by an entity mapped to Lukka normalized assets.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entity_name
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entity_code
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code (ticker) for the source entity
+
+
+        entity_type
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entity_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) provided by the source entity
+
+
+        entity_asset_name
+
+        CHARACTER
+
+        256
+
+        Asset name provided by the source entity
+
+
+        entity_asset_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the asset
+
+
+        entity_withdrawal_fee_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when withdrawing the asset
+
+
+        entity_withdrawal_fee_amount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when withdrawing the asset
+
+
+        entity_withdrawal_fee_type
+
+        CHARACTER
+
+        256
+
+        Indicates if the withdrawal fee charged is a percentage or unit
+
+
+        lukka_asset_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker)
+
+
+        lukka_asset_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the asset
+
+
+        start_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset
+
+
+        end_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed'
       responses:
         '200':
           description: Successful response
@@ -48,7 +260,144 @@ paths:
       summary: Historical Asset Mappings
       tags:
       - Reference Data v1
-      description: "Get the cross reference of all the historical assets supported by an entity mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entity_asset_name \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entity_asset_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entity_withdrawal_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_type \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukka_asset_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed"
+      description: 'Get the cross reference of all the historical assets supported by an entity mapped to Lukka normalized assets.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entity_name
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entity_code
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code (ticker) for the source entity
+
+
+        entity_type
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entity_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) provided by the source entity
+
+
+        entity_asset_name
+
+        CHARACTER
+
+        256
+
+        Asset name provided by the source entity
+
+
+        entity_asset_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the asset
+
+
+        entity_withdrawal_fee_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when withdrawing the asset
+
+
+        entity_withdrawal_fee_amount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when withdrawing the asset
+
+
+        entity_withdrawal_fee_type
+
+        CHARACTER
+
+        256
+
+        Indicates if the withdrawal fee charged is a percentage or unit
+
+
+        lukka_asset_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker)
+
+
+        lukka_asset_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the asset
+
+
+        start_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset
+
+
+        end_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed'
       responses:
         '200':
           description: Successful response
@@ -60,7 +409,144 @@ paths:
       summary: Newly Added Asset Mappings
       tags:
       - Reference Data v1
-      description: "Get the cross reference of all the assets listed by an entity the previous day mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entity_asset_name \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entity_asset_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entity_withdrawal_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_type \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukka_asset_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed"
+      description: 'Get the cross reference of all the assets listed by an entity the previous day mapped to Lukka normalized assets.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entity_name
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entity_code
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code (ticker) for the source entity
+
+
+        entity_type
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entity_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) provided by the source entity
+
+
+        entity_asset_name
+
+        CHARACTER
+
+        256
+
+        Asset name provided by the source entity
+
+
+        entity_asset_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the asset
+
+
+        entity_withdrawal_fee_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when withdrawing the asset
+
+
+        entity_withdrawal_fee_amount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when withdrawing the asset
+
+
+        entity_withdrawal_fee_type
+
+        CHARACTER
+
+        256
+
+        Indicates if the withdrawal fee charged is a percentage or unit
+
+
+        lukka_asset_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker)
+
+
+        lukka_asset_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the asset
+
+
+        start_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset
+
+
+        end_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed'
       responses:
         '200':
           description: Successful response
@@ -72,7 +558,144 @@ paths:
       summary: Newly Deleted Asset Mappings
       tags:
       - Reference Data v1
-      description: "Get the cross reference of all the assets delisted by an entity the previous day mapped to Lukka normalized assets.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code (ticker) for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_asset_code \n CHARACTER \n 256 \n Asset code (ticker) provided by the source entity \n \n \n entity_asset_name \n CHARACTER \n 256 \n Asset name provided by the source entity \n \n \n entity_asset_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the asset \n \n \n entity_withdrawal_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when withdrawing the asset \n \n \n entity_withdrawal_fee_type \n CHARACTER \n 256 \n Indicates if the withdrawal fee charged is a percentage or unit \n \n \n lukka_asset_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) \n \n \n lukka_asset_name \n CHARACTER \n 256 \n Lukka's long name for the asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed"
+      description: 'Get the cross reference of all the assets delisted by an entity the previous day mapped to Lukka normalized assets.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entity_name
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entity_code
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code (ticker) for the source entity
+
+
+        entity_type
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entity_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) provided by the source entity
+
+
+        entity_asset_name
+
+        CHARACTER
+
+        256
+
+        Asset name provided by the source entity
+
+
+        entity_asset_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the asset
+
+
+        entity_withdrawal_fee_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when withdrawing the asset
+
+
+        entity_withdrawal_fee_amount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when withdrawing the asset
+
+
+        entity_withdrawal_fee_type
+
+        CHARACTER
+
+        256
+
+        Indicates if the withdrawal fee charged is a percentage or unit
+
+
+        lukka_asset_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the crypto asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker)
+
+
+        lukka_asset_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the asset
+
+
+        start_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity asset was mapped to the Lukka asset
+
+
+        end_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the asset; also indicates the time when the entity to Lukka asset mapping was removed'
       responses:
         '200':
           description: Successful response
@@ -84,7 +707,248 @@ paths:
       summary: Active Pair Mappings
       tags:
       - Reference Data v1
-      description: "Get the cross reference of all the current pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entity_asset_one_code \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_one_name \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entity_asset_one_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entity_asset_two_code \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_two_name \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entity_asset_two_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entity_price_precision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entity_quantity_precision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entity_minimum_tick_size \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entity_minimum_trade_quantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entity_trade_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entity_trade_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entity_trade_fee_type \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukka_pair_code \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukka_asset_one_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_one_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukka_asset_one_name \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukka_asset_two_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_two_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukka_asset_two_name \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed"
+      description: 'Get the cross reference of all the current pairs supported by an entity mapped to Lukka normalized pairs.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entity_name
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entity_code
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code for the source entity
+
+
+        entity_type
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entity_pair_code
+
+        CHARACTER
+
+        256
+
+        Pair code provided by the source entity
+
+
+        entity_asset_one_code
+
+        CHARACTER
+
+        256
+
+        Base asset code (ticker) of the pair provided by the source entity
+
+
+        entity_asset_one_name
+
+        CHARACTER
+
+        256
+
+        Base asset name of the pair provided by the source entity
+
+
+        entity_asset_one_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the base asset
+
+
+        entity_asset_two_code
+
+        CHARACTER
+
+        256
+
+        Counter asset code (ticker) of the pair provided by the source entity
+
+
+        entity_asset_two_name
+
+        CHARACTER
+
+        256
+
+        Counter asset name of the pair provided by the source entity
+
+
+        entity_asset_two_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the counter asset
+
+
+        entity_price_precision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the price is rounded off by the source entity
+
+
+        entity_quantity_precision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the quantity traded is rounded off by the source entity
+
+
+        entity_minimum_tick_size
+
+        NUMERIC
+
+
+        Smallest price increment in which the source entity prices are quoted
+
+
+        entity_minimum_trade_quantity
+
+        NUMERIC
+
+
+        Minimum amount of base asset allowed by the source entity to be traded
+
+
+        entity_trade_fee_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when trading
+
+
+        entity_trade_fee_amount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when trading
+
+
+        entity_trade_fee_type
+
+        CHARACTER
+
+        256
+
+        Indicates if the trade fee charged is a percentage or unit
+
+
+        lukka_pair_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique pair code
+
+
+        lukka_asset_one_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_one_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the base asset
+
+
+        lukka_asset_one_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the base asset
+
+
+        lukka_asset_two_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_two_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the counter asset
+
+
+        lukka_asset_two_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the counter asset
+
+
+        start_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair
+
+
+        end_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed'
       responses:
         '200':
           description: Successful response
@@ -96,7 +960,248 @@ paths:
       summary: Historical Pair Mappings
       tags:
       - Reference Data v1
-      description: "Get the cross reference of all the historical pairs supported by an entity mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entity_asset_one_code \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_one_name \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entity_asset_one_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entity_asset_two_code \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_two_name \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entity_asset_two_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entity_price_precision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entity_quantity_precision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entity_minimum_tick_size \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entity_minimum_trade_quantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entity_trade_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entity_trade_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entity_trade_fee_type \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukka_pair_code \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukka_asset_one_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_one_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukka_asset_one_name \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukka_asset_two_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_two_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukka_asset_two_name \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed"
+      description: 'Get the cross reference of all the historical pairs supported by an entity mapped to Lukka normalized pairs.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entity_name
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entity_code
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code for the source entity
+
+
+        entity_type
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entity_pair_code
+
+        CHARACTER
+
+        256
+
+        Pair code provided by the source entity
+
+
+        entity_asset_one_code
+
+        CHARACTER
+
+        256
+
+        Base asset code (ticker) of the pair provided by the source entity
+
+
+        entity_asset_one_name
+
+        CHARACTER
+
+        256
+
+        Base asset name of the pair provided by the source entity
+
+
+        entity_asset_one_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the base asset
+
+
+        entity_asset_two_code
+
+        CHARACTER
+
+        256
+
+        Counter asset code (ticker) of the pair provided by the source entity
+
+
+        entity_asset_two_name
+
+        CHARACTER
+
+        256
+
+        Counter asset name of the pair provided by the source entity
+
+
+        entity_asset_two_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the counter asset
+
+
+        entity_price_precision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the price is rounded off by the source entity
+
+
+        entity_quantity_precision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the quantity traded is rounded off by the source entity
+
+
+        entity_minimum_tick_size
+
+        NUMERIC
+
+
+        Smallest price increment in which the source entity prices are quoted
+
+
+        entity_minimum_trade_quantity
+
+        NUMERIC
+
+
+        Minimum amount of base asset allowed by the source entity to be traded
+
+
+        entity_trade_fee_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when trading
+
+
+        entity_trade_fee_amount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when trading
+
+
+        entity_trade_fee_type
+
+        CHARACTER
+
+        256
+
+        Indicates if the trade fee charged is a percentage or unit
+
+
+        lukka_pair_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique pair code
+
+
+        lukka_asset_one_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_one_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the base asset
+
+
+        lukka_asset_one_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the base asset
+
+
+        lukka_asset_two_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_two_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the counter asset
+
+
+        lukka_asset_two_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the counter asset
+
+
+        start_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair
+
+
+        end_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed'
       responses:
         '200':
           description: Successful response
@@ -108,7 +1213,248 @@ paths:
       summary: Newly Added Pair Mappings
       tags:
       - Reference Data v1
-      description: "Get the cross reference of all the pairs listed by an entity the previous day mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entity_asset_one_code \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_one_name \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entity_asset_one_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entity_asset_two_code \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_two_name \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entity_asset_two_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entity_price_precision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entity_quantity_precision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entity_minimum_tick_size \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entity_minimum_trade_quantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entity_trade_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entity_trade_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entity_trade_fee_type \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukka_pair_code \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukka_asset_one_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_one_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukka_asset_one_name \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukka_asset_two_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_two_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukka_asset_two_name \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed"
+      description: 'Get the cross reference of all the pairs listed by an entity the previous day mapped to Lukka normalized pairs.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entity_name
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entity_code
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code for the source entity
+
+
+        entity_type
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entity_pair_code
+
+        CHARACTER
+
+        256
+
+        Pair code provided by the source entity
+
+
+        entity_asset_one_code
+
+        CHARACTER
+
+        256
+
+        Base asset code (ticker) of the pair provided by the source entity
+
+
+        entity_asset_one_name
+
+        CHARACTER
+
+        256
+
+        Base asset name of the pair provided by the source entity
+
+
+        entity_asset_one_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the base asset
+
+
+        entity_asset_two_code
+
+        CHARACTER
+
+        256
+
+        Counter asset code (ticker) of the pair provided by the source entity
+
+
+        entity_asset_two_name
+
+        CHARACTER
+
+        256
+
+        Counter asset name of the pair provided by the source entity
+
+
+        entity_asset_two_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the counter asset
+
+
+        entity_price_precision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the price is rounded off by the source entity
+
+
+        entity_quantity_precision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the quantity traded is rounded off by the source entity
+
+
+        entity_minimum_tick_size
+
+        NUMERIC
+
+
+        Smallest price increment in which the source entity prices are quoted
+
+
+        entity_minimum_trade_quantity
+
+        NUMERIC
+
+
+        Minimum amount of base asset allowed by the source entity to be traded
+
+
+        entity_trade_fee_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when trading
+
+
+        entity_trade_fee_amount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when trading
+
+
+        entity_trade_fee_type
+
+        CHARACTER
+
+        256
+
+        Indicates if the trade fee charged is a percentage or unit
+
+
+        lukka_pair_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique pair code
+
+
+        lukka_asset_one_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_one_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the base asset
+
+
+        lukka_asset_one_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the base asset
+
+
+        lukka_asset_two_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_two_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the counter asset
+
+
+        lukka_asset_two_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the counter asset
+
+
+        start_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair
+
+
+        end_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed'
       responses:
         '200':
           description: Successful response
@@ -120,7 +1466,248 @@ paths:
       summary: Newly Deleted Pair Mappings
       tags:
       - Reference Data v1
-      description: "Get the cross reference of all the pairs delisted by an entity the previous day mapped to Lukka normalized pairs.\n\n Response Details \n\n \n \n \n Field Name \n Data Type \n Data Type Details \n Description \n \n \n entity_name \n CHARACTER \n 256 \n Name of the source entity \n \n \n entity_code \n CHARACTER \n 256 \n Unique Lukka code for the source entity \n \n \n entity_type \n CHARACTER \n 20 \n Type of service provided by the source entity \n \n \n entity_pair_code \n CHARACTER \n 256 \n Pair code provided by the source entity \n \n \n entity_asset_one_code \n CHARACTER \n 256 \n Base asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_one_name \n CHARACTER \n 256 \n Base asset name of the pair provided by the source entity \n \n \n entity_asset_one_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the base asset \n \n \n entity_asset_two_code \n CHARACTER \n 256 \n Counter asset code (ticker) of the pair provided by the source entity \n \n \n entity_asset_two_name \n CHARACTER \n 256 \n Counter asset name of the pair provided by the source entity \n \n \n entity_asset_two_internal_id \n CHARACTER \n 256 \n Internal code provided by the source entity to uniquely identify the counter asset \n \n \n entity_price_precision \n NUMERIC \n \n Fixed number of decimal places to which the price is rounded off by the source entity \n \n \n entity_quantity_precision \n NUMERIC \n \n Fixed number of decimal places to which the quantity traded is rounded off by the source entity \n \n \n entity_minimum_tick_size \n NUMERIC \n \n Smallest price increment in which the source entity prices are quoted \n \n \n entity_minimum_trade_quantity \n NUMERIC \n \n Minimum amount of base asset allowed by the source entity to be traded \n \n \n entity_trade_fee_asset_code \n CHARACTER \n 256 \n Asset code (ticker) of the fee charged by the source entity when trading \n \n \n entity_trade_fee_amount \n NUMERIC \n \n Amount of fee charged by the source entity when trading \n \n \n entity_trade_fee_type \n CHARACTER \n 256 \n Indicates if the trade fee charged is a percentage or unit \n \n \n lukka_pair_code \n CHARACTER \n 256 \n Lukka normalized unique pair code \n \n \n lukka_asset_one_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_one_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the base asset \n \n \n lukka_asset_one_name \n CHARACTER \n 256 \n Lukka's long name for the base asset \n \n \n lukka_asset_two_id \n CHARACTER \n 11 \n 11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information \n \n \n lukka_asset_two_code \n CHARACTER \n 256 \n Lukka normalized unique asset code (ticker) for the counter asset \n \n \n lukka_asset_two_name \n CHARACTER \n 256 \n Lukka's long name for the counter asset \n \n \n start_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair \n \n \n end_time \n DATE \n ISO 8601 \n Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed"
+      description: 'Get the cross reference of all the pairs delisted by an entity the previous day mapped to Lukka normalized pairs.
+
+
+        Response Details
+
+
+        Field Name
+
+        Data Type
+
+        Data Type Details
+
+        Description
+
+
+        entity_name
+
+        CHARACTER
+
+        256
+
+        Name of the source entity
+
+
+        entity_code
+
+        CHARACTER
+
+        256
+
+        Unique Lukka code for the source entity
+
+
+        entity_type
+
+        CHARACTER
+
+        20
+
+        Type of service provided by the source entity
+
+
+        entity_pair_code
+
+        CHARACTER
+
+        256
+
+        Pair code provided by the source entity
+
+
+        entity_asset_one_code
+
+        CHARACTER
+
+        256
+
+        Base asset code (ticker) of the pair provided by the source entity
+
+
+        entity_asset_one_name
+
+        CHARACTER
+
+        256
+
+        Base asset name of the pair provided by the source entity
+
+
+        entity_asset_one_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the base asset
+
+
+        entity_asset_two_code
+
+        CHARACTER
+
+        256
+
+        Counter asset code (ticker) of the pair provided by the source entity
+
+
+        entity_asset_two_name
+
+        CHARACTER
+
+        256
+
+        Counter asset name of the pair provided by the source entity
+
+
+        entity_asset_two_internal_id
+
+        CHARACTER
+
+        256
+
+        Internal code provided by the source entity to uniquely identify the counter asset
+
+
+        entity_price_precision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the price is rounded off by the source entity
+
+
+        entity_quantity_precision
+
+        NUMERIC
+
+
+        Fixed number of decimal places to which the quantity traded is rounded off by the source entity
+
+
+        entity_minimum_tick_size
+
+        NUMERIC
+
+
+        Smallest price increment in which the source entity prices are quoted
+
+
+        entity_minimum_trade_quantity
+
+        NUMERIC
+
+
+        Minimum amount of base asset allowed by the source entity to be traded
+
+
+        entity_trade_fee_asset_code
+
+        CHARACTER
+
+        256
+
+        Asset code (ticker) of the fee charged by the source entity when trading
+
+
+        entity_trade_fee_amount
+
+        NUMERIC
+
+
+        Amount of fee charged by the source entity when trading
+
+
+        entity_trade_fee_type
+
+        CHARACTER
+
+        256
+
+        Indicates if the trade fee charged is a percentage or unit
+
+
+        lukka_pair_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique pair code
+
+
+        lukka_asset_one_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the base asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_one_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the base asset
+
+
+        lukka_asset_one_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the base asset
+
+
+        lukka_asset_two_id
+
+        CHARACTER
+
+        11
+
+        11-character unique Lukka ID (LID) for the counter asset. Please refer to the Lukka ID document for more information
+
+
+        lukka_asset_two_code
+
+        CHARACTER
+
+        256
+
+        Lukka normalized unique asset code (ticker) for the counter asset
+
+
+        lukka_asset_two_name
+
+        CHARACTER
+
+        256
+
+        Lukka''s long name for the counter asset
+
+
+        start_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity pair was mapped to the Lukka pair
+
+
+        end_time
+
+        DATE
+
+        ISO 8601
+
+        Timestamp (UTC+0) when the entity stopped supporting the pair; also indicates the time when the entity to Lukka pair mapping was removed'
       responses:
         '200':
           description: Successful response
