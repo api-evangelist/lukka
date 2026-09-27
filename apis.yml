@@ -53,10 +53,11 @@ tags:
 - Blockchain
 - AML
 - Compliance
-- Financial-Services
+- Financial Services
 - Analytics
 - Prediction Markets
 - MCP
+- Real-Time
 tags_raw:
 - Crypto
 - Digital Assets
@@ -70,6 +71,8 @@ tags_raw:
 - Analytics
 - Prediction Markets
 - MCP
+- Financial-Services
+- Real-Time
 apis:
 - name: Lukka Market Data Streaming API
   description: WebSocket streaming for executed trades, Level-1 order-book quotes, Lukka Prime pricing,
