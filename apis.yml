@@ -48,7 +48,7 @@ x-docs-platform: postman
 x-docs-platform-confidence: high
 x-docs-platform-checked: 2026-10-03
 tags:
-- Crypto
+- Cryptocurrency
 - Digital Assets
 - Market Data
 - Reference Data
@@ -88,6 +88,11 @@ apis:
   - Streaming
   - Market Data
   - WebSocket
+  - Cryptocurrency
+  tags_raw:
+  - Streaming
+  - Market Data
+  - WebSocket
   - Crypto
   properties:
   - type: AsyncAPI
@@ -106,7 +111,7 @@ apis:
   - MCP
   - Artificial Intelligence
   - Agents
-  - Crypto
+  - Cryptocurrency
   tags_raw:
   - MCP
   - AI
